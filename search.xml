@@ -4,9 +4,30 @@
   
     
     <entry>
+      <title><![CDATA[第一次和大家见面]]></title>
+      <url>https://neveryu.github.io/2016/09/25/essay-20160925/</url>
+      <content type="html"><![CDATA[<p>作为一名前端，一直都想做一个自己博客，这样就可以更方便的写一点自己的东西与大家分享交流，亦或者是更随心的记录一点生活。</p>
+<a id="more"></a>
+<p>其实专业做博客的网站还是挺多的，比如说CSDN是吧，我之前也是在CSDN上面写一点东西，我的CSDN博客<a href="http://blog.csdn.net/csdn_yudong" target="_blank" rel="external">http://blog.csdn.net/csdn_yudong</a>。但是CSDN毕竟是一个技术类的博客网站，如果写一点生活杂谈还是不太好，而且CSDN上面挂载的广告，以及页面风格，我不太喜欢，因为我喜欢【精于心，简于形】，这波<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">NexT</a>主题的广告是不是很硬。</p>
+<p>在我想做博客之前，一直到我开始着手做这个博客，其实花了好久时间。而在我着手开始做这个博客，到这个博客完成，其实并没有花多久。<a href="https://neveryu.github.io/weblog/">我的建站日志</a>。</p>
+<p>究其原因：第一个，我觉得是自己考虑的太多，没有太大的把握就不会轻易的去尝试，所以我在着手做这个之前花了很多的时间去查，域名空间这些的，而且这些出售这些的服务商也挺多的，我这个人有选择恐惧症。也是怪尴尬的，每次看到一个东西有好多选择的时候，我都去比较，去分析，头痛。。而且我想，域名空间搞好以后，还要自己写页面这些的。关键是还要设计博客风格，页面样式这些的，一想到这些，就感觉是一个不小的工程啊。虽然我心里知道我想要的是简约的风格，但是我的设计能力比较差，没有稿图，我该怎样设计我的网站呢。</p>
+<p>后来，无意中看到了Hexo的Next主题的一篇博客，风格样式挺不错的，感谢<a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>和<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">Next</a>的文档写的如此的棒，以至于我能够无障碍的、很快的看到博客原型，然后我就有了信息，我才发现这一切是如此的美好。</p>
+<p>今天是2016年09月26日，周末。我无意中知道了一个讯息，那就是她要结婚了。好伤心。。。</p>
+<p>说实话，毕业一年的我真的没有做好结婚的准备，我觉得结婚这个事情离我还有一段时间。可实事是在大人眼中，我已经不小了。这些其实也都无所谓，你们知道吗？关键是会看着自己喜欢的妹纸一个个跟别人结婚，自己还要装着若无其事的样子，你们有过这种感受吗？你们能明白我的心情吗？</p>
+<p></p>
+
+<blockquote class="blockquote-center"><br>    <embed src="http://music.163.com/style/swf/widget.swf?sid=254359&type=2&auto=0&width=320&height=66" width="340" height="86" allownetworking="all" oncontextmenu="return false"><br></blockquote>
+
+
+
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[博客规范]]></title>
       <url>https://neveryu.github.io/2016/09/03/hello-world/</url>
-      <content type="html"><![CDATA[<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Setup-your-blog"><a href="#Setup-your-blog" class="headerlink" title="Setup your blog"></a>Setup your blog</h3><p>在电脑中建立一个名字叫 [ Hexo ] 的文件夹（比如我建在了D:\Hexo），然后在命令行中定位到此文件夹，执行下面的命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init</div></pre></td></tr></table></figure></p>
+      <content type="html"><![CDATA[<a id="more"></a>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Setup-your-blog"><a href="#Setup-your-blog" class="headerlink" title="Setup your blog"></a>Setup your blog</h3><p>在电脑中建立一个名字叫 [ Hexo ] 的文件夹（比如我建在了D:\Hexo），然后在命令行中定位到此文件夹，执行下面的命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init</div></pre></td></tr></table></figure></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
 <p>表明Hexo Server已经启动了，在浏览器中打开<code>http://localhost:4000/</code>，这时应该可以看到Hexo已经为你生成了一篇blog。你可以按Ctrl+C停止Server。</p>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>

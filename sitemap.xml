@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://neveryu.github.io/weblog/index.html</loc>
+    
+    <lastmod>2016-09-25T16:40:24.661Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://neveryu.github.io/2016/09/25/essay-20160925/</loc>
+    
+    <lastmod>2016-09-25T16:39:27.786Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://neveryu.github.io/2016/09/03/hello-world/</loc>
     
-    <lastmod>2016-09-25T14:57:26.802Z</lastmod>
+    <lastmod>2016-09-25T16:38:56.795Z</lastmod>
     
   </url>
   
@@ -26,13 +40,6 @@
     <loc>https://neveryu.github.io/about/index.html</loc>
     
     <lastmod>2016-09-11T07:21:44.574Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://neveryu.github.io/weblog/index.html</loc>
-    
-    <lastmod>2016-09-11T07:21:40.191Z</lastmod>
     
   </url>
   
