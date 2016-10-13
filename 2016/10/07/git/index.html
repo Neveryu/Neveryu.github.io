@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT, Neveryu, Blog, PHP, JAVA, JAVASCRIPT, HTML, CSS, jQuery" />
+  <meta name="keywords" content="Git," />
 
 
 
@@ -84,15 +84,31 @@
 
 
 
-<meta name="description" content="Stay Hungry,Stay Foolish">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Never_yu's Blog">
-<meta property="og:url" content="https://neveryu.github.io/archives/index.html">
+<meta name="description" content="从svn到git两者都是优秀的版本管理工具（giter请不要鄙视svner）
+
+svn上手非常容易，操作简单
+git功能强大，但是要熟练使用分支不算容易
+
+git因为是分布式的，所以其核心就是分支（只有master分支情况下和svn差不多？），分支的意义在于，可以将项目代码按照功能、模块拆分成不同的分支。比如这个产品要加一个支付功能和一个登陆功能，可以创建两个分支，交给不同的开发人员并行开发。登陆">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git学习总结">
+<meta property="og:url" content="https://neveryu.github.io/2016/10/07/git/index.html">
 <meta property="og:site_name" content="Never_yu's Blog">
-<meta property="og:description" content="Stay Hungry,Stay Foolish">
+<meta property="og:description" content="从svn到git两者都是优秀的版本管理工具（giter请不要鄙视svner）
+
+svn上手非常容易，操作简单
+git功能强大，但是要熟练使用分支不算容易
+
+git因为是分布式的，所以其核心就是分支（只有master分支情况下和svn差不多？），分支的意义在于，可以将项目代码按照功能、模块拆分成不同的分支。比如这个产品要加一个支付功能和一个登陆功能，可以创建两个分支，交给不同的开发人员并行开发。登陆">
+<meta property="og:updated_time" content="2016-10-13T15:24:03.058Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Never_yu's Blog">
-<meta name="twitter:description" content="Stay Hungry,Stay Foolish">
+<meta name="twitter:title" content="Git学习总结">
+<meta name="twitter:description" content="从svn到git两者都是优秀的版本管理工具（giter请不要鄙视svner）
+
+svn上手非常容易，操作简单
+git功能强大，但是要熟练使用分支不算容易
+
+git因为是分布式的，所以其核心就是分支（只有master分支情况下和svn差不多？），分支的意义在于，可以将项目代码按照功能、模块拆分成不同的分支。比如这个产品要加一个支付功能和一个登陆功能，可以创建两个分支，交给不同的开发人员并行开发。登陆">
 
 
 
@@ -113,9 +129,9 @@
 
 
 
-  <link rel="canonical" href="https://neveryu.github.io/archives/"/>
+  <link rel="canonical" href="https://neveryu.github.io/2016/10/07/git/"/>
 
-  <title> 归档 | Never_yu's Blog </title>
+  <title> Git学习总结 | Never_yu's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,7 +152,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -410,214 +426,245 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 5 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
 
-      
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Git学习总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-07T13:25:24+08:00" content="2016-10-07">
+              2016-10-07
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/07/git/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/07/git/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv">热度
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>℃
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
+        <h2 id="从svn到git"><a href="#从svn到git" class="headerlink" title="从svn到git"></a>从svn到git</h2><p>两者都是优秀的版本管理工具（giter请不要鄙视svner）</p>
+<ul>
+<li>svn上手非常容易，操作简单</li>
+<li>git功能强大，但是要熟练使用分支不算容易</li>
+</ul>
+<p>git因为是分布式的，所以其核心就是分支（只有master分支情况下和svn差不多？），分支的意义在于，可以将项目代码按照功能、模块拆分成不同的分支。比如这个产品要加一个支付功能和一个登陆功能，可以创建两个分支，交给不同的开发人员并行开发。登陆功能先开发完，测试无误后合并改分支到master分支，master分支部署上线。支付功能虽然没有开发完成，但是在另一条分支上，所以产品上线和功能开发完全不受影响。这才是分布式开发的高效模式。</p>
+<p>被git坑了一个星期之后决心把官方文档看一下，结合实践经验进行了整理。</p>
+<hr>
+<a id="more"></a>
+<h2 id="新手常见问题"><a href="#新手常见问题" class="headerlink" title="新手常见问题"></a>新手常见问题</h2><ol>
+<li><p>如何查看有哪些分支？<br><code>git branch -a</code></p>
+</li>
+<li><p>如何强制检出/切换分支或分支指定文件<br><code>git checkout &lt;branch&gt; [file] [-f]</code><br>强制更新，以branch版本的代码为主</p>
+</li>
+<li><p>提交代码出现冲突冲突怎么办？<br><code>hint: Updates were rejected because the tip of your current branch is behind</code><br><code>hint: its remote counterpart. Integrate the remote changes (e.g.</code><br><code>hint: &#39;git pull ...&#39;) before pushing again.</code><br><code>hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.</code><br>先切换分支，然后拉取分支上最新的代码覆盖到本地<br><code>git pull</code><br>添加或者提交代码，解决冲突之后<br><code>git push</code></p>
+</li>
+<li><p>如何新建分支<br><code>git checkout -b &lt;branch_name&gt;</code><br>本地建立 branch 並立即切換到新分支<br><code>git branch -m &lt;new_name&gt;</code><br>修改分支名称  </p>
+</li>
+<li><p>从远程仓库拉取代码到本地仓库，并建立跟踪关系<br><code>git clone http://xxx.git</code><br>或者<br><code>get clone git@xxx.git</code><br>然后<br><code>git checkout -b &lt;本地新分支名&gt; &lt;对应的远程分支名&gt;</code></p>
+</li>
+<li><p>远程仓库新建了一个分支，如何更新远程分支信息<br><code>git fetch &lt;remote base&gt;</code></p>
+</li>
+<li><p>如何在远程仓库新建一个分支<br><code>git branch &lt;branch name&gt;</code><br>新建一个本地分支，按照正常流程提交完代码后，推送到远程<br><code>git push &lt;remote base&gt; &lt;local branch&gt;:&lt;remote branch&gt;</code></p>
+</li>
+</ol>
+<h2 id="实用指令"><a href="#实用指令" class="headerlink" title="实用指令"></a>实用指令</h2><h3 id="reset"><a href="#reset" class="headerlink" title="reset"></a>reset</h3><p><code>git reset [file]</code><br>取消暂存</p>
+<h3 id="remote"><a href="#remote" class="headerlink" title="remote"></a>remote</h3><p>查看远程仓库名</p>
+<p><code>git remote -v</code><br>查看远程仓库url</p>
+<p><code>git remote add &lt;basename&gt; &lt;url&gt;</code><br>新增远程仓库</p>
+<p><code>git remote show &lt;basename&gt;</code><br>查看远程仓库详细信息</p>
+<p><code>git remote rename &lt;old basename&gt; &lt;new basename&gt;</code><br>重命名远程仓库</p>
+<h3 id="pull"><a href="#pull" class="headerlink" title="pull"></a>pull</h3><p>相当于fetch和merge</p>
+<h3 id="push"><a href="#push" class="headerlink" title="push"></a>push</h3><p><code>git push [remote_branch] [local_branch]</code><br>推送本地仓库代码到远程仓库，相当于svn的commit</p>
+<p><code>git push &lt;remote base&gt; [tag name]</code><br>推送本地标签到远程仓库</p>
+<p><code>git push &lt;remote base&gt; &lt;remote branch&gt;:&lt;local branch&gt;</code><br>将本地分支推送到指定的远程分支</p>
+<p><code>git push &lt;remote base&gt; --delete &lt;remote branch&gt;</code><br>删除远程分支</p>
+<h3 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h3><p>查看标签（用来标记标志性的稳定版本信息）</p>
+<p><code>git tag -l &#39;[expression]&#39;</code><br>查看那符合正则表达式的</p>
+<p><code>git tag -a &lt;tag name&gt; -m &lt;comment&gt;</code><br>添加带注释的标签</p>
+<p><code>git tag -a &lt;tag name&gt; &lt;md5&gt;</code><br>对某个版本打标签</p>
+<p><code>git tag [tag name]</code><br>如果没有标签名，则为查看所有标签。带标签名则为新建标签</p>
+<h3 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h3><p><code>git merge &lt;branch name&gt;</code><br>将其他分支合并到本分支</p>
+<h3 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h3><p><code>git commit -a -m &#39;xx&#39;</code><br>暂存并提交</p>
+<h3 id="branch"><a href="#branch" class="headerlink" title="branch"></a>branch</h3><p><code>git branch</code><br>查看本地仓库分支</p>
+<p><code>git branch -v</code><br>查看本地仓库分支最后一次提交情况</p>
+<p><code>git branch -vv</code><br>查看分支跟踪情况</p>
+<p><code>git branch &lt;branch name&gt;</code><br>新建分支</p>
+<p><code>git branch -d &lt;branch name&gt;</code><br>删除分支</p>
+<p><code>git branch [--merged | --no-merged]</code><br>查看已合并|未合并的本地仓库分支</p>
+<p><code>git branch -u &lt;remote base&gt;/&lt;remote branch&gt;</code><br>修改当前跟踪分支</p>
+<h3 id="commit-1"><a href="#commit-1" class="headerlink" title="commit"></a>commit</h3><p><code>git commit -a -m &#39;xx&#39;</code><br>提交并且暂存暂存的方法</p>
+<h3 id="checkout"><a href="#checkout" class="headerlink" title="checkout"></a>checkout</h3><p><code>git checkout -- [file]</code><br>恢复文件</p>
+<p><code>git checkout -b [branchname] [tagname]</code><br>在特定的版本上创建一个新的分支并切换到此分支</p>
+<p><code>git checkout -b [local branch] [remote base]/[remote branch]</code><br>将远程分支检出到本地分支</p>
+<p><code>git checkout --track &lt;remote base&gt;/&lt;remote branch&gt;</code><br>让当前分支跟踪远程分支</p>
+<p><code>git checkout --track &lt;remote base&gt;/&lt;remote branch&gt;</code><br><code>git checkout -b &lt;local branch&gt; &lt;remote base&gt;/&lt;remote branch&gt;</code><br>让当前分支跟踪到远程分支。两条命令作用基本一致，不同的是第二条命令可以重命名检出的分支。</p>
+<h3 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h3><p><code>git rebase [basebranch]</code><br>变基是将一系列提交按照原有次序依次应用到另一分支上，而合并是把最终结果合在一起。</p>
+<h2 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h2><h3 id="查看配置"><a href="#查看配置" class="headerlink" title="查看配置"></a>查看配置</h3><p><code>git config -1</code></p>
+<h3 id="设置git-push-默认"><a href="#设置git-push-默认" class="headerlink" title="设置git push 默认"></a>设置git push 默认</h3><p><code>git config --global push.default current</code></p>
+<h3 id="设置别名"><a href="#设置别名" class="headerlink" title="设置别名"></a>设置别名</h3><p><code>git config --global alias.&lt;name&gt; &lt;commend&gt;</code><br>我的设置：<br><code>git config --global alias.st status</code><br><code>git config --global alias.cm &quot;commit -m&quot;</code><br><code>git config --global alias.ph &quot;push origin &lt;local_repository&gt;:&lt;remote_repository&gt;&quot;</code></p>
+<h3 id="保存用户名和密码"><a href="#保存用户名和密码" class="headerlink" title="保存用户名和密码"></a>保存用户名和密码</h3><h4 id="对于http-s-协议，可以用下面命令临时缓存"><a href="#对于http-s-协议，可以用下面命令临时缓存" class="headerlink" title="对于http(s)协议，可以用下面命令临时缓存"></a>对于http(s)协议，可以用下面命令临时缓存</h4><p><code>git config --global credential.helper cache</code><br>开启linux缓存<br><code>git config --global credential.helper wincred</code><br>开启windows缓存</p>
+<h4 id="对于ssh协议，可以用ssh-key，具体教程网上很多"><a href="#对于ssh协议，可以用ssh-key，具体教程网上很多" class="headerlink" title="对于ssh协议，可以用ssh  key，具体教程网上很多"></a>对于ssh协议，可以用ssh  key，具体教程网上很多</h4><h3 id="忽略文件"><a href="#忽略文件" class="headerlink" title="忽略文件"></a>忽略文件</h3><p>默认方法是在当前项目目录下创建一个.gitignore文件，如果需要忽略的文件已经添加到版本库中，请先移除<br><code>git rm --cached [file]</code><br>不删除文件，只移除追踪。</p>
+<p><a href="http://git-scm.com/book/zh/v2" target="_blank" rel="external">权威教程</a></p>
+<hr>
+<p>作者：<a href="http://localhost:4000/about" target="_blank" rel="external">Never_yu</a></p>
+
+      
+    </div>
+
+    <div>
+      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>满分是10分的话，这篇文章你给几分</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/reward/reward_wechat.png" alt="Never_yu WeChat Pay"/>
+          <p>微信打赏</p>
         </div>
       
       
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/reward/reward_alipay.png" alt="Never_yu Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
+    </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Git/" rel="tag">#Git</a>
+          
+        </div>
+      
 
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/13/coder-job-hopping/" itemprop="url">
-              
-                <span itemprop="name">程序员跳槽全攻略</span>
-              
-            </a>
-        
-      </h1>
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/30/hexo-next-two/" rel="next" title="Hexo-NexT搭建个人博客（二）">
+                <i class="fa fa-chevron-left"></i> Hexo-NexT搭建个人博客（二）
+              </a>
+            
+          </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-13T23:25:24+08:00"
-              content="2016-10-13" >
-          10-13
-        </time>
-      </div>
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/13/coder-job-hopping/" rel="prev" title="程序员跳槽全攻略">
+                程序员跳槽全攻略 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
+        <div class="ds-share flat" data-thread-key="2016/10/07/git/"
+     data-title="Git学习总结"
+     data-content=""
+     data-url="https://neveryu.github.io/2016/10/07/git/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
 
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/07/git/" itemprop="url">
-              
-                <span itemprop="name">Git学习总结</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-07T13:25:24+08:00"
-              content="2016-10-07" >
-          10-07
-        </time>
+      <li data-toggle="ds-share-icons-more"><span class="ds-more">分享到：</span></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      <li><a class="ds-facebook" href="javascript:void(0);" data-service="facebook">Facebook</a></li>
+      <li><a class="ds-google" href="javascript:void(0);" data-service="google">Google</a></li>
+    </ul>
+    <!--
+      <div class="ds-share-icons-more">
       </div>
-
-    </header>
-  </article>
-
-
-
-    
-
+    -->
+  </div>
+</div>
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/30/hexo-next-two/" itemprop="url">
-              
-                <span itemprop="name">Hexo-NexT搭建个人博客（二）</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-30T22:18:22+08:00"
-              content="2016-09-30" >
-          09-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/25/essay-20160925/" itemprop="url">
-              
-                <span itemprop="name">如果深圳的夜晚没有风</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-25T23:25:24+08:00"
-              content="2016-09-25" >
-          09-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/03/hexo-next-one/" itemprop="url">
-              
-                <span itemprop="name">Hexo-NexT搭建个人博客（一）</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-03T13:25:24+08:00"
-              content="2016-09-03" >
-          09-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-
+    </div>
+  </div>
 
 
           </div>
@@ -625,6 +672,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/07/git/"
+           data-title="Git学习总结" data-url="https://neveryu.github.io/2016/10/07/git/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -644,8 +699,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/avatar/avatar.png"
@@ -726,6 +790,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#从svn到git"><span class="nav-number">1.</span> <span class="nav-text">从svn到git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新手常见问题"><span class="nav-number">2.</span> <span class="nav-text">新手常见问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实用指令"><span class="nav-number">3.</span> <span class="nav-text">实用指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#reset"><span class="nav-number">3.1.</span> <span class="nav-text">reset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#remote"><span class="nav-number">3.2.</span> <span class="nav-text">remote</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pull"><span class="nav-number">3.3.</span> <span class="nav-text">pull</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#push"><span class="nav-number">3.4.</span> <span class="nav-text">push</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tag"><span class="nav-number">3.5.</span> <span class="nav-text">tag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#merge"><span class="nav-number">3.6.</span> <span class="nav-text">merge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#commit"><span class="nav-number">3.7.</span> <span class="nav-text">commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#branch"><span class="nav-number">3.8.</span> <span class="nav-text">branch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#commit-1"><span class="nav-number">3.9.</span> <span class="nav-text">commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#checkout"><span class="nav-number">3.10.</span> <span class="nav-text">checkout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rebase"><span class="nav-number">3.11.</span> <span class="nav-text">rebase</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小技巧"><span class="nav-number">4.</span> <span class="nav-text">小技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看配置"><span class="nav-number">4.1.</span> <span class="nav-text">查看配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置git-push-默认"><span class="nav-number">4.2.</span> <span class="nav-text">设置git push 默认</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置别名"><span class="nav-number">4.3.</span> <span class="nav-text">设置别名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存用户名和密码"><span class="nav-number">4.4.</span> <span class="nav-text">保存用户名和密码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对于http-s-协议，可以用下面命令临时缓存"><span class="nav-number">4.4.1.</span> <span class="nav-text">对于http(s)协议，可以用下面命令临时缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对于ssh协议，可以用ssh-key，具体教程网上很多"><span class="nav-number">4.4.2.</span> <span class="nav-text">对于ssh协议，可以用ssh  key，具体教程网上很多</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#忽略文件"><span class="nav-number">4.5.</span> <span class="nav-text">忽略文件</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -838,11 +913,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   
