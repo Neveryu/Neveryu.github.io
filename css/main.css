@@ -1672,7 +1672,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c822c3;
+  background: #bd9aff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2594,19 +2594,6 @@ a#download:hover {
   background: #000;
   color: #fff;
 }
-span#inline-blue {
-  display: inline;
-  padding: 0.2em 0.6em 0.3em;
-  font-size: 80%;
-  font-weight: bold;
-  line-height: 1;
-  color: #fff;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border-radius: 0;
-  background-color: #2780e3;
-}
 span#inline-yellow {
   display: inline;
   padding: 0.2em 0.6em 0.3em;
@@ -2633,6 +2620,19 @@ span#inline-green {
   border-radius: 0;
   background-color: #5cb85c;
 }
+span#inline-blue {
+  display: inline;
+  padding: 0.2em 0.6em 0.3em;
+  font-size: 80%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0;
+  background-color: #2780e3;
+}
 span#inline-purple {
   display: inline;
   padding: 0.2em 0.6em 0.3em;
@@ -2645,6 +2645,15 @@ span#inline-purple {
   vertical-align: baseline;
   border-radius: 0;
   background-color: #9954bb;
+}
+p#div-border-left-red {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-left-width: 5px;
+  border-radius: 3px;
+  border-left-color: #df3e3e;
 }
 p#div-border-left-yellow {
   display: block;
@@ -2664,14 +2673,50 @@ p#div-border-left-green {
   border-radius: 3px;
   border-left-color: #5cb85c;
 }
-p#div-border-left-red {
+p#div-border-left-blue {
   display: block;
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #ccc;
   border-left-width: 5px;
   border-radius: 3px;
-  border-left-color: #df3e3e;
+  border-left-color: #2780e3;
+}
+p#div-border-left-blue {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-left-width: 5px;
+  border-radius: 3px;
+  border-left-color: #9954bb;
+}
+p#div-border-top-red {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-top-width: 5px;
+  border-radius: 3px;
+  border-top-color: #df3e3e;
+}
+p#div-border-top-yellow {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-top-width: 5px;
+  border-radius: 3px;
+  border-top-color: #f0ad4e;
+}
+p#div-border-top-blue {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-top-width: 5px;
+  border-radius: 3px;
+  border-top-color: #2780e3;
 }
 span#yu-1 {
   display: inline;

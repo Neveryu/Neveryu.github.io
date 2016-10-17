@@ -4,14 +4,16 @@
 
     
   <url>
-    <loc>https://neveryu.github.io/2016/10/13/coder-job-hopping/</loc>
-    <lastmod>2016-10-16T15:42:29.541Z</lastmod>
+    <loc>https://neveryu.github.io/2016/09/03/hexo-next-one/</loc>
+    <lastmod>2016-10-17T16:24:59.921Z</lastmod>
     <data>
         <display>
-        <title>程序员跳槽全攻略</title>
-        <pubTime>2016-10-13T15:25:24.000Z</pubTime>
+        <title>Hexo-NexT搭建个人博客（一）</title>
+        <pubTime>2016-09-03T05:25:24.000Z</pubTime>
         
-        <tag>essay</tag>
+        <tag>Hexo</tag>
+         
+        <tag>Next</tag>
          
          
            
@@ -44,25 +46,6 @@
         <display>
         <title>Hexo-NexT搭建个人博客（二）</title>
         <pubTime>2016-09-30T14:18:22.000Z</pubTime>
-        
-        <tag>Hexo</tag>
-         
-        <tag>Next</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://neveryu.github.io/2016/09/03/hexo-next-one/</loc>
-    <lastmod>2016-10-16T15:27:25.128Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo-NexT搭建个人博客（一）</title>
-        <pubTime>2016-09-03T05:25:24.000Z</pubTime>
         
         <tag>Hexo</tag>
          
