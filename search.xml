@@ -5,7 +5,7 @@
     
     <entry>
       <title><![CDATA[【转】在2016年学JavaScript是一种什么样的体验]]></title>
-      <url>https://neveryu.github.io/2016/how-it-feels-to-learn-javascript-in-2016/</url>
+      <url>https://neveryu.github.io/2016/10/16/how-it-feels-to-learn-javascript-in-2016/</url>
       <content type="html"><![CDATA[<p id="div-border-left-blue" style="width:90%;">嘿，我最近接到一个 Web 项目，不过老实说，我这两年没怎么接触 Web 编程，听说 Web 技术已经发生了一些变化。听说你是这里对新技术最了解的 Web 开发工程师？</p>
 
 <p id="div-border-right-green" style="width:90%;margin-left:10%">准确地说，我是一名「前端工程师」。不过你算是找对人了。我对今年的技术别提多熟了，前端可视化、音乐播放器、能踢足球的无人机，你尽管问吧。我刚去 JS 大会和 React 大会逛了一圈，没有什么新技术是我不知道的。</p>
@@ -350,7 +350,7 @@
     
     <entry>
       <title><![CDATA[Git学习总结]]></title>
-      <url>https://neveryu.github.io/2016/git/</url>
+      <url>https://neveryu.github.io/2016/10/07/git/</url>
       <content type="html"><![CDATA[<h2 id="从svn到git"><a href="#从svn到git" class="headerlink" title="从svn到git"></a>从svn到git</h2><p>两者都是优秀的版本管理工具（giter请不要鄙视svner）</p>
 <ul>
 <li>svn上手非常容易，操作简单</li>
@@ -421,7 +421,7 @@
     
     <entry>
       <title><![CDATA[Hexo-NexT搭建个人博客（二）]]></title>
-      <url>https://neveryu.github.io/2016/hexo-next-two/</url>
+      <url>https://neveryu.github.io/2016/09/30/hexo-next-two/</url>
       <content type="html"><![CDATA[<p>本篇文章将介绍基于NexT主题下的一些扩展功能的实现。<br>首先，我们需要明白：</p>
 <p id="div-border-left-yellow">在 Hexo 中有两份主要的配置文件，其名称都是 _config.yml 。其中，一份位于站点根目录下，主要包含 Hexo 本身的配置；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项。<br>  我们约定，将前者称为 <span id="inline-blue">站点配置文件</span>，后者称为 <span id="inline-purple">主题配置文件</span></p>
 
@@ -449,7 +449,7 @@
     
     <entry>
       <title><![CDATA[如果深圳的夜晚没有风]]></title>
-      <url>https://neveryu.github.io/2016/essay-20160925/</url>
+      <url>https://neveryu.github.io/2016/09/25/essay-20160925/</url>
       <content type="html"><![CDATA[<p id="div-border-top-green">这座城市人很多，每天在路上都能看到好多拉着行李箱的人，不管他们是来到这座城市还是离开这座城市，至少他们都曾努力过。<br></p>
 
 <p><br></p>
@@ -469,7 +469,7 @@
     
     <entry>
       <title><![CDATA[Hexo-NexT搭建个人博客（一）]]></title>
-      <url>https://neveryu.github.io/2016/hexo-next-one/</url>
+      <url>https://neveryu.github.io/2016/09/03/hexo-next-one/</url>
       <content type="html"><![CDATA[<p><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo</a> 是一个快速、简洁且高效的静态站点生成框架，它基于 <a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a> 。 它有以下特点：</p>
 <ul>
 <li><i class="fa fa-bolt"></i><h6 style="display: inline;">　超快速度</h6><br><i>Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。</i></li>
