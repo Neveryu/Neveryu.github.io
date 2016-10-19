@@ -4,27 +4,8 @@
 
     
   <url>
-    <loc>https://neveryu.github.io/2016/09/03/hexo-next-one/</loc>
-    <lastmod>2016-10-17T16:24:59.921Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo-NexT搭建个人博客（一）</title>
-        <pubTime>2016-09-03T05:25:24.000Z</pubTime>
-        
-        <tag>Hexo</tag>
-         
-        <tag>Next</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://neveryu.github.io/2016/10/16/how-it-feels-to-learn-javascript-in-2016/</loc>
-    <lastmod>2016-10-16T15:41:04.812Z</lastmod>
+    <loc>https://neveryu.github.io/2016/how-it-feels-to-learn-javascript-in-2016/</loc>
+    <lastmod>2016-10-19T14:50:17.015Z</lastmod>
     <data>
         <display>
         <title>【转】在2016年学JavaScript是一种什么样的体验</title>
@@ -40,8 +21,8 @@
 
     
   <url>
-    <loc>https://neveryu.github.io/2016/09/30/hexo-next-two/</loc>
-    <lastmod>2016-10-16T15:37:27.464Z</lastmod>
+    <loc>https://neveryu.github.io/2016/hexo-next-two/</loc>
+    <lastmod>2016-10-18T16:31:37.698Z</lastmod>
     <data>
         <display>
         <title>Hexo-NexT搭建个人博客（二）</title>
@@ -59,14 +40,14 @@
 
     
   <url>
-    <loc>https://neveryu.github.io/2016/10/07/git/</loc>
-    <lastmod>2016-10-13T15:24:03.058Z</lastmod>
+    <loc>https://neveryu.github.io/2016/essay-20160925/</loc>
+    <lastmod>2016-10-18T16:28:07.976Z</lastmod>
     <data>
         <display>
-        <title>Git学习总结</title>
-        <pubTime>2016-10-07T05:25:24.000Z</pubTime>
+        <title>如果深圳的夜晚没有风</title>
+        <pubTime>2016-09-25T15:25:24.000Z</pubTime>
         
-        <tag>Git</tag>
+        <tag>essay</tag>
          
          
            
@@ -76,14 +57,33 @@
 
     
   <url>
-    <loc>https://neveryu.github.io/2016/09/25/essay-20160925/</loc>
-    <lastmod>2016-10-12T15:59:52.381Z</lastmod>
+    <loc>https://neveryu.github.io/2016/hexo-next-one/</loc>
+    <lastmod>2016-10-18T16:19:53.313Z</lastmod>
     <data>
         <display>
-        <title>如果深圳的夜晚没有风</title>
-        <pubTime>2016-09-25T15:25:24.000Z</pubTime>
+        <title>Hexo-NexT搭建个人博客（一）</title>
+        <pubTime>2016-09-03T05:25:24.000Z</pubTime>
         
-        <tag>essay</tag>
+        <tag>Hexo</tag>
+         
+        <tag>Next</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://neveryu.github.io/2016/git/</loc>
+    <lastmod>2016-10-13T15:24:03.058Z</lastmod>
+    <data>
+        <display>
+        <title>Git学习总结</title>
+        <pubTime>2016-10-07T05:25:24.000Z</pubTime>
+        
+        <tag>Git</tag>
          
          
            

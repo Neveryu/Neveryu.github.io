@@ -1672,7 +1672,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #bd9aff;
+  background: #b4eb03;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2682,7 +2682,7 @@ p#div-border-left-blue {
   border-radius: 3px;
   border-left-color: #2780e3;
 }
-p#div-border-left-blue {
+p#div-border-left-purple {
   display: block;
   padding: 10px;
   margin: 10px 0;
@@ -2690,6 +2690,51 @@ p#div-border-left-blue {
   border-left-width: 5px;
   border-radius: 3px;
   border-left-color: #9954bb;
+}
+p#div-border-right-red {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-right-width: 5px;
+  border-radius: 3px;
+  border-right-color: #df3e3e;
+}
+p#div-border-right-yellow {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-right-width: 5px;
+  border-radius: 3px;
+  border-right-color: #f0ad4e;
+}
+p#div-border-right-green {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-right-width: 5px;
+  border-radius: 3px;
+  border-right-color: #5cb85c;
+}
+p#div-border-right-blue {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-right-width: 5px;
+  border-radius: 3px;
+  border-right-color: #2780e3;
+}
+p#div-border-right-purple {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-right-width: 5px;
+  border-radius: 3px;
+  border-right-color: #9954bb;
 }
 p#div-border-top-red {
   display: block;
@@ -2708,6 +2753,15 @@ p#div-border-top-yellow {
   border-top-width: 5px;
   border-radius: 3px;
   border-top-color: #f0ad4e;
+}
+p#div-border-top-green {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-top-width: 5px;
+  border-radius: 3px;
+  border-top-color: #5cb85c;
 }
 p#div-border-top-blue {
   display: block;

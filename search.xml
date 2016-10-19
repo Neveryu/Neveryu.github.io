@@ -5,105 +5,352 @@
     
     <entry>
       <title><![CDATA[【转】在2016年学JavaScript是一种什么样的体验]]></title>
-      <url>https://neveryu.github.io/2016/10/16/how-it-feels-to-learn-javascript-in-2016/</url>
-      <content type="html"><![CDATA[<p>作者：方应杭<br>链接：<a href="https://zhuanlan.zhihu.com/p/22782487" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/22782487</a><br>来源：知乎</p>
-<p>嘿，我最近接到一个 Web 项目，不过老实说，我这两年没怎么接触 Web 编程，听说 Web 技术已经发生了一些变化。听说你是这里对新技术最了解的 Web 开发工程师？</p>
-<p>准确地说，我是一名「前端工程师」。不过你算是找对人了。我对今年的技术别提多熟了，前端可视化、音乐播放器、能踢足球的无人机，你尽管问吧。我刚去 JS 大会和 React 大会逛了一圈，没有什么新技术是我不知道的。<br>厉害。是这样的，我要开发一个网页，用来展示用户的最新动态。我想我应该通过后端接口获取数据，然后用一个 table 来展示数据，用户可以对数据进行排序。如果服务器上的数据变化了，我还需要更新这个 table。我的思路是用 jQuery 来做。</p>
-<p>可别用 jQuery！现在哪还有人用 jQuery。现在是 2016 年了，你绝对应该用 React。<br>哦，好吧，React 是什么？</p>
+      <url>https://neveryu.github.io/2016/how-it-feels-to-learn-javascript-in-2016/</url>
+      <content type="html"><![CDATA[<p id="div-border-left-blue" style="width:90%;">嘿，我最近接到一个 Web 项目，不过老实说，我这两年没怎么接触 Web 编程，听说 Web 技术已经发生了一些变化。听说你是这里对新技术最了解的 Web 开发工程师？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">准确地说，我是一名「前端工程师」。不过你算是找对人了。我对今年的技术别提多熟了，前端可视化、音乐播放器、能踢足球的无人机，你尽管问吧。我刚去 JS 大会和 React 大会逛了一圈，没有什么新技术是我不知道的。</p>
+
+<p id="div-border-left-blue" style="width:90%">厉害。是这样的，我要开发一个网页，用来展示用户的最新动态。我想我应该通过后端接口获取数据，然后用一个 table 来展示数据，用户可以对数据进行排序。如果服务器上的数据变化了，我还需要更新这个 table。我的思路是用 jQuery 来做。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">可别用 jQuery！现在哪还有人用 jQuery。现在是 2016 年了，你绝对应该用 React。</p>
+
+<p id="div-border-left-blue" style="width:90%">哦，好吧，React 是什么？</p>
+
 <a id="more"></a>
-<p>React 是一个非常厉害的库，Facebook 的牛人写的。它能让页面更可控，性能极高，而且使用起来很简单。<br>听起来确实不错。我能用 React 展示服务器传来的数据吗？</p>
-<p>当然可以，你只需要添加两个依赖，一个是 React，一个是 React DOM<br>额，等下，为什么是两个库？</p>
-<p>React 是我说的库，React DOM 是用来操作 DOM 的。因为这些 DOM 是用 JSX 写的，所以需要一个专门的库来操作。<br>JSX？JSX 是什么？</p>
-<p>JSX 是对 JS 的扩展，它看起来跟 XML 差不多，可以用来写 HTML，你可以认为 JSX 是一种更优雅的 HTML 写法。<br>为什么不用 HTML 了……？</p>
-<p>现在可是 2016 年啊，没有直接写 HTML 的。<br>对哦。好吧，加了这两个依赖，是不是就可以开始用 React 了？</p>
-<p>不行哦。你需要添加 Babel，然后才能用 React。<br>Babel 是另一个库？</p>
-<p>嗯，Babel 是一个转译工具，Babel 能把你写的 JS 转译成任意版本的 JS。你不一定非要用 Babel，但是如果你不用的话，你就只能写 ES5 的语法了。你知道的，现在是 2016 年，你怎么能不使用 ES2016+ 的语法呢？ES2016+ 多么酷啊。<br>ES5 是啥？ES2016+ 又是啥？我有点晕。</p>
-<p>ES5 就是 ECMAScript 5。大部分人都会使用 ES5，因为大部分浏览器都支持 ES5。<br>ECMAScript 是啥……</p>
-<p>你晓得的，JS是1995年诞生的，而JS的标准是1999制定出来的。那时候 JavaScript 还叫做 Livescript，只能运行在网景的浏览器里。那时真是混乱的年代，现在好了，我们有了 JS 的 7 个版本的规范。<br>7 个版本？那 ES5 和 ES2016+ 是？</p>
-<p>分别是第 5 个版本和第 7 个版本。<br>诶，那第六个版本呢？</p>
-<p>你说的是 ES6。每个版本都是上一个版本的超集，所以你直接使用最新的 ES2016+ 就好了。<br>对哦。为什么不用 ES6 呢？</p>
-<p>好吧，你可以用 ES6，但是你就用不到 async 和 await 这么酷的语法了。用 ES2016+ 比较好。用 ES6 的话你就只能用 generator 来控制异步任务流了。<br>不知道你在说什么……你说了太多我听不懂的名词了。我只是想从服务器取点数据，我以前用 jQuery 挺好的，从 CDN 引入 jQuery，我就能用 AJAX 获取数据了，现在不能这样做吗？</p>
-<p>大哥，都 2016 年了，没人用 jQuery 好吗。所有人都知道用 jQuery 只会造出「意大利面条」一样的代码（不可维护）<br>好吧，所以我现在要加载三个库才能获取并展示数据。</p>
-<p>对的，其实你可以用「模块管理器」把这三个库「打包」成一个文件。<br>哦，什么是模块管理器……</p>
-<p>不同平台的模块管理器不同啦。前端的模块管理器一般指管理 AMD 或者 CommonJS 模块的东西。<br>好……吧，什么是 AMD 和 CommonJS？</p>
-<p>是两个定义。我们有很多方式来描述 JS 中多个库或类的交互方式，比如 exports 和 requires。你可以按照 AMD 或者 CommonJS 的 API 来书写 JS，然后用 Browserify 将它们打包。<br>听起来很有道理。不过，什么是 Browserify？</p>
-<p>是一个工具，用来将 CommonJS 形式的 JS 文件打包起来，放到浏览器里运行。用 npm 仓库的人发明了 CommonJS。<br>npm 仓库是什么……</p>
-<p>是一个公开的仓库，用于放置可依赖的模块。<br>就像一个 CDN 么？</p>
-<p>不太一样。它更像是一个数据库，每个人都能在上面发布代码，也能下载上面的代码。你可以在开发的时候将这些代码下载到本地来使用，必要的时候也能上传到 CDN。<br>听起来像是 Bower！</p>
-<p>是的，不过现在是 2016 年了，没有人用 Bower 了……<br>好吧，我知道了，所以我应该用 npm 来安装依赖。</p>
-<p>对的。我举个例子吧，如果你要使用 React，你直接用 npm 安装 React，然后在代码里导入 React 就可以了。大部分 JS 库都能这么安装。<br>嗯，Angular 也可以。</p>
-<p>Angular 是 2015 年的事情了。不过今年 Angular 还没死，还有 VueJS 和 RxJS 等等，你想学一学么？<br>还是用 React 吧。我刚才已经学了够多东西了。所以我用 npm 安装 React 然后用 Browerify 来打包就好了？</p>
-<p>是的。<br>这么做看起来有点过于复杂啊。</p>
-<p>确实。这就是为什么你应该使用 Grunt、Gulp 或者 Broccoli 这样的任务管理工具，它们能自动运行 Browserify。不对，你现在可以用 Mimosa。<br>你在说什么……</p>
-<p>任务管理工具。不过我们现在已经不用了。去年我们还在用，后来改成了 Makefiles，但是现在我们用的都是 Webpack。<br>我以为只有 C/C++ 项目才会用 Makefiles。</p>
-<p>是的，不过显然我们做 Web 开发的，喜欢先把事情搞复杂，然后回归到最朴素的状态。每年我们都是这么搞的。你就看着吧，过不了两年，我们就可以在网页上写汇编了。<br>唉，你刚才说的 Webpack 是什么？</p>
-<p>另一种模块管理工具，同时也是一个任务管理工具。你可以认为它是 Browserify 的加强版。<br>哦，好吧，为什么 Webpack 是加强版？</p>
-<p>额，可能并没有加强吧。Webpack 告诉你应该如何管理你的依赖，Webpack 允许你使用不同的模块管理器，不只是 CommonJS，甚至支持 ES6 模块。<br>这都是哪跟哪啊，我都被绕晕了。</p>
-<p>大家都被绕晕了，不过等 SystemJS 出来了就好了。<br>天呐，又一个 JS 库，这是什么鬼？</p>
-<p>呵呵，不像 Browserify 和 Webpack 1.x，SystemJS 是一个动态的模块加载器。<br>等下，刚才不是说应该把所有依赖打包成一个文件吗？</p>
-<p>话是这么说，但是等 HTTP/2 普及之后，不打包反而更好。<br>那为什么我们不直接在页面里添加 React 的三个依赖文件呢？</p>
-<p>不行。你可以从 CDN 加载这些文件，但是你还是要在本地用 Babel 转译。<br>唉，这么鹾？</p>
-<p>是的，你不能在生产环境上运行 babel，你应该在发布到生产环境之前，运行一系列的任务，包括压缩、混淆、内联化CSS、延迟加载script……<br>我懂了我懂了。既然我不能直接用 CDN，那么我应该怎么做？</p>
-<p>我会考虑用 Webpack + SystemJS + Babel 来转译 Typescript。<br>Typescript？我们不是在说 JavaScript 吗？！</p>
-<p>Typescript 也是 JavaScript 呀，它比 JS 更好用，是 JS 的超集，它是基于 ES6 的，就是我们刚才谈论的 ES6，你还记得吧。<br>ES2016+ 已经是 ES6 的超集了，怎么又冒出来一个 Typescript？</p>
-<p>是这样的，Typescript 能让我们写出「强类型」的 JS，从而减少运行时的错误。2016年，我们应该让 JS 支持强类型了。<br>显然 Typescript 可以做到。</p>
-<p>Flow 也可以做到，区别是 Typescript 需要编译，而 Flow 只是检查语法。<br>唉，Flow 是？</p>
-<p>是一个静态类型检查器，就是 Facebook 的人写的。使用 OCaml 写的，函数式编程很叼的。</p>
-<p>OCaml？函数式编程？</p>
-<p>如今大牛都用这些东西，都2016年了，你懂的，函数式编程、高阶函数、柯里化、纯函数这些概念。<br>不知道你在说什么。</p>
-<p>一开始大家都不知道。这么说吧，你只需要知道函数式编程比面向对象编程厉害，2016 年我们就指着函数式编程了。<br>等下，我大学里学过面向对象编程，当时我觉得它还不错。</p>
-<p>Java 在被 Oracle 买下来之前也挺不错啊。我的意思是，面向对象以前是不错，现在依然有人用它，但是现在所有人都发觉状态变换是很难维护的，所以大家都开始用「不可变对象」和函数式编程了。Haskell 的人已经用这套东西用了很久了，不过幸运的是 Web 开发领域里有 Ramda 这样的库，让我们用 JS 就可以进行函数式编程了。<br>你刚刚是不是又抛出了几个名词？Ramnda 又是什么？</p>
-<p>不是 Ramnda，是 Ramda，跟 Lambda 表达式有点像。是 David Chambers 写的库。<br>谁？</p>
-<p>David Chambers，大神一个。blablabla<br>我不得不打断你一下了。这些东西看起来都不错，但是我觉得它们都太复杂，而且没必要。我只是想获取数据然后展示，我很确定这种情况下我不需要掌握这些知识。</p>
-<p>回到 React 吧，用 React 我怎么从服务器获取数据？</p>
-<p>额，React 没有提供这个功能，你只能用 React 展示数据。<br>服了啊。那我怎么获取数据？</p>
-<p>你用 Fetch API 就可以了。<br>啥玩意？这个 API 的名字很烂啊。</p>
-<p>我也觉得是啊。Fetch API 是浏览器提供的异步请求接口。<br>哦，那不就是 AJAX。</p>
-<p>AJAX 只是使用 XMLHttpRequest 对象，但是 Fetch API 可以让你用 Promise 风格来发起异步请求，帮你摆脱「回调地狱」。<br>回调地狱？</p>
-<p>是的，每次你发起一个异步请求，就得等待它响应。这时你就得在函数里使用一个函数，这种嵌套调用就是回调地狱。<br>好吧。Promise 解决了这个问题么？</p>
-<p>是的。用 Promise 来管理回调，你就可以写出更易读的代码，更容易测试的代码。甚至可以同时发起多个请求，然后等待它们全部返回。<br>Fetch 也能做到吗？</p>
-<p>是的。但前提是你的用户使用了新版的浏览器，不然的话你就需要加一个 Fetch 的 「polyfill」，或者使用 Request、Bluebird 或者 Axios 这些库。<br>天呐我到底需要多少个库？</p>
-<p>这是 JS，同一件事情有上千个库在做。我们了解库，而且我们有最好的库，我们有海量的库，要什么有什么。<br>你刚才说的几个库都是干什么的？</p>
-<p>这几个库操作 XMLHttpRequest 然后返回 Promise 对象。<br>好像 jQuery 的 ajax 方法做的是同样的事吧……</p>
-<p>从 2016 年起我们就不用 jQuery 了。用 Fetch，大不了加个 Polyfill，要不然用 Bluebird、Request 或者 Axios 都行。然后用 await 和 async 管理 Promise，这样才能控制好异步任务。</p>
-<p>这是你第三次说 await 了，那是什么东西？</p>
-<p>await 能让你拦住一个异步调用，让你更好地控制异步返回的数据，大大增强了代码的可读性。await 非常好用，你只需要在 Babel 里添加 stage–3 配置，或者添加 syntax-async-functions 和 transform-async-to-generator 插件就可以了。<br>听起来像是疯了。</p>
-<p>没疯。为了使用 await，把 Typescript 编译之后再用 Babel 转译一道的人才是疯了。<br>啥玩意？Typescript 不支持 await？</p>
-<p>下个版本就支持了。<br>我已经无话可说了。</p>
-<p>你看其实很简单。用 Typescript 写代码，用 Fetch 发起异步请求，所有代码编译成 ES6，然后用上 Babel 的 stage–3 配置项，把 ES6 转译成 ES5。所有代码用 SystemJS 加载。如果你用不了 Fetch，就加个 polyfill，或者用 Bluebird、Request 或者 Axios，这样你就可以用 await 来处理 Promise 了。<br>看来我们俩对于「简单」的理解是不同的。好吧，有了这些，我终于可以获取数据然后用 React 展示数据了，对吧？</p>
-<p>你的网页需要处理状态变更吗？<br>唔，不用吧。我只是想展示数据。</p>
-<p>那就好，不然我就得跟你解释 Flux，以及 Flux 的一些实现，比如 Flummox、Alt、Fluxible。不过说真的你应该用 Redux。<br>你说的这些我就当耳旁风了。再说一次，我只想展示数据。</p>
-<p>这样啊，如果你只是想展示数据，其实你不需要 React。你只需要一个模板引擎。<br>你逗我呢？</p>
-<p>我只是告诉你你可以用什么技术。<br>别说了，真的。</p>
-<p>我想说，即使只是用一个模板引擎，我还是会用 Typescript + SystemJS + Babel 的。<br>我只是想在页面上展示数据，你就告诉我用哪个模板引擎就好了。</p>
-<p>有很多，你用过哪一个？<br>额，太久没用了，不记得了。</p>
-<p>jTemplates、jQote 还是 PURE？<br>额，不记得，还有别的么？</p>
-<p>Transparency? JSRender? MarkupJS? KnockoutJS? 这一个支持双向绑定。</p>
-<p>还有吗？</p>
-<p>PlatesJS? jQuery-tmpl? Handlebars? 还有些人在用。</p>
-<p>有点像。有哪些跟最后一个比较像的？</p>
-<p>Mustache, underscore? 我记得连 Lodash 都有一个模板引擎，不过这是 2014 年的事情了。<br>额，也许是再新一点的库？</p>
-<p>Jade? DustJS?<br>没用过</p>
-<p>DotJS? EJS?<br>没用过。</p>
-<p>Nunjucks? ECT?<br>没用过。记不起来了，要是你的话，你用哪个？</p>
-<p>我应该会用 ES6 原生的模板字符串<br>我猜猜，只有 ES6 支持。</p>
-<p>对的。<br>需要用 Babel</p>
-<p>对的。<br>需要用 npm 安装</p>
-<p>对的。<br>需要用 Browserify 或者 Webpack，或者 SystemJS</p>
-<p>对的。<br>如果没用 Webpack 的话，我还需要一个任务管理工具。</p>
-<p>对的。<br>但是由于我要用函数式编程和强类型语言，所以我首先要用上 Typescript 或者 Flow。</p>
-<p>对的。<br>如果我要用 await，那我就必须用 Babel 转译。</p>
-<p>对的。<br>然后我就能用上 Fetch、Promise 和各种炫酷的东西。</p>
-<p>嗯，别忘了加上 Fetch 的 Polyfill，因为 Safari 不支持 Fetch。<br>你猜怎么着，我们就聊到这吧。我不做了，我不做 Web 了，我也不想再碰 JS 了。</p>
-<p>没事，过不了几年，我们都会用 Elm 或者 WebAssembly 了。<br>我要回后端去了，我受不这些变动、版本更新、编译和转译了，JS 社区如果觉得有人能跟上它的脚步，那这个社区就是疯了。</p>
-<p>我理解你。我建议你去 Python 社区。<br>为什么？</p>
-<p>听说过 Python 3 吗？</p>
+<p id="div-border-right-green" style="width:90%;margin-left:10%">React 是一个非常厉害的库，Facebook 的牛人写的。它能让页面更可控，性能极高，而且使用起来很简单。</p>
+
+<p id="div-border-left-blue" style="width:90%">听起来确实不错。我能用 React 展示服务器传来的数据吗？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">当然可以，你只需要添加两个依赖，一个是 React，一个是 React DOM</p>
+
+<p id="div-border-left-blue" style="width:90%">额，等下，为什么是两个库？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">React 是我说的库，React DOM 是用来操作 DOM 的。因为这些 DOM 是用 JSX 写的，所以需要一个专门的库来操作。</p>
+
+<p id="div-border-left-blue" style="width:90%">JSX？JSX 是什么？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">JSX 是对 JS 的扩展，它看起来跟 XML 差不多，可以用来写 HTML，你可以认为 JSX 是一种更优雅的 HTML 写法。</p>
+
+<p id="div-border-left-blue" style="width:90%">为什么不用 HTML 了……？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">现在可是 2016 年啊，没有直接写 HTML 的。</p>
+
+<p id="div-border-left-blue" style="width:90%">对哦。好吧，加了这两个依赖，是不是就可以开始用 React 了？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">不行哦。你需要添加 Babel，然后才能用 React。</p>
+
+<p id="div-border-left-blue" style="width:90%">Babel 是另一个库？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">嗯，Babel 是一个转译工具，Babel 能把你写的 JS 转译成任意版本的 JS。你不一定非要用 Babel，但是如果你不用的话，你就只能写 ES5 的语法了。你知道的，现在是 2016 年，你怎么能不使用 ES2016+ 的语法呢？ES2016+ 多么酷啊。</p>
+
+<p id="div-border-left-blue" style="width:90%">ES5 是啥？ES2016+ 又是啥？我有点晕。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">ES5 就是 ECMAScript 5。大部分人都会使用 ES5，因为大部分浏览器都支持 ES5。</p>
+
+<p id="div-border-left-blue" style="width:90%">ECMAScript 是啥……</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">你晓得的，JS是1995年诞生的，而JS的标准是1999制定出来的。那时候 JavaScript 还叫做 Livescript，只能运行在网景的浏览器里。那时真是混乱的年代，现在好了，我们有了 JS 的 7 个版本的规范。</p>
+
+<p id="div-border-left-blue" style="width:90%">7 个版本？那 ES5 和 ES2016+ 是？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">分别是第 5 个版本和第 7 个版本。</p>
+
+<p id="div-border-left-blue" style="width:90%">诶，那第六个版本呢？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">你说的是 ES6。每个版本都是上一个版本的超集，所以你直接使用最新的 ES2016+ 就好了。</p>
+
+<p id="div-border-left-blue" style="width:90%">对哦。为什么不用 ES6 呢？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">好吧，你可以用 ES6，但是你就用不到 async 和 await 这么酷的语法了。用 ES2016+ 比较好。用 ES6 的话你就只能用 generator 来控制异步任务流了。</p>
+
+<p id="div-border-left-blue" style="width:90%">不知道你在说什么……你说了太多我听不懂的名词了。我只是想从服务器取点数据，我以前用 jQuery 挺好的，从 CDN 引入 jQuery，我就能用 AJAX 获取数据了，现在不能这样做吗？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">大哥，都 2016 年了，没人用 jQuery 好吗。所有人都知道用 jQuery 只会造出「意大利面条」一样的代码（不可维护）</p>
+
+<p id="div-border-left-blue" style="width:90%">好吧，所以我现在要加载三个库才能获取并展示数据。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">对的，其实你可以用「模块管理器」把这三个库「打包」成一个文件。</p>
+
+<p id="div-border-left-blue" style="width:90%">哦，什么是模块管理器……</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">不同平台的模块管理器不同啦。前端的模块管理器一般指管理 AMD 或者 CommonJS 模块的东西。</p>
+
+<p id="div-border-left-blue" style="width:90%">好……吧，什么是 AMD 和 CommonJS？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">是两个定义。我们有很多方式来描述 JS 中多个库或类的交互方式，比如 exports 和 requires。你可以按照 AMD 或者 CommonJS 的 API 来书写 JS，然后用 Browserify 将它们打包。</p>
+
+<p id="div-border-left-blue" style="width:90%">听起来很有道理。不过，什么是 Browserify？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">是一个工具，用来将 CommonJS 形式的 JS 文件打包起来，放到浏览器里运行。用 npm 仓库的人发明了 CommonJS。</p>
+
+<p id="div-border-left-blue" style="width:90%">npm 仓库是什么……</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">是一个公开的仓库，用于放置可依赖的模块。</p>
+
+<p id="div-border-left-blue" style="width:90%">就像一个 CDN 么？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">不太一样。它更像是一个数据库，每个人都能在上面发布代码，也能下载上面的代码。你可以在开发的时候将这些代码下载到本地来使用，必要的时候也能上传到 CDN。</p>
+
+<p id="div-border-left-blue" style="width:90%">听起来像是 Bower！</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">是的，不过现在是 2016 年了，没有人用 Bower 了……</p>
+
+<p id="div-border-left-blue" style="width:90%">好吧，我知道了，所以我应该用 npm 来安装依赖。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">对的。我举个例子吧，如果你要使用 React，你直接用 npm 安装 React，然后在代码里导入 React 就可以了。大部分 JS 库都能这么安装。</p>
+
+<p id="div-border-left-blue" style="width:90%">嗯，Angular 也可以。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">Angular 是 2015 年的事情了。不过今年 Angular 还没死，还有 VueJS 和 RxJS 等等，你想学一学么？</p>
+
+<p id="div-border-left-blue" style="width:90%">还是用 React 吧。我刚才已经学了够多东西了。所以我用 npm 安装 React 然后用 Browerify 来打包就好了？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">是的。</p>
+
+<p id="div-border-left-blue" style="width:90%">这么做看起来有点过于复杂啊。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">确实。这就是为什么你应该使用 Grunt、Gulp 或者 Broccoli 这样的任务管理工具，它们能自动运行 Browserify。不对，你现在可以用 Mimosa。</p>
+
+<p id="div-border-left-blue" style="width:90%">你在说什么……</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">任务管理工具。不过我们现在已经不用了。去年我们还在用，后来改成了 Makefiles，但是现在我们用的都是 Webpack。</p>
+
+<p id="div-border-left-blue" style="width:90%">我以为只有 C/C++ 项目才会用 Makefiles。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">是的，不过显然我们做 Web 开发的，喜欢先把事情搞复杂，然后回归到最朴素的状态。每年我们都是这么搞的。你就看着吧，过不了两年，我们就可以在网页上写汇编了。</p>
+
+<p id="div-border-left-blue" style="width:90%">唉，你刚才说的 Webpack 是什么？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">另一种模块管理工具，同时也是一个任务管理工具。你可以认为它是 Browserify 的加强版。</p>
+
+<p id="div-border-left-blue" style="width:90%">哦，好吧，为什么 Webpack 是加强版？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">额，可能并没有加强吧。Webpack 告诉你应该如何管理你的依赖，Webpack 允许你使用不同的模块管理器，不只是 CommonJS，甚至支持 ES6 模块。</p>
+
+<p id="div-border-left-blue" style="width:90%">这都是哪跟哪啊，我都被绕晕了。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">大家都被绕晕了，不过等 SystemJS 出来了就好了。</p>
+
+<p id="div-border-left-blue" style="width:90%">天呐，又一个 JS 库，这是什么鬼？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">呵呵，不像 Browserify 和 Webpack 1.x，SystemJS 是一个动态的模块加载器。</p>
+
+<p id="div-border-left-blue" style="width:90%">等下，刚才不是说应该把所有依赖打包成一个文件吗？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">话是这么说，但是等 HTTP/2 普及之后，不打包反而更好。</p>
+
+<p id="div-border-left-blue" style="width:90%">那为什么我们不直接在页面里添加 React 的三个依赖文件呢？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">不行。你可以从 CDN 加载这些文件，但是你还是要在本地用 Babel 转译。</p>
+
+<p id="div-border-left-blue" style="width:90%">唉，这么鹾？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">是的，你不能在生产环境上运行 babel，你应该在发布到生产环境之前，运行一系列的任务，包括压缩、混淆、内联化CSS、延迟加载script……</p>
+
+<p id="div-border-left-blue" style="width:90%">我懂了我懂了。既然我不能直接用 CDN，那么我应该怎么做？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">我会考虑用 Webpack + SystemJS + Babel 来转译 Typescript。</p>
+
+<p id="div-border-left-blue" style="width:90%">Typescript？我们不是在说 JavaScript 吗？！</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">Typescript 也是 JavaScript 呀，它比 JS 更好用，是 JS 的超集，它是基于 ES6 的，就是我们刚才谈论的 ES6，你还记得吧。</p>
+
+<p id="div-border-left-blue" style="width:90%">ES2016+ 已经是 ES6 的超集了，怎么又冒出来一个 Typescript？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">是这样的，Typescript 能让我们写出「强类型」的 JS，从而减少运行时的错误。2016年，我们应该让 JS 支持强类型了。</p>
+
+<p id="div-border-left-blue" style="width:90%">显然 Typescript 可以做到。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">Flow 也可以做到，区别是 Typescript 需要编译，而 Flow 只是检查语法。</p>
+
+<p id="div-border-left-blue" style="width:90%">唉，Flow 是？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">是一个静态类型检查器，就是 Facebook 的人写的。使用 OCaml 写的，函数式编程很叼的。</p>
+
+<p id="div-border-left-blue" style="width:90%">OCaml？函数式编程？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">如今大牛都用这些东西，都2016年了，你懂的，函数式编程、高阶函数、柯里化、纯函数这些概念。</p>
+
+<p id="div-border-left-blue" style="width:90%">不知道你在说什么。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">一开始大家都不知道。这么说吧，你只需要知道函数式编程比面向对象编程厉害，2016 年我们就指着函数式编程了。</p>
+
+<p id="div-border-left-blue" style="width:90%">等下，我大学里学过面向对象编程，当时我觉得它还不错。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">Java 在被 Oracle 买下来之前也挺不错啊。我的意思是，面向对象以前是不错，现在依然有人用它，但是现在所有人都发觉状态变换是很难维护的，所以大家都开始用「不可变对象」和函数式编程了。Haskell 的人已经用这套东西用了很久了，不过幸运的是 Web 开发领域里有 Ramda 这样的库，让我们用 JS 就可以进行函数式编程了。</p>
+
+<p id="div-border-left-blue" style="width:90%">你刚刚是不是又抛出了几个名词？Ramnda 又是什么？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">不是 Ramnda，是 Ramda，跟 Lambda 表达式有点像。是 David Chambers 写的库。</p>
+
+<p id="div-border-left-blue" style="width:90%">谁？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">David Chambers，大神一个。blablabla</p>
+
+<p id="div-border-left-blue" style="width:90%">我不得不打断你一下了。这些东西看起来都不错，但是我觉得它们都太复杂，而且没必要。我只是想获取数据然后展示，我很确定这种情况下我不需要掌握这些知识。</p>
+
+<p id="div-border-left-blue" style="width:90%">回到 React 吧，用 React 我怎么从服务器获取数据？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">额，React 没有提供这个功能，你只能用 React 展示数据。</p>
+
+<p id="div-border-left-blue" style="width:90%">服了啊。那我怎么获取数据？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">你用 Fetch API 就可以了。</p>
+
+<p id="div-border-left-blue" style="width:90%">啥玩意？这个 API 的名字很烂啊。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">我也觉得是啊。Fetch API 是浏览器提供的异步请求接口。</p>
+
+<p id="div-border-left-blue" style="width:90%">哦，那不就是 AJAX。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">AJAX 只是使用 XMLHttpRequest 对象，但是 Fetch API 可以让你用 Promise 风格来发起异步请求，帮你摆脱「回调地狱」。</p>
+
+<p id="div-border-left-blue" style="width:90%">回调地狱？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">是的，每次你发起一个异步请求，就得等待它响应。这时你就得在函数里使用一个函数，这种嵌套调用就是回调地狱。</p>
+
+<p id="div-border-left-blue" style="width:90%">好吧。Promise 解决了这个问题么？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">是的。用 Promise 来管理回调，你就可以写出更易读的代码，更容易测试的代码。甚至可以同时发起多个请求，然后等待它们全部返回。</p>
+
+<p id="div-border-left-blue" style="width:90%">Fetch 也能做到吗？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">是的。但前提是你的用户使用了新版的浏览器，不然的话你就需要加一个 Fetch 的 「polyfill」，或者使用 Request、Bluebird 或者 Axios 这些库。</p>
+
+<p id="div-border-left-blue" style="width:90%">天呐我到底需要多少个库？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">这是 JS，同一件事情有上千个库在做。我们了解库，而且我们有最好的库，我们有海量的库，要什么有什么。</p>
+
+<p id="div-border-left-blue" style="width:90%">你刚才说的几个库都是干什么的？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">这几个库操作 XMLHttpRequest 然后返回 Promise 对象。</p>
+
+<p id="div-border-left-blue" style="width:90%">好像 jQuery 的 ajax 方法做的是同样的事吧……</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">从 2016 年起我们就不用 jQuery 了。用 Fetch，大不了加个 Polyfill，要不然用 Bluebird、Request 或者 Axios 都行。然后用 await 和 async 管理 Promise，这样才能控制好异步任务。</p>
+
+<p id="div-border-left-blue" style="width:90%">这是你第三次说 await 了，那是什么东西？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">await 能让你拦住一个异步调用，让你更好地控制异步返回的数据，大大增强了代码的可读性。await 非常好用，你只需要在 Babel 里添加 stage–3 配置，或者添加 syntax-async-functions 和 transform-async-to-generator 插件就可以了。</p>
+
+<p id="div-border-left-blue" style="width:90%">听起来像是疯了。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">没疯。为了使用 await，把 Typescript 编译之后再用 Babel 转译一道的人才是疯了。</p>
+
+<p id="div-border-left-blue" style="width:90%">啥玩意？Typescript 不支持 await？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">下个版本就支持了。</p>
+
+<p id="div-border-left-blue" style="width:90%">我已经无话可说了。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">你看其实很简单。用 Typescript 写代码，用 Fetch 发起异步请求，所有代码编译成 ES6，然后用上 Babel 的 stage–3 配置项，把 ES6 转译成 ES5。所有代码用 SystemJS 加载。如果你用不了 Fetch，就加个 polyfill，或者用 Bluebird、Request 或者 Axios，这样你就可以用 await 来处理 Promise 了。</p>
+
+<p id="div-border-left-blue" style="width:90%">看来我们俩对于「简单」的理解是不同的。好吧，有了这些，我终于可以获取数据然后用 React 展示数据了，对吧？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">你的网页需要处理状态变更吗？</p>
+
+<p id="div-border-left-blue" style="width:90%">唔，不用吧。我只是想展示数据。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">那就好，不然我就得跟你解释 Flux，以及 Flux 的一些实现，比如 Flummox、Alt、Fluxible。不过说真的你应该用 Redux。</p>
+
+<p id="div-border-left-blue" style="width:90%">你说的这些我就当耳旁风了。再说一次，我只想展示数据。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">这样啊，如果你只是想展示数据，其实你不需要 React。你只需要一个模板引擎。</p>
+
+<p id="div-border-left-blue" style="width:90%">你逗我呢？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">我只是告诉你你可以用什么技术。</p>
+
+<p id="div-border-left-blue" style="width:90%">别说了，真的。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">我想说，即使只是用一个模板引擎，我还是会用 Typescript + SystemJS + Babel 的。</p>
+
+<p id="div-border-left-blue" style="width:90%">我只是想在页面上展示数据，你就告诉我用哪个模板引擎就好了。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">有很多，你用过哪一个？</p>
+
+<p id="div-border-left-blue" style="width:90%">额，太久没用了，不记得了。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">jTemplates、jQote 还是 PURE？</p>
+
+<p id="div-border-left-blue" style="width:90%">额，不记得，还有别的么？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">Transparency? JSRender? MarkupJS? KnockoutJS? 这一个支持双向绑定。</p>
+
+<p id="div-border-left-blue" style="width:90%">还有吗？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">PlatesJS? jQuery-tmpl? Handlebars? 还有些人在用。</p>
+
+<p id="div-border-left-blue" style="width:90%">有点像。有哪些跟最后一个比较像的？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">Mustache, underscore? 我记得连 Lodash 都有一个模板引擎，不过这是 2014 年的事情了。</p>
+
+<p id="div-border-left-blue" style="width:90%">额，也许是再新一点的库？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">Jade? DustJS？</p>
+
+<p id="div-border-left-blue" style="width:90%">没用过</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">DotJS? EJS？</p>
+
+<p id="div-border-left-blue" style="width:90%">没用过。</p><p id="div-border-right-green" style="width:90%;margin-left:10%">Nunjucks? ECT?</p>
+
+<p id="div-border-left-blue" style="width:90%">没用过。记不起来了，要是你的话，你用哪个？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">我应该会用 ES6 原生的模板字符串</p>
+
+<p id="div-border-left-blue" style="width:90%">我猜猜，只有 ES6 支持。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">对的。</p>
+
+<p id="div-border-left-blue" style="width:90%">需要用 Babel</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">对的。</p>
+
+<p id="div-border-left-blue" style="width:90%">需要用 npm 安装</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">对的。</p>
+
+<p id="div-border-left-blue" style="width:90%">需要用 Browserify 或者 Webpack，或者 SystemJS</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">对的。</p>
+
+<p id="div-border-left-blue" style="width:90%">如果没用 Webpack 的话，我还需要一个任务管理工具。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">对的。</p>
+
+<p id="div-border-left-blue" style="width:90%">但是由于我要用函数式编程和强类型语言，所以我首先要用上 Typescript 或者 Flow。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">对的。</p>
+
+<p id="div-border-left-blue" style="width:90%">如果我要用 await，那我就必须用 Babel 转译。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">对的。</p>
+
+<p id="div-border-left-blue" style="width:90%">然后我就能用上 Fetch、Promise 和各种炫酷的东西。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">嗯，别忘了加上 Fetch 的 Polyfill，因为 Safari 不支持 Fetch。</p>
+
+<p id="div-border-left-blue" style="width:90%">你猜怎么着，我们就聊到这吧。我不做了，我不做 Web 了，我也不想再碰 JS 了。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">没事，过不了几年，我们都会用 Elm 或者 WebAssembly 了。</p>
+
+<p id="div-border-left-blue" style="width:90%">我要回后端去了，我受不这些变动、版本更新、编译和转译了，JS 社区如果觉得有人能跟上它的脚步，那这个社区就是疯了。</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">我理解你。我建议你去 Python 社区。</p>
+
+<p id="div-border-left-blue" style="width:90%">为什么？</p>
+
+<p id="div-border-right-green" style="width:90%;margin-left:10%">听说过 Python 3 吗？</p><br><blockquote class="blockquote-center">完</blockquote><br><p id="div-border-top-blue"><i>译者注：最后一句「听说过 Python 3 吗？」是讽刺 Python 3 发布已经 8 年了，Python 社区却依然在使用 Python 2.7。而 JS 社区正好相反，把还没有实现的语言特性都用到生成环境中了！</i></p>
+
+<p>译者：方应杭<br><a href="https://link.zhihu.com/?target=https%3A//hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f" target="_blank" rel="external">原文</a></p>
+<p>平时想跟我交流的话，可以私信我的微博：<a href="http://weibo.com/Neveryu" target="_blank" rel="external">http://weibo.com/Neveryu</a></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[Git学习总结]]></title>
-      <url>https://neveryu.github.io/2016/10/07/git/</url>
+      <url>https://neveryu.github.io/2016/git/</url>
       <content type="html"><![CDATA[<h2 id="从svn到git"><a href="#从svn到git" class="headerlink" title="从svn到git"></a>从svn到git</h2><p>两者都是优秀的版本管理工具（giter请不要鄙视svner）</p>
 <ul>
 <li>svn上手非常容易，操作简单</li>
@@ -174,17 +421,18 @@
     
     <entry>
       <title><![CDATA[Hexo-NexT搭建个人博客（二）]]></title>
-      <url>https://neveryu.github.io/2016/09/30/hexo-next-two/</url>
-      <content type="html"><![CDATA[<p>本篇文章将介绍基于NexT主题下的一些扩展功能的实现。<br>首先，我们需要明白：<br><strong> hexo目录下有一个_config.yml的配置文件，我们称之为“站点配置文件”。<br>在主题文件夹下也有一个_config.yml的配置文件，我们称之为“主题配置文件”。 </strong></p>
-<p>菜单配置包括两个部分，第一是菜单项（名称和链接），第二是菜单项的显示文本，第三是菜单项对应的图标。NexT使用的是Font Awesome提供的图标。</p>
+      <url>https://neveryu.github.io/2016/hexo-next-two/</url>
+      <content type="html"><![CDATA[<p>本篇文章将介绍基于NexT主题下的一些扩展功能的实现。<br>首先，我们需要明白：</p>
+<p id="div-border-left-yellow">在 Hexo 中有两份主要的配置文件，其名称都是 _config.yml 。其中，一份位于站点根目录下，主要包含 Hexo 本身的配置；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项。<br>  我们约定，将前者称为 <span id="inline-blue">站点配置文件</span>，后者称为 <span id="inline-purple">主题配置文件</span></p>
+
 <p>设置侧栏的位置，修改 sidebar.position 的值，支持的选项有：left right<br>目前仅 Pisces Scheme 支持 position 配置，也就是说NexT主题的侧栏位置是不能设置的，设置了也没用，反正都在右边。</p>
 <a id="more"></a>
 <h4 id="1-关于添加居中模块"><a href="#1-关于添加居中模块" class="headerlink" title="1. 关于添加居中模块"></a>1. 关于添加居中模块</h4><p><blockquote class="blockquote-center">认真的人才有资格开玩笑</blockquote><br>代码如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">blockquote</span> <span class="attr">class</span>=<span class="string">"blockquote-center"</span>&gt;</span>认真的人才有资格开玩笑<span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h4 id="2-添加High一下"><a href="#2-添加High一下" class="headerlink" title="2. 添加High一下"></a>2. 添加High一下</h4><p>打开博客根目录\themes\next\layout_partials\header.swig，在<br><code>&lt;ul&gt; ... /ul&gt;</code><br>标签之间加入以下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div></pre></td><td class="code"><pre><div class="line">&lt;li&gt; &lt;a title=&quot;把这个链接拖到你的Chrome收藏夹工具栏中&quot; href=&apos;javascript:(function() &#123;</div><div class="line">    function c() &#123;</div><div class="line">        var e = document.createElement(&quot;link&quot;);</div><div class="line">        e.setAttribute(&quot;type&quot;, &quot;text/css&quot;);</div><div class="line">        e.setAttribute(&quot;rel&quot;, &quot;stylesheet&quot;);</div><div class="line">        e.setAttribute(&quot;href&quot;, f);</div><div class="line">        e.setAttribute(&quot;class&quot;, l);</div><div class="line">        document.body.appendChild(e)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function h() &#123;</div><div class="line">        var e = document.getElementsByClassName(l);</div><div class="line">        for (var t = 0; t &lt; e.length; t++) &#123;</div><div class="line">            document.body.removeChild(e[t])</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function p() &#123;</div><div class="line">        var e = document.createElement(&quot;div&quot;);</div><div class="line">        e.setAttribute(&quot;class&quot;, a);</div><div class="line">        document.body.appendChild(e);</div><div class="line">        setTimeout(function() &#123;</div><div class="line">            document.body.removeChild(e)</div><div class="line">        &#125;, 100)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function d(e) &#123;</div><div class="line">        return &#123;</div><div class="line">            height : e.offsetHeight,</div><div class="line">            width : e.offsetWidth</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function v(i) &#123;</div><div class="line">        var s = d(i);</div><div class="line">        return s.height &gt; e &amp;&amp; s.height &lt; n &amp;&amp; s.width &gt; t &amp;&amp; s.width &lt; r</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function m(e) &#123;</div><div class="line">        var t = e;</div><div class="line">        var n = 0;</div><div class="line">        while (!!t) &#123;</div><div class="line">            n += t.offsetTop;</div><div class="line">            t = t.offsetParent</div><div class="line">        &#125;</div><div class="line">        return n</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function g() &#123;</div><div class="line">        var e = document.documentElement;</div><div class="line">        if (!!window.innerWidth) &#123;</div><div class="line">            return window.innerHeight</div><div class="line">        &#125; else if (e &amp;&amp; !isNaN(e.clientHeight)) &#123;</div><div class="line">            return e.clientHeight</div><div class="line">        &#125;</div><div class="line">        return 0</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function y() &#123;</div><div class="line">        if (window.pageYOffset) &#123;</div><div class="line">            return window.pageYOffset</div><div class="line">        &#125;</div><div class="line">        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function E(e) &#123;</div><div class="line">        var t = m(e);</div><div class="line">        return t &gt;= w &amp;&amp; t &lt;= b + w</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function S() &#123;</div><div class="line">        var e = document.createElement(&quot;audio&quot;);</div><div class="line">        e.setAttribute(&quot;class&quot;, l);</div><div class="line">        e.src = i;</div><div class="line">        e.loop = false;</div><div class="line">        e.addEventListener(&quot;canplay&quot;, function() &#123;</div><div class="line">            setTimeout(function() &#123;</div><div class="line">                x(k)</div><div class="line">            &#125;, 500);</div><div class="line">            setTimeout(function() &#123;</div><div class="line">                N();</div><div class="line">                p();</div><div class="line">                for (var e = 0; e &lt; O.length; e++) &#123;</div><div class="line">                    T(O[e])</div><div class="line">                &#125;</div><div class="line">            &#125;, 15500)</div><div class="line">        &#125;, true);</div><div class="line">        e.addEventListener(&quot;ended&quot;, function() &#123;</div><div class="line">            N();</div><div class="line">            h()</div><div class="line">        &#125;, true);</div><div class="line">        e.innerHTML = &quot; &lt;p&gt;If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.&lt;/p&gt; &lt;p&gt;&quot;;</div><div class="line">        document.body.appendChild(e);</div><div class="line">        e.play()</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function x(e) &#123;</div><div class="line">        e.className += &quot; &quot; + s + &quot; &quot; + o</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function T(e) &#123;</div><div class="line">        e.className += &quot; &quot; + s + &quot; &quot; + u[Math.floor(Math.random() * u.length)]</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function N() &#123;</div><div class="line">        var e = document.getElementsByClassName(s);</div><div class="line">        var t = new RegExp(&quot;\\b&quot; + s + &quot;\\b&quot;);</div><div class="line">        for (var n = 0; n &lt; e.length; ) &#123;</div><div class="line">            e[n].className = e[n].className.replace(t, &quot;&quot;)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    var e = 30;</div><div class="line">    var t = 30;</div><div class="line">    var n = 350;</div><div class="line">    var r = 350;</div><div class="line">    var i = &quot;//7xuupy.com1.z0.glb.clouddn.com/tongxingSibel%20-%20Im%20Sorry.mp3&quot;;</div><div class="line">    var s = &quot;mw-harlem_shake_me&quot;;</div><div class="line">    var o = &quot;im_first&quot;;</div><div class="line">    var u = [&quot;im_drunk&quot;, &quot;im_baked&quot;, &quot;im_trippin&quot;, &quot;im_blown&quot;];</div><div class="line">    var a = &quot;mw-strobe_light&quot;;</div><div class="line">    var f = &quot;//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css&quot;;</div><div class="line">    var l = &quot;mw_added_css&quot;;</div><div class="line">    var b = g();</div><div class="line">    var w = y();</div><div class="line">    var C = document.getElementsByTagName(&quot;*&quot;);</div><div class="line">    var k = null;</div><div class="line">    for (var L = 0; L &lt; C.length; L++) &#123;</div><div class="line">        var A = C[L];</div><div class="line">        if (v(A)) &#123;</div><div class="line">            if (E(A)) &#123;</div><div class="line">                k = A;</div><div class="line">                break</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    if (A === null) &#123;</div><div class="line">        console.warn(&quot;Could not find a node of the right size. Please try a different page.&quot;);</div><div class="line">        return</div><div class="line">    &#125;</div><div class="line">    c();</div><div class="line">    S();</div><div class="line">    var O = [];</div><div class="line">    for (var L = 0; L &lt; C.length; L++) &#123;</div><div class="line">        var A = C[L];</div><div class="line">        if (v(A)) &#123;</div><div class="line">            O.push(A)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    &#125;)()    &apos;&gt;High一下&lt;/a&gt; &lt;/li&gt;</div></pre></td></tr></table></figure></p>
+<h4 id="2-添加High一下"><a href="#2-添加High一下" class="headerlink" title="2. 添加High一下"></a>2. 添加High一下</h4><p>打开博客根目录 <code>\themes\next\layout_partials\header.swig</code> ，在<br><code>&lt;ul&gt; ... /ul&gt;</code><br>标签之间加入以下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div></pre></td><td class="code"><pre><div class="line">&lt;li&gt; &lt;a title=&quot;把这个链接拖到你的Chrome收藏夹工具栏中&quot; href=&apos;javascript:(function() &#123;</div><div class="line">    function c() &#123;</div><div class="line">        var e = document.createElement(&quot;link&quot;);</div><div class="line">        e.setAttribute(&quot;type&quot;, &quot;text/css&quot;);</div><div class="line">        e.setAttribute(&quot;rel&quot;, &quot;stylesheet&quot;);</div><div class="line">        e.setAttribute(&quot;href&quot;, f);</div><div class="line">        e.setAttribute(&quot;class&quot;, l);</div><div class="line">        document.body.appendChild(e)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function h() &#123;</div><div class="line">        var e = document.getElementsByClassName(l);</div><div class="line">        for (var t = 0; t &lt; e.length; t++) &#123;</div><div class="line">            document.body.removeChild(e[t])</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function p() &#123;</div><div class="line">        var e = document.createElement(&quot;div&quot;);</div><div class="line">        e.setAttribute(&quot;class&quot;, a);</div><div class="line">        document.body.appendChild(e);</div><div class="line">        setTimeout(function() &#123;</div><div class="line">            document.body.removeChild(e)</div><div class="line">        &#125;, 100)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function d(e) &#123;</div><div class="line">        return &#123;</div><div class="line">            height : e.offsetHeight,</div><div class="line">            width : e.offsetWidth</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function v(i) &#123;</div><div class="line">        var s = d(i);</div><div class="line">        return s.height &gt; e &amp;&amp; s.height &lt; n &amp;&amp; s.width &gt; t &amp;&amp; s.width &lt; r</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function m(e) &#123;</div><div class="line">        var t = e;</div><div class="line">        var n = 0;</div><div class="line">        while (!!t) &#123;</div><div class="line">            n += t.offsetTop;</div><div class="line">            t = t.offsetParent</div><div class="line">        &#125;</div><div class="line">        return n</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function g() &#123;</div><div class="line">        var e = document.documentElement;</div><div class="line">        if (!!window.innerWidth) &#123;</div><div class="line">            return window.innerHeight</div><div class="line">        &#125; else if (e &amp;&amp; !isNaN(e.clientHeight)) &#123;</div><div class="line">            return e.clientHeight</div><div class="line">        &#125;</div><div class="line">        return 0</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function y() &#123;</div><div class="line">        if (window.pageYOffset) &#123;</div><div class="line">            return window.pageYOffset</div><div class="line">        &#125;</div><div class="line">        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function E(e) &#123;</div><div class="line">        var t = m(e);</div><div class="line">        return t &gt;= w &amp;&amp; t &lt;= b + w</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function S() &#123;</div><div class="line">        var e = document.createElement(&quot;audio&quot;);</div><div class="line">        e.setAttribute(&quot;class&quot;, l);</div><div class="line">        e.src = i;</div><div class="line">        e.loop = false;</div><div class="line">        e.addEventListener(&quot;canplay&quot;, function() &#123;</div><div class="line">            setTimeout(function() &#123;</div><div class="line">                x(k)</div><div class="line">            &#125;, 500);</div><div class="line">            setTimeout(function() &#123;</div><div class="line">                N();</div><div class="line">                p();</div><div class="line">                for (var e = 0; e &lt; O.length; e++) &#123;</div><div class="line">                    T(O[e])</div><div class="line">                &#125;</div><div class="line">            &#125;, 15500)</div><div class="line">        &#125;, true);</div><div class="line">        e.addEventListener(&quot;ended&quot;, function() &#123;</div><div class="line">            N();</div><div class="line">            h()</div><div class="line">        &#125;, true);</div><div class="line">        e.innerHTML = &quot; &lt;p&gt;If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.&lt;/p&gt; &lt;p&gt;&quot;;</div><div class="line">        document.body.appendChild(e);</div><div class="line">        e.play()</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function x(e) &#123;</div><div class="line">        e.className += &quot; &quot; + s + &quot; &quot; + o</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function T(e) &#123;</div><div class="line">        e.className += &quot; &quot; + s + &quot; &quot; + u[Math.floor(Math.random() * u.length)]</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    function N() &#123;</div><div class="line">        var e = document.getElementsByClassName(s);</div><div class="line">        var t = new RegExp(&quot;\\b&quot; + s + &quot;\\b&quot;);</div><div class="line">        for (var n = 0; n &lt; e.length; ) &#123;</div><div class="line">            e[n].className = e[n].className.replace(t, &quot;&quot;)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    var e = 30;</div><div class="line">    var t = 30;</div><div class="line">    var n = 350;</div><div class="line">    var r = 350;</div><div class="line">    var i = &quot;//7xuupy.com1.z0.glb.clouddn.com/tongxingSibel%20-%20Im%20Sorry.mp3&quot;;</div><div class="line">    var s = &quot;mw-harlem_shake_me&quot;;</div><div class="line">    var o = &quot;im_first&quot;;</div><div class="line">    var u = [&quot;im_drunk&quot;, &quot;im_baked&quot;, &quot;im_trippin&quot;, &quot;im_blown&quot;];</div><div class="line">    var a = &quot;mw-strobe_light&quot;;</div><div class="line">    var f = &quot;//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css&quot;;</div><div class="line">    var l = &quot;mw_added_css&quot;;</div><div class="line">    var b = g();</div><div class="line">    var w = y();</div><div class="line">    var C = document.getElementsByTagName(&quot;*&quot;);</div><div class="line">    var k = null;</div><div class="line">    for (var L = 0; L &lt; C.length; L++) &#123;</div><div class="line">        var A = C[L];</div><div class="line">        if (v(A)) &#123;</div><div class="line">            if (E(A)) &#123;</div><div class="line">                k = A;</div><div class="line">                break</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    if (A === null) &#123;</div><div class="line">        console.warn(&quot;Could not find a node of the right size. Please try a different page.&quot;);</div><div class="line">        return</div><div class="line">    &#125;</div><div class="line">    c();</div><div class="line">    S();</div><div class="line">    var O = [];</div><div class="line">    for (var L = 0; L &lt; C.length; L++) &#123;</div><div class="line">        var A = C[L];</div><div class="line">        if (v(A)) &#123;</div><div class="line">            O.push(A)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    &#125;)()    &apos;&gt;High一下&lt;/a&gt; &lt;/li&gt;</div></pre></td></tr></table></figure></p>
 <h4 id="3-添加最近访客"><a href="#3-添加最近访客" class="headerlink" title="3. 添加最近访客"></a>3. 添加最近访客</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">最近访客</div><div class="line">&lt;div class=&quot;ds-recent-visitors&quot; data-num-items=&quot;39&quot; data-avatar-size=&quot;40&quot; id=&quot;ds-recent-visitors&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
 <h4 id="4-鼠标点击小红心的设置"><a href="#4-鼠标点击小红心的设置" class="headerlink" title="4. 鼠标点击小红心的设置"></a>4. 鼠标点击小红心的设置</h4><ol>
-<li>将<a href="https://github.com/Neveryu/Neveryu.github.io/blob/master/js/src/love.js" target="_blank" rel="external">love.js</a>文件添加到<code>\themes\next\source\js\src</code>文件目录下。</li>
-<li>找到<code>\themes\next\layout\_layout.swing</code>文件，<strong> 在文件的后面，<code>&lt;/body&gt;</code>标签之前 </strong> 添加以下代码：<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 页面点击小红心 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"/js/src/love.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<li>将 <a href="https://github.com/Neveryu/Neveryu.github.io/blob/master/js/src/love.js" target="_blank" rel="external">love.js</a> 文件添加到 <code>\themes\next\source\js\src</code> 文件目录下。</li>
+<li>找到 <code>\themes\next\layout\_layout.swing</code> 文件，<strong> 在文件的后面，<code>&lt;/body&gt;</code>标签之前 </strong> 添加以下代码：<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 页面点击小红心 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"/js/src/love.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
 </ol>
 <h4 id="5-背景的设置"><a href="#5-背景的设置" class="headerlink" title="5. 背景的设置"></a>5. 背景的设置</h4><ol>
@@ -201,15 +449,15 @@
     
     <entry>
       <title><![CDATA[如果深圳的夜晚没有风]]></title>
-      <url>https://neveryu.github.io/2016/09/25/essay-20160925/</url>
-      <content type="html"><![CDATA[<blockquote class="blockquote-left">这座城市人很多，每天在路上都能看到好多拉着行李箱的人，不管他们是来到这座城市还是离开这座城市，至少他们都曾努力过。<br></blockquote>
+      <url>https://neveryu.github.io/2016/essay-20160925/</url>
+      <content type="html"><![CDATA[<p id="div-border-top-green">这座城市人很多，每天在路上都能看到好多拉着行李箱的人，不管他们是来到这座城市还是离开这座城市，至少他们都曾努力过。<br></p>
 
 <p><br></p>
 <a id="more"></a>
-<p>其实专业做博客的网站还是挺多的，比如说CSDN是吧，我之前也是在CSDN上面写一点东西，我的CSDN博客<a href="http://blog.csdn.net/csdn_yudong" target="_blank" rel="external">http://blog.csdn.net/csdn_yudong</a>。但是CSDN毕竟是一个技术类的博客网站，如果写一点生活杂谈还是不太好，而且CSDN上面挂载的广告，以及页面风格，我不太喜欢，因为我喜欢【精于心，简于形】，这波<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">NexT</a>主题的广告是不是很硬。</p>
+<p>其实专业做博客的网站还是挺多的，比如说 CSDN 是吧，我之前也是在 CSDN 上面写一点东西，我的 CSDN 博客 <a href="http://blog.csdn.net/csdn_yudong" target="_blank" rel="external">http://blog.csdn.net/csdn_yudong</a> 。但是 CSDN 毕竟是一个技术类的博客网站，如果写一点生活杂谈还是不太好，而且 CSDN 上面挂载的广告，以及页面风格，我不太喜欢，因为我喜欢【精于心，简于形】，这波 <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">NexT</a> 主题的广告是不是很硬。</p>
 <p>在我想做博客之前，一直到我开始着手做这个博客，其实花了好久时间。而在我着手开始做这个博客，到这个博客完成，其实并没有花多久。也说明了一个道理，就是一定要勇于尝试，关键是要动手。我想起了马士兵老师的一句话，一个新鲜的事物，你一定要先去用它，应用驱动学习。——<a href="https://neveryu.github.io/weblog/">我的建站日志</a>有记录网站的建设过程。</p>
 <p>究其原因：第一个，我觉得是自己考虑的太多，没有太大的把握就不会轻易的去尝试，所以我在着手做这个之前花了很多的时间去查，域名空间这些的，而且这些出售这些的服务商也挺多的，我这个人有选择恐惧症。也是怪尴尬的，每次看到一个东西有好多选择的时候，我都去比较，去分析，头痛。。而且我想，域名空间搞好以后，还要自己写页面这些的。关键是还要设计博客风格，页面样式这些的，一想到这些，就感觉是一个不小的工程啊，后来才发现我多虑了。</p>
-<p>后来，无意中看到了Hexo的Next主题的一篇博客，风格样式挺不错的，感谢<a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>和<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">Next</a>的文档写的如此的棒，以至于每一个人都能根据教程搭建一个自己的博客。这一切是如此的美好。</p>
+<p>后来，无意中看到了Hexo的Next主题的一篇博客，风格样式挺不错的，感谢 <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a> 和 <a href="http://theme-next.iissnan.com/" target="_blank" rel="external">Next</a> 的文档写的如此的棒，以至于每一个人都能根据教程搭建一个自己的博客。这一切是如此的美好。</p>
 <p>最后送给大家一首歌，晚安。</p>
 <p></p><p></p><p></p>
 <blockquote class="blockquote-center"><br>    <embed src="http://music.163.com/style/swf/widget.swf?sid=254359&type=2&auto=0&width=320&height=66" width="340" height="86" allownetworking="all" oncontextmenu="return false"><br></blockquote>
@@ -221,7 +469,7 @@
     
     <entry>
       <title><![CDATA[Hexo-NexT搭建个人博客（一）]]></title>
-      <url>https://neveryu.github.io/2016/09/03/hexo-next-one/</url>
+      <url>https://neveryu.github.io/2016/hexo-next-one/</url>
       <content type="html"><![CDATA[<p><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo</a> 是一个快速、简洁且高效的静态站点生成框架，它基于 <a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a> 。 它有以下特点：</p>
 <ul>
 <li><i class="fa fa-bolt"></i><h6 style="display: inline;">　超快速度</h6><br><i>Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。</i></li>
@@ -261,8 +509,8 @@
 <p id="div-border-left-yellow">在 Hexo 中有两份主要的配置文件，其名称都是 _config.yml 。其中，一份位于站点根目录下，主要包含 Hexo 本身的配置；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项。<br>  我们约定，将前者称为 <span id="inline-blue">站点配置文件</span>，后者称为 <span id="inline-purple">主题配置文件</span></p>
 
 <h4 id="启用-NexT-主题"><a href="#启用-NexT-主题" class="headerlink" title="启用 NexT 主题"></a>启用 NexT 主题</h4><p>打开 <span id="inline-blue">站点配置文件</span> ，找到 <code>theme</code> 字段，并将其值更改为 <code>next</code> 。<br>到此， NexT 主题安装完成。下一步我们将验证主题是否正确启用。在切换主题之后、验证之前，我们最好使用 <code>hexo clean</code> 来清除 Hexo 的缓存。</p>
-<h4 id="验证主题"><a href="#验证主题" class="headerlink" title="验证主题"></a>验证主题</h4><p>首先启动 Hexo 本地站点，并开启调试模式（即加上 <code>--debug</code>），整个命令是 <code>hexo s --debug</code> 。在服务启动的过程，注意观察命令行输出是否有任何异常信息。当命令行输出中提示：<br><code>INFO  Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</code><br>此时即可使用浏览器访问 <code>http://localhost:4000/</code> ，检查站点是否正确运行。</p>
-<p id="div-border-left-green">当你看到站点的外观与下图所示类似时即说明你已成功安装 NexT 主题。这是 NexT 默认的 Scheme —— Muse</p><br><img src="http://p1.bqimg.com/567571/8333728b5eaab526.png" alt="hexo-next-one-1"><br>现在，我们已经成功安装并启用了 NexT 主题。<br><br>### Create a new post<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure><br><br>hexo new “My New Post”会在 source_posts 目录下生成一个 markdown 文件：My-New-Post.md.<br>我们可以使用一个支持markdown语法的编辑器（比如Sublime）来编辑该文件。<br><br><br>### Deploy to remote sites<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure><br><br>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a><br><br><p id="div-border-top-blue">关于更多基本操作和基础知识，请查阅 <a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo</a> 与 <a href="http://theme-next.iissnan.com/" target="_blank" rel="external">NexT</a> 官方文档.</p>
+<h4 id="验证主题"><a href="#验证主题" class="headerlink" title="验证主题"></a>验证主题</h4><p>首先启动 Hexo 本地站点，并开启调试模式（即加上 <code>--debug</code>），整个命令是 <code>hexo s --debug</code>。在服务启动的过程，注意观察命令行输出是否有任何异常信息。当命令行输出中提示：<br><code>INFO  Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</code><br>此时即可使用浏览器访问 <code>http://localhost:4000/</code> ，检查站点是否正确运行。</p>
+<p id="div-border-left-green">当你看到站点的外观与下图所示类似时即说明你已成功安装 NexT 主题。这是 NexT 默认的 Scheme —— Muse</p><br><img src="http://p1.bqimg.com/567571/8333728b5eaab526.png" alt="hexo-next-one-1"><br>现在，我们已经成功安装并启用了 NexT 主题。<br><br><p id="div-border-top-blue">关于更多基本操作和基础知识，请查阅 <a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo</a> 与 <a href="http://theme-next.iissnan.com/" target="_blank" rel="external">NexT</a> 官方文档.</p>
 
 
 <h3 id="总结：本地调试步骤"><a href="#总结：本地调试步骤" class="headerlink" title="总结：本地调试步骤"></a>总结：本地调试步骤</h3><p>三部曲：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo clean</div><div class="line">$ hexo g</div><div class="line">$ hexo s --debug</div></pre></td></tr></table></figure></p>
