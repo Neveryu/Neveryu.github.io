@@ -415,7 +415,7 @@
 <h4 id="对于ssh协议，可以用ssh-key，具体教程网上很多"><a href="#对于ssh协议，可以用ssh-key，具体教程网上很多" class="headerlink" title="对于ssh协议，可以用ssh  key，具体教程网上很多"></a>对于ssh协议，可以用ssh  key，具体教程网上很多</h4><h3 id="忽略文件"><a href="#忽略文件" class="headerlink" title="忽略文件"></a>忽略文件</h3><p>默认方法是在当前项目目录下创建一个.gitignore文件，如果需要忽略的文件已经添加到版本库中，请先移除<br><code>git rm --cached [file]</code><br>不删除文件，只移除追踪。</p>
 <p><a href="http://git-scm.com/book/zh/v2" target="_blank" rel="external">权威教程</a></p>
 <hr>
-<p>作者：<a href="http://localhost:4000/about" target="_blank" rel="external">Never_yu</a></p>
+<p><span id="inline-green" style="border-radius:3px;">作者</span>： <a href="https://neveryu.github.io/">Neveryu</a></p>
 ]]></content>
     </entry>
     
@@ -444,6 +444,7 @@
 <h4 id="8-多说评论不稳定，加载速度慢怎么办？"><a href="#8-多说评论不稳定，加载速度慢怎么办？" class="headerlink" title="8. 多说评论不稳定，加载速度慢怎么办？"></a>8. 多说评论不稳定，加载速度慢怎么办？</h4><p>把多说评论依赖的<code>embed.js</code>放置底部，这里需要修改的文件是<code>duoshuo.swig</code>。<br>将<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(document.getElementsByTagName(&apos;head&apos;)[0]</div></pre></td></tr></table></figure></p>
 <p>修改成下面的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(document.getElementById(&apos;footer&apos;)</div></pre></td></tr></table></figure></p>
 <h4 id="9-给Github添加README"><a href="#9-给Github添加README" class="headerlink" title="9. 给Github添加README"></a>9. 给Github添加README</h4><p>默认情况下，Github中每一个项目，我们希望有一份<code>README.md</code>的文件来作为项目的说明，但是我们在项目根目录下的<code>blog\source</code>目录下创建一份<code>README.md</code>文件，写好说明介绍，部署的时候，这个<code>README.md</code>会被hexo解析掉，而不会被解析到Github中去的。<br>正确的解决方法其实很简单：<br><strong> 把<code>README.md</code>文件的后缀名改成”MDOWN”然后扔到<code>blog/source</code>文件夹下即可，这样hexo不会解析，Github也会将其作为MD文件解析。 </strong></p>
+<p><blockquote class="blockquote-center"><br>    完<br></blockquote><br><span id="inline-green" style="border-radius:3px;">作者</span>： <a href="https://neveryu.github.io/">Neveryu</a></p>
 ]]></content>
     </entry>
     
@@ -460,10 +461,7 @@
 <p>后来，无意中看到了Hexo的Next主题的一篇博客，风格样式挺不错的，感谢 <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a> 和 <a href="http://theme-next.iissnan.com/" target="_blank" rel="external">Next</a> 的文档写的如此的棒，以至于每一个人都能根据教程搭建一个自己的博客。这一切是如此的美好。</p>
 <p>最后送给大家一首歌，晚安。</p>
 <p></p><p></p><p></p>
-<blockquote class="blockquote-center"><br>    <embed src="http://music.163.com/style/swf/widget.swf?sid=254359&type=2&auto=0&width=320&height=66" width="340" height="86" allownetworking="all" oncontextmenu="return false"><br></blockquote>
-
-
-
+<p><blockquote class="blockquote-center"><br>    <embed src="http://music.163.com/style/swf/widget.swf?sid=254359&type=2&auto=0&width=320&height=66" width="340" height="86" allownetworking="all" oncontextmenu="return false"><br></blockquote><br><span id="inline-green" style="border-radius:3px;">作者</span>： <a href="https://neveryu.github.io/">Neveryu</a></p>
 ]]></content>
     </entry>
     
