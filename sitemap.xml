@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://neveryu.github.io/2016/10/16/how-it-feels-to-learn-javascript-in-2016/</loc>
+    <loc>https://neveryu.github.io/2016/09/03/hexo-next-one/</loc>
     
-    <lastmod>2016-10-19T14:50:17.015Z</lastmod>
+    <lastmod>2016-10-23T02:13:23.472Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://neveryu.github.io/guestbook/index.html</loc>
+    
+    <lastmod>2016-10-22T14:38:55.326Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://neveryu.github.io/2016/09/30/hexo-next-two/</loc>
     
-    <lastmod>2016-10-18T16:31:37.698Z</lastmod>
+    <lastmod>2016-10-22T10:06:37.226Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://neveryu.github.io/2016/10/16/how-it-feels-to-learn-javascript-in-2016/</loc>
+    
+    <lastmod>2016-10-19T14:50:17.015Z</lastmod>
     
   </url>
   
@@ -23,23 +37,9 @@
   </url>
   
   <url>
-    <loc>https://neveryu.github.io/2016/09/03/hexo-next-one/</loc>
-    
-    <lastmod>2016-10-18T16:19:53.313Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://neveryu.github.io/2016/10/07/git/</loc>
     
     <lastmod>2016-10-13T15:24:03.058Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://neveryu.github.io/guestbook/index.html</loc>
-    
-    <lastmod>2016-10-09T15:12:17.430Z</lastmod>
     
   </url>
   

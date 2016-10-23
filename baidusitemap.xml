@@ -4,14 +4,36 @@
 
     
   <url>
-    <loc>https://neveryu.github.io/2016/10/16/how-it-feels-to-learn-javascript-in-2016/</loc>
-    <lastmod>2016-10-19T14:50:17.015Z</lastmod>
+    <loc>https://neveryu.github.io/2016/09/03/hexo-next-one/</loc>
+    <lastmod>2016-10-23T02:13:23.472Z</lastmod>
     <data>
         <display>
-        <title>【转】在2016年学JavaScript是一种什么样的体验</title>
-        <pubTime>2016-10-16T15:25:24.000Z</pubTime>
+        <title>Hexo-NexT搭建个人博客（一）</title>
+        <pubTime>2016-09-03T05:25:24.000Z</pubTime>
         
-        <tag>essay</tag>
+        <tag>Hexo</tag>
+         
+        <tag>Next</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>https://neveryu.github.io/2016/09/30/hexo-next-two/</loc>
+    <lastmod>2016-10-22T10:06:37.226Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo-NexT搭建个人博客（二）</title>
+        <pubTime>2016-09-30T14:18:22.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+        <tag>Next</tag>
          
          
            
@@ -21,16 +43,14 @@
 
     
   <url>
-    <loc>https://neveryu.github.io/2016/09/30/hexo-next-two/</loc>
-    <lastmod>2016-10-18T16:31:37.698Z</lastmod>
+    <loc>https://neveryu.github.io/2016/10/16/how-it-feels-to-learn-javascript-in-2016/</loc>
+    <lastmod>2016-10-19T14:50:17.015Z</lastmod>
     <data>
         <display>
-        <title>Hexo-NexT搭建个人博客（二）</title>
-        <pubTime>2016-09-30T14:18:22.000Z</pubTime>
+        <title>【转】在2016年学JavaScript是一种什么样的体验</title>
+        <pubTime>2016-10-16T15:25:24.000Z</pubTime>
         
-        <tag>Hexo</tag>
-         
-        <tag>Next</tag>
+        <tag>essay</tag>
          
          
            
@@ -57,25 +77,6 @@
 
     
   <url>
-    <loc>https://neveryu.github.io/2016/09/03/hexo-next-one/</loc>
-    <lastmod>2016-10-18T16:19:53.313Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo-NexT搭建个人博客（一）</title>
-        <pubTime>2016-09-03T05:25:24.000Z</pubTime>
-        
-        <tag>Hexo</tag>
-         
-        <tag>Next</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://neveryu.github.io/2016/10/07/git/</loc>
     <lastmod>2016-10-13T15:24:03.058Z</lastmod>
     <data>
@@ -91,7 +92,6 @@
     </data>
     </url>
 
-    
     
     
     
