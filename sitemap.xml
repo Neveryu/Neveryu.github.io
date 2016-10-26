@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://neveryu.github.io/about/index.html</loc>
+    
+    <lastmod>2016-10-26T16:28:33.771Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://neveryu.github.io/2016/10/16/how-it-feels-to-learn-javascript-in-2016/</loc>
     
     <lastmod>2016-10-26T16:13:35.217Z</lastmod>
@@ -75,13 +82,6 @@
     <loc>https://neveryu.github.io/404.html</loc>
     
     <lastmod>2016-09-24T15:45:03.316Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://neveryu.github.io/about/index.html</loc>
-    
-    <lastmod>2016-09-11T07:21:44.574Z</lastmod>
     
   </url>
   
