@@ -2,30 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://neveryu.github.io/2016/10/16/how-it-feels-to-learn-javascript-in-2016/</loc>
+    
+    <lastmod>2016-10-26T16:13:35.217Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://neveryu.github.io/2016/10/23/sass/</loc>
+    
+    <lastmod>2016-10-26T16:13:24.069Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://neveryu.github.io/2016/10/07/git/</loc>
     
-    <lastmod>2016-10-23T10:44:23.744Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://neveryu.github.io/2016/09/30/hexo-next-two/</loc>
-    
-    <lastmod>2016-10-23T10:43:31.319Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://neveryu.github.io/2016/09/25/essay-20160925/</loc>
-    
-    <lastmod>2016-10-23T10:41:16.709Z</lastmod>
+    <lastmod>2016-10-26T16:06:01.999Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://neveryu.github.io/2016/09/03/hexo-next-one/</loc>
     
-    <lastmod>2016-10-23T02:13:23.472Z</lastmod>
+    <lastmod>2016-10-26T16:06:00.853Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://neveryu.github.io/2016/09/30/hexo-next-two/</loc>
+    
+    <lastmod>2016-10-26T16:05:59.096Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://neveryu.github.io/2016/09/25/essay-20160925/</loc>
+    
+    <lastmod>2016-10-26T15:55:22.520Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://neveryu.github.io/categories/index.html</loc>
+    
+    <lastmod>2016-10-23T15:36:47.227Z</lastmod>
     
   </url>
   
@@ -33,13 +54,6 @@
     <loc>https://neveryu.github.io/guestbook/index.html</loc>
     
     <lastmod>2016-10-22T14:38:55.326Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://neveryu.github.io/2016/10/16/how-it-feels-to-learn-javascript-in-2016/</loc>
-    
-    <lastmod>2016-10-19T14:50:17.015Z</lastmod>
     
   </url>
   
@@ -68,13 +82,6 @@
     <loc>https://neveryu.github.io/about/index.html</loc>
     
     <lastmod>2016-09-11T07:21:44.574Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://neveryu.github.io/categories/index.html</loc>
-    
-    <lastmod>2016-09-05T15:44:37.304Z</lastmod>
     
   </url>
   

@@ -96,7 +96,7 @@
 在 Hexo 中有两份主要的配置文件，其名称都是 _config.yml 。其中，一份位于站点根目录下，主要包含 Hexo 本身的配置；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项。  我们约定，将前者称为 站点配置文件，后者称为 主题配置文件
 
 1.设置侧栏的位置修改 主题配置文件 中 sid">
-<meta property="og:updated_time" content="2016-10-23T10:43:31.319Z">
+<meta property="og:updated_time" content="2016-10-26T16:05:59.096Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo-NexT搭建个人博客（二）">
 <meta name="twitter:description" content="本篇文章将介绍基于NexT主题下的一些扩展功能的实现。首先，我们需要明白：
@@ -198,12 +198,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            标签
+            分类
           </a>
         </li>
       
@@ -459,6 +459,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/综合/" itemprop="url" rel="index">
+                    <span itemprop="name">综合</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -514,8 +533,9 @@
 <h4 id="7-修改文章内链接文本样式"><a href="#7-修改文章内链接文本样式" class="headerlink" title="7.修改文章内链接文本样式"></a>7.修改文章内链接文本样式</h4><p>将链接文本设置为蓝色，鼠标划过时文字颜色加深，并显示下划线。<br>找到文件 <code>themes\next\source\css\_custom\custom.styl</code> ，添加如下 <code>css</code> 样式：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.post-body p a &#123;</div><div class="line">  color: #0593d3;</div><div class="line">  border-bottom: none;</div><div class="line">  &amp;:hover &#123;</div><div class="line">    color: #0477ab;</div><div class="line">    text-decoration: underline;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h4 id="8-多说评论不稳定，加载速度慢怎么办？"><a href="#8-多说评论不稳定，加载速度慢怎么办？" class="headerlink" title="8. 多说评论不稳定，加载速度慢怎么办？"></a>8. 多说评论不稳定，加载速度慢怎么办？</h4><p>把多说评论依赖的<code>embed.js</code>放置底部，这里需要修改的文件是<code>duoshuo.swig</code>。<br>将<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(document.getElementsByTagName(&apos;head&apos;)[0]</div></pre></td></tr></table></figure></p>
 <p>修改成下面的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(document.getElementById(&apos;footer&apos;)</div></pre></td></tr></table></figure></p>
-<h4 id="9-给Github添加README"><a href="#9-给Github添加README" class="headerlink" title="9. 给Github添加README"></a>9. 给Github添加README</h4><p>默认情况下，Github中每一个项目，我们希望有一份<code>README.md</code>的文件来作为项目的说明，但是我们在项目根目录下的<code>blog\source</code>目录下创建一份<code>README.md</code>文件，写好说明介绍，部署的时候，这个<code>README.md</code>会被hexo解析掉，而不会被解析到Github中去的。<br>正确的解决方法其实很简单：<br><strong> 把<code>README.md</code>文件的后缀名改成”MDOWN”然后扔到<code>blog/source</code>文件夹下即可，这样hexo不会解析，Github也会将其作为MD文件解析。 </strong></p>
-<p><blockquote class="blockquote-center"><br>    完<br></blockquote><br><span id="inline-green" style="border-radius:3px;">作者</span>： <a href="https://neveryu.github.io/">Neveryu</a></p>
+<h4 id="9-给-Github-添加-README"><a href="#9-给-Github-添加-README" class="headerlink" title="9. 给 Github 添加 README"></a>9. 给 Github 添加 README</h4><p>默认情况下，Github中每一个项目，我们希望有一份<code>README.md</code>的文件来作为项目的说明，但是我们在项目根目录下的<code>blog\source</code>目录下创建一份<code>README.md</code>文件，写好说明介绍，部署的时候，这个<code>README.md</code>会被hexo解析掉，而不会被解析到Github中去的。<br>正确的解决方法其实很简单：<br><strong> 把<code>README.md</code>文件的后缀名改成”MDOWN”然后扔到<code>blog/source</code>文件夹下即可，这样hexo不会解析，Github也会将其作为MD文件解析。 </strong></p>
+<h4 id="10-给-Blog-添加-LICENSE"><a href="#10-给-Blog-添加-LICENSE" class="headerlink" title="10. 给 Blog 添加 LICENSE"></a>10. 给 Blog 添加 LICENSE</h4><p>在 <span id="inline-purple">主题配置文件</span> 中的 160 行左右：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># Creative Commons 4.0 International License.</div><div class="line"># http://creativecommons.org/</div><div class="line"># Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero</div><div class="line">creative_commons: by-nc-sa</div><div class="line">#creative_commons:</div></pre></td></tr></table></figure></p>
+<p>将其中第 4 行的注释放开，然后选择你想使用的 LICENSE 即可，可选项参照第 3 行。</p>
 
       
     </div>
@@ -530,6 +550,13 @@
     <div>
       
         
+
+<blockquote class="blockquote-center">
+    完
+</blockquote>
+
+  <span id="inline-green" style="border-radius:3px;">作者</span>：<a href="https://neveryu.github.io/" target="_blank">Neveryu</a><br/>有问题请 <a href="https://neveryu.github.io/guestbook" target="_blank">留言</a> 或者私信我的 <a href="http://weibo.com/Neveryu" target="_blank">微博</a>。
+
   <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
     <div>满分是10分的话，这篇文章你给几分</div>
     <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
@@ -674,17 +701,24 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">4</span>
+              <a href="/">
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -720,6 +754,12 @@
 
         
         
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
 
         
         
@@ -751,7 +791,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-设置侧栏的位置"><span class="nav-number">1.</span> <span class="nav-text">1.设置侧栏的位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-关于添加居中模块"><span class="nav-number">2.</span> <span class="nav-text">2. 关于添加居中模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-添加High一下"><span class="nav-number">3.</span> <span class="nav-text">3. 添加High一下</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-添加最近访客"><span class="nav-number">4.</span> <span class="nav-text">4. 添加最近访客</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-鼠标点击小红心的设置"><span class="nav-number">5.</span> <span class="nav-text">5. 鼠标点击小红心的设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-背景的设置"><span class="nav-number">6.</span> <span class="nav-text">6. 背景的设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-修改文章内链接文本样式"><span class="nav-number">7.</span> <span class="nav-text">7.修改文章内链接文本样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-多说评论不稳定，加载速度慢怎么办？"><span class="nav-number">8.</span> <span class="nav-text">8. 多说评论不稳定，加载速度慢怎么办？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-给Github添加README"><span class="nav-number">9.</span> <span class="nav-text">9. 给Github添加README</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-设置侧栏的位置"><span class="nav-number">1.</span> <span class="nav-text">1.设置侧栏的位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-关于添加居中模块"><span class="nav-number">2.</span> <span class="nav-text">2. 关于添加居中模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-添加High一下"><span class="nav-number">3.</span> <span class="nav-text">3. 添加High一下</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-添加最近访客"><span class="nav-number">4.</span> <span class="nav-text">4. 添加最近访客</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-鼠标点击小红心的设置"><span class="nav-number">5.</span> <span class="nav-text">5. 鼠标点击小红心的设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-背景的设置"><span class="nav-number">6.</span> <span class="nav-text">6. 背景的设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-修改文章内链接文本样式"><span class="nav-number">7.</span> <span class="nav-text">7.修改文章内链接文本样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-多说评论不稳定，加载速度慢怎么办？"><span class="nav-number">8.</span> <span class="nav-text">8. 多说评论不稳定，加载速度慢怎么办？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-给-Github-添加-README"><span class="nav-number">9.</span> <span class="nav-text">9. 给 Github 添加 README</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-给-Blog-添加-LICENSE"><span class="nav-number">10.</span> <span class="nav-text">10. 给 Blog 添加 LICENSE</span></a></li></ol></div>
             
           </div>
         </section>
@@ -778,7 +818,7 @@
   
 
   
-    <span class="site-pv">我被看了<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+    <span class="site-pv">本站总浏览<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
   
   
 </div>

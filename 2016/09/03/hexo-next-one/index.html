@@ -100,7 +100,7 @@
 　一件部署只需一条指令即可部署到Github Pages，或其他网站">
 <meta property="og:image" content="http://p1.bqimg.com/567571/27324b740c9e91e2.png">
 <meta property="og:image" content="http://p1.bqimg.com/567571/8333728b5eaab526.png">
-<meta property="og:updated_time" content="2016-10-23T02:13:23.472Z">
+<meta property="og:updated_time" content="2016-10-26T16:06:00.853Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo-NexT搭建个人博客（一）">
 <meta name="twitter:description" content="Hexo 是一个快速、简洁且高效的静态站点生成框架，它基于 Node.js 。 它有以下特点：
@@ -204,12 +204,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            标签
+            分类
           </a>
         </li>
       
@@ -465,6 +465,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/综合/" itemprop="url" rel="index">
+                    <span itemprop="name">综合</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -552,7 +571,6 @@
 <p>正确的设置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">author: Neveryu</div><div class="line">email: react.dong.yu@gmail.com</div><div class="line">language: zh-CN</div></pre></td></tr></table></figure></p>
 <h3 id="常见问题2"><a href="#常见问题2" class="headerlink" title="常见问题2"></a>常见问题2</h3><p>关于Git提交中用户名和Email的设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;Your name&quot;</div><div class="line">git config --global user.email &quot;Your email&quot;</div></pre></td></tr></table></figure></p>
 <h3 id="常见问题3"><a href="#常见问题3" class="headerlink" title="常见问题3"></a>常见问题3</h3><p>Hexo 中的图标使用的是 <a href="http://fontawesome.io/" target="_blank" rel="external">Font Awesome</a> ，所以，我们的博客已经自带了 Font Awesome 中的所有图标，基本可以满足我们的所有需求，我们可以去 Font Awesome 中查找我们想要使用的图标。<br><i class="fa fa-github"></i> <code>&lt;i class=&quot;fa fa-github&quot;&gt;&lt;/i&gt;</code><br><i class="fa fa-github fa-lg"></i> <code>&lt;i class=&quot;fa fa-github fa-lg&quot;&gt;&lt;/i&gt;</code><br><i class="fa fa-github fa-2x"></i> <code>&lt;i class=&quot;fa fa-github fa-2x&quot;&gt;&lt;/i&gt;</code></p>
-<p><blockquote class="blockquote-center"><br>    完<br></blockquote><br><span id="inline-green" style="border-radius:3px;">作者</span>： <a href="https://neveryu.github.io/">Neveryu</a></p>
 
       
     </div>
@@ -567,6 +585,13 @@
     <div>
       
         
+
+<blockquote class="blockquote-center">
+    完
+</blockquote>
+
+  <span id="inline-green" style="border-radius:3px;">作者</span>：<a href="https://neveryu.github.io/" target="_blank">Neveryu</a><br/>有问题请 <a href="https://neveryu.github.io/guestbook" target="_blank">留言</a> 或者私信我的 <a href="http://weibo.com/Neveryu" target="_blank">微博</a>。
+
   <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
     <div>满分是10分的话，这篇文章你给几分</div>
     <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
@@ -707,17 +732,24 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">4</span>
+              <a href="/">
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -752,6 +784,12 @@
         </div>
 
         
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
         
 
         
@@ -811,7 +849,7 @@
   
 
   
-    <span class="site-pv">我被看了<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+    <span class="site-pv">本站总浏览<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
   
   
 </div>
