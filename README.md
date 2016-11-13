@@ -4,4 +4,4 @@
 
 ## 浏览器支持 Browser support
 
-![Browser support](http://p1.bpimg.com/567571/d0e40e448e677e5b.png)
+![Browser support](http://iissnan.com/nexus/next/browser-support.png)
