@@ -342,7 +342,6 @@ comments: false
 <p id="div-border-left-blue" style="width:90%">为什么？</p>
 
 <p id="div-border-right-green" style="width:90%;margin-left:10%">听说过 Python 3 吗？</p>
-<blockquote class="blockquote-center">完</blockquote>
 <p id="div-border-top-blue"><i>译者注：最后一句「听说过 Python 3 吗？」是讽刺 Python 3 发布已经 8 年了，Python 社区却依然在使用 Python 2.7。而 JS 社区正好相反，把还没有实现的语言特性都用到生成环境中了！</i></p>
 
 译者：方应杭
