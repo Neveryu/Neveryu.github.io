@@ -74,7 +74,7 @@ deploy:
   type: git
   repository: https://github.com/Neveryu/Neveryu.github.io.git
   branch: master
-  message: 'iPhone 7 Plus updated：{{now("YYYY-MM-DD HH:mm:ss")}}'
+  message: 'Daily updated：{{now("YYYY-MM-DD HH:mm:ss")}} by Never_yu personal PC'
 
 # 自己添加的功能
 #1.头像

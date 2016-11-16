@@ -9,6 +9,15 @@
 		text-decoration: underline;
 	}
 }
+//修改不在文章内的链接文本样式
+.link-blue{
+	color: #f36;
+	&:hover {
+		color: #f00;
+	}
+}
+//修改文章内code样式
+code {color:#fff;background:#333;}
 
 // 下载样式
 a#download {
@@ -283,12 +292,11 @@ span#yu-1 {
 		top:0px;
 	}
 }
-//留言页面-[最近访客]-的动画
+//留言页面-[最近访客]-的样式
 span#yu-2 {
 	display:inline;
 	position:relative;
 	border-top:1px solid #222;
 	border-bottom:1px solid #222;
 	font-size:130%;
-	cursor:pointer;
 }

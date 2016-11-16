@@ -15,13 +15,12 @@ Weibo: http://weibo.com/Neveryu
 目前所在城市：深圳
 
 # 个人简介
-一名前端工程师
+全栈工程师
 
-<!--
-两年JAVA经验，之前一直做JAVA项目的开发
-目前为HTML5前端工程师，擅长PC端以及移动端页面开发。
-喜欢javascript语言和相关组件以及vue.js、node.js、mongoDB等后端、数据库技术。
--->
+之前一直做JAVA项目的开发
+目前为前端工程师
+喜欢 javascript 语言和相关组件以及 vue.js、node.js、mongoDB、PHP、JAVA、Redis 等后端、数据库技术
+
 <!--
 # 技能清单
 后端语言：Java/Node/PHP

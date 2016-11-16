@@ -4,7 +4,7 @@
     完
 </blockquote>
 
-  <span id="inline-green" style="border-radius:3px;">作者</span>：<a href="https://github.com/Neveryu" target="_blank">Neveryu</a><br/>有问题请 <a href="https://neveryu.github.io/guestbook" target="_blank">留言</a> 或者私信我的 <a href="http://weibo.com/Neveryu" target="_blank">微博</a>。
+  <span id="inline-green" style="border-radius:3px;">作者</span>：<a class="link-blue" href="https://github.com/Neveryu" target="_blank">Neveryu</a><br/>有问题请 <a class="link-blue" href="https://neveryu.github.io/guestbook" target="_blank">留言</a> 或者私信我的 <a class="link-blue" href="http://weibo.com/Neveryu" target="_blank">微博</a>。
 
   <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
     <div>{{ theme.reward_comment }}</div>
