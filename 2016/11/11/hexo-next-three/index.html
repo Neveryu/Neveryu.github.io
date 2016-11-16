@@ -84,22 +84,22 @@
 
 
 
-<meta name="description" content="经过前面两期文章，我相信你已经可以在本地建立一个非常令人满意的静态博客了，本篇文章将介绍如何将自己的静态博客部署到 gitpage 上，并托管到 github 上；以及关于 Hexo和 NexT 中更深层次的一些问题及解方案。
-一、菜单栏中标签与侧边栏中标签关联的问题　　以我的博客为例，关于菜单栏中的选项 与侧边栏中的选项，由于顶部菜单栏中位置有限，所以我就想在顶部菜单栏中不显示标签这一项，于">
+<meta name="description" content="经过前面两期文章，我相信你已经可以在本地建立一个非常令人满意的静态博客了，本篇文章将介绍如何将自己的静态博客部署到 gitpage 上，并托管到 github 上；以及关于 Hexo 和 NexT 中更深层次的一些问题及解方案。
+一、菜单栏中标签与侧边栏中标签关联的问题　　以我的博客为例，关于菜单栏中的选项 与侧边栏中的选项，由于顶部菜单栏中位置有限，所以我就想在顶部菜单栏中不显示 标签 这一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo-NexT搭建个人博客（三）">
 <meta property="og:url" content="https://neveryu.github.io/2016/11/11/hexo-next-three/index.html">
 <meta property="og:site_name" content="Never_yu's Blog">
-<meta property="og:description" content="经过前面两期文章，我相信你已经可以在本地建立一个非常令人满意的静态博客了，本篇文章将介绍如何将自己的静态博客部署到 gitpage 上，并托管到 github 上；以及关于 Hexo和 NexT 中更深层次的一些问题及解方案。
-一、菜单栏中标签与侧边栏中标签关联的问题　　以我的博客为例，关于菜单栏中的选项 与侧边栏中的选项，由于顶部菜单栏中位置有限，所以我就想在顶部菜单栏中不显示标签这一项，于">
+<meta property="og:description" content="经过前面两期文章，我相信你已经可以在本地建立一个非常令人满意的静态博客了，本篇文章将介绍如何将自己的静态博客部署到 gitpage 上，并托管到 github 上；以及关于 Hexo 和 NexT 中更深层次的一些问题及解方案。
+一、菜单栏中标签与侧边栏中标签关联的问题　　以我的博客为例，关于菜单栏中的选项 与侧边栏中的选项，由于顶部菜单栏中位置有限，所以我就想在顶部菜单栏中不显示 标签 这一">
 <meta property="og:image" content="http://i1.piimg.com/567571/afbb6058c9f628ad.png">
 <meta property="og:image" content="http://i1.piimg.com/567571/5e3de4efdcabd668.png">
 <meta property="og:image" content="http://p1.bpimg.com/567571/eaef5acfcb3011c2.png">
-<meta property="og:updated_time" content="2016-11-14T15:07:07.441Z">
+<meta property="og:updated_time" content="2016-11-16T14:46:43.353Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo-NexT搭建个人博客（三）">
-<meta name="twitter:description" content="经过前面两期文章，我相信你已经可以在本地建立一个非常令人满意的静态博客了，本篇文章将介绍如何将自己的静态博客部署到 gitpage 上，并托管到 github 上；以及关于 Hexo和 NexT 中更深层次的一些问题及解方案。
-一、菜单栏中标签与侧边栏中标签关联的问题　　以我的博客为例，关于菜单栏中的选项 与侧边栏中的选项，由于顶部菜单栏中位置有限，所以我就想在顶部菜单栏中不显示标签这一项，于">
+<meta name="twitter:description" content="经过前面两期文章，我相信你已经可以在本地建立一个非常令人满意的静态博客了，本篇文章将介绍如何将自己的静态博客部署到 gitpage 上，并托管到 github 上；以及关于 Hexo 和 NexT 中更深层次的一些问题及解方案。
+一、菜单栏中标签与侧边栏中标签关联的问题　　以我的博客为例，关于菜单栏中的选项 与侧边栏中的选项，由于顶部菜单栏中位置有限，所以我就想在顶部菜单栏中不显示 标签 这一">
 <meta name="twitter:image" content="http://i1.piimg.com/567571/afbb6058c9f628ad.png">
 
 
@@ -555,8 +555,8 @@
       
 
       
-        <p>　　经过前面两期文章，我相信你已经可以在本地建立一个非常令人满意的静态博客了，本篇文章将介绍如何将自己的静态博客部署到 <code>gitpage</code> 上，并托管到 <code>github</code> 上；以及关于 <code>Hexo</code>和 <code>NexT</code> 中更深层次的一些问题及解方案。</p>
-<h2 id="一、菜单栏中标签与侧边栏中标签关联的问题"><a href="#一、菜单栏中标签与侧边栏中标签关联的问题" class="headerlink" title="一、菜单栏中标签与侧边栏中标签关联的问题"></a>一、菜单栏中标签与侧边栏中标签关联的问题</h2><p>　　以我的博客为例，关于菜单栏中的选项 与侧边栏中的选项，由于顶部菜单栏中位置有限，所以我就想在顶部菜单栏中不显示<b>标签</b>这一项，于是我在 <span id="inline-purple">主题配置文件</span> 中 将 menu 配置项中的<b>标签</b>这一个选项给注释掉了，所以它不会在菜单栏中显示，但是不代表没有这个页面，这个页面是存在的，我们只是使其不显示在顶部的菜单栏中而已，我们可以直接输入绝对地址来查看这个页面，例如：<a href="https://neveryu.github.io/tags/">https://neveryu.github.io/tags/</a>。但是与此同时，我们发现侧边栏中的<b>标签</b>选项只能显示标签数量，不能点击。</p>
+        <p>　　经过前面两期文章，我相信你已经可以在本地建立一个非常令人满意的静态博客了，本篇文章将介绍如何将自己的静态博客部署到 <code>gitpage</code> 上，并托管到 <code>github</code> 上；以及关于 Hexo 和 NexT 中更深层次的一些问题及解方案。</p>
+<h2 id="一、菜单栏中标签与侧边栏中标签关联的问题"><a href="#一、菜单栏中标签与侧边栏中标签关联的问题" class="headerlink" title="一、菜单栏中标签与侧边栏中标签关联的问题"></a>一、菜单栏中标签与侧边栏中标签关联的问题</h2><p>　　以我的博客为例，关于菜单栏中的选项 与侧边栏中的选项，由于顶部菜单栏中位置有限，所以我就想在顶部菜单栏中不显示 <code>标签</code> 这一项，于是我在 <span id="inline-purple">主题配置文件</span> 中 将 menu 配置项中的 <code>标签</code> 这一个选项给注释掉了，所以它不会在菜单栏中显示，但是不代表没有这个页面，这个页面是存在的，我们只是使其不显示在顶部的菜单栏中而已，我们可以直接输入绝对地址来查看这个页面，例如：<a href="https://neveryu.github.io/tags/">https://neveryu.github.io/tags/</a>。但是与此同时，我们发现侧边栏中的<b>标签</b>选项只能显示标签数量，不能点击。</p>
 <a id="more"></a>
 <p>　　这是因为侧边栏中的点击链接是根据菜单栏中对应的项来添加的，什么意思呢？就是说如果顶部菜单栏中有<b>标签</b>这一项，那么就会给侧边栏中<b>标签</b>这一项也添加点击链接；如果顶部菜单栏中没有<b>标签</b>这一项，那么就不给侧边栏中<b>标签</b>这一项添加点击链接，导致侧边栏中的<b>标签</b>项只有显示数据，不提供点击链接。<br>　　如果我们不想在菜单栏中显示<b>标签</b>项，但是希望侧边栏中的<b>标签</b>项 可以点击，该怎么做呢？<br>　　在 <span id="inline-purple">主题配置文件</span> <code>\themes\next\layout\_macro\sidebar.swing_</code> 中，将<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;% if site.tags.length &gt; 0 %&#125;</div><div class="line">  &lt;div class=&quot;site-state-item site-state-tags&quot;&gt;</div><div class="line">    &#123;% if theme.menu.tags %&#125;&lt;a href=&quot;&#123;&#123; url_for(theme.menu.tags) &#125;&#125;&quot;&gt;&#123;% endif %&#125;</div><div class="line">      &lt;span class=&quot;site-state-item-count&quot;&gt;&#123;&#123; site.tags.length &#125;&#125;&lt;/span&gt;</div><div class="line">      &lt;span class=&quot;site-state-item-name&quot;&gt;&#123;&#123; __(&apos;state.tags&apos;) &#125;&#125;&lt;/span&gt;</div><div class="line">    &#123;% if theme.menu.tags %&#125;&lt;/a&gt;&#123;% endif %&#125;</div><div class="line">  &lt;/div&gt;</div><div class="line">&#123;% endif %&#125;</div></pre></td></tr></table></figure></p>
 <p>改成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;% if site.tags.length &gt; 0 %&#125;</div><div class="line">  &lt;div class=&quot;site-state-item site-state-tags&quot;&gt;</div><div class="line">    &lt;a href=&quot;&#123;&#123; url_for(theme.menu.tags) &#125;&#125;&quot;&gt;</div><div class="line">      &lt;span class=&quot;site-state-item-count&quot;&gt;&#123;&#123; site.tags.length &#125;&#125;&lt;/span&gt;</div><div class="line">      &lt;span class=&quot;site-state-item-name&quot;&gt;&#123;&#123; __(&apos;state.tags&apos;) &#125;&#125;&lt;/span&gt;</div><div class="line">    &lt;/a&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&#123;% endif %&#125;</div></pre></td></tr></table></figure></p>
@@ -596,7 +596,7 @@
     完
 </blockquote>
 
-  <span id="inline-green" style="border-radius:3px;">作者</span>：<a href="https://github.com/Neveryu" target="_blank">Neveryu</a><br/>有问题请 <a href="https://neveryu.github.io/guestbook" target="_blank">留言</a> 或者私信我的 <a href="http://weibo.com/Neveryu" target="_blank">微博</a>。
+  <span id="inline-green" style="border-radius:3px;">作者</span>：<a class="link-blue" href="https://github.com/Neveryu" target="_blank">Neveryu</a><br/>有问题请 <a class="link-blue" href="https://neveryu.github.io/guestbook" target="_blank">留言</a> 或者私信我的 <a class="link-blue" href="http://weibo.com/Neveryu" target="_blank">微博</a>。
 
   <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
     <div>满分是10分的话，这篇文章你给几分</div>

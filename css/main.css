@@ -1672,7 +1672,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #24ffdf;
+  background: #ec3cb8;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2580,6 +2580,16 @@ hr {
   color: #0477ab;
   text-decoration: underline;
 }
+.link-blue {
+  color: #f36;
+}
+.link-blue:hover {
+  color: #f00;
+}
+code {
+  color: #fff;
+  background: #333;
+}
 a#download {
   display: inline-block;
   padding: 0 10px;
@@ -2791,7 +2801,6 @@ span#yu-2 {
   border-top: 1px solid #222;
   border-bottom: 1px solid #222;
   font-size: 130%;
-  cursor: pointer;
 }
 @-moz-keyframes animate-yu-1 {
   0% {

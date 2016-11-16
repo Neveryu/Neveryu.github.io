@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://neveryu.github.io/about/index.html</loc>
+    
+    <lastmod>2016-11-16T14:47:40.844Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://neveryu.github.io/2016/11/11/hexo-next-three/</loc>
     
-    <lastmod>2016-11-14T15:07:07.441Z</lastmod>
+    <lastmod>2016-11-16T14:46:43.353Z</lastmod>
     
   </url>
   
@@ -19,13 +26,6 @@
     <loc>https://neveryu.github.io/weblog/index.html</loc>
     
     <lastmod>2016-11-13T02:41:40.019Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://neveryu.github.io/about/index.html</loc>
-    
-    <lastmod>2016-11-10T12:28:33.588Z</lastmod>
     
   </url>
   
