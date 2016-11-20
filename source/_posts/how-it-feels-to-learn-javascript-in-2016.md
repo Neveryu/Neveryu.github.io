@@ -13,9 +13,9 @@ comments: false
 
 <p id="div-border-right-green" style="width:90%;margin-left:10%">可别用 jQuery！现在哪还有人用 jQuery。现在是 2016 年了，你绝对应该用 React。</p>
 
-<p id="div-border-left-blue" style="width:90%">哦，好吧，React 是什么？</p>
-
 <!-- more -->
+
+<p id="div-border-left-blue" style="width:90%">哦，好吧，React 是什么？</p>
 
 <p id="div-border-right-green" style="width:90%;margin-left:10%">React 是一个非常厉害的库，Facebook 的牛人写的。它能让页面更可控，性能极高，而且使用起来很简单。</p>
 

@@ -19,6 +19,11 @@
 //修改文章内code样式
 code {color:#fff;background:#333;}
 
+//修改文章中图片样式，改为居中
+.posts-expand .post-body img {
+	margin: 0 auto;
+}
+
 // 下载样式
 a#download {
 	display: inline-block;
@@ -34,6 +39,24 @@ a#download {
 		color: #fff;
 	}
 }
+//阅读全文样式
+.post-more-link .btn {
+	position:relative;
+	border: 2px solid #000;
+	border-radius: 2px;
+	padding: 0 10px;
+	font-weight: bold;
+	background: transparent;
+	transition: all .5s ease;
+	&:hover {
+		background: #000;
+		color: #eee;
+		animation: animate-yu-1 3s ease-in;
+	}
+}
+//
+//
+//
 // 颜色块-黄
 span#inline-yellow {
 	display:inline;
@@ -229,6 +252,16 @@ p#div-border-top-blue {
 	border-top-width: 5px;
 	border-radius: 3px;
 	border-top-color: #2780e3;
+}
+// 上侧边框紫色
+p#div-border-top-purple {
+	display: block;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #ccc;
+	border-top-width: 5px;
+	border-radius: 3px;
+	border-top-color: #9954bb;
 }
 
 //动画模块
