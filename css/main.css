@@ -1672,7 +1672,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #201308;
+  background: #ffff45;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2590,6 +2590,9 @@ code {
   color: #fff;
   background: #333;
 }
+.posts-expand .post-body img {
+  margin: 0 auto;
+}
 a#download {
   display: inline-block;
   padding: 0 10px;
@@ -2603,6 +2606,20 @@ a#download {
 a#download:hover {
   background: #000;
   color: #fff;
+}
+.post-more-link .btn {
+  position: relative;
+  border: 2px solid #000;
+  border-radius: 2px;
+  padding: 0 10px;
+  font-weight: bold;
+  background: transparent;
+  transition: all 0.5s ease;
+}
+.post-more-link .btn:hover {
+  background: #000;
+  color: #eee;
+  animation: animate-yu-1 3s ease-in;
 }
 span#inline-yellow {
   display: inline;
@@ -2781,6 +2798,15 @@ p#div-border-top-blue {
   border-top-width: 5px;
   border-radius: 3px;
   border-top-color: #2780e3;
+}
+p#div-border-top-purple {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-top-width: 5px;
+  border-radius: 3px;
+  border-top-color: #9954bb;
 }
 span#yu-1 {
   display: inline;

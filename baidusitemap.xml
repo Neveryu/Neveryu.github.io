@@ -3,6 +3,46 @@
 
 
     
+  <url>
+    <loc>https://neveryu.github.io/2016/10/16/how-it-feels-to-learn-javascript-in-2016/</loc>
+    <lastmod>2016-11-20T11:48:06.734Z</lastmod>
+    <data>
+        <display>
+        <title>【转】在2016年学JavaScript是一种什么样的体验</title>
+        <pubTime>2016-10-16T15:25:24.000Z</pubTime>
+        
+        <tag>essay</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="https://neveryu.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://neveryu.github.io/2016/11/18/china-javascript-environment/</loc>
+    <lastmod>2016-11-20T11:45:08.661Z</lastmod>
+    <data>
+        <display>
+        <title>中国国内 JavaScript 圈的现状如何</title>
+        <pubTime>2016-11-18T05:25:24.000Z</pubTime>
+        
+        <tag>javascript</tag>
+         
+         
+           
+             
+              <breadCrumb title="综合" url="https://neveryu.github.io/categories/%E7%BB%BC%E5%90%88/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>https://neveryu.github.io/2016/11/11/hexo-next-three/</loc>
@@ -20,26 +60,6 @@
            
              
               <breadCrumb title="综合" url="https://neveryu.github.io/categories/%E7%BB%BC%E5%90%88/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://neveryu.github.io/2016/10/16/how-it-feels-to-learn-javascript-in-2016/</loc>
-    <lastmod>2016-11-13T16:56:33.107Z</lastmod>
-    <data>
-        <display>
-        <title>【转】在2016年学JavaScript是一种什么样的体验</title>
-        <pubTime>2016-10-16T15:25:24.000Z</pubTime>
-        
-        <tag>essay</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="https://neveryu.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
           
         </display>
     </data>
