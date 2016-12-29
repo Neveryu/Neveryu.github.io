@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT, Neveryu, Never_yu, Blog, Node.js, Git, PHP, JAVA, JAVASCRIPT, HTML, CSS, jQuery" />
+  <meta name="keywords" content="Hexo,Next," />
 
 
 
@@ -84,15 +84,32 @@
 
 
 
-<meta name="description" content="Stay Hungry,Stay Foolish">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Never_yu's Blog">
-<meta property="og:url" content="https://neveryu.github.io/categories/前端/index.html">
+<meta name="description" content="本篇文章将介绍在使用 heox 做博客框架中的一些 bug 处理情况。
+按照之前的教程介绍应该是会比较顺利的搭建好博客，但是难免会遇到一些意外，这个时候就要学会解决问题了。解决问题的原则是：查看 bug 信息，从上到下一次解决 bug。
+下面来看几个例子：
+提示插件 hexo-deployer-got 加载失败，想了一下，应该是上次我在移动博客目录的时候，这个模块中有一些文件名比较长的文件，系统会">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo-NexT搭建个人博客（四）">
+<meta property="og:url" content="https://neveryu.github.io/2016/12/15/hexo-next-four/index.html">
 <meta property="og:site_name" content="Never_yu's Blog">
-<meta property="og:description" content="Stay Hungry,Stay Foolish">
+<meta property="og:description" content="本篇文章将介绍在使用 heox 做博客框架中的一些 bug 处理情况。
+按照之前的教程介绍应该是会比较顺利的搭建好博客，但是难免会遇到一些意外，这个时候就要学会解决问题了。解决问题的原则是：查看 bug 信息，从上到下一次解决 bug。
+下面来看几个例子：
+提示插件 hexo-deployer-got 加载失败，想了一下，应该是上次我在移动博客目录的时候，这个模块中有一些文件名比较长的文件，系统会">
+<meta property="og:image" content="http://i1.piimg.com/567571/08a05e89a756ee75.png">
+<meta property="og:image" content="http://i1.piimg.com/567571/a26efa972092fb9e.png">
+<meta property="og:image" content="http://i1.piimg.com/567571/24a28fcb40d1c95f.png">
+<meta property="og:image" content="http://i1.piimg.com/567571/40a2d64a4aba2a04.png">
+<meta property="og:image" content="http://i1.piimg.com/567571/6a740eb49f5ad0c2.png">
+<meta property="og:image" content="http://i1.piimg.com/567571/91abd56ac0617023.png">
+<meta property="og:updated_time" content="2016-12-28T14:35:56.995Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Never_yu's Blog">
-<meta name="twitter:description" content="Stay Hungry,Stay Foolish">
+<meta name="twitter:title" content="Hexo-NexT搭建个人博客（四）">
+<meta name="twitter:description" content="本篇文章将介绍在使用 heox 做博客框架中的一些 bug 处理情况。
+按照之前的教程介绍应该是会比较顺利的搭建好博客，但是难免会遇到一些意外，这个时候就要学会解决问题了。解决问题的原则是：查看 bug 信息，从上到下一次解决 bug。
+下面来看几个例子：
+提示插件 hexo-deployer-got 加载失败，想了一下，应该是上次我在移动博客目录的时候，这个模块中有一些文件名比较长的文件，系统会">
+<meta name="twitter:image" content="http://i1.piimg.com/567571/08a05e89a756ee75.png">
 
 
 
@@ -113,9 +130,9 @@
 
 
 
-  <link rel="canonical" href="https://neveryu.github.io/categories/前端/"/>
+  <link rel="canonical" href="https://neveryu.github.io/2016/12/15/hexo-next-four/"/>
 
-  <title> 分类: 前端 | Never_yu's Blog </title>
+  <title> Hexo-NexT搭建个人博客（四） | Never_yu's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,7 +153,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -464,75 +481,210 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        前端
-        <small>分类</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/23/sass/" itemprop="url">
-              
-                <span itemprop="name">Sass入门教程</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-23T10:49:15+08:00"
-              content="2016-10-23" >
-          10-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/16/how-it-feels-to-learn-javascript-in-2016/" itemprop="url">
-              
-                <span itemprop="name">【转】在2016年学JavaScript是一种什么样的体验</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-16T23:25:24+08:00"
-              content="2016-10-16" >
-          10-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
+  
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Hexo-NexT搭建个人博客（四）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-15T23:25:24+08:00" content="2016-12-15">
+              2016-12-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/综合/" itemprop="url" rel="index">
+                    <span itemprop="name">综合</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv">热度
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>℃
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本篇文章将介绍在使用 <code>heox</code> 做博客框架中的一些 <code>bug</code> 处理情况。</p>
+<p>按照之前的教程介绍应该是会比较顺利的搭建好博客，但是难免会遇到一些意外，这个时候就要学会解决问题了。<br>解决问题的原则是：查看 <code>bug</code> 信息，从上到下一次解决 <code>bug</code>。</p>
+<p>下面来看几个例子：</p>
+<p><img src="http://i1.piimg.com/567571/08a05e89a756ee75.png" alt=""><br>提示插件 <code>hexo-deployer-got</code> 加载失败，想了一下，应该是上次我在移动博客目录的时候，这个模块中有一些文件名比较长的文件，系统会提示移动不过来，导致这个模块异常，很简单，删除这个模块，重新安装即可。如下：</p>
+<p><img src="http://i1.piimg.com/567571/a26efa972092fb9e.png" alt=""></p>
+<p>OK ， 现在好了，<code>hexo clean</code> 没有报错了。</p>
+<p><img src="http://i1.piimg.com/567571/24a28fcb40d1c95f.png" alt=""></p>
+<p>下面，我们是 <code>hexo g</code> 的操作：</p>
+<p><img src="http://i1.piimg.com/567571/40a2d64a4aba2a04.png" alt=""></p>
+<p>遇到问题，首先不要害怕，不要逃避，看一下错误信息：<br>如 1 所示：我们首先会发现缺少模块 <code>isarray</code> ，但是我们查看 <code>package.json</code> 文件，我们的项目根本就没有引入 <code>isarray</code> 这个模块，我猜测这个 <code>isarray</code> 模块应该是某个模块的子模块 。</p>
+<p>如 2 所示：我们顺着 <code>at</code> 一路往下找。</p>
+<p>如 3 所示：发现这个 <code>isarray</code> <code>at</code> <code>hexo-generator-sitemap</code> ，所以我们删除这个 <code>hexo-generator-sitemap</code> 模块，然后重新安装这个模块。如下：</p>
+<p><img src="http://i1.piimg.com/567571/6a740eb49f5ad0c2.png" alt=""></p>
+<p>OK ， 现在好了，<code>hexo g</code> 没有报错了。</p>
+<p><img src="http://i1.piimg.com/567571/91abd56ac0617023.png" alt=""></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+<blockquote class="blockquote-center">
+    完
+</blockquote>
+
+  <span id="inline-green" style="border-radius:3px;">作者</span>：<a class="link-blue" href="https://github.com/Neveryu" target="_blank">Neveryu</a><br/>有问题请 <a class="link-blue" href="https://neveryu.github.io/guestbook" target="_blank">留言</a> 或者私信我的 <a class="link-blue" href="http://weibo.com/Neveryu" target="_blank">微博</a>。
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>满分是10分的话，这篇文章你给几分</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/reward/reward_wechat.png" alt="Never_yu WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/reward/reward_alipay.png" alt="Never_yu Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
+          
+            <a href="/tags/Next/" rel="tag">#Next</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/18/china-javascript-environment/" rel="next" title="中国国内 JavaScript 圈的现状如何">
+                <i class="fa fa-chevron-left"></i> 中国国内 JavaScript 圈的现状如何
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/12/15/hexo-next-four/"
+     data-title="Hexo-NexT搭建个人博客（四）"
+     data-content=""
+     data-url="https://neveryu.github.io/2016/12/15/hexo-next-four/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><span class="ds-more">分享到：</span></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      <li><a class="ds-facebook" href="javascript:void(0);" data-service="facebook">Facebook</a></li>
+      <li><a class="ds-google" href="javascript:void(0);" data-service="google">Google</a></li>
+    </ul>
+    <!--
+      <div class="ds-share-icons-more">
+      </div>
+    -->
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
@@ -559,8 +711,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/avatar/avatar.png"
@@ -658,6 +819,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -770,6 +942,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

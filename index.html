@@ -488,6 +488,131 @@
             
               
                 
+                <a class="post-title-link" href="/2016/12/15/hexo-next-four/" itemprop="url">
+                  Hexo-NexT搭建个人博客（四）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-15T23:25:24+08:00" content="2016-12-15">
+              2016-12-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/综合/" itemprop="url" rel="index">
+                    <span itemprop="name">综合</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>本篇文章将介绍在使用 <code>heox</code> 做博客框架中的一些 <code>bug</code> 处理情况。</p>
+<p>按照之前的教程介绍应该是会比较顺利的搭建好博客，但是难免会遇到一些意外，这个时候就要学会解决问题了。<br>解决问题的原则是：查看 <code>bug</code> 信息，从上到下一次解决 <code>bug</code>。</p>
+<p>下面来看几个例子：</p>
+<p><img src="http://i1.piimg.com/567571/08a05e89a756ee75.png" alt=""><br>提示插件 <code>hexo-deployer-got</code> 加载失败，想了一下，应该是上次我在移动博客目录的时候，这个模块中有一些文件名比较长的文件，系统会提示移动不过来，导致这个模块异常，很简单，删除这个模块，重新安装即可。如下：</p>
+<p><img src="http://i1.piimg.com/567571/a26efa972092fb9e.png" alt=""></p>
+<p>OK ， 现在好了，<code>hexo clean</code> 没有报错了。</p>
+<p><img src="http://i1.piimg.com/567571/24a28fcb40d1c95f.png" alt=""></p>
+<p>下面，我们是 <code>hexo g</code> 的操作：</p>
+<p><img src="http://i1.piimg.com/567571/40a2d64a4aba2a04.png" alt=""></p>
+<p>遇到问题，首先不要害怕，不要逃避，看一下错误信息：<br>如 1 所示：我们首先会发现缺少模块 <code>isarray</code> ，但是我们查看 <code>package.json</code> 文件，我们的项目根本就没有引入 <code>isarray</code> 这个模块，我猜测这个 <code>isarray</code> 模块应该是某个模块的子模块 。</p>
+<p>如 2 所示：我们顺着 <code>at</code> 一路往下找。</p>
+<p>如 3 所示：发现这个 <code>isarray</code> <code>at</code> <code>hexo-generator-sitemap</code> ，所以我们删除这个 <code>hexo-generator-sitemap</code> 模块，然后重新安装这个模块。如下：</p>
+<p><img src="http://i1.piimg.com/567571/6a740eb49f5ad0c2.png" alt=""></p>
+<p>OK ， 现在好了，<code>hexo g</code> 没有报错了。</p>
+<p><img src="http://i1.piimg.com/567571/91abd56ac0617023.png" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/18/china-javascript-environment/" itemprop="url">
                   中国国内 JavaScript 圈的现状如何
                 </a>
@@ -1444,7 +1569,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1515,6 +1640,10 @@
               
                 <li class="links-of-blogroll-item">
                   <a href="/weblog" title="建站日志" target="_blank">建站日志</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/csdn_yudong" title="CSDN" target="_blank">CSDN</a>
                 </li>
               
                 <li class="links-of-blogroll-item">
