@@ -9,6 +9,7 @@
       <content type="html"><![CDATA[<p>本篇文章将介绍在使用 <code>heox</code> 做博客框架中的一些 <code>bug</code> 处理情况。</p>
 <p>按照之前的教程介绍应该是会比较顺利的搭建好博客，但是难免会遇到一些意外，这个时候就要学会解决问题了。<br>解决问题的原则是：查看 <code>bug</code> 信息，从上到下一次解决 <code>bug</code>。</p>
 <p>下面来看几个例子：</p>
+<a id="more"></a>
 <p><img src="http://i1.piimg.com/567571/08a05e89a756ee75.png" alt=""><br>提示插件 <code>hexo-deployer-got</code> 加载失败，想了一下，应该是上次我在移动博客目录的时候，这个模块中有一些文件名比较长的文件，系统会提示移动不过来，导致这个模块异常，很简单，删除这个模块，重新安装即可。如下：</p>
 <p><img src="http://i1.piimg.com/567571/a26efa972092fb9e.png" alt=""></p>
 <p>OK ， 现在好了，<code>hexo clean</code> 没有报错了。</p>
