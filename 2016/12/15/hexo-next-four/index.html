@@ -84,15 +84,17 @@
 
 
 
-<meta name="description" content="本篇文章将介绍在使用 heox 做博客框架中的一些 bug 处理情况。
-按照之前的教程介绍应该是会比较顺利的搭建好博客，但是难免会遇到一些意外，这个时候就要学会解决问题了。解决问题的原则是：查看 bug 信息，从上到下一次解决 bug。
+<meta name="description" content="提示：本篇文章将介绍在使用 heox 做博客框架中的一些 bug 处理情况。
+
+按照之前的教程介绍应该是会比较顺利的搭建好你的博客，但是难免会遇到一些意外，这个时候就要学会解决问题了。解决问题的原则是：查看 bug 信息，从上到下依次解决 bug。
 下面来看几个例子：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo-NexT搭建个人博客（四）">
 <meta property="og:url" content="https://neveryu.github.io/2016/12/15/hexo-next-four/index.html">
 <meta property="og:site_name" content="Never_yu's Blog">
-<meta property="og:description" content="本篇文章将介绍在使用 heox 做博客框架中的一些 bug 处理情况。
-按照之前的教程介绍应该是会比较顺利的搭建好博客，但是难免会遇到一些意外，这个时候就要学会解决问题了。解决问题的原则是：查看 bug 信息，从上到下一次解决 bug。
+<meta property="og:description" content="提示：本篇文章将介绍在使用 heox 做博客框架中的一些 bug 处理情况。
+
+按照之前的教程介绍应该是会比较顺利的搭建好你的博客，但是难免会遇到一些意外，这个时候就要学会解决问题了。解决问题的原则是：查看 bug 信息，从上到下依次解决 bug。
 下面来看几个例子：">
 <meta property="og:image" content="http://i1.piimg.com/567571/08a05e89a756ee75.png">
 <meta property="og:image" content="http://i1.piimg.com/567571/a26efa972092fb9e.png">
@@ -100,11 +102,12 @@
 <meta property="og:image" content="http://i1.piimg.com/567571/40a2d64a4aba2a04.png">
 <meta property="og:image" content="http://i1.piimg.com/567571/6a740eb49f5ad0c2.png">
 <meta property="og:image" content="http://i1.piimg.com/567571/91abd56ac0617023.png">
-<meta property="og:updated_time" content="2016-12-29T15:33:27.840Z">
+<meta property="og:updated_time" content="2017-01-01T11:35:51.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo-NexT搭建个人博客（四）">
-<meta name="twitter:description" content="本篇文章将介绍在使用 heox 做博客框架中的一些 bug 处理情况。
-按照之前的教程介绍应该是会比较顺利的搭建好博客，但是难免会遇到一些意外，这个时候就要学会解决问题了。解决问题的原则是：查看 bug 信息，从上到下一次解决 bug。
+<meta name="twitter:description" content="提示：本篇文章将介绍在使用 heox 做博客框架中的一些 bug 处理情况。
+
+按照之前的教程介绍应该是会比较顺利的搭建好你的博客，但是难免会遇到一些意外，这个时候就要学会解决问题了。解决问题的原则是：查看 bug 信息，从上到下依次解决 bug。
 下面来看几个例子：">
 <meta name="twitter:image" content="http://i1.piimg.com/567571/08a05e89a756ee75.png">
 
@@ -267,7 +270,7 @@
 
 
     var songs = [
-                "http://v.65dj.com/wailian/84791c997d8c55023dad0d5690e48c28.mp3",
+                "http://bdyun.65dj.com:8090/2015/06/28/84791C997D8C55023DAD0D5690E48C28/%D1%A6%D6%AE%C7%AB%20-%20%D1%DD%D4%B1.mp3",
                 "http://7xoiki.com1.z0.glb.clouddn.com/Music-sunburst.mp3"
     ];
 
@@ -561,22 +564,25 @@
       
 
       
-        <p>本篇文章将介绍在使用 <code>heox</code> 做博客框架中的一些 <code>bug</code> 处理情况。</p>
-<p>按照之前的教程介绍应该是会比较顺利的搭建好博客，但是难免会遇到一些意外，这个时候就要学会解决问题了。<br>解决问题的原则是：查看 <code>bug</code> 信息，从上到下一次解决 <code>bug</code>。</p>
+        <p id="div-border-left-blue">提示：本篇文章将介绍在使用 <code>heox</code> 做博客框架中的一些 <code>bug</code> 处理情况。</p>
+
+<p>按照之前的教程介绍应该是会比较顺利的搭建好你的博客，但是难免会遇到一些意外，这个时候就要学会解决问题了。<br>解决问题的原则是：查看 <code>bug</code> 信息，从上到下依次解决 <code>bug</code>。</p>
 <p>下面来看几个例子：</p>
 <a id="more"></a>
-<p><img src="http://i1.piimg.com/567571/08a05e89a756ee75.png" alt=""><br>提示插件 <code>hexo-deployer-got</code> 加载失败，想了一下，应该是上次我在移动博客目录的时候，这个模块中有一些文件名比较长的文件，系统会提示移动不过来，导致这个模块异常，很简单，删除这个模块，重新安装即可。如下：</p>
+<p>首先这个是在 <code>hexo clean</code> 时报的错：<br><img src="http://i1.piimg.com/567571/08a05e89a756ee75.png" alt=""><br>提示插件 <code>hexo-deployer-got</code> 加载失败，想了一下，应该是上次我在移动博客目录的时候，这个模块中有一些文件名比较长的文件，系统会提示移动不过来，导致这个模块异常，很简单，文件夹中删除这个模块，重新安装即可。（或者使用 <code>npm</code> 来卸载这个模块，然后重新安装）如下：</p>
 <p><img src="http://i1.piimg.com/567571/a26efa972092fb9e.png" alt=""></p>
 <p>OK ， 现在好了，<code>hexo clean</code> 没有报错了。</p>
 <p><img src="http://i1.piimg.com/567571/24a28fcb40d1c95f.png" alt=""></p>
-<p>下面，我们是 <code>hexo g</code> 的操作：</p>
+<p>下面，我是在执行 <code>hexo g</code> 的操作，同样也出现了错误：</p>
 <p><img src="http://i1.piimg.com/567571/40a2d64a4aba2a04.png" alt=""></p>
-<p>遇到问题，首先不要害怕，不要逃避，看一下错误信息：<br>如 1 所示：我们首先会发现缺少模块 <code>isarray</code> ，但是我们查看 <code>package.json</code> 文件，我们的项目根本就没有引入 <code>isarray</code> 这个模块，我猜测这个 <code>isarray</code> 模块应该是某个模块的子模块 。</p>
+<p>按照图中我标注的步骤，来看一下错误信息：<br>如 1 所示：我们首先会发现缺少模块 <code>isarray</code> ，但是我们查看 <code>package.json</code> 文件，我们的项目根本就没有引入 <code>isarray</code> 这个模块，我猜测这个 <code>isarray</code> 模块应该是某个模块的子模块 。</p>
 <p>如 2 所示：我们顺着 <code>at</code> 一路往下找。</p>
 <p>如 3 所示：发现这个 <code>isarray</code> <code>at</code> <code>hexo-generator-sitemap</code> ，所以我们删除这个 <code>hexo-generator-sitemap</code> 模块，然后重新安装这个模块。如下：</p>
 <p><img src="http://i1.piimg.com/567571/6a740eb49f5ad0c2.png" alt=""></p>
 <p>OK ， 现在好了，<code>hexo g</code> 没有报错了。</p>
 <p><img src="http://i1.piimg.com/567571/91abd56ac0617023.png" alt=""></p>
+<p>那么，就以这两个例子来作为本次的示范吧，其实，<code>Hexo</code> 中的一些问题还是比较好解决的，因为它都是依赖其他模块的，定位到出问题的模块，卸载重装即可。</p>
+<p id="div-border-top-red">总结：遇到问题 <code>bug</code>，一定要仔细查阅错误提示信息，遵守从上往下解决的方案。</p>
 
       
     </div>
@@ -860,8 +866,8 @@
 
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
