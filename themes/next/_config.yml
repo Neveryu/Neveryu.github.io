@@ -209,9 +209,9 @@ custom_logo:
 # https://github.com/chriskempson/tomorrow-theme
 highlight_theme: normal
 
-
+# 点击阅读全文后，是否跳到 <!-- more --> 处
 # Automatically scroll page to section which is under <!-- more --> mark.
-scroll_to_more: true
+scroll_to_more: false
 
 
 # Automatically Excerpt. Not recommand.

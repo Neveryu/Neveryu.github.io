@@ -72,7 +72,7 @@ theme: next
 # 这是提交到github的配置，启用本地服务器，请注释
 deploy:
   type: git
-  repository: https://github.com/Neveryu/Neveryu.github.io.git
+  repository: git@github.com:Neveryu/Neveryu.github.io.git
   branch: master
   message: 'Daily updated：{{now("YYYY-MM-DD HH:mm:ss")}} by Never_yu personal PC'
 
