@@ -1672,7 +1672,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #40deaf;
+  background: #ff789a;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2619,7 +2619,6 @@ a#download:hover {
 .post-more-link .btn:hover {
   background: #000;
   color: #eee;
-  animation: animate-yu-1 3s ease-in;
 }
 span#inline-yellow {
   display: inline;
