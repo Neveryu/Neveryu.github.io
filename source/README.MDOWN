@@ -1,7 +1,5 @@
 地址：[https://neveryu.github.io](https://neveryu.github.io)
 
-源码：[https://github.com/Neveryu/Blog](https://github.com/Neveryu/Blog)
-
 ## 浏览器支持 Browser support
 
 ![Browser support](http://iissnan.com/nexus/next/browser-support.png)
