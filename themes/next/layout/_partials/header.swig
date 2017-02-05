@@ -81,7 +81,8 @@
 
     var songs = [
                 "http://bdyun.65dj.com:8090/2015/06/28/84791C997D8C55023DAD0D5690E48C28/%D1%A6%D6%AE%C7%AB%20-%20%D1%DD%D4%B1.mp3",
-                "http://7xoiki.com1.z0.glb.clouddn.com/Music-sunburst.mp3"
+                "http://7xoiki.com1.z0.glb.clouddn.com/Music-sunburst.mp3",
+                ""
     ];
 
     
@@ -263,7 +264,7 @@
         }
     }
     })()'><i class="menu-item-icon fa fa-music fa-fw"></i>High一下</a> </li>
-          <!-- end High一下 -->
+      <!-- end High一下 -->
     </ul>
   {% endif %}
 
