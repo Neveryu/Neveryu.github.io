@@ -37,6 +37,9 @@ $(document).ready(function(){
 ```
 
 ### <font color='#099'>输入框文字获取和失去焦点【推荐】</font>
+
+<!-- more -->
+
 ``` html
 <!DOCTYPE html>
 <html lang="en">

@@ -28,7 +28,7 @@ Weibo: http://weibo.com/Neveryu
 前端工具：sass/compass/impressjs/hexo/requirejs/seajs
 数据库相关：MySQL/SQL Server/Redis/
 版本管理、文档和自动化部署工具：Svn/Git/Grunt/Gulp
- 单元测试：PHPUnit/SimpleTest/Qunit 
+单元测试：PHPUnit/SimpleTest/Qunit 
 Web框架：ThinkPHP/Spring MVC/CodeIgniter
 
 -->
