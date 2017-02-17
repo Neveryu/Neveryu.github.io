@@ -108,7 +108,6 @@
             </ul>
           </div>
         {% endif %}
-
       </section>
 
       {% if display_toc %}
@@ -127,6 +126,10 @@
           </div>
         </section>
       {% endif %}
+      <!-- hack一个虚线出来 -->
+      <section style="border-top:1px dotted #ccc;height:10px;"></section>
+      <!-- weibo show -->
+      <iframe width="100%" height="120" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=120&fansRow=2&ptype=1&speed=0&skin=5&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5346488237&verifier=d529ff3a&dpc=1"></iframe>
     </div>
   </aside>
 {% endmacro %}
