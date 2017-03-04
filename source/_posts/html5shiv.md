@@ -24,11 +24,11 @@ comments: false
 * `<article>` 定义正文或一段完整的内容
 * `<aside>` 定义补充或相关内容
 
-使用他们能让代码语义化更直观，而且更方便 SEO 优化，但是此 HTML5 新标签在IE6/IE7/IE8上并不能识别，需要 javascript 处理，所以我们就需要使用目前使用最广泛的 html5shiv.js 了，包括 Bootstrap 框架也是使用的这个来兼容低版本 IE 的。
+使用他们能让代码语义化更直观，而且更方便 SEO 优化，但是此 HTML5 新标签在 IE6/IE7/IE8 上并不能识别，需要 javascript 处理，所以我们就需要使用目前使用最广泛的 html5shiv.js 了，包括 Bootstrap 框架也是使用的这个来兼容低版本 IE 的。
 
 
 # 实现原理
-　　这些 HTML5 新元素不能被 E6-8 识别，不能作为父节点包裹子元素，并且不能应用 CSS 样式。让 CSS 样式应用在未知元素上只需执行 `document.createElement(elementName)` 即可实现。HTML5Shiv 就是根据这个原理创建的。
+　　这些 HTML5 新元素不能被 IE6-8 识别，不能作为父节点包裹子元素，并且不能应用 CSS 样式。让 CSS 样式应用在未知元素上只需执行 `document.createElement(elementName)` 即可实现。HTML5Shiv 就是根据这个原理创建的。
 
 <p id="div-border-top-purple">关于HTML5不得不提IE，在苹果、Google、Opera和Mozilla等主流浏览器厂商积极参与新版本HTML标准的制定和推广时，微软却对HTML5规范不屑一顾。然而微软近期才表态要在IE中支持HTML5,以致到今天为止的IE8及以下是无法支持HTML5标签的.</p>
 
@@ -91,12 +91,12 @@ article,aside,dialog,footer,header,section,footer,nav,figure,menu{
 
 * HTML5shiv is found within the `<head>` tag.
 * HTML5shiv is a javascript file that is referenced in a `<script>` tag.
-* You should usr HTML5shiv when you are using the new HTML5 element such as : `<header>,<footer>,<nav>,<aside>,<article>`
-* Download the latest version of HTML5shiv from [github](https://raw.githubusercontent.com/Neveryu/html5shiv/master/html5shiv.min.js) or reference the Open Source Software CDN version at `https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js` or `https://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js`.
+* You should usr HTML5shiv when you are using the new HTML5 element such as : `<header>`,`<footer>`,`<nav>`,`<aside>`,`<article>`
+* Download the latest version of HTML5shiv from [github](https://github.com/aFarkas/html5shiv/) or reference the Open Source Software CDN version at `https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js` or `https://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js`.
 * You will require the HTML5shiv to provide compatibility for IE Browser older than IE 9.
 
 ## Example
-HTML 5 Document
+### HTML 5 Document
 If you created a new web page in HTML5,you would include the HTML5shiv as follows:
 
     <head>
@@ -107,7 +107,7 @@ If you created a new web page in HTML5,you would include the HTML5shiv as follow
     </head>
 
 
-In this HTML 5 Document example,we have added HTML5shiv within the <head> tag.In this case,the HTML5shiv is a javascript file called <i>html5shiv.js</i> found in the ./js directory.
+In this HTML 5 Document example,we have added HTML5shiv within the <head> tag.In this case,the HTML5shiv is a javascript file called **html5shiv.js** found in the ./js directory.
 
 If you did not want to download and store the HTML5shiv on your site,you could reference the version found on the Open Source Software CDN site.
 
@@ -133,16 +133,16 @@ If you did not want to download and store the HTML5shiv on your site,you could r
 
 ## 注意事项四
 
-HTML 4.0.1 Transitional Document
+### HTML 4.0.1 Transitional Document
 HTML5shiv does not apply to HTML 4.0.1 Transitional.
 
-XHTML 1.0 Transitional Document
+### XHTML 1.0 Transitional Document
 HTML5shiv does not apply to XHTML 1.0 Transitional.
 
-XHTML 1.0 Strict Document
+### XHTML 1.0 Strict Document
 HTML5shiv does not apply to XHTML 1.0 Strict.
 
-XHTML 1.1 Document
+### XHTML 1.1 Document
 HTML5shiv does not apply to XHTML 1.1.
 
 

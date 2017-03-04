@@ -12,7 +12,7 @@ comments: false
   我们约定，将前者称为 <span id="inline-blue">站点配置文件</span>，后者称为 <span id="inline-purple">主题配置文件</span></p>
 
 #### 1.设置侧栏的位置
-修改 <span id="inline-purple">主题配置文件</span> 中 `sidebar.position` 的值，支持的选项有：`left` `right`
+修改 <span id="inline-purple">主题配置文件</span> 中 `sidebar.position` 的值，支持的选项有：**left** **right**
 目前仅 Pisces Scheme 支持 position 配置，也就是说NexT主题的侧栏位置是不能设置的，设置了也没用，反正都在右边。
 
 <!-- more -->
@@ -27,7 +27,7 @@ comments: false
 #### 3. 添加High一下
 打开博客根目录 `\themes\next\layout\_partials\header.swig` ，在
 `<ul> ... /ul>` 标签之间加入以下代码：
-```
+``` javascript
 <li> <a title="把这个链接拖到你的Chrome收藏夹工具栏中" href='javascript:(function() {
     function c() {
         var e = document.createElement("link");
@@ -191,16 +191,16 @@ comments: false
 
 
 #### 5. 鼠标点击小红心的设置
-  1. 将 [love.js](https://github.com/Neveryu/Neveryu.github.io/blob/master/js/src/love.js) 文件添加到 `\themes\next\source\js\src` 文件目录下。
-  2. 找到 `\themes\next\layout\_layout.swing` 文件，** 在文件的后面，`</body>`标签之前 ** 添加以下代码：
+  1. 将 [love.js](https://github.com/Neveryu/Neveryu.github.io/blob/master/js/src/love.js) 文件添加到 \themes\next\source\js\src 文件目录下。
+  2. 找到 `\themes\next\layout\_layout.swing` 文件，** 在文件的后面，`</body>` 标签之前 ** 添加以下代码：
   ``` html
   <!-- 页面点击小红心 -->
   <script type="text/javascript" src="/js/src/love.js"></script>
   ```
 
 #### 6. 背景的设置
-  1. 将[particle.js](https://github.com/Neveryu/Neveryu.github.io/blob/master/js/src/particle.js)文件添加到`\themes\next\source\js\src`文件目录下。
-  2. 找到`\themes\next\layout\_layout.swing`文件，** 在文件的后面，`</body>`标签之前 ** 添加以下代码：
+  1. 将 [particle.js](https://github.com/Neveryu/Neveryu.github.io/blob/master/js/src/particle.js) 文件添加到 \themes\next\source\js\src 文件目录下。
+  2. 找到 `\themes\next\layout\_layout.swing` 文件，** 在文件的后面，`</body>`标签之前 ** 添加以下代码：
   ``` html
   <!-- 背景动画 -->
   <script type="text/javascript" src="/js/src/particle.js"></script>
@@ -208,7 +208,7 @@ comments: false
 
 #### 7.修改文章内链接文本样式
 将链接文本设置为蓝色，鼠标划过时文字颜色加深，并显示下划线。
-找到文件 `themes\next\source\css\_custom\custom.styl` ，添加如下 `css` 样式：
+找到文件 `themes\next\source\css\_custom\custom.styl` ，添加如下 css 样式：
 ``` css
 .post-body p a {
   color: #0593d3;
@@ -221,7 +221,7 @@ comments: false
 ```
 
 #### 8. 多说评论不稳定，加载速度慢怎么办？
-把多说评论依赖的`embed.js`放置底部，这里需要修改的文件是`duoshuo.swig`。
+把多说评论依赖的 embed.js 放置底部，这里需要修改的文件是 duoshuo.swig。
 将
 ```
 (document.getElementsByTagName('head')[0]
@@ -233,9 +233,9 @@ comments: false
 
 
 #### 9. 给 Github 添加 README
-默认情况下，Github中每一个项目，我们希望有一份`README.md`的文件来作为项目的说明，但是我们在项目根目录下的`blog\source`目录下创建一份`README.md`文件，写好说明介绍，部署的时候，这个`README.md`会被hexo解析掉，而不会被解析到Github中去的。
+默认情况下，Github中每一个项目，我们希望有一份 README.md 的文件来作为项目的说明，但是我们在项目根目录下的 blog\source 目录下创建一份 README.md 文件，写好说明介绍，部署的时候，这个 README.md 会被 hexo 解析掉，而不会被解析到 Github 中去的。
 正确的解决方法其实很简单：
-** 把`README.md`文件的后缀名改成"MDOWN"然后扔到`blog/source`文件夹下即可，这样hexo不会解析，Github也会将其作为MD文件解析。 **
+** 把 README.md 文件的后缀名改成 "MDOWN" 然后扔到`blog/source`文件夹下即可，这样 hexo 不会解析，Github 也会将其作为 MD 文件解析。 **
 
 #### 10. 给 Blog 添加 LICENSE
 在 <span id="inline-purple">主题配置文件</span> 中的 160 行左右：
