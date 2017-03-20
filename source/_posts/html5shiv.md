@@ -30,17 +30,17 @@ comments: false
 # 实现原理
 　　这些 HTML5 新元素不能被 IE6-8 识别，不能作为父节点包裹子元素，并且不能应用 CSS 样式。让 CSS 样式应用在未知元素上只需执行 `document.createElement(elementName)` 即可实现。HTML5Shiv 就是根据这个原理创建的。
 
-<p id="div-border-top-purple">关于HTML5不得不提IE，在苹果、Google、Opera和Mozilla等主流浏览器厂商积极参与新版本HTML标准的制定和推广时，微软却对HTML5规范不屑一顾。然而微软近期才表态要在IE中支持HTML5,以致到今天为止的IE8及以下是无法支持HTML5标签的.</p>
+<p id="div-border-top-purple">关于 HTML5 不得不提 IE，在苹果、Google、Opera 和 Mozilla 等主流浏览器厂商积极参与新版本 HTML 标准的制定和推广时，微软却对 HTML5 规范不屑一顾。然而微软近期才表态要在 IE 中支持 HTML5,以致到今天为止的 IE8 及以下是无法支持 HTML5 标签的.</p>
 
 
 # 使用
 
 HTML5Shiv 的使用非常的简单，考虑到 IE9 是支持 HTML5 的，所以只需要在页面 head 中添加如下代码即可： 
-
-    <!-–[if lt IE 9]-->
-        <script src=".js/html5shiv.js "></script >
-    <!--[endif]–- > 
-    
+```
+<!--[if lt IE 9]>
+  <script src=".js/html5shiv.js "></script >
+<![endif]–-> 
+```
 
 The syntax for the HTML5shiv is : 
 ``` html
