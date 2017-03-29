@@ -72,7 +72,7 @@ article,aside,dialog,footer,header,section,footer,nav,figure,menu{
 ## 注意事项二
 　　因为 html5shiv.js 是 JavaScript 文件，如果 IE6/7/8 禁用脚本的用户,那么就变成了无样式的"白板"网页,我们该怎么解决呢?
 　　我们可以参照 Facebook 的做法，即引导用户进入带有 noscript 标识的页面，用 xhtml 标签替换 html5 标签，这要比为了保持兼容而写大量 hack 的作法更轻便一些。
-```
+``` html
 <!--[if lte IE 8]> 
 <noscript>
 <style>
@@ -99,12 +99,14 @@ article,aside,dialog,footer,header,section,footer,nav,figure,menu{
 ### HTML 5 Document
 If you created a new web page in HTML5,you would include the HTML5shiv as follows:
 
-    <head>
-    <meta charset="UTF-8">
-    <!--[if lt IE 9]>
-      <script src=".js/html5shiv.min.js"></script>
-    <![endif]-->
-    </head>
+``` html
+<head>
+<meta charset="UTF-8">
+<!--[if lt IE 9]>
+  <script src=".js/html5shiv.min.js"></script>
+<![endif]-->
+</head>
+```
 
 
 In this HTML 5 Document example,we have added HTML5shiv within the <head> tag.In this case,the HTML5shiv is a javascript file called **html5shiv.js** found in the ./js directory.
