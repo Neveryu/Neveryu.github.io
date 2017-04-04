@@ -43,3 +43,7 @@ OK ， 现在好了，`hexo g` 没有报错了。
 那么，就以这两个例子来作为本次的示范吧，其实，**Hexo** 中的一些问题还是比较好解决的，因为它都是依赖其他模块的，定位到出问题的模块，卸载重装即可。
 
 <p id="div-border-top-red">总结：遇到问题 **bug**，一定要仔细查阅错误提示信息，遵守从上往下解决的方案。</p>
+
+<h5 style="color:#f63;"><i>最后要说的是：</i></h5>
+<p id="div-border-top-green"><i>[博客源码](https://github.com/Neveryu/Neveryu.github.io) ， 欢迎 start
+</i></p>

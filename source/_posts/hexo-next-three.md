@@ -113,5 +113,5 @@ type: "picture"
 `5-3` 的意思就是5张图片将会按照这种布局来展示，Next 提供了多张图片的多种布局，你可以随意选择。
 
 <h5 style="color:#f63;"><i>最后要说的是：</i></h5>
-<p id="div-border-top-green"><i>[博客源码](https://github.com/Neveryu/Neveryu.github.io)
+<p id="div-border-top-green"><i>[博客源码](https://github.com/Neveryu/Neveryu.github.io) ， 欢迎 start
 </i></p>

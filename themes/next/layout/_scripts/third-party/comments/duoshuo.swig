@@ -12,7 +12,7 @@
       var ds = document.createElement('script');
       ds.type = 'text/javascript';ds.async = true;
       ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//neveryu.github.io/js/src/embed.js';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
       ds.charset = 'UTF-8';
       (document.getElementById('footer')
       || document.getElementsByTagName('body')[0]).appendChild(ds);

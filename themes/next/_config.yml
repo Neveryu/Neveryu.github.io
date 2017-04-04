@@ -6,7 +6,7 @@
 favicon: /favicon/favicon.ico
 
 # Set default keywords (Use a comma to separate)
-keywords: "Hexo, NexT, Neveryu, Never_yu, Blog, Node.js, Git, PHP, JAVA, JAVASCRIPT, HTML, CSS, jQuery"
+keywords: "Hexo, NexT, Neveryu, Never_yu, Blog, Node.js, Git, PHP, JAVA, JAVASCRIPT, HTML, CSS, jQuery, Angular, Vue, React"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -152,6 +152,7 @@ social_icons:
 # 文章侧栏显示标题
 toc:
   enable: true
+  #enable: false
 
   # Automatically add list number to toc.
   # 标题是否自动编号
@@ -187,7 +188,6 @@ links_layout: inline
 links:
   建站日志: /weblog
   CSDN: http://blog.csdn.net/csdn_yudong
-  王婷婷: http://weibo.com/misswangtingting
 
 
 # ---------------------------------------------------------------
@@ -285,7 +285,7 @@ duoshuo_info:
   ua_enable: true
   admin_enable: true
   user_id: 6326435153992221442
-  admin_nickname: Author
+  #admin_nickname: Author
 
 
 # Facebook SDK Support.
