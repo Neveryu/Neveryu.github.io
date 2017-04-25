@@ -1,5 +1,5 @@
 ---
-title: Sass入门教程
+title: Sass 教程
 date: 2016-10-23 10:49:15
 categories: 前端
 tags: [css,sass]
@@ -51,16 +51,16 @@ https://ruby.taobao.org
 gem install sass
 ```
 
-按回车键确认，等待一段时间就会提示你sass安装成功。
+按回车键确认，等待一段时间就会提示你 sass 安装成功。
 
-如果你熟悉git命令的话，你还可以从sass的Git repository来安装，git的命令行为
+如果你熟悉 git 命令的话，你还可以从 sass 的 Git repository 来安装，git 的命令行为：
 ```
 git clone git://github.com/nex3/sass.git
 cd sass
 rake install
 ```
 
-# 升级 sass 版本的命令行为
+# 如何升级 sass 版本
 
 我们可以使用命令 `gem update sass` 来升级我们的 sass 版本。
 
@@ -81,20 +81,52 @@ rake install
 
 # sass 命令
 
-单文件转换命令
-`sass style.scss style.css`
+单文件转换
+```
+sass style.scss style.css
+```
 
-单文件监听命令
-`sass --watch style.scss:style.css`
+单文件监听
+```
+sass --watch style.scss:style.css
+```
 
-文件夹监听命令
-`sass --watch sassFileDirectory:cssFileDirectory`
+文件夹监听
+```
+sass --watch sassFileDirectory:cssFileDirectory
+```
 
-css文件转成sass/scss文件
+css 文件转成 sass/scss 文件
 ```
 sass-convert style.css style.sass
 sass-convert style.css style.scss
 ```
+
+## sass 命令配置选项
+运行命令行帮助文档，可以获得所有的配置选项
+```
+sass -h
+```
+
+配置选项 `--style`
+```
+sass style.scss:style.css --style compact
+```
+`--style` 表示解析后的 css 是什么格式，有四种取值分别为：expanded ，nested ，compact ，compressed 。
+
+配置选项 `--sourcemap`
+```
+sass style.scss:style.css --sourcemap
+```
+`--sourcemap` 表示开启 sourcemap 调试。开启 sourcemap 调试后，会生成一个后缀名为 .css.map 文件。
+
+配置选项 `--debug-info`
+```
+sass style.scss:style.css --debug-info
+```
+`--debug-info` 表示开启 debug 信息，升级到 3.3.0 之后因为 sourcemap 更高级，这个 debug-info 就不太用了。
+
+
 
 # sass语法
 

@@ -45,5 +45,5 @@ OK ， 现在好了，`hexo g` 没有报错了。
 <p id="div-border-top-red">总结：遇到问题 **bug**，一定要仔细查阅错误提示信息，遵守从上往下解决的方案。</p>
 
 <h5 style="color:#f63;"><i>最后要说的是：</i></h5>
-<p id="div-border-top-green"><i>[博客源码](https://github.com/Neveryu/Neveryu.github.io) ， 欢迎 start
+<p id="div-border-top-green"><i>[博客源码](https://github.com/Neveryu/Neveryu.github.io) ， 欢迎 star
 </i></p>

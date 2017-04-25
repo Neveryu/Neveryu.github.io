@@ -193,5 +193,5 @@ Hexo 中的图标使用的是 [Font Awesome](http://fontawesome.io/) ，所以�
 <i class="fa fa-github fa-2x"></i> `<i class="fa fa-github fa-2x"></i>`
 
 <h5 style="color:#f63;"><i>最后要说的是：</i></h5>
-<p id="div-border-top-green"><i>[博客源码](https://github.com/Neveryu/Neveryu.github.io) ， 欢迎 start
+<p id="div-border-top-green"><i>[博客源码](https://github.com/Neveryu/Neveryu.github.io) ， 欢迎 star
 </i></p>

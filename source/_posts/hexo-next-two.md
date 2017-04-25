@@ -249,5 +249,5 @@ creative_commons: by-nc-sa
 将其中第 4 行的注释放开，然后选择你想使用的 LICENSE 即可，可选项参照第 3 行。
 
 <h5 style="color:#f63;"><i>最后要说的是：</i></h5>
-<p id="div-border-top-green"><i>[博客源码](https://github.com/Neveryu/Neveryu.github.io) ， 欢迎 start
+<p id="div-border-top-green"><i>[博客源码](https://github.com/Neveryu/Neveryu.github.io) ， 欢迎 star
 </i></p>
