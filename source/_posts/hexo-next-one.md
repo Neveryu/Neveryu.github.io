@@ -12,7 +12,7 @@ comments: false
 <i>Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。</i>
 - <i class="fa fa-pencil"></i><h6 style="display: inline;">　支持Markdown</h6>
 <i>Hexo 支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件。</i>
-- <i class="fa fa-cloud-upload"></i><h6 style="display: inline;">　一件部署</h6>
+- <i class="fa fa-cloud-upload"></i><h6 style="display: inline;">　一键部署</h6>
 <i>只需一条指令即可部署到Github Pages，或其他网站</i>
 - <i class="fa fa-cog"></i><h6 style="display: inline;">　丰富的插件</h6>
 <i>Hexo 拥有强大的插件系统，安装插件可以让 Hexo 支持 Jade, CoffeeScript。</i>
