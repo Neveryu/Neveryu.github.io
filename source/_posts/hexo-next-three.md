@@ -1,7 +1,7 @@
 ---
 title: Hexo-NexT搭建个人博客（三）
 date: 2016-11-11 13:25:24
-categories: 综合
+categories: Hexo
 tags: [Hexo,Next]
 comments: false
 ---
