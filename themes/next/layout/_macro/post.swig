@@ -155,6 +155,13 @@
       {% endif %}
 
       {% if is_index %}
+<!-- 自定义，用于添加摘要图片，文章中不显示 -->
+        {% if post.summary_img  %}
+          <div class="out-img-topic">
+            <img src={{ post.summary_img }} class="img-topic">
+          </div>
+        {% endif %}
+<!-- 自定义结束 -->
         {% if post.description %}
           {{ post.description }}
           <div class="post-more-link text-center">
