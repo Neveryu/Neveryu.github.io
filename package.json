@@ -23,5 +23,10 @@
   "devDependencies": {
     "hexo-deployer-git": "^0.2.0",
     "hexo-generator-sitemap": "^1.1.2"
+  },
+  "scripts": {
+    "dev": "hexo clean && hexo g && hexo s --debug",
+    "deploy": "hexo clean && hexo g && hexo d",
+    "postdeploy": "echo 'Finished deploy'"
   }
 }

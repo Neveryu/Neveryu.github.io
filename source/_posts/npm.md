@@ -1,7 +1,7 @@
 title: npm 全面介绍
 date: 2017-04-10 03:25:24
 categories: 前端
-tags: [综合]
+tags: [npm]
 comments: false
 summary_img: http://i1.piimg.com/588926/30e7b49044d5cfc4.png
 ---
