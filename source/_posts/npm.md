@@ -342,6 +342,11 @@ package.json 是 CommonJS 规定的用来描述包的文件，完全符合规范
 # 参考链接
 [http://javascript.ruanyifeng.com/nodejs/npm.html](http://javascript.ruanyifeng.com/nodejs/npm.html)
 
+# 常用命令
+npm version  查看npm和node的版本
+npm list --depth=0 [-g]  查看[全局]安装的包
+npm root [-g]  查看[全局的]包的安装路径
+
 
 
 

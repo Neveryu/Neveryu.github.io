@@ -2,7 +2,7 @@
 title: 中国国内 JavaScript 圈的现状如何
 date: 2016-11-18 13:25:24
 categories: 综合
-tags: [javascript]
+tags: [essay, JavaScript]
 comments: false
 ---
 

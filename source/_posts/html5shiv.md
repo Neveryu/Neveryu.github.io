@@ -2,7 +2,7 @@
 title: 腻子脚本 — HTML5Shiv
 date: 2017-01-18 13:25:24
 categories: 前端
-tags: [javascript]
+tags: [JavaScript]
 comments: false
 ---
 

@@ -2,7 +2,7 @@
 title: Hexo-NexT搭建个人博客（三）
 date: 2016-11-11 13:25:24
 categories: Hexo
-tags: [Hexo,Next]
+tags: [Hexo, Next]
 comments: false
 ---
 　　经过前面两期文章，我相信你已经可以在本地建立一个非常令人满意的静态博客了，本篇文章将介绍如何将自己的静态博客部署到 gitpage 上，并托管到 github 上；以及关于 Hexo 和 NexT 中更深层次的一些问题及解方案。

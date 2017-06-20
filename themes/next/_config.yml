@@ -31,8 +31,8 @@ menu:
   home: /
   archives: /archives
   categories: /categories
-  # tags: /tags
-  guestbook: /guestbook
+  tags: /tags
+  #guestbook: /guestbook
   about: /about
   #commonweal: /404
 
@@ -248,7 +248,7 @@ mathjax:
 #baidu_analytics:
 
 # Duoshuo ShortName
-duoshuo_shortname: Neveryu
+#duoshuo_shortname: 
 
 # Disqus
 #disqus_shortname:
@@ -260,11 +260,11 @@ duoshuo_shortname: Neveryu
 ##  type: button
 
 # Share
-#jiathis:
+jiathis: true
 #add_this_id:
 
 # Share
-duoshuo_share: true
+#duoshuo_share: false
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
@@ -284,7 +284,7 @@ duoshuo_share: true
 duoshuo_info:
   ua_enable: true
   admin_enable: true
-  user_id: 6326435153992221442
+  user_id: 
   #admin_nickname: Author
 
 
@@ -413,7 +413,3 @@ version: 5.0.1
 reward_comment: 满分是10分的话，这篇文章你给几分
 alipay: /reward/reward_alipay.png
 wechatpay: /reward/reward_wechat.png
-
-# 2.多说热评文章
-# duoshuo_hotartical: true
-

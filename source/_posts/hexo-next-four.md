@@ -2,7 +2,7 @@
 title: Hexo-NexT搭建个人博客（四）
 date: 2016-12-15 23:25:24
 categories: Hexo
-tags: [Hexo,Next]
+tags: [Hexo, Next]
 comments: false
 ---
 <p id="div-border-left-blue">提示：本篇文章将介绍在使用 heox 做博客框架中的一些 bug 处理情况。</p>

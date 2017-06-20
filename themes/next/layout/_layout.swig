@@ -108,7 +108,7 @@
   <!-- 背景动画 -->
   <!-- <script type="text/javascript" src="/js/src/particle.js"></script> -->
   <!-- 页面点击小红心 -->
-  <!-- <script type="text/javascript" src="/js/src/love.js"></script> -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
 
   <script type="text/javascript">var OriginTitile=document.title,st;document.addEventListener("visibilitychange",function(){document.hidden?(document.title="≡[。。]≡ 回不去了吗？!",clearTimeout(st)):(document.title="(ฅ>ω<*ฅ) Thank Vue~ "+OriginTitile,st=setTimeout(function(){document.title=OriginTitile},4e3))})</script>
 

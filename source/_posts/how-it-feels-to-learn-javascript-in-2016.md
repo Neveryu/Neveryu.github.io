@@ -2,7 +2,7 @@
 title: 【转】在2016年学JavaScript是一种什么样的体验
 date: 2016-10-16 23:25:24
 categories: 前端
-tags: [essay]
+tags: [essay, JavaScript]
 comments: false
 ---
 <p id="div-border-left-blue" style="width:90%;">嘿，我最近接到一个 Web 项目，不过老实说，我这两年没怎么接触 Web 编程，听说 Web 技术已经发生了一些变化。听说你是这里对新技术最了解的 Web 开发工程师？</p>

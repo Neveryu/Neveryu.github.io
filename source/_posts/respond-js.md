@@ -2,7 +2,7 @@
 title: polyfill — Respond.js
 date: 2017-02-11 23:25:24
 categories: 前端
-tags: [javascript]
+tags: [JavaScript]
 comments: false
 ---
 

@@ -2,7 +2,7 @@
 title: Hexo-NexT搭建个人博客（二）
 date: 2016-09-30 22:18:22
 categories: Hexo
-tags: [Hexo,Next]
+tags: [Hexo, Next]
 comments: false
 ---
 
