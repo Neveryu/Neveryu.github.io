@@ -9,13 +9,12 @@ Email: React.dong.yu@gmail.com
 Weibo: http://weibo.com/Neveryu
 
 # 基本信息
-毕业时间：2015年
 学历：本科
 目前所在城市：深圳
 
 # 个人简介
-目前为前端工程师
-喜欢 javascript 语言和相关组件以及 backbone、vue.js、node.js、mongoDB、PHP、JAVA、GO、Redis、Docker等后端、数据库技术
+前端工程师 
+喜欢 javascript 语言和相关组件以及 backbone、vue.js、node.js、mongoDB、PHP、JAVA、GO、Redis、Docker、Linux等后端、数据库技术
 
 <!--
 # 技能清单
