@@ -18,7 +18,6 @@ const ignoreFetch = [
 /https?:\/\/cdnjs.cloudflare.com\//
 ];
 
-
 //////////
 // Install
 //////////
