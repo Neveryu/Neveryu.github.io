@@ -21,6 +21,8 @@
     "hexo-server": "^0.2.0"
   },
   "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
     "hexo-deployer-git": "^0.2.0",
     "hexo-generator-sitemap": "^1.1.2"
   },

@@ -32,7 +32,7 @@ menu:
   archives: /archives
   categories: /categories
   tags: /tags
-  #guestbook: /guestbook
+  guestbook: /guestbook
   about: /about
   #commonweal: /404
 

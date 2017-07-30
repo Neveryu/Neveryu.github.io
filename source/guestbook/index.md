@@ -9,3 +9,5 @@ date: 2016-09-03 17:21:10
     <embed src="https://music.163.com/style/swf/widget.swf?sid=26672926&type=2&auto=0&width=320&height=66" title="Nothing To Fear - Dexter Britain" width="340" height="86"  allowNetworking="all" oncontextmenu="return false"></embed>
 </blockquote>
 <br/>
+留言系统制作中...
+目前可以给我 [微博私信](http://weibo.com/Neveryu) 或者 <a href="mailto:React.dong.yu@gmail.com">邮件</a> 或者在我的 Github 中留 [Issue](https://github.com/Neveryu/Neveryu.github.io/issues) 也行。

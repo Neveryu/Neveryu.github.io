@@ -1,6 +1,6 @@
 'use strict';
 
-const version = 'yu-v1';
+const version = 'yu-v3';
 const __DEVELOPMENT__ = false;
 const __DEBUG__ = false;
 const offlineResources = [
@@ -10,12 +10,7 @@ const offlineResources = [
 ];
 
 const ignoreFetch = [
-/https?:\/\/cdn.bootcss.com\//,
-/https?:\/\/static.duoshuo.com\//,
-/https?:\/\/www.google-analytics.com\//,
-/https?:\/\/dn-lbstatics.qbox.me\//,
-/https?:\/\/ajax.cloudflare.com\//,
-/https?:\/\/cdnjs.cloudflare.com\//
+
 ];
 
 //////////
@@ -29,13 +24,13 @@ function onInstall(event) {
 
 function updateStaticCache() {
   return caches
-  .open(cacheKey('offline'))
-  .then((cache) => {
-    return cache.addAll(offlineResources);
-  })
-  .then(() => {
-    log('installation complete!');
-  });
+    .open(cacheKey('offline'))
+    .then((cache) => {
+      return cache.addAll(offlineResources);
+    })
+    .then(() => {
+      log('installation complete!');
+    });
 }
 
 ////////
@@ -59,58 +54,57 @@ function onFetch(event) {
 
 function networkedOrCached(request) {
   return networkedAndCache(request)
-  .catch(() => { return cachedOrOffline(request) });
+    .catch(() => { return cachedOrOffline(request) });
 }
 
 // Stash response in cache as side-effect of network request
 function networkedAndCache(request) {
   return fetch(request)
-  .then((response) => {
-    var copy = response.clone();
-    caches.open(cacheKey('resources'))
-    .then((cache) => {
-      cache.put(request, copy);
-    });
+    .then((response) => {
+      var copy = response.clone();
+      caches.open(cacheKey('resources'))
+        .then((cache) => {
+          cache.put(request, copy);
+        });
 
-    log("(network: cache write)", request.method, request.url);
-    return response;
-  });
+      log("(network: cache write)", request.method, request.url);
+      return response;
+    });
 }
 
 function cachedOrNetworked(request) {
   return caches.match(request)
-  .then((response) => {
-    log(response ? '(cached)' : '(network: cache miss)', request.method, request.url);
-    return response ||
-    networkedAndCache(request)
-    .catch(() => { return offlineResponse(request) });
-  });
+    .then((response) => {
+      log(response ? '(cached)' : '(network: cache miss)', request.method, request.url);
+      return response ||
+        networkedAndCache(request)
+          .catch(() => { return offlineResponse(request) });
+    });
 }
 
 function networkedOrOffline(request) {
   return fetch(request)
-  .then((response) => {
-    log('(network)', request.method, request.url);
-    return response;
-  })
-  .catch(() => {
-    return offlineResponse(request);
-  });
+    .then((response) => {
+      log('(network)', request.method, request.url);
+      return response;
+    })
+    .catch(() => {
+      return offlineResponse(request);
+    });
 }
 
 function cachedOrOffline(request) {
   return caches
-  .match(request)
-  .then((response) => {
-    return response || offlineResponse(request);
-  });
+    .match(request)
+    .then((response) => {
+      return response || offlineResponse(request);
+    });
 }
 
 function offlineResponse(request) {
   log('(offline)', request.method, request.url);
   if (request.url.match(/\.(jpg|png|gif|svg|jpeg)(\?.*)?$/)) {
-    // return caches.match('/offline.svg');
-    return caches.match('/offline.html');
+    return caches.match('/offline.svg');
   } else {
     return caches.match('/offline.html');
   }
@@ -126,21 +120,21 @@ function onActivate(event) {
 
 function removeOldCache() {
   return caches
-  .keys()
-  .then((keys) => {
+    .keys()
+    .then((keys) => {
       return Promise.all( // We return a promise that settles when all outdated caches are deleted.
         keys
-        .filter((key) => {
+         .filter((key) => {
            return !key.startsWith(version); // Filter by keys that don't start with the latest version prefix.
          })
-        .map((key) => {
+         .map((key) => {
            return caches.delete(key); // Return a promise that's fulfilled when each outdated cache is deleted.
          })
-        );
+      );
     })
-  .then(() => {
-    log('removeOldCache completed.');
-  });
+    .then(() => {
+      log('removeOldCache completed.');
+    });
 }
 
 function cacheKey() {
@@ -155,8 +149,8 @@ function log() {
 
 function shouldAlwaysFetch(request) {
   return __DEVELOPMENT__ ||
-  request.method !== 'GET' ||
-  ignoreFetch.some(regex => request.url.match(regex));
+    request.method !== 'GET' ||
+      ignoreFetch.some(regex => request.url.match(regex));
 }
 
 function shouldFetchAndCache(request) {
