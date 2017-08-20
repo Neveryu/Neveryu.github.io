@@ -1,7 +1,7 @@
 {% if theme.alipay or theme.wechatpay %}
 
-<blockquote class="blockquote-center">
-    完
+<blockquote class="blockquote-center" style="color: #ccc;">
+    -------------本文结束 <i class="fa fa-apple"></i> 感谢您的阅读-------------
 </blockquote>
 
   <span id="inline-green" style="border-radius:3px;">作者</span>：<a class="link-blue" href="https://github.com/Neveryu" target="_blank">Neveryu</a><br/>有问题请 <a class="link-blue" href="https://neveryu.github.io/guestbook" target="_blank">留言</a> 或者私信我的 <a class="link-blue" href="http://weibo.com/Neveryu" target="_blank">微博</a>。

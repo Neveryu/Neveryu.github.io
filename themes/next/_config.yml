@@ -11,7 +11,7 @@ keywords: "Hexo, NexT, Neveryu, Never_yu, Blog, Node.js, Git, PHP, JAVA, JAVASCR
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
 # Set rss to specific value if you have burned your feed already.
-rss:
+rss: /atom.xml
 
 # Specify the date when the site was setup
 since: 2016
@@ -411,5 +411,5 @@ version: 5.0.1
 # 自己添加的功能
 # 1.开启打赏功能
 reward_comment: 满分是10分的话，这篇文章你给几分
-alipay: /reward/reward_alipay.png
+# alipay: /reward/reward_alipay.png
 wechatpay: /reward/reward_wechat.png

@@ -99,3 +99,6 @@
 {% if theme.canonical %}
   <link rel="canonical" href="{{ config.url }}/{{ page.canonical_path.replace('index.html', '') }}"/>
 {% endif %}
+
+<!-- 网页加载条 -->
+<script src="/js/src/pace.min.js"></script>

@@ -90,3 +90,6 @@ baidusitemap:
 search:
 	path: search.xml
 	field: post
+
+## Plugins: http://hexo.io/plugins/
+plugins: hexo-generate-feed
