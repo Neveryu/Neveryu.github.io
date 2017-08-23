@@ -29,6 +29,7 @@
     "hexo-generator-sitemap": "^1.1.2"
   },
   "scripts": {
+    "dev-proxy": "gulp",
     "dev": "hexo clean && hexo g && hexo s --debug",
     "deploy": "hexo clean && hexo g && hexo d",
     "postdeploy": "echo 'Finished deploy'"
