@@ -143,10 +143,50 @@ summary_img: /images/css-hack-1.png
 /*网页加载条 END*/
 ```
 
-
-
 # 开发环境自动刷新
+在 [Hexo-NexT搭建个人博客（一）](/2016/09/03/hexo-next-one/) 已经提到了本地调试三部曲：
+```
+hexo clean
+hexo generate
+hexo server --debug
+```
+然后我在项目的 `package.json` 中配成了这样：
+```
+"dev": "hexo clean && hexo generate && hexo server --debug",
+```
+这样的话，我执行 `npm run dev` 就可以启动本地环境了，省去了前面需要分别敲三次命令的步骤。
+为什么可以这样写，详情看这里：
+[npm 全面介绍](/2017/04/10/npm/)
+[npm 的一个小细节](/2017/05/20/npm-two/)
+
+这样还不爽，我希望在写博客的时候，按下 `Ctrl + S` 后能自动刷新浏览器，看到实时的效果，省去了自己手动刷新浏览器的过程，在双屏下，真的很好用，一边写一边看。
+具体的做法是:
+在项目的根目录下添加一个 `gulpfile.js` 文件，文件内容参看 [源码](https://github.com/Neveryu/Neveryu.github.io/blob/resource/gulpfile.js)，这里我就不贴了。
+然后安装 `gulpfile.js` 里面的依赖包。
+
+`gulpfile.js` 里面有一个 dev-proxy 方法，会代理本地的 4000 端口，并且监听文件变化，如有变化就会自动刷新浏览器。
+
+最后，我们的开发步骤就变成这样了：
+先打开一个 Terminal ，使用 `npm run dev` 开启本地的博客服务。
+然后再开一个 Terminal，使用 `gulp` 命令来开启监听和代理服务。
+
 
 # 代码压缩
+在项目的根目录下，执行以下命令：
+```
+cnpm install gulp -g
+cnpm install gulp-minify-css gulp-uglify gulp-htmlmin gulp --save-dev
+```
+
+然后在 `gulpfile.js` 里面写上相关代码，详情查看 [源码](https://github.com/Neveryu/Neveryu.github.io/blob/resource/gulpfile.js) 。
+
+然后执行 `gulp min` 就会根据 `gulpfile.js` 中的配置，对 public 目录中的静态资源文件进行压缩。
+
+鼠标右键 -> 查看网页源代码，可以看到已经是压缩过的。
+
+
+
+
+
 
 

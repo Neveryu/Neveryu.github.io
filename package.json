@@ -1,7 +1,24 @@
 {
   "name": "hexo-site",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "NeverYu Blog",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Neveryu/Neveryu.github.io.git"
+  },
+  "keywords": [
+    "NexT",
+    "Hexo",
+    "Neveryu",
+    "Blog"
+  ],
+  "author": "Neveryu <react.dong.yu@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Neveryu/Neveryu.github.io/issues"
+  },
+  "homepage": "https://neveryu.github.io/",
   "hexo": {
     "version": "3.2.2"
   },
@@ -25,13 +42,16 @@
   "devDependencies": {
     "browser-sync": "^2.18.13",
     "gulp": "^3.9.1",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-uglify": "^3.0.0",
     "hexo-deployer-git": "^0.2.0",
     "hexo-generator-sitemap": "^1.1.2"
   },
   "scripts": {
     "dev-proxy": "gulp",
-    "dev": "hexo clean && hexo g && hexo s --debug",
-    "deploy": "hexo clean && hexo g && hexo d",
+    "dev": "hexo clean && hexo generate && gulp min && hexo server --debug",
+    "deploy": "hexo clean && hexo generate && gulp min && hexo deploy",
     "postdeploy": "echo 'Finished deploy'"
   }
 }
