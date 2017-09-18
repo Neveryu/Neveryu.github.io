@@ -184,9 +184,34 @@ cnpm install gulp-minify-css gulp-uglify gulp-htmlmin gulp --save-dev
 
 鼠标右键 -> 查看网页源代码，可以看到已经是压缩过的。
 
+# 自定义页面与目录
+下面介绍两种方法：
+
+第一种方法是使用 Hexo 提供的跳过渲染配置，适用于整个目录的设置。
+
+![](/images/hexo-next-five-3.png)
+
+具体步骤，打开博客根目录_config.yml，找到其中 skip_render 配置项，这个用来配置 /source/ 中需要跳过渲染的文件或目录，例如希望跳过 /source/projects/ 里的所有文件渲染，可以配置为：
+```
+skip_render: projects/**
+```
+
+匹配规则是一种类似正则的规则，官方给出的参考是[这个](https://github.com/isaacs/node-glob)。另外在测试这个功能的时候发现，Hexo 的内部缓存不是特别好用，有时候你修改了配置但生成出来的内容不一定及时应用了新配置，最好在生成之前执行一下 hexo clean 命令，清除掉旧的生成文件和缓存。
+
+第二种方法是给单个文件添加不应用模板的标记，适用于个别特殊文件的处理。例如我们的网站如果要使用百度统计，往往需要在根目录放一个 html 格式的验证文件，这个文件默认也会经过用主题模板渲染，避免渲染的办法就是在文件头部添加如下内容：
+
+```
+---
+layout: false
+---
+```
+　　
+这样，这个文件就不会经过模板渲染，最终发布到 /public/ 里的文件就是去掉标记后的文件的样子。
 
 
+# 关于 categories 和 tags 页面 Cannot GET  的解决方案
+有同学反馈在配置文件中配置了 categories 和 tags 后依然没有 categories 和 tags 页面，提示 Cannot GET。
+![](/images/hexo-next-five-4.png)
 
-
-
-
+其实在配置了 categories 和 tags  后，还需要在 /source/ 目录下新建 categories 目录和 tags 目录，里面的要有 index.md 文件，并且文件开头不能少，也不能写错。
+![](/images/hexo-next-five-5.png)

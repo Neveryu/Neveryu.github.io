@@ -366,6 +366,32 @@ git 中生成 sshkey: `ssh-keygen -t rsa -C "youremail"`
 
 ssh key 是 ssh 协议的密钥，http 协议没权限
 
+### 问题五
+git怎样删除未监视的文件 untracked files?
+用 git clean
+```
+# 删除 untracked files
+git clean -f
+ 
+# 连 untracked 的目录也一起删掉
+git clean -fd
+ 
+# 连 gitignore 的untrack 文件/目录也一起删掉 （慎用，一般这个是用来删掉编译出来的 .o之类的文件用的）
+git clean -xfd
+ 
+# 在用上述 git clean 前，墙裂建议加上 -n 参数来先看看会删掉哪些文件，防止重要文件被误删
+git clean -nxfd
+git clean -nf
+git clean -nfd
+```
+
+## 我的常用命令
+```
+git branch -avv
+git remote -v
+```
+
+
 
 
 [权威教程](http://git-scm.com/book/zh/v2)
