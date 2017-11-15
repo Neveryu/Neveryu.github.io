@@ -108,9 +108,19 @@ type: "picture"
 ```
 
 ** 图片展示效果 **
-`{\% gp 5-3 \%}`：设置图片展示效果，参考 themes\next\scripts\tags\group-pictures.js 注释示意图。
+`{\% gp 5-3 \%}`：设置图片展示效果，参考 `themes\next\scripts\tags\group-pictures.js` 注释示意图。
 ![](http://p1.bpimg.com/567571/eaef5acfcb3011c2.png)
 `5-3` 的意思就是5张图片将会按照这种布局来展示，Next 提供了多张图片的多种布局，你可以随意选择。
+
+<h3 style="color:#f63;">注意点</h3>主题目前首页可以正常显示设置的图片效果，但是点击进入后显示效果丢失，所以需要修改一下文件 `themes\next\source\css\_common\components\tags\group-pictures.styl` 中的以下样式：
+``` css
+.page-post-detail .post-body .group-picture-column {
+  // float: none;
+  margin-top: 10px;
+  // width: auto !important;
+  img { margin: 0 auto; }
+}
+```
 
 <h5 style="color:#f63;"><i>最后要说的是：</i></h5>
 <p id="div-border-top-green"><i>[博客源码](https://github.com/Neveryu/Neveryu.github.io) ， 欢迎 star

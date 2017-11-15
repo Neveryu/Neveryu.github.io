@@ -51,6 +51,7 @@
   "scripts": {
     "dev-proxy": "gulp",
     "dev": "hexo clean && hexo generate && hexo server --debug",
+    "predeploy": "echo 'Start deploy'",
     "deploy": "hexo clean && hexo generate && gulp min && hexo deploy",
     "postdeploy": "echo 'Finished deploy'"
   }
