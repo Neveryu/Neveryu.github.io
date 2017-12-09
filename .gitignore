@@ -3,3 +3,4 @@ node_modules/
 .deploy_git/
 public/
 *.log
+themes/next/source/sell/

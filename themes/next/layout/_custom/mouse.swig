@@ -1,3 +1,4 @@
+<!-- 鼠标移动特效 -->
 <script type="text/javascript" src="/js/src/jquery-stars.js?v={{theme.version}}"></script>
 <script type="text/javascript">
 jQuery('body').jstars({
