@@ -18,7 +18,9 @@ gulp.task('browser-sync', function() {
 // 压缩css
 gulp.task('minify-css', function() {
 	return gulp.src('public/**/*.css')
-		.pipe(minifycss())
+		.pipe(minifycss().on('error', function(e) {
+			console.log(e)
+		}))
 		.pipe(gulp.dest('public'));
 });
 // 压缩html

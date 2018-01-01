@@ -91,5 +91,12 @@ search:
 	path: search.xml
 	field: post
 
-## Plugins: http://hexo.io/plugins/
+# Plugins: http://hexo.io/plugins/
 plugins: hexo-generate-feed
+
+# hexo-symbols-count-time 统计字数
+symbols_count_time:
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: true

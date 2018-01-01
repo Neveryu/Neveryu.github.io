@@ -19,3 +19,11 @@
 扫码体验：
 
 ![vue-sell](https://neveryu.github.io/images/vue-sell-2.png)
+
+--------
+
+### 用 vue 做的一个移动端音乐播放器
+
+扫码体验：
+
+![vue-music](https://neveryu.github.io/images/vue-music-1.png)
