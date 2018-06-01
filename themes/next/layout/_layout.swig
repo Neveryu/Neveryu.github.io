@@ -73,7 +73,9 @@
   {% include '_scripts/baidu-push.swig' %}
 
   <!-- 按需加载背景 -->
-  {% include '_custom/particle-only-pc.swig' %}
+  {% if false %} 
+    {% include '_custom/particle-only-pc.swig' %}
+  {% endif %}
   <!-- 页面点击小红心 -->
   {% include '_custom/love.swig' %}
   <!-- 页面移动stars -->

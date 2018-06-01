@@ -188,6 +188,7 @@ links_layout: inline
 links:
   建站日志: /weblog
   CSDN: http://blog.csdn.net/csdn_yudong
+  个人首页: https://neveryu.github.io/neveryu
 
 
 # ---------------------------------------------------------------
@@ -208,7 +209,7 @@ custom_logo:
 # Available value:
 #    normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
-highlight_theme: normal
+highlight_theme: night eighties
 
 # 点击阅读全文后，是否跳到 <!-- more --> 处
 # Automatically scroll page to section which is under <!-- more --> mark.
