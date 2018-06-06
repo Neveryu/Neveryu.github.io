@@ -7,20 +7,28 @@ comments: false
 ---
 
 
-> JavaScript 中的 this，真的太重要了。但是很多同学总是理不清楚，所以有时候会出现一些棘手的问题，而且半天还找不出问题所在。
+<p id="div-border-top-blue">在 JavaScript 中，函数中的 this 指向，很多同学总是理不清楚【这必然会带来一些问题】。确实，JavaScript 中，函数的 this 指向比较复杂多变。它和你调用的方式有关系，和 **严格模式** 或者 **非严格模式** 有关系，和你是否使用了箭头函数有关系，和你在使用函数时是否传入了 this 有关系，和你是否主动修改了调用对象有关系。</p>
+
+- 在绝大多数情况下，函数的调用方式决定了 `this` 的值。`this` 不能再执行期间被赋值，并且在每次函数被调用时 `this` 的值也可能会不同。ES5 引入了 bind 方法来设置函数的 `this` 值，[关于bind和call可以看我的文章](https://blog.csdn.net/csdn_yudong/article/details/78730844)，而不用考虑函数如何被调用的，ES2015 引入了支持 `this` 词法解析的箭头函数（它在闭合的执行上下文内设置 `this` 的值）。
 
 
-与其他语言相比，**函数的 `this` 关键字**在 JavaScript 中的表现略有不同，此外，在 严格模式 和 非严格模式之间也会有一些差别。
-
-> 有什么差别呢？
-
-
-在绝大多数情况下，函数的调用方式决定了 `this` 的值。`this` 不能再执行期间被赋值，并且在每次函数被调用时 `this` 的值也可能会不同。ES5 引入了 bind 方法来设置函数的 `this` 值，[关于bind和call可以看我的文章](https://blog.csdn.net/csdn_yudong/article/details/78730844)，而不用考虑函数如何被调用的，ES2015 引入了支持 `this` 词法解析的箭头函数（它在闭合的执行上下文内设置 `this` 的值）。
+- 与其他语言相比，**函数的 `this` 关键字**在 JavaScript 中的表现略有不同，此外，在 严格模式 和 非严格模式之间也会有一些差别。
 
 <!-- more -->
 
 ## 全局上下文
-无论是否在严格模式下，在全局执行上下文中（在任何函数体外部）`this` 都指代全局对象。【在全局执行上下文中this都是全局对象window】
+无论是否在严格模式下，在全局执行上下文中（在任何函数体外部）`this` 都指代全局对象。【在全局执行上下文中 this 都是全局对象 window】（浏览器环境）
+``` javascript
+var a = 1;
+console.log(this);    // window
+console.log(this.a);  // 1
+
+"use strict";
+var b = 2;
+console.log(this);    // window
+console.log(this.b);  // 2
+
+```
 
 ## 函数上下文
 在函数内部，`this` 的值取决于函数被调用的方式。【取决于被调用的方式】
@@ -44,9 +52,9 @@ function f2(){
   return this;
 }
 f2() === undefined; // true
+```
 
 在严格模式下，this将保持他进入执行上下文时的值，所以下面的this将会默认为undefined。
-```
 
 所以，在严格模式下，如果 `this` 没有被执行上下文（execution context）定义，那它将保持为 `undefined`。
 
