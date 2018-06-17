@@ -6,8 +6,8 @@ tags: [JavaScript]
 comments: false
 ---
 
-当我们了解了 [CommonJS](https://neveryu.github.io/2017/03/07/commonjs/) 以后，CommonJS 规范加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作。
-由于 Node.js 主要用于服务器编程，模块文件一般都已经存在于本地硬盘，所以加载起来比较快，不用考虑非同步加载的方式，所以 CommonJS 规范比较适用。
+当我们了解了 [CommonJS](https://neveryu.github.io/2017/03/07/commonjs/) 以后，`CommonJS` 规范加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作。
+由于 `Node.js` 主要用于服务器编程，模块文件一般都已经存在于本地硬盘，所以加载起来比较快，不用考虑非同步加载的方式，所以 `CommonJS` 规范比较适用。
 但是，如果是浏览器环境，要从服务器端加载模块，这时就必须采用非同步模式。为什么呢？
 
 <!-- more -->
@@ -16,7 +16,7 @@ comments: false
 var math = require('math');
 math.add(2, 3);
 ```
-第二行 math.add(2, 3)，在第一行 require('math') 之后运行，因此必须等 math.js 加载完成。也就是说，如果加载时间很长，整个应用就会停在那里等。
+第二行 `math.add(2, 3)`，在第一行 `require('math')` 之后运行，因此必须等 `math.js` 加载完成。也就是说，如果加载时间很长，整个应用就会停在那里等。
 对于浏览器，这是一个大问题，因为模块都放在服务器端。等待时间取决于网速的快慢，可能要等很长时间，浏览器处理“假死”状态。
 
 因此，浏览器端的模块，不能采用“同步加载”，只能采用“异步加载”。
@@ -24,13 +24,15 @@ math.add(2, 3);
 
 # AMD
 
-[AMD 规范](https://github.com/amdjs/amdjs-api/blob/master/AMD.md)则是异步加载模块，允许指定回调函数。因此浏览器端一般采用 [AMD 规范](https://github.com/amdjs/amdjs-api/blob/master/AMD.md)。
-AMD(Asynchronous module definition) ： 异步模块定义。
+[AMD 规范](https://github.com/amdjs/amdjs-api/blob/master/AMD.md) 则是异步加载模块，允许指定回调函数。因此浏览器端一般采用 [AMD 规范](https://github.com/amdjs/amdjs-api/blob/master/AMD.md)。
+`AMD(Asynchronous module definition)`： <span id="inline-green">异步模块定义。</span>
 
 
 
-类似的还有 CommonJS Modules/2.0 规范，是 BravoJS 在推广过程中对模块定义的规范化产出。
-CMD(Common module definition)：通用模块定义。
+类似的还有 `CommonJS Modules/2.0` 规范，是 `BravoJS` 在推广过程中对模块定义的规范化产出。
+`CMD(Common module definition)`：<span id="inline-blue">通用模块定义。</span>
+
+
 目前这些规范的实现都能达成**浏览器端模块化开发的目的**。
 
 
@@ -49,11 +51,11 @@ AMD 的诞生，就是为了解决这两个问题：
 AMD(异步模块定义)主要为前端 JS 的表现指定规范。它采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。
 
 AMD 也采用 [require()](https://github.com/amdjs/amdjs-api/wiki/require) 语句加载模块，但是不同于 CommonJS，它要求两个参数：
-```
+``` javascript
 require([module], callback);
 ```
 第一个参数[module]，是一个数组，里面的成员就是要加载的模块；第二个参数 callback，则是加载成功之后的回调函数：
-```
+``` javascript
 require(['math'], function (math) {
   math.add(2, 3);
 });
@@ -70,7 +72,7 @@ require(['math'], function (math) {
 [require.js](https://github.com/requirejs/requirejs) 加载的模块，采用 AMD 规范。也就是说，模块必须按照 AMD 的规定来写。
 具体来说，就是模块必须采用特定的 define() 函数来定义。如果一个模块不依赖其他模块。那么可以直接定义在 define() 函数之中。
 假定现在有一个 math.js 文件，它定义了一个 math 模块。那么，math.js 就要这样写：
-```
+``` javascript
 // math.js
 define(function (){
 　var add = function (x,y){
@@ -82,14 +84,14 @@ define(function (){
 });
 ```
 加载方法如下：
-```
+``` javascript
 // main.js
 require(['math'], function (math){
 　alert(math.add(1,1));
 });
 ```
 如果这个模块还依赖其他模块，那么 define() 函数的第一个参数，必须是一个数组，指明该模块的依赖性。
-```
+``` javascript
 define(['myLib'], function(myLib){
 　function foo(){
 　　myLib.doSomething();
@@ -106,7 +108,7 @@ define(['myLib'], function(myLib){
 回答是可以的。
 这样的模块在用 require() 加载之前，要先用 require.config() 方法，定义它们的一些特征。
 举例来说，underscore 和 backbone 这两个库，都没有采用 AMD 规范编写。如果要加载它们的话，必须先定义它们的特征。
-```
+``` javascript
 require.config({
 　shim: {
 　　'underscore': {
@@ -123,7 +125,7 @@ require.config() 接受一个配置对象，这个对象除了有前面说过的
 （1）exports 值（输出的变量名），表明这个模块外部调用时的名称；
 （2）deps 数组，表明该模块的依赖性。
 比如，jQuery 的插件可以这样定义：
-```
+``` javascript
 shim: {
 　'jquery.scroll': {
 　　deps: ['jquery'],

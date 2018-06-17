@@ -82,14 +82,14 @@ avatar: /avatar/avatar.png
 
 #2.自动生成sitemap
 sitemap:
-	path: sitemap.xml
+  path: sitemap.xml
 baidusitemap:
-	path: baidusitemap.xml
+  path: baidusitemap.xml
 
 #3.本地站内搜索
 search:
-	path: search.xml
-	field: post
+  path: search.xml
+  field: post
 
 # Plugins: http://hexo.io/plugins/
 plugins: hexo-generate-feed
