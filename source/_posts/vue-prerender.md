@@ -11,6 +11,8 @@ comments: false
 
 关于 SEO ，Vue 也有现成的解决方案： [Vue 服务端渲染](https://ssr.vuejs.org/zh/)
 
+<!-- more -->
+
 ## 那么
 
 ### 什么是服务端渲染
@@ -39,4 +41,22 @@ new PrerenderSPAPlugin({
   })
 }),
 ```
+我们需要简单的配置一下，项目所有的路由，最终生成后有几个页面，都是以这个配置为依据，而不是你在 vue-router 中配置的路由。
 
+最基础也最核心的配置项也就这几行代码，当然，如果你有更多的需求配置项，你可以去 github 上查看文档，文档中也有很详细的介绍。 
+
+## 如何搭建一个预渲染开发环境
+如果你也想要使用**预渲染**来开发你的网站的话，最简单的方法就是克隆[这个项目](https://github.com/Neveryu/prerender-website)，然后简单删减以后进行二次开发，整个的开发流程和 Vue 是一模一样的。
+
+## Tip
+1、相较于 Vue 的模板中大而全的 webpack 配置项，**预渲染**中的 webpack 配置简单小巧，如果你有一些 webpack 的配置需求的话，你可能需要自己动手。
+
+2、我的[这个项目](https://github.com/Neveryu/prerender-website)使用的是 stylus 来作为 css 预编译语言，如果你想使用其他的 css 预编译语言的话，需要额外安装一些插件以及做一些简单配置。当然了，默认的 css 肯定是支持的。
+
+3、在写这个项目的过程中，也有做一些简单的知识点记录。[vue-prerender 笔记](https://github.com/Neveryu/prerender-website/blob/master/project-note.md)
+
+4、最后项目打包发布到生产环境，使用 `npm run build` 一键操作即可。如果你想要部署到子目录下的话，那么，你可能需要做一些简单的修改，具体在 [vue-prerender 笔记](https://github.com/Neveryu/prerender-website/blob/master/project-note.md) 有提到。
+
+## 写在最后
+[项目预览](https://neveryu.github.io/vue-tour/)
+[项目github地址](https://github.com/Neveryu/prerender-website)
