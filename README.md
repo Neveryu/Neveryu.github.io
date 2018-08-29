@@ -11,6 +11,9 @@ npm run dev
 
 # build with hot reload
 npm run dev-proxy
+
+# deploy
+npm run deploy
 ```
 
 
