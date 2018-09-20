@@ -4,7 +4,7 @@ date: 2017-02-14 01:25:24
 categories: 综合
 tags: [zepto]
 comments: false
-summary_img: http://i2.muimg.com/567571/fae45a374015a1c2.png
+summary_img: /images/yeti-jquery.png
 ---
 
 <!-- <img src="http://i2.muimg.com/567571/fae45a374015a1c2.png" alt="summary-img-src-zepto"> -->

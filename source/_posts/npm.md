@@ -3,7 +3,7 @@ date: 2017-04-10 03:25:24
 categories: 前端
 tags: [npm]
 comments: false
-summary_img: http://i1.piimg.com/588926/30e7b49044d5cfc4.png
+summary_img: /images/npm-1.png
 ---
 
 <!-- <img src="http://i1.piimg.com/588926/30e7b49044d5cfc4.png" alt="summary-img-src-npm"> -->

@@ -8,7 +8,7 @@ comments: false
 
 <p id="div-border-top-purple"><span style="color:red;">探讨核心：</span> 我们不编写代码，我们只是国外优秀框架的搬运工。</p>
 
-![](http://p1.bqimg.com/567571/9802f2ae435f5ff2.jpg)
+![](/images/javascript-environment-1.jpg)
 
 -------------
 

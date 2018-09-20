@@ -89,7 +89,7 @@ $ hexo s --debug
 ```
 Hexo 将 source 文件夹中除 _posts 文件夹之外，开头命名为 _(下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件夹会被拷贝过去。
 这个时候，我们在浏览器中访问 http://localhost:4000/ ，就可以看到基于 Hexo 的默认主题的原型：
-![hexo-next-one-1](http://p1.bqimg.com/567571/27324b740c9e91e2.png)
+![hexo-next-one-1](/images/hexo-next-one-1.png)
 
 
 ## 安装 NexT 主题
@@ -118,7 +118,7 @@ INFO  Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.
 
 此时即可使用浏览器访问 http://localhost:4000/ ，检查站点是否正确运行。
 <p id="div-border-left-green">当你看到站点的外观与下图所示类似时即说明你已成功安装 NexT 主题。这是 NexT 默认的 Scheme —— Muse</p>
-![hexo-next-one-1](http://p1.bqimg.com/567571/8333728b5eaab526.png)
+![hexo-next-one-2](/images/hexo-next-one-2.png)
 现在，我们已经成功安装并启用了 NexT 主题。
 
 <p id="div-border-top-blue">关于更多基本操作和基础知识，请查阅 [Hexo](https://hexo.io/zh-cn/) 与 [NexT](http://theme-next.iissnan.com/) 官方文档.</p>
