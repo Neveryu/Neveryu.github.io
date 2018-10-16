@@ -42,6 +42,6 @@ vue 的官网文档写的很好，很多同学在学习完文档以后，很难�
 而且这套视频教程包含现在最新的前端必备技术点详细教学：webpack、eslint、vue-cli构建、模块打包、mock、vue-resource、axios、以及真实项目中会遇到的各种问题以及解决方案。
 
 ## 获取教程
-这个项目我从头到尾写了一遍，由于有一些包或者模块升级的原因，会有一些小的问题，我都已经解决过了。
-现在扫码即可获取视频教程以及本人联系方式 微信/QQ，你可以问我你在学这个项目中遇到的任何问题，我都会帮你解答。
-![](/images/vue-sell-pay.png)
+这个项目我从头到尾写了一遍，由于有一些包或者模块升级的原因，会有一些小的问题，我都已经解决过了。想获取教程或者有疑问的，可以加这个群。
+
+<font color="#f69" size="5">建了一个qq群，可以点击这个logo<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=32da7a18744756b0d8ffdd05b84999afecb5265dbad0fb119033e122abe803f3"><img border="0" width="150" src="https://neveryu.github.io/vue-tour/logo1.png" alt="Vue学习交流" title="Vue学习交流" style="vertical-align: middle"></a>，或者手动search群号：<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=32da7a18744756b0d8ffdd05b84999afecb5265dbad0fb119033e122abe803f3">685486827</a></font>

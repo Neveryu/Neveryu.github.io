@@ -94,6 +94,6 @@ vue 有自己的脚手架构建工具 vue-cli 。使用起来非常方便，使�
 非常适合 vue 的进阶学习。
 
 ## 获取教程
-这个项目我从头到尾写了一遍，解决了项目中遇到的所有问题，由于有一些包或者模块升级的原因，会有一些小的问题，我都已经解决过了。
-现在扫码即可获取视频教程以及本人联系方式 微信/QQ，你可以问我你在学这个项目中遇到的任何问题，我都会帮你解答。
-![](/images/vue-music-pay.JPG)
+这个项目我从头到尾写了一遍，解决了项目中遇到的所有问题，由于有一些包或者模块升级的原因，会有一些小的问题，我都已经解决过了。想获取教程或者有疑问的，可以加这个群。
+
+<font color="#f69" size="5">建了一个qq群，可以点击这个logo<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=32da7a18744756b0d8ffdd05b84999afecb5265dbad0fb119033e122abe803f3"><img border="0" width="150" src="https://neveryu.github.io/vue-tour/logo1.png" alt="Vue学习交流" title="Vue学习交流" style="vertical-align: middle"></a>，或者手动search群号：<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=32da7a18744756b0d8ffdd05b84999afecb5265dbad0fb119033e122abe803f3">685486827</a></font>
