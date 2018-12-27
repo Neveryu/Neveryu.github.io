@@ -414,5 +414,5 @@ version: 5.0.1
 # 自己添加的功能
 # 1.开启打赏功能
 reward_comment: 满分是10分的话，这篇文章你给几分
-# alipay: /reward/reward_alipay.png
+alipay: /reward/reward_alipay.png
 wechatpay: /reward/reward_wechat.png
