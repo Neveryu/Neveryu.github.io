@@ -10,4 +10,4 @@ comments: false
     如果你觉得这个项目帮助到了你，你可以帮作者买一杯果汁表示鼓励 🍹
 </p>
 
-![](/reward/wechat-alipay.png)
+<img class="reward-all" src="/reward/wechat-alipay.png" alt="reward me">
