@@ -93,9 +93,16 @@ Github 有提供一个 [Personal access tokens](https://github.blog/2013-05-16-p
 
 #### 方案一、
 
-一个比较方便快捷的方式，是通过 Travis 网站，写在每个仓库的设置页面里，有一个 `Environment Variables` 的配置项，给我们的 Token 起一个名字 `name` 添加进去。这样以来，脚本内部就可以使用这个环境变量了。
+一个比较方便快捷的方式，是通过 Travis 网站，写在每个仓库的设置页面里，有一个 `Environment Variables` 的配置项，给我们的 Token 起一个名字 `gh_token` 添加进去。这样以来，脚本内部就可以使用这个环境变量了。
 ![travis-ci-1](/images/travis-ci-3.png)
-你可以在你脚本内部使用 `${name}` 的形式来使用这个 Token 了。【当然了，你还可以添加其他的环境变量进去。】【[官方文档在这里](https://docs.travis-ci.com/user/environment-variables)】
+你可以在你脚本内部使用 `${gh_token}` 的形式来使用这个 Token 了。【当然了，你还可以添加其他的环境变量进去。】【[官方文档在这里](https://docs.travis-ci.com/user/environment-variables)】
+
+使用 Personal access tokens 向 GitHub 提交代码的命令格式如下：
+``` bash
+# ${GH_TOKEN} 对应就是 Personal access tokens ， GH_TOKEN 是环境变量名
+# ${GH_REF} 对应的是你的 Github 仓库地址，GH_REF 是变量名
+git push -f "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
+```
 
 <p id="div-border-left-green">这里需要注意的是：
 1、GitHub 生成的这个 Token ，只有生成的时候可以看到明文，后面就看不到明文了，所以你使用的时候最好一次操作成功。
@@ -119,7 +126,7 @@ $ gem install travis
 ``` bash
 $ travis encrypt name=secretvalue
 ```
-上面命令中，`name` 是要加密的变量名，`secretvalue` 是要加密的变量值。执行以后，屏幕上会输出如下信息。
+上面命令中，`gh_token` 是要加密的变量名，`secretvalue` 是要加密的变量值。执行以后，屏幕上会输出如下信息。
 ```
 secure: "... encrypted data ..."
 ```
@@ -130,10 +137,12 @@ env:
     - GH_REF: github.com/Neveryu/xxxxx.git
     - secure: "... entrypted data ..."
 ```
-然后，脚本里面就可以使用环境变量 `name` 了，Travis 会在运行时自动对它解密。
+然后，脚本里面就可以使用环境变量 `gh_token` 了，Travis 会在运行时自动对它解密。
 
 ```bash
-git push -f "https://${name}@${GH_REF}" master:gh-pages
+# ${gh_token} 对应就是 Personal access tokens ， gh_token 是环境变量名
+# ${GH_REF} 对应的是你的 Github 仓库地址，GH_REF 是变量名
+git push -f "https://${gh_token}@${GH_REF}" master:gh-pages
 ```
 
 
