@@ -90,7 +90,7 @@ vue 有自己的脚手架构建工具 vue-cli 。使用起来非常方便，使�
 之前的 [vue-sell](https://neveryu.github.io/2017/11/11/vue-sell/)，是一个非常好的 vue 的项目教程了，学了 vue 以后，跟着做一遍 vue-sell，应该对 vue 的基本操作都能非常熟练的掌握了。
 但是如何结合 vuex 和 vue-router，以及其他技术，做一个大型的项目，很多同学还是苦于没有经验和项目实例，所以就有了这个 vue-music。
 
-[vue-music](https://neveryu.github.io/music/#/recommend) 里面用到了 vue 全家桶，还有 better-scroll，jsonp 等其他工具，用的也是线上真实的音乐接口数据，而且项目里封装了很多完美的组件，对个人技术的学习和提升有很大的帮助，项目级别上也达到了中大型级别。
+[vue-music](https://neveryu.github.io/vue-music/) 里面用到了 vue 全家桶，还有 better-scroll，jsonp 等其他工具，用的也是线上真实的音乐接口数据，而且项目里封装了很多完美的组件，对个人技术的学习和提升有很大的帮助，项目级别上也达到了中大型级别。
 非常适合 vue 的进阶学习。
 
 ## 获取教程
