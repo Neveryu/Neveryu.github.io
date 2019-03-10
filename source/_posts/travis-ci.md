@@ -85,7 +85,7 @@ Github 有提供一个 [Personal access tokens](https://github.blog/2013-05-16-p
 
 前往 Github 帐号 Settings 页面，在左侧选择 Personal Access Token，然后在右侧面板点击 “Generate new token” 来新建一个 Token。需要注意的是，创建完的 Token 只有第一次可见，之后再访问就无法看见（只能看见他的名称），因此要保存好这个值。
 
-![travis-ci-1](/images/travis-ci-2.png)
+![travis-ci-2](/images/travis-ci-2.png)
 
 
 那么，这个 Token 怎么使用呢。
@@ -152,6 +152,36 @@ $ travis encrypt name=secretvalue --add
 ```
 详细信息请看[官方文档](https://docs.travis-ci.com/user/encryption-keys/)
 
+## 常见问题
+
+> 如何显示 Status Image
+
+[![Build Status](https://travis-ci.org/Neveryu/web-bookmarks.svg?branch=master)](https://travis-ci.org/Neveryu/web-bookmarks)
+
+![travis-ci-4](/images/travis-ci-4.png)
+
+--------
+
+> 跳过自动构建
+
+如果 commit 不想让 Travis 构建，那么就在 commit message 里加上 [ci skip] 就行了。
+```bash
+git commit -m "[ci skip] commit message"
+```
+
+--------
+> 权限问题
+
+如果遇到脚本权限不够的提示或者问题，你可以给你的脚本加上权限：
+``` bash
+chmod u+x deploy.sh
+```
+
+或者在 `.travis.yml` 里加：
+``` yml
+before_install:
+  - chmod u+x deploy.sh
+```
 
 
 ## 扩展知识
@@ -197,8 +227,4 @@ Make sure not to add bacon.txt to the git repository.
 Commit all changes to your .travis.yml.
 ```
 详细信息请看[官方文档](https://docs.travis-ci.com/user/encrypting-files/)
-
-
-
-
 
