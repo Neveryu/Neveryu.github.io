@@ -21,7 +21,7 @@ Travis CI 还是很强大的，用好这个工具不仅可以提高效率，还�
 
 再到现在的使用 CI 自动更新：开发完，我只用将源码 push 到 GitHub 做版本管理，就 ok 了；Travis 监测到代码有变化，然后就会自动执行我们设定好的任务。【优秀～】
 
-## 一、什么是持续集成
+# 一、什么是持续集成
 Travis CI 提供的持续集成服务（Continuous Integration，简称 CI）。它绑定 Github 上面的项目，只要有新的代码，就会自动抓取。然后，提供一个运行环境，执行测试，完成构建，还能部署到服务器。
 
 持续集成指的是只要代码有变更，就自动运行构建和测试，反馈运行结果。
@@ -30,17 +30,17 @@ Travis CI 提供的持续集成服务（Continuous Integration，简称 CI）。
 
 持续集成的好处在于，每次代码的小幅变更，就能看到运行结果，从而不断累积小的变更，而不是在开发周期结束时，一下子合并一大块代码。
 
-## 二、开始使用
+# 二、开始使用
 首先打开官方网站 [travis-ci.org](https://travis-ci.org)，然后使用 Github 账号登入 Travis CI，然后 Travis 中会列出你 Github 上面所有的仓库，以及你所属于的组织。
 
 然后，勾选你需要 Travis 帮你自动构建的仓库，打开仓库旁边的开关，打开以后，Travis 就会监听这个仓库的所有变化了。
 
 ![travis-ci-1](/images/travis-ci-1.png)
 
-## 三、.travis.yml
-Travis 要求项目的根目录下面，必须有一个 `.travis.yml` 文件。这是配置文件，指定了 Travis 的行为。该文件必须保存在 Github 仓库里面，一旦代码仓库有新的 Commit，Travis 就会去找这个文件，执行里面的命令。
+# 三、.travis.yml
+Travis 要求项目的根目录下面，必须有一个 `.travis.yml` 文件。这是配置文件，指定了 Travis 的行为。该文件必须保存在 Github 仓库里面，一旦代码仓库有新的 `Commit`，Travis 就会去找这个文件，执行里面的命令。
 
-所以呢，我们就可以在这个文件里，配置我们任务（Travis 监测到仓库有 commit 后会自动执行）。
+所以呢，我们就可以在这个文件里，配置我们任务（Travis 监测到仓库有 `commit` 后会自动执行）。
 
 一个简单的 `.travis.yml` 文件如下：
 ``` yml
@@ -48,11 +48,11 @@ language: node_js
 script: true
 ```
 
-所以呢，我在 `.travis.yml` 里，配置了一个执行脚本的任务；那么现在 Travis 监测到我仓库有 commit 后就会找到 `.travis.yml` 这个文件，然后就执行了我的那个脚本了。
+所以呢，我在 `.travis.yml` 里，配置了一个执行脚本的任务；那么现在 Travis 监测到我仓库有 `commit` 后就会找到 `.travis.yml` 这个文件，然后就执行了我的那个脚本了。
 
-### install 字段
+## install 字段
 `install` 字段用来指定安装脚本，如果有多个脚本，可以写成下面的形式。
-``` bash
+``` yml
 install:
   - command1
   - command2
@@ -63,9 +63,9 @@ install:
 install: true
 ```
 
-### script 字段
+## script 字段
 `script` 字段用来配置构建或者测试脚本，如果有多个脚本，可以写成下面的形式。
-``` bash
+``` yml
 script:
   - command1
   - command2
@@ -73,17 +73,17 @@ script:
 注意，`script` 与 `install` 不一样，如果 `command1` 失败，`command2` 会继续执行。但是，整个构建阶段的状态是失败。
 
 如果 `command2` 只有在 `command1` 成功后才能执行，就要写成下面这样。
-``` bash
+``` yml
 script: command1 && command2
 ```
 
-## 四、部署时面临的问题
+# 四、部署时面临的问题
 
 <p id="div-border-left-red">现在脚本是由 Travis CI 来执行的，部署的时候，怎么让 Travis 有权限往 Github 提交代码呢？</p>
 
 Github 有提供一个 [Personal access tokens](https://github.blog/2013-05-16-personal-api-tokens/)，这个 Token 与 账号密码 以及 SSH Keys 同样具有 Github 写入能力。
 
-前往 Github 帐号 Settings 页面，在左侧选择 Personal Access Token，然后在右侧面板点击 “Generate new token” 来新建一个 Token。需要注意的是，创建完的 Token 只有第一次可见，之后再访问就无法看见（只能看见他的名称），因此要保存好这个值。
+前往 Github 帐号 Settings 页面，在左侧选择 `Personal Access Token`，然后在右侧面板点击 `“Generate new token”` 来新建一个 Token。需要注意的是，创建完的 Token 只有第一次可见，之后再访问就无法看见（只能看见他的名称），因此要保存好这个值。
 
 ![travis-ci-2](/images/travis-ci-2.png)
 
@@ -91,13 +91,13 @@ Github 有提供一个 [Personal access tokens](https://github.blog/2013-05-16-p
 那么，这个 Token 怎么使用呢。
 
 
-#### 方案一、
+## 方案一、
 
 一个比较方便快捷的方式，是通过 Travis 网站，写在每个仓库的设置页面里，有一个 `Environment Variables` 的配置项，给我们的 Token 起一个名字 `gh_token` 添加进去。这样以来，脚本内部就可以使用这个环境变量了。
 ![travis-ci-1](/images/travis-ci-3.png)
 你可以在你脚本内部使用 `${gh_token}` 的形式来使用这个 Token 了。【当然了，你还可以添加其他的环境变量进去。】【[官方文档在这里](https://docs.travis-ci.com/user/environment-variables)】
 
-使用 Personal access tokens 向 GitHub 提交代码的命令格式如下：
+使用 `Personal access tokens` 向 GitHub 提交代码的命令格式如下：
 ``` bash
 # ${GH_TOKEN} 对应就是 Personal access tokens ， GH_TOKEN 是环境变量名
 # ${GH_REF} 对应的是你的 Github 仓库地址，GH_REF 是变量名
@@ -106,10 +106,10 @@ git push -f "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
 
 <p id="div-border-left-green">这里需要注意的是：
 1、GitHub 生成的这个 Token ，只有生成的时候可以看到明文，后面就看不到明文了，所以你使用的时候最好一次操作成功。
-2、Travis CI 中添加 Token 时，记得用密文，要不然在 build log 中是可以被看到的。
+2、Travis CI 中添加 Token 时，记得用密文，要不然在 `build log` 中是可以被看到的。
 </p>
 
-#### 方案二、
+## 方案二、
 
 你还可以使用 Travis CI 提供的加密工具来加密我们的这个 Token。加密原理机制如下：
 
@@ -152,25 +152,25 @@ $ travis encrypt name=secretvalue --add
 ```
 详细信息请看[官方文档](https://docs.travis-ci.com/user/encryption-keys/)
 
-## 常见问题
+<p id="div-border-top-red">可以参考我的 <a href="https://github.com/Neveryu/vue-cms" target="_blank" title="vue-cms">vue-cms</a> 这个项目中的 `.travis.yml` 文件</p>
 
-> 如何显示 Status Image
+# 常见问题
+
+## 如何显示 Status Image
 
 [![Build Status](https://travis-ci.org/Neveryu/web-bookmarks.svg?branch=master)](https://travis-ci.org/Neveryu/web-bookmarks)
 
 ![travis-ci-4](/images/travis-ci-4.png)
 
---------
 
-> 跳过自动构建
+## 如何跳过自动构建
 
 如果 commit 不想让 Travis 构建，那么就在 commit message 里加上 [ci skip] 就行了。
 ```bash
 git commit -m "[ci skip] commit message"
 ```
 
---------
-> 权限问题
+## 权限问题
 
 如果遇到脚本权限不够的提示或者问题，你可以给你的脚本加上权限：
 ``` bash
@@ -184,9 +184,9 @@ before_install:
 ```
 
 
-## 扩展知识
+# 扩展知识
 
-> Travis CI 加密文件
+## Travis CI 加密文件
 
 如果要加密的是文件（比如私钥），Travis 提供了加密文件功能。
 安装命令行客户端以后，使用下面的命令登入 Travis CI 。

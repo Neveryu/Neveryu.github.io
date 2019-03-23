@@ -4,12 +4,8 @@ date: 2016-09-03 23:42:06
 comments: false
 ---
 
-# 联系方式
-Email: React.dong.yu@gmail.com
-Weibo: [http://weibo.com/Neveryu](http://weibo.com/Neveryu)
 
 # 基本信息
-<!-- 学历：本科 -->
 目前所在城市：深圳
 
 # 个人简介
@@ -30,3 +26,12 @@ Web框架：ThinkPHP/Spring MVC/CodeIgniter
 
 # 技能清单
 第五届蓝桥杯JAVA软件开发省赛一等奖
+
+# 联系方式
+Email: React.dong.yu@gmail.com
+Weibo: [http://weibo.com/Neveryu](http://weibo.com/Neveryu)
+
+欢迎大家加入技术交流 QQ 群：685486827 ，<a target="_blank" style="color: red;" href="//shang.qq.com/wpa/qunwpa?idkey=32da7a18744756b0d8ffdd05b84999afecb5265dbad0fb119033e122abe803f3">一键加群</a>
+
+<img src="/images/qq-group.png" alt="加入qq群" width="250" style="margin: 0;">
+

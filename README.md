@@ -27,23 +27,34 @@ npm run deploy
 
 ![Browser support](http://iissnan.com/nexus/next/browser-support.png)
 
---------
 
 [建站日志](https://neveryu.github.io/weblog/) | [给我留言](https://neveryu.github.io/guestbook/)
 
-----
+------
 
-### 用 vue 做的一个移动端外卖网站
+# 其他项目
+
+<div style="display: -webkit-flex; display: flex; justify-content: space-around;">
+    <div title="sell">
+        <b>用 vue 做的移动端外卖网站</b>
+        <br>
+        <i>扫码体验：</i>
+        <br>  
+        <img src="https://neveryu.github.io/images/vue-sell-2.png" alt="vue-sell" width="200">
+    </div>
+    <div title="vue-music">
+        <b>用 vue 开发移动端音乐播放器</b>
+        <br>
+        <i>扫码体验：</i>
+        <br>
+        <img src="https://neveryu.github.io/images/vue-music-1.png" alt="vue-music" width="200">
+    </div>
+</div>
 
 
-扫码体验：
+# Contact Me
 
-![vue-sell](https://neveryu.github.io/images/vue-sell-2.png)
+欢迎加入 QQ 群，共同学习讨论，QQ 群：685486827 ，<a target="_blank" style="color: red;" href="//shang.qq.com/wpa/qunwpa?idkey=32da7a18744756b0d8ffdd05b84999afecb5265dbad0fb119033e122abe803f3">一键加群</a>
 
---------
+<img src="https://neveryu.github.io/images/qq-group.png" alt="vue-music" width="250">
 
-### 用 vue 做的一个移动端音乐播放器
-
-扫码体验：
-
-![vue-music](https://neveryu.github.io/images/vue-music-1.png)

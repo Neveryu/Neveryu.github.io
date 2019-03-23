@@ -96,10 +96,19 @@ Hexo 将 source 文件夹中除 _posts 文件夹之外，开头命名为 _(下�
 
 ### 下载 NexT 主题
 
-依旧是在当前目录下，使用 Git checkout 代码：
+依旧是在当前目录下，使用 Git 来 checkout 代码：
 ``` bash
 $ git clone https://github.com/iissnan/hexo-theme-next themes/next
 ```
+
+<p id="div-border-left-red">提示：原作者 iissnan 已经停止更新 hexo-theme-next；所以，如果你想使用 5.x 之前的版本可以使用上面的链接下载 NexT 主题；如果你想体验 6.x 之后的新版本，请使用下面的链接。
+</p>
+
+``` bash
+$ git clone https://github.com/theme-next/hexo-theme-next themes/next
+```
+
+
 等待下载完成。
 
 <p id="div-border-left-yellow">在 Hexo 中有两份主要的配置文件，其名称都是 _config.yml 。其中，一份位于站点根目录下，主要包含 Hexo 本身的配置；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项。
