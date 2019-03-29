@@ -34,7 +34,7 @@ npm run deploy
 
 # 其他项目
 
-<div style="display: -webkit-flex; display: flex; justify-content: space-around;">
+<div>
     <div title="sell">
         <b>用 vue 做的移动端外卖网站</b>
         <br>
@@ -54,7 +54,7 @@ npm run deploy
 
 # Contact Me
 
-欢迎加入 QQ 群，共同学习讨论，QQ 群：685486827 ，<a target="_blank" style="color: red;" href="//shang.qq.com/wpa/qunwpa?idkey=32da7a18744756b0d8ffdd05b84999afecb5265dbad0fb119033e122abe803f3">一键加群</a>
+欢迎加入 QQ 群，共同学习讨论，QQ 群：[685486827](//shang.qq.com/wpa/qunwpa?idkey=32da7a18744756b0d8ffdd05b84999afecb5265dbad0fb119033e122abe803f3) ，<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=32da7a18744756b0d8ffdd05b84999afecb5265dbad0fb119033e122abe803f3">一键加群</a>
 
 <img src="https://neveryu.github.io/images/qq-group.png" alt="vue-music" width="250">
 
