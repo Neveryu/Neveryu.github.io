@@ -7,9 +7,19 @@ comments: false
 summary_img: /images/vue-ssr-img.jpeg
 ---
 
+# 序
+
+在写这篇文章之前，我有写一篇 [Vue 预渲染的教程](https://neveryu.github.io/2018/06/18/vue-prerender/) 以及 [在线示例](https://neveryu.github.io/prerender-website/index.html)，有需要的可以看一下~
+
+-------
+
+<font color="green">【下面开始 Vue 服务端渲染】</font>
+
+<!-- more -->
+
 服务端渲染 = SSR = Server-Side Rendering
 
-[Vue 服务器渲染]() 可以说是我们学习 Vue 技术的最后一个环节了；也是上手难度稍为高一点的一个环节。
+[Vue 服务器渲染](https://ssr.vuejs.org/zh/) 可以说是我们学习 Vue 技术的最后一个环节了；也是上手难度稍为高一点的一个环节。
 
 目前还没有发现很好的学习资料或者教程，文档也不是特别明白，这也导致了很多人没能拿下 vue 的 ssr。
 
@@ -21,11 +31,11 @@ summary_img: /images/vue-ssr-img.jpeg
 <p id="div-border-top-green">项目仓库：[https://github.com/Neveryu/vue-ssr-lessons](https://github.com/Neveryu/vue-ssr-lessons)
 </p>
 
-[这个教程](https://github.com/Neveryu/vue-ssr-lessons)分为 7 个小节，每个小节都是一个独立的可以运行的小项目，这样可以减少大家出错的概率（如果只给出最终的代码，那万一又跑不起来，岂不凉凉，影响大家学习的心情）；每个小节简单配备了 **运行步骤** 以及 **简要说明** 来帮助大家运行项目以及了解本节的知识点。
+1、[这个教程](https://github.com/Neveryu/vue-ssr-lessons) 分为 7 个小节，每个小节都是一个独立的可以运行的小项目，这样可以减少大家出错的概率（如果只给出最终的代码，那万一又跑不起来，岂不凉凉，影响大家学习的心情）；每个小节简单配备了 **运行步骤** 以及 **简要说明** 来帮助大家运行项目以及了解本节的知识点。
 
 ![](/images/vue-ssr-1.png)
 
-其次，每个小节都是在前一小节的基础上，继续补充写代码的，这样，大家对比就能知道，这一节具体增加了哪些代码，哪些内容；方便大家学习某一个小节的知识（如果笼统的一次性给出最终代码，这样在找代码之间逻辑关系时，比较吃力）
+2、其次，每个小节都是在前一小节的基础上，继续补充写代码的，这样，大家对比就能知道，这一节具体增加了哪些代码，哪些内容；方便大家学习某一个小节的知识（如果笼统的一次性给出最终代码，这样在找代码之间逻辑关系时，比较吃力）
 
 
 # 章节介绍
@@ -41,9 +51,9 @@ summary_img: /images/vue-ssr-img.jpeg
 
 1、建议你先看一遍 Vue SSR 的文档，*看不懂的地方不要慌，留个印象也行*
 2、学习这个课程的时候，打开 Vue SSR 的文档；找到当前这一小节对应文档中的文字介绍部分
-3、如果你基础有点薄弱的话，不要太过于着急；
+3、如果你基础有点薄弱的话，不要太过于着急
 4、不能保证所有人看一遍就能学会，但是能保证所有人，两遍能拿下
-5、如果你能跟着动手敲的话，我觉得你很有前途
+5、如果你能跟着动手敲的话，将会事半功倍
 
 # 知识点
 
@@ -60,6 +70,8 @@ summary_img: /images/vue-ssr-img.jpeg
 
 [相关文档](https://ssr.vuejs.org/zh/guide/build-config.html)
 
+> 教程中的 webpack 相关的配置已经配置好了，你可以直接全部拿过来用就行了
+
 **3、createBundleRenderer**
 我们在前三节使用的都是 `vue-server-renderer` 中的 `createRenderer` 方法；从第四节开始，我们使用的是 `createBundleRenderer`，所创建的 `bundle renderer`，用法和普通 `renderer` 相同。 `createBundleRenderer` 接收一个 `server bundle` 生成的特殊 `JSON` 文件。但是 `bundle renderer` 提供以下优点：
 
@@ -75,8 +87,6 @@ summary_img: /images/vue-ssr-img.jpeg
 当然，如果你有任何建议或者疑问，欢迎联系我~
 
 QQ 群：685486827 ，<a target="_blank" style="color: red;" href="//shang.qq.com/wpa/qunwpa?idkey=32da7a18744756b0d8ffdd05b84999afecb5265dbad0fb119033e122abe803f3">一键加群</a>
-
-<img src="/images/qq-group.png" alt="加入qq群" width="250" style="margin: 0;">
 
 
 
