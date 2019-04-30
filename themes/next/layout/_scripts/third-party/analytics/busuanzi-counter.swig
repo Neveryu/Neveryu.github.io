@@ -2,7 +2,9 @@
 
 <div class="busuanzi-count">
 
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <!-- <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <!-- 上面这个是之前的，不知道为什么失效了，改成下面这个 -->
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   {% if theme.busuanzi_count.site_uv %}
     <span class="site-uv">{{ theme.busuanzi_count.site_uv_header }}<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>{{ theme.busuanzi_count.site_uv_footer }}</span>
