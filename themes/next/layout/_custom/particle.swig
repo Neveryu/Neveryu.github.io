@@ -1,39 +1,39 @@
 <!-- 背景动画 -->
 {% if theme.particle === "all" %}
-  <script type="text/javascript" src="/js/src/particle.js?v={{theme.version}}"></script>
+<script type="text/javascript" src="/js/src/particle.js?v={{theme.version}}"></script>
 {% endif %}
 
 <!-- 按需加载背景 -->
 <!-- 识别手机或电脑的js开始 -->
 {% if theme.particle === "pc" %}
-  <script type="text/javascript">   
-    (function(){  
-      var res = GetRequest();  
-      var par = res['index'];  
-      if(par!='gfan'){  
-        var ua=navigator.userAgent.toLowerCase();  
-        var contains=function (a, b){  
-            if(a.indexOf(b)!=-1){return true;}  
-        };   
-        if((contains(ua,"android") && contains(ua,"mobile"))||(contains(ua,"android") && contains(ua,"mozilla"))||(contains(ua,"android") && contains(ua,"opera"))||contains(ua,"ucweb7")||contains(ua,"iphone")){
-          return false;
-        } else {
-          $.getScript("/js/src/particle.js?v={{theme.version}}");
-        }
+<script type="text/javascript">
+  (function(){
+    var res = GetRequest();
+    var par = res['index'];
+    if(par!='gfan'){
+      var ua=navigator.userAgent.toLowerCase();
+      var contains=function (a, b){
+          if(a.indexOf(b)!=-1){return true;}
+      };
+      if((contains(ua,"android") && contains(ua,"mobile"))||(contains(ua,"android") && contains(ua,"mozilla"))||(contains(ua,"android") && contains(ua,"opera"))||contains(ua,"ucweb7")||contains(ua,"iphone")){
+        return false;
+      } else {
+        $.getScript("/js/src/particle.js?v={{theme.version}}");
       }
-    })();  
-    function GetRequest() {  
-      var url = location.search;
-      var theRequest = new Object();  
-      if (url.indexOf("?") != -1) {  
-        var str = url.substr(1);  
-        strs = str.split("&");  
-        for(var i = 0; i < strs.length; i ++) {  
-          theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);  
-        }  
-      }  
-      return theRequest;  
-    }  
-  </script>
+    }
+  })();
+  function GetRequest() {
+    var url = location.search;
+    var theRequest = new Object();
+    if (url.indexOf("?") != -1) {
+      var str = url.substr(1);
+      strs = str.split("&");
+      for(var i = 0; i < strs.length; i ++) {
+        theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+      }
+    }
+    return theRequest;
+  }
+</script>
 {% endif %}
 <!-- 识别手机或电脑的js结束 -->  
