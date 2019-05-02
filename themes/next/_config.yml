@@ -413,6 +413,12 @@ images: images
 version: 5.0.1
 
 # 自己添加的功能
+high_high:
+  enable: true
+  song1: http://dl.stream.qqmusic.qq.com/C400001Qu4I30eVFYb.m4a?vkey=2127178E4405E7B8B268F20F05232485735CCF4FF8C1432F0360D2626D0B6C9564B5627C7AB481BBC685FEDB0946A50E97C66F0D1B008226&guid=7175649092&uin=0&fromtag=66
+  song2:
+  song3:
+weibo_show: true
 # 1.开启打赏功能
 reward_comment: 满分是10分的话，这篇文章你给几分
 alipay: /reward/reward_alipay.png
