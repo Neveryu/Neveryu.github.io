@@ -1,6 +1,6 @@
 <!-- 背景动画 -->
 {% if theme.particle === "all" %}
-<script type="text/javascript" src="/js/src/particle.js?v={{theme.version}}"></script>
+  <script type="text/javascript" src="/js/src/particle.js?v={{theme.version}}"></script>
 {% endif %}
 
 <!-- 按需加载背景 -->

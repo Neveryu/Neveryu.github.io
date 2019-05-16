@@ -428,4 +428,4 @@ mouse_click_love: true
 mouse_move_icon: true
 title_change: true
 # particle Available value: all | pc
-particle: pc
+particle: all
