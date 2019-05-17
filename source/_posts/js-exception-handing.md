@@ -33,6 +33,7 @@ comments: false
 
 <p id="div-border-left-yellow">下面我会针对每种具体情况来说明如何处理这些异常。</p>
 
+
 # 三、Try-Catch 的误区
 
 <p id="div-border-top-blue">`try-catch` 只能捕获到 <font color="red">**同步**</font> 的运行时错误，对 <font color="red">语法</font> 和 <font color="red">异步</font> 错误却无能为力，捕获不到。【不能捕获XHR，AJAX的异常】</p>
@@ -85,7 +86,7 @@ Uncaught TypeError: Cannot read property 'map' of undefined at setTimeout (<anon
 
 # 四、window.onerror 不是万能的
 
-当 JS 运行时错误发生时，window 会触发一个 ErrorEvent 接口的 error 事件，并执行 window.onerror()。
+当 JS 运行时错误发生时，window 会触发一个 ErrorEvent 接口的 error 事件，并执行 `window.onerror()`。
 ```js
 /**
 * @param {String}  message    错误信息
@@ -304,9 +305,9 @@ class ErrorBoundary extends React.Component {
 </ErrorBoundary>
 ```
 
-`componentDidCatch()` 方法像 JS 的 catch{} 模块一样工作，但是对于组件，只有 class 类型的组件`( class component )`可以成为一个 error boundaries 。
+`componentDidCatch()` 方法像 JS 的 `catch{}` 模块一样工作，但是对于组件，只有 class 类型的组件`( class component )`可以成为一个 `error boundaries`。
 
-实际上，大多数情况下我们可以在整个程序中定义一个 error boundary 组件，之后就可以一直使用它了！
+实际上，大多数情况下我们可以在整个程序中定义一个 `error boundary`组件，之后就可以一直使用它了！
 
 # 九、iframe 异常
 对于 iframe 的异常捕获，我们还得借力 `window.onerror`：
@@ -327,7 +328,7 @@ window.onerror = function(message, source, lineno, colno, error) {
 ```
 
 # 十、Script error
-一般情况，如果出现 Script error 这样的错误，基本上可以确定是出现了跨域问题。这时候，是不会有其他太多辅助信息的，但是解决思路无非如下：
+一般情况，如果出现 `script error` 这样的错误，基本上可以确定是出现了跨域问题。这时候，是不会有其他太多辅助信息的，但是解决思路无非如下：
 
 <p id="div-border-left-blue">跨源资源共享机制( CORS )：我们为 script 标签添加 crossOrigin 属性。</p>
 
@@ -419,7 +420,7 @@ if(sessionStorage.getItem('good_exit') &&
 
 - Service Worker 有自己独立的工作线程，与网页区分开，网页崩溃了，Service Worker 一般情况下不会崩溃；
 - Service Worker 生命周期一般要比网页还要长，可以用来监控网页的状态；
-- 网页可以通过 navigator.serviceWorker.controller.postMessage API 向掌管自己的 SW 发送消息。
+- 网页可以通过 `navigator.serviceWorker.controller.postMessage` API 向掌管自己的 SW 发送消息。
 
 # 十二、错误上报
 1.通过 Ajax 发送数据

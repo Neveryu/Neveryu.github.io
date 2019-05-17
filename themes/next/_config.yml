@@ -227,10 +227,10 @@ auto_excerpt:
 
 
 # Wechat Subscriber
-#wechat_subscriber:
-#  enabled: true
-#  qcode: /avatar/avatar.jpg
-#  description: 扫一扫，用手机访问本站
+wechat_subscriber:
+  enabled: true
+  qcode: /avatar/avatar.jpg
+  description: 扫一扫，用手机访问本站
 
 
 
@@ -427,5 +427,7 @@ wechatpay: /reward/reward_wechat.png
 mouse_click_love: true
 mouse_move_icon: true
 title_change: true
-# particle Available value: all | pc
-particle: all
+
+# particle，背景动画，all是指在所有设备上都开启；pc是指仅在pc端开启
+# Available value: all | pc
+particle: pc

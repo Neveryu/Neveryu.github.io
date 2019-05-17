@@ -1,12 +1,11 @@
 <!-- 背景动画 -->
-{% if theme.particle === "all" %}
-  <script type="text/javascript" src="/js/src/particle.js?v={{theme.version}}"></script>
-{% endif %}
-
-<!-- 按需加载背景 -->
-<!-- 识别手机或电脑的js开始 -->
-{% if theme.particle === "pc" %}
 <script type="text/javascript">
+  // 按需加载背景
+  // 如果是all，就直接加载了
+  if("{{theme.particle}}" == "all") {
+    $.getScript("/js/src/particle.js?v={{theme.version}}");
+  }
+  // 识别手机或电脑的js开始
   (function(){
     var res = GetRequest();
     var par = res['index'];
@@ -35,5 +34,4 @@
     return theRequest;
   }
 </script>
-{% endif %}
 <!-- 识别手机或电脑的js结束 -->  
