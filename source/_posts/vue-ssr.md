@@ -83,11 +83,6 @@ summary_img: /images/vue-ssr-img.jpeg
 [相关文档](https://ssr.vuejs.org/zh/guide/bundle-renderer.html)
 
 
-# 联系我
-当然，如果你有任何建议或者疑问，欢迎联系我~
-
-QQ 群：685486827 ，<a target="_blank" style="color: red;" href="//shang.qq.com/wpa/qunwpa?idkey=32da7a18744756b0d8ffdd05b84999afecb5265dbad0fb119033e122abe803f3">一键加群</a>
-
 
 
 

@@ -229,7 +229,7 @@ auto_excerpt:
 # Wechat Subscriber
 wechat_subscriber:
   enabled: true
-  qcode: /avatar/avatar.jpg
+  qcode: /reward/reward_alipay.png
   description: 扫一扫，用手机访问本站
 
 
