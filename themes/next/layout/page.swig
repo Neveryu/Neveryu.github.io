@@ -25,6 +25,7 @@
         <div class="tag-cloud-tags">
           {{ tagcloud({min_font: 12, max_font: 30, amount: 200, color: true, start_color: '#ccc', end_color: '#111'}) }}
         </div>
+        {% include '_custom/tags_footer.swig' %}
       </div>
     {% elif page.type === 'categories' %}
       <div class="category-all-page">
@@ -34,11 +35,7 @@
         <div class="category-all">
           {{ list_categories() }}
         </div>
-        <blockquote class="blockquote-center">
-          人生最难的就是在热爱和生计之间做选择<br>
-          愿每个人这一生<br>
-          既对得起梦想又担得起生活的责任
-        </blockquote>
+        {% include '_custom/category_footer.swig' %}
       </div>
     {% else %}
       {{ page.content }}
