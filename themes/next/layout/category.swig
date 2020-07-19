@@ -17,8 +17,6 @@
     {% for post in page.posts %}
       {{ post_template.render(post) }}
     {% endfor %}
-
-    {% include '_custom/category_footer.swig' %}
   </section>
 
   {% include '_partials/pagination.swig' %}
