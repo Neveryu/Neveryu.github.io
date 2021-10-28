@@ -49,10 +49,11 @@
     "hexo-generator-sitemap": "^1.1.2"
   },
   "scripts": {
+    "predev-proxy": "echo '由于node版本愿意，gulp功能已经不可用'",
     "dev-proxy": "gulp",
     "dev": "hexo clean && hexo generate && hexo server --debug",
-    "predeploy": "echo '*****Start deploy*****'",
+    "predeploy": "echo '【【【Start deploy】】】'",
     "deploy": "hexo clean && hexo generate && hexo deploy",
-    "postdeploy": "echo '【【【【【Finished deploy】】】】】'"
+    "postdeploy": "echo '【【【Finished deploy】】】'"
   }
 }

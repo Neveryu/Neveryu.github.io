@@ -6,7 +6,7 @@ comments: false
 
 
 # 基本信息
-目前所在城市：深圳
+目前所在城市：武汉
 
 # 个人简介
 前端工程师 
@@ -14,8 +14,8 @@ comments: false
 
 <!--
 # 技能清单
-后端语言：Java/Node/PHP
-前端框架：zepto/jQuery/jQuery EasyUI/Bootstrap/AngularJS/
+后端语言：Java/Node
+前端框架：zepto/jQuery/jQuery EasyUI/Bootstrap/Vue/React
 前端工具：sass/compass/impressjs/hexo/requirejs/seajs
 数据库相关：MySQL/SQL Server/Redis/
 版本管理、文档和自动化部署工具：Svn/Git/Grunt/Gulp
