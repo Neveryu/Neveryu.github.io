@@ -71,3 +71,4 @@
   {% endif %}
 </nav>
 
+{% include '../_custom/weather.swig' %}

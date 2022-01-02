@@ -1,6 +1,6 @@
 <li class="menu-item"> <a title="把这个链接拖到你的工具栏中,任何网页都可以High" href='javascript:(
 /*
- * Copyright (C) 2016 Never_yu (Neveryu.github.io) <React.dong.yu@gmail.com>
+ * Copyright (C) 2016 Never_yu (Neveryu.github.io) <never_yu@qq.com>
  * Sina Weibo (http://weibo.com/Neveryu)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,12 +17,9 @@
  */
 function go() {
 
-var songs = [
-  "{{ theme.high_high.song1 }}",
-  "{{ theme.high_high.song2 }}",
-  "{{ theme.high_high.song3 }}",
-  ""
-];
+var songs = "{{ theme.high_high.songs }}";
+songs = songs.split(",");
+songs.push("");
 
 function c() {
   var e = document.createElement("link");

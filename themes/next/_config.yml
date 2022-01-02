@@ -413,11 +413,13 @@ images: images
 version: 5.0.1
 
 # 自己添加的功能
+# High一下
 high_high:
   enable: true
-  song1: http://dl.stream.qqmusic.qq.com/C400001Qu4I30eVFYb.m4a?vkey=2127178E4405E7B8B268F20F05232485735CCF4FF8C1432F0360D2626D0B6C9564B5627C7AB481BBC685FEDB0946A50E97C66F0D1B008226&guid=7175649092&uin=0&fromtag=66
-  song2:
-  song3:
+  songs: "https://other-web-ra03-sycdn.kuwo.cn/f2daaa13af4dfd5c45f253435dd4d9db/61d10d59/resource/a1/48/45/75/2724330011.aac,
+          https://rl03-sycdn.kuwo.cn/9281f70f684dceb70c38ecae74694448/61d16250/resource/a1/22/89/2386838235.aac
+          https://other-web-nf03-sycdn.kuwo.cn/9d542b31ee07a7aba72c4d6c067d05bc/61d10f23/resource/a3/88/98/69619850.aac,
+          https://other-web-ra03-sycdn.kuwo.cn/00bd43a61077a6755e74b797597bc86f/61d10ff3/resource/a3/48/97/52/268870394.aac"
 weibo_show: true
 # 1.开启打赏功能
 reward_comment: 满分是10分的话，这篇文章你给几分
@@ -431,3 +433,31 @@ title_change: true
 # particle，背景动画，all是指在所有设备上都开启；pc是指仅在pc端开启
 # Available value: all | pc
 particle: pc
+
+# 天气
+# 头部导航是否显示天气
+weather:
+  on: true
+
+CDN:
+  valine: https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js
+  iconfont: https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css
+  fontAwesome: https://cdn.jsdelivr.net/gh/inkss/fontawesome@5.15.3/css/all.min.css
+  aplayer: https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js
+  Meting: https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js
+  livere: https://cdn-city.livere.com/js/embed.dist.js
+  gitmentCss: https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.css
+  gitmentJs: https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.js
+  gitalkCss: https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css
+  gitalkJs: https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js
+  busuanzi: //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js # 卜算子
+  ayuCss: https://cdn.jsdelivr.net/npm/v-plugs-ayu/lib/ayu.css
+  ayuJs: https://cdn.jsdelivr.net/npm/v-plugs-ayu/lib/ayu.umd.min.js
+  copyRight: https://creativecommons.org/licenses/by-nc-nd/4.0/
+  live2d: https://cdn.jsdelivr.net/gh/yuang01/live2d-widget@latest/autoload.js
+  paceJs: //cdn.bootcss.com/pace/1.0.2/pace.min.js
+  paceCss: //cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css
+  weather: https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0
+  typedJs: https://cdn.jsdelivr.net/npm/typed.js@2.0.11
+  jquery: https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js
+  vue: https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js

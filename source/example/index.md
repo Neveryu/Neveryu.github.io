@@ -10,6 +10,8 @@ comments: false
 
 - 2、`Three.js` 中的一些示例。
 
-  - 2.1、在缩放场景或者转动摄像机时，`Line` 有时出现，有时消失的问题。
+  - 2.1、在缩放场景或者转动摄像机时，`Line` 有时出现，有时消失的问题。[点击查看示例demo](../my-example/three/frustumCulled)
 
-  - 2.2、小球沿着既定路线平滑移动的实现。
+  - 2.2、小球沿着既定路线平滑移动的实现。[点击查看示例demo](../my-example/three/sphere-sport)
+  
+  - 2.3、可以设置宽度的线条。[点击查看示例demo](../my-example/three/line-fat)

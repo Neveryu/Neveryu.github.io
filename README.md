@@ -3,6 +3,7 @@
 ## Build Setup
 
 ``` bash
+# 我是使用npm来安装依赖包和启动项目，没有用yarn
 # install dependencies
 npm install
 
