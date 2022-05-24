@@ -2,33 +2,11 @@
 
 这是一个我的个人博客，博客地址： [https://neveryu.github.io/](https://neveryu.github.io/)
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:4000
-npm run dev
-
-# build with hot reload
-npm run dev-proxy
-
-# deploy
-npm run deploy
-```
-
-
 移动端快速访问：
 
 ![my-blog](https://neveryu.github.io/images/view-my-blog.png)
 
 ---
-
-## 浏览器支持 Browser support
-
-![Browser support](http://iissnan.com/nexus/next/browser-support.png)
-
 
 [建站日志](https://neveryu.github.io/weblog/) | [给我留言](https://neveryu.github.io/guestbook/)
 
@@ -56,7 +34,7 @@ npm run deploy
 
 # Contact Me
 
-欢迎加入 QQ 群，共同学习讨论，QQ 群：[685486827](//shang.qq.com/wpa/qunwpa?idkey=32da7a18744756b0d8ffdd05b84999afecb5265dbad0fb119033e122abe803f3) ，<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=32da7a18744756b0d8ffdd05b84999afecb5265dbad0fb119033e122abe803f3">一键加群</a>
+欢迎加入 QQ 群，共同学习讨论，QQ 群：[832485817](//shang.qq.com/wpa/qunwpa?idkey=ce9f5f0d1d7553fb5634521f79a89668ad0d798eb35047f93300df63ebae4c05) ，<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=ce9f5f0d1d7553fb5634521f79a89668ad0d798eb35047f93300df63ebae4c05">一键加群</a>
 
 <img src="https://neveryu.github.io/images/qq-group.png" alt="vue-music" width="250">
 
