@@ -35,4 +35,4 @@ comments: true
 
 ------
 
-** 文章系转载，[原文链接](https://notes.iissnan.com/2015/question-in-writing/ ) **
+** 文章系转载，[原文链接](https://notes.iissnan.com/2015/questions-in-writing/ ) **
