@@ -35,6 +35,3 @@
 # Contact Me
 
 欢迎加入 QQ 群，共同学习讨论，QQ 群：[832485817](//shang.qq.com/wpa/qunwpa?idkey=ce9f5f0d1d7553fb5634521f79a89668ad0d798eb35047f93300df63ebae4c05) ，<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=ce9f5f0d1d7553fb5634521f79a89668ad0d798eb35047f93300df63ebae4c05">一键加群</a>
-
-<img src="https://neveryu.github.io/images/qq-group.png" alt="vue-music" width="250">
-
