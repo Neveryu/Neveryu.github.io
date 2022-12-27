@@ -40,17 +40,10 @@
     "hexo-symbols-count-time": "^0.2.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.18.13",
-    "gulp": "^3.9.1",
-    "gulp-htmlmin": "^3.0.0",
-    "gulp-minify-css": "^1.2.4",
-    "gulp-uglify": "^3.0.0",
     "hexo-deployer-git": "^0.2.0",
     "hexo-generator-sitemap": "^1.1.2"
   },
   "scripts": {
-    "predev-proxy": "echo '由于node版本愿意，gulp功能已经不可用'",
-    "dev-proxy": "gulp",
     "dev": "hexo clean && hexo generate && hexo server --debug",
     "predeploy": "echo '【【【Start deploy】】】'",
     "deploy": "hexo clean && hexo generate && hexo deploy",
