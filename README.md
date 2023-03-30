@@ -36,20 +36,20 @@ npm run deploy
 # 其他项目
 
 <div>
-    <div title="sell">
-        <b>用 vue 做的移动端外卖网站</b>
-        <br>
-        <i>扫码体验：</i>
-        <br>  
-        <img src="https://neveryu.github.io/images/vue-sell-2.png" alt="vue-sell" width="200">
-    </div>
-    <div title="vue-music">
-        <b>用 vue 开发移动端音乐播放器</b>
-        <br>
-        <i>扫码体验：</i>
-        <br>
-        <img src="https://neveryu.github.io/images/vue-music-1.png" alt="vue-music" width="200">
-    </div>
+  <div title="sell">
+    <b>用 vue 做的移动端外卖网站</b>
+    <br>
+    <i>扫码体验：</i>
+    <br>  
+    <img src="https://neveryu.github.io/images/vue-sell-2.png" alt="vue-sell" width="200">
+  </div>
+  <div title="vue-music">
+    <b>用 vue 开发移动端音乐播放器</b>
+    <br>
+    <i>扫码体验：</i>
+    <br>
+    <img src="https://neveryu.github.io/images/vue-music-1.png" alt="vue-music" width="200">
+  </div>
 </div>
 
 
@@ -58,4 +58,3 @@ npm run deploy
 欢迎加入 QQ 群，共同学习讨论，QQ 群：[685486827](//shang.qq.com/wpa/qunwpa?idkey=32da7a18744756b0d8ffdd05b84999afecb5265dbad0fb119033e122abe803f3) ，<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=32da7a18744756b0d8ffdd05b84999afecb5265dbad0fb119033e122abe803f3">一键加群</a>
 
 <img src="https://neveryu.github.io/images/qq-group.png" alt="vue-music" width="250">
-
