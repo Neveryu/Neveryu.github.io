@@ -4,7 +4,6 @@ node_modules/
 public/
 *.log
 db.json
-package-lock.json
 
 themes/next/source/sell/
 themes/next/source/music/
