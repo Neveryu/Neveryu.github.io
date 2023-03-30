@@ -1,0 +1,37 @@
+>说明：此文件名，请勿修改。文件名：README.MDOWN
+
+这是一个我的个人博客，博客地址： [https://neveryu.github.io/](https://neveryu.github.io/)
+
+移动端快速访问：
+
+![my-blog](https://neveryu.github.io/images/view-my-blog.png)
+
+---
+
+[建站日志](https://neveryu.github.io/weblog/) | [给我留言](https://neveryu.github.io/guestbook/)
+
+------
+
+# 其他项目
+
+<div>
+    <div title="sell">
+        <b>用 vue 做的移动端外卖网站</b>
+        <br>
+        <i>扫码体验：</i>
+        <br>  
+        <img src="https://neveryu.github.io/images/vue-sell-2.png" alt="vue-sell" width="200">
+    </div>
+    <div title="vue-music">
+        <b>用 vue 开发移动端音乐播放器</b>
+        <br>
+        <i>扫码体验：</i>
+        <br>
+        <img src="https://neveryu.github.io/images/vue-music-1.png" alt="vue-music" width="200">
+    </div>
+</div>
+
+
+# Contact Me
+
+欢迎加入 QQ 群，共同学习讨论，QQ 群：[832485817](//shang.qq.com/wpa/qunwpa?idkey=ce9f5f0d1d7553fb5634521f79a89668ad0d798eb35047f93300df63ebae4c05) ，<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=ce9f5f0d1d7553fb5634521f79a89668ad0d798eb35047f93300df63ebae4c05">一键加群</a>
