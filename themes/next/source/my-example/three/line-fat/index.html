@@ -9,10 +9,26 @@
   <!-- <script type="text/javascript" src="../libs/util/Stats.js"></script> -->
   <!-- <script type="text/javascript" src="../libs/util/dat.gui.js"></script> -->
   <!-- <script type="text/javascript" src="../util.js"></script> -->
+  <style>
+    #desc {
+      position: fixed;
+      top: 0;
+      left: 0;
+      margin-top: 50px;
+      width: 50%;
+      color:  yellow;
+      font-size: .8em;
+    }
+  </style>
 </head>
 
 <body>
   <div id="webgl-output"></div>
+  <div id="desc">
+    <p>一、使用 let fatLine = new THREE.Mesh( geometry, material )</p>
+    <p>二、使用 let colorLine = new Line2( geometry, matLine );</p>
+    <p>这两种方式创建出来的Line是可以设置宽度的。同时，也可以看出来Line2的基类是LineSegments2，LineSegments2的基类是Mesh，Line2和LineSegments2本质上都是一个网格模型，你可以把代码中 Line2替换为THREE.Mesh，显示效果是一样的。</p>
+  </div>
 
   <!-- Javascript code that runs our Three.js examples -->
 

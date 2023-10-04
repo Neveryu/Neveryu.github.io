@@ -70,6 +70,9 @@ export function init() {
   spotLight.castShadow = true;
   scene.add(spotLight);
 
+  // 场景，灯光，背景plane结束
+
+
 
   // 【使用原生的LineBasicMaterial】
   var curve = new THREE.SplineCurve3( [
@@ -157,13 +160,21 @@ export function init() {
   colorLine.position.set(10, 0, 30)
 
 
+
+  // ----------
+
+
+
   var geo = new THREE.BufferGeometry();
   geo.setAttribute( 'position', new THREE.Float32BufferAttribute( positions3, 3 ) );
   geo.setAttribute( 'color', new THREE.Float32BufferAttribute( colors3, 3 ) );
 
+  // 如何使用的是Line，则在切换实线/虚线的时候，需要改变整个材质（LineBasicMaterial， LineDashedMaterial）
+  // 但如果是Line2，则在切换实线/虚线的时候，只需要修改LineMaterial的属性
   matLineBasic = new THREE.LineBasicMaterial( { vertexColors: true } );
   matLineDashed = new THREE.LineDashedMaterial( { vertexColors: true, scale: 2, dashSize: 1, gapSize: 1 } );
 
+  // sColorLine不可改变宽度
   sColorLine = new THREE.Line( geo, matLineBasic );
   sColorLine.computeLineDistances();
   sColorLine.visible = false;

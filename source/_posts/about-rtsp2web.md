@@ -298,7 +298,9 @@ new RTSP2web({
 
 > 你可以尝试配置 `transportType` 为其他值试试，`'tcp'`, `'udp'`是最常见的选择。
 
-## 四、其他问题随时沟通，wechat： miracle421354532
+## 四、其他问题随时沟通
+
+wechat： miracle421354532
 
 # 以下客户使用了 rtsp2web
 

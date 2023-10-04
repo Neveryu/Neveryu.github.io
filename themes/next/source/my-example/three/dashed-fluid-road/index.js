@@ -45,6 +45,8 @@ function init() {
   spotLight.castShadow = true;
   scene.add(spotLight);
 
+  // ---初始化内容完成结束---
+
   // 创建材质
   var material = new THREE.LineDashedMaterial({
     color: 0x00ff00,
@@ -54,13 +56,12 @@ function init() {
   });
 
   // 创建几何体
-  var geometry = new THREE.Geometry();
-  geometry.vertices.push(
-    new THREE.Vector3(-10, 0, 0),
-    new THREE.Vector3(0, 10, 0),
-    new THREE.Vector3(10, 0, 0)
-  );
-  geometry.computeLineDistances();
+  var geometry = new THREE.BufferGeometry();
+  var vertices = [];
+  vertices.push(new THREE.Vector3(-10, 0, 0));
+  vertices.push(new THREE.Vector3(0, 10, 0));
+  vertices.push(new THREE.Vector3(10, 0, 0));
+  geometry.setFromPoints(vertices);
 
   // 创建线条
   var line = new THREE.Line(geometry, material);
@@ -88,7 +89,10 @@ function init() {
     stats.update();
     // render using requestAnimationFrame
     requestAnimationFrame(render);
-    material.uniforms.dashOffset.value -= 0.1;
+    material.dashOffset -= 0.1;
+    if (material.dashOffset < 0) {
+      material.dashOffset = material.dashSize;
+    }
     renderer.render(scene, camera);
   }
 }
