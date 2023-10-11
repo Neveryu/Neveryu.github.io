@@ -15,4 +15,5 @@ comments: false
   - 2.3、如何实现一条可以设置宽度的线条。[点击查看示例 demo](../my-example/three/line-fat)
   - 2.4、【实现】Line2 初始化以后可以更新；也可以增加点位并更新Line2线条。如何实现？[点击查看示例 demo](../my-example/three/line2-update)
   - 2.5、流动的虚线 ｜ 仿车辆导航路线。[点击查看示例 demo](../my-example/three/dashed-fluid-road)
+  - 2.6、创建一个360度全景3D场景。[点击查看示例 demo](../my-example/three/simple-3d-scene)
   
