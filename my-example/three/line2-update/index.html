@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Line2可以增加点位并更新线条</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="../css/default.css">
+  <!-- <script type="text/javascript" charset="UTF-8" src="../libs/three/three.js"></script> -->
+  <!-- <script type="text/javascript" charset="UTF-8" src="../libs/three/controls/TrackballControls.js"></script> -->
+  <!-- <script type="text/javascript" src="../libs/util/Stats.js"></script> -->
+  <!-- <script type="text/javascript" src="../libs/util/dat.gui.js"></script> -->
+  <!-- <script type="text/javascript" src="../util.js"></script> -->
+  <style>
+    #desc {
+      position: fixed;
+      top: 0;
+      left: 0;
+      margin-top: 50px;
+      width: 50%;
+      color:  yellow;
+      font-size: .8em;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="webgl-output"></div>
+  <div id="desc">
+    <p>【Line2如何动态更新？】=> <a style="color: yellow;" href="https://discourse.threejs.org/t/how-to-update-line2-dynamically/37913">https://discourse.threejs.org/t/how-to-update-line2-dynamically/37913</a></p>
+    <p>对于一个已经创建好的Line2而言，两个点之间的线即是一个线段。对于这两个点形成的线段来说，可以修改这个线段的起点和终点。</p>
+    <p>方式一、动态修改Line2中的某一段的起点和终点。<button id="aa">同时修改M造型的第二段的起点和终点</button></p>
+    <p>方式二、M造型由5个点位组成，可以传入新的点位数组，但新的点位数组也只能是5个，传多了也没用。<button id="bb">更新整个Line2</button></p>
+    <p>方式三、自定义，随意更新Line2。<button id="cc">自定义更新你的Line2</button></p>
+  </div>
+
+  <!-- Javascript code that runs our Three.js examples -->
+  <script type="module">
+    // import * as THREE from '../libs/three/build/three.module.js';
+    // import { Line2 } from '../libs/three/examples/jsm/lines/Line2.js';
+    // import { LineMaterial } from '../libs/three/examples/jsm/lines/LineMaterial.js';
+    // import { LineGeometry } from '../libs/three/examples/jsm/lines/LineGeometry.js';
+    import { init, updatePartLine2, updateLine2, customUpdateLine } from './index.js'
+    init()
+    const aaButton = document.getElementById('aa');
+    aaButton.addEventListener('click', function() {
+      // 在这里编写点击事件处理函数的代码
+      init()
+      updatePartLine2()
+    });
+    const bbButton = document.getElementById('bb');
+    bbButton.addEventListener('click', function() {
+      // 在这里编写点击事件处理函数的代码
+      init()
+      updateLine2()
+    });
+
+    const ccButton = document.getElementById('cc');
+    ccButton.addEventListener('click', function() {
+      // 在这里编写点击事件处理函数的代码
+      init()
+      customUpdateLine()
+    });
+  </script>
+</body>
+</html>

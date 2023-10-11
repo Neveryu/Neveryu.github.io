@@ -1,0 +1,34 @@
+<h1 id="Basis-Universal-GPU-Texture-Compression"><a href="#Basis-Universal-GPU-Texture-Compression" class="headerlink" title="Basis Universal GPU Texture Compression"></a>Basis Universal GPU Texture Compression</h1><p>Basis Universal is a “<a href="http://gamma.cs.unc.edu/GST/gst.pdf">supercompressed</a>“<br>GPU texture and texture video compression system that outputs a highly<br>compressed intermediate file format (.basis) that can be quickly transcoded to<br>a wide variety of GPU texture compression formats.</p>
+<p><a href="https://github.com/BinomialLLC/basis_universal">GitHub</a></p>
+<h2 id="Transcoders"><a href="#Transcoders" class="headerlink" title="Transcoders"></a>Transcoders</h2><p>Basis Universal texture data may be used in two different file formats:<br><code>.basis</code> and <code>.ktx2</code>. Texture data is identical in both cases, but different<br>transcoders are required to read the two file types. Both transcoders are<br>available in this folder now, but they may be merged in the future.</p>
+<p>For further documentation about the Basis compressor and transcoder, refer to<br>the <a href="https://github.com/BinomialLLC/basis_universal">Basis GitHub repository</a>.</p>
+<h3 id="basis"><a href="#basis" class="headerlink" title=".basis"></a>.basis</h3><p>The folder contains two files required for transcoding <code>.basis</code> textures:</p>
+<ul>
+<li><code>basis_transcoder.js</code> — JavaScript wrapper for the WebAssembly transcoder.</li>
+<li><code>basis_transcoder.wasm</code> — WebAssembly transcoder.</li>
+</ul>
+<p>Both are dependencies of <code>THREE.BasisTextureLoader</code>:</p>
+<pre><code class="js"><span class="keyword">var</span> basisLoader = <span class="keyword">new</span> THREE.BasisTextureLoader();
+basisLoader.setTranscoderPath( <span class="string">'examples/js/libs/basis/'</span> );
+basisLoader.detectSupport( renderer );
+basisLoader.load( <span class="string">'diffuse.basis'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"> texture </span>) </span>{
+
+    <span class="keyword">var</span> material = <span class="keyword">new</span> THREE.MeshStandardMaterial( { <span class="attr">map</span>: texture } );
+
+}, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{
+
+    <span class="built_in">console</span>.log( <span class="string">'onProgress'</span> );
+
+}, <span class="function"><span class="keyword">function</span> (<span class="params"> e </span>) </span>{
+
+    <span class="built_in">console</span>.error( e );
+
+} );
+</code></pre>
+<h3 id="ktx2"><a href="#ktx2" class="headerlink" title=".ktx2"></a>.ktx2</h3><p>The folder contains two files required for transcoding <code>.ktx2</code> textures:</p>
+<ul>
+<li><code>msc_basis_transcoder.js</code> — JavaScript wrapper for the WebAssembly transcoder.</li>
+<li><code>msc_basis_transcoder.wasm</code> — WebAssembly transcoder.</li>
+</ul>
+<p>Currently, the <code>msc_basis_transcoder.js</code> file must be added to the page as a<br>global script. The WASM transcoder will be downloaded from the same directory<br>automatically. These will likely be replaced with ES modules, and merged with<br>the <code>.basis</code> transcoder, in the future. See <code>KTX2Loader</code> for usage.</p>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p><a href="https://github.com/BinomialLLC/basis_universal/blob/master/LICENSE">Apache License 2.0</a></p>

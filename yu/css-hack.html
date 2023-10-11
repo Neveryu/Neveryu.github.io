@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>css-hack 示例</title>
+	<style>
+	div.css-hack{margin:10px 0;font-size:20px;}
+	span.css-hack-item {display:none; color: #f69; font-size: 26px;}
+	span.not-ie{display:inline;}
+	</style>
+	<!--[if IE]>
+	<style>
+	span.ie{display:inline;}
+	span.not-ie{display:none;}
+	</style>
+	<![endif]-->
+
+	<!--[if IE 5]>
+	<style>
+	span.ie5{display:inline;}
+	</style>
+	<![endif]-->
+
+	<!--[if IE 6]>
+	<style>
+	span.ie6{display:inline;}
+	</style>
+	<![endif]-->
+
+	<!--[if IE 7]>
+	<style>
+	span.ie7{display:inline;}
+	</style>
+	<![endif]-->
+
+	<!--[if IE 8]>
+	<style>
+	span.ie8{display:inline;}
+	</style>
+	<![endif]-->
+
+	<!--[if IE 9]>
+	<style>
+	span.ie9{display:inline;}
+	</style>
+	<![endif]-->
+	</head>
+	<body>
+	<div class="css-hack">
+		您正在使用
+		<span class="css-hack-item not-ie">非IE或IE10及其以上版本的</span>
+		<span class="css-hack-item ie">IE</span>
+		<span class="css-hack-item ie5">5</span>
+		<span class="css-hack-item ie6">6</span>
+		<span class="css-hack-item ie7">7</span>
+		<span class="css-hack-item ie8">8</span>
+		<span class="css-hack-item ie9">9</span>
+		浏览器
+	</div>
+	</body>
+	</html>
