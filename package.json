@@ -40,8 +40,8 @@
     "hexo-symbols-count-time": "^0.2.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.18.13",
-    "gulp": "^3.9.1",
+    "browser-sync": "^2.29.3",
+    "gulp": "^4.0.2",
     "gulp-htmlmin": "^3.0.0",
     "gulp-minify-css": "^1.2.4",
     "gulp-uglify": "^3.0.0",
