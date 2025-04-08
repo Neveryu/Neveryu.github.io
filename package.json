@@ -23,7 +23,7 @@
     "version": "3.2.2"
   },
   "dependencies": {
-    "hexo": "3.2.2",
+    "hexo": "3.9.0",
     "hexo-deployer-git": "0.2.0",
     "hexo-generator-archive": "0.1.4",
     "hexo-generator-baidu-sitemap": "0.1.2",
@@ -31,7 +31,7 @@
     "hexo-generator-feed": "1.2.2",
     "hexo-generator-index": "0.2.0",
     "hexo-generator-search": "1.0.4",
-    "hexo-generator-sitemap": "1.1.2",
+    "hexo-generator-sitemap": "3.0.1",
     "hexo-generator-tag": "0.2.0",
     "hexo-renderer-ejs": "0.2.0",
     "hexo-renderer-marked": "0.2.11",
