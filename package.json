@@ -1,6 +1,6 @@
 {
   "name": "hexo-site",
-  "version": "1.0.0",
+  "version": "3.2.2",
   "description": "NeverYu Blog",
   "private": true,
   "repository": {
@@ -13,7 +13,7 @@
     "Neveryu",
     "Blog"
   ],
-  "author": "Neveryu <react.dong.yu@gmail.com>",
+  "author": "Neveryu<never_yu@qq.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Neveryu/Neveryu.github.io/issues"
@@ -23,39 +23,39 @@
     "version": "3.2.2"
   },
   "dependencies": {
-    "hexo": "^3.2.2",
-    "hexo-deployer-git": "^0.2.0",
-    "hexo-generator-archive": "^0.1.4",
-    "hexo-generator-baidu-sitemap": "^0.1.2",
-    "hexo-generator-category": "^0.1.3",
-    "hexo-generator-feed": "^1.2.0",
-    "hexo-generator-index": "^0.2.0",
-    "hexo-generator-search": "^1.0.2",
-    "hexo-generator-sitemap": "^1.1.2",
-    "hexo-generator-tag": "^0.2.0",
-    "hexo-renderer-ejs": "^0.2.0",
-    "hexo-renderer-marked": "^0.2.10",
-    "hexo-renderer-stylus": "^0.3.1",
-    "hexo-server": "^0.2.0",
-    "hexo-symbols-count-time": "^0.2.0"
+    "hexo": "3.2.2",
+    "hexo-deployer-git": "0.2.0",
+    "hexo-generator-archive": "0.1.4",
+    "hexo-generator-baidu-sitemap": "0.1.2",
+    "hexo-generator-category": "0.1.3",
+    "hexo-generator-feed": "1.2.2",
+    "hexo-generator-index": "0.2.0",
+    "hexo-generator-search": "1.0.4",
+    "hexo-generator-sitemap": "1.1.2",
+    "hexo-generator-tag": "0.2.0",
+    "hexo-renderer-ejs": "0.2.0",
+    "hexo-renderer-marked": "0.2.11",
+    "hexo-renderer-stylus": "0.3.1",
+    "hexo-server": "0.2.0",
+    "hexo-symbols-count-time": "0.2.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.18.13",
-    "gulp": "^3.9.1",
-    "gulp-htmlmin": "^3.0.0",
-    "gulp-minify-css": "^1.2.4",
-    "gulp-uglify": "^3.0.0",
-    "hexo-deployer-git": "^0.2.0",
-    "hexo-generator-sitemap": "^1.1.2"
+    "browser-sync": "3.0.3",
+    "gulp": "5.0.0",
+    "gulp-htmlmin": "3.0.0",
+    "gulp-minify-css": "1.2.4",
+    "gulp-uglify": "3.0.2",
+    "start-server-and-test": "2.0.11"
   },
   "scripts": {
-    "predev-proxy": "echo '由于node版本原因，gulp功能已经不可用'",
+    "start": "start-server-and-test dev http://0.0.0.0:4000 dev-proxy",
+    "predev": "echo '开启监听内容变动自动更新'",
     "dev-proxy": "gulp",
     "dev": "hexo clean && hexo generate && hexo server",
     "predeploy": "echo '【【【Start deploy】】】'",
     "deploy": "hexo clean && hexo generate && hexo deploy",
     "postdeploy": "echo '【【【Finished deploy】】】'",
-    "preaction": "echo 通过github action部署",
-    "action": "hexo clean && hexo generate"
+    "prebuild": "echo 构建静态站点",
+    "build": "hexo clean $$ hexo generate"
   }
 }

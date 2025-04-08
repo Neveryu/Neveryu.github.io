@@ -1,48 +1,54 @@
-var gulp = require('gulp');
-var browserSync = require('browser-sync').create();
-var reload = browserSync.reload;
+const { series, src, dest, watch } = require("gulp");
+const browserSync = require("browser-sync").create();
 
-var minifycss = require('gulp-minify-css');
-var uglify = require('gulp-uglify');
-var htmlmin = require('gulp-htmlmin');
+var minifycss = require("gulp-minify-css");
+var uglify = require("gulp-uglify");
+var htmlmin = require("gulp-htmlmin");
 
 // 代理
-gulp.task('browser-sync', function() {
-	browserSync.init({
-		reloadDebounce: 500,
-		proxy: 'localhost:4000'
-	});
-	gulp.watch('source/**/*.*').on('change', reload);
-});
+function browserSyncTask(cb) {
+  browserSync.init({
+    reloadDebounce: 500, // 单位：毫秒
+    proxy: "http://0.0.0.0:4000/",
+    files: ["source/**/**.md", "public/**/*"],
+  });
+  cb();
+}
 
 // 压缩css
-gulp.task('minify-css', function() {
-	return gulp.src('public/**/*.css')
-		.pipe(minifycss().on('error', function(e) {
-			console.log(e)
-		}))
-		.pipe(gulp.dest('public'));
-});
-// 压缩html
-gulp.task('minify-html', function() {
-	var option = {
-		removeComments: true,
-		minifyJS: true,
-		minifyCSS: true,
-		collapseWhitespace: true
-	}
-	return gulp.src('public/**/*.html')
-		.pipe(htmlmin(option))
-		.pipe(gulp.dest('public'));
-});
-// 压缩js
-gulp.task('minify-js', function() {
-	return gulp.src('public/js/**/*.js')
-		.pipe(uglify().on('error', function(e){
-			console.log(e)
-		}))
-		.pipe(gulp.dest('public/js'));
-});
+function minifycss(cb) {
+  return src("public/**/*.css")
+    .pipe(
+      minifycss().on("error", function (e) {
+        console.log(e);
+      })
+    )
+    .pipe(dest("public"));
+  cb();
+}
 
-gulp.task('default', ['browser-sync']);
-gulp.task('min', ['minify-html','minify-css','minify-js']);
+// 压缩html
+function minifyhtml(cb) {
+  var option = {
+    removeComments: true,
+    minifyJS: true,
+    minifyCSS: true,
+    collapseWhitespace: true,
+  };
+  return src("public/**/*.html").pipe(htmlmin(option)).pipe(dest("public"));
+  cb();
+}
+
+// 压缩js
+function minifyjs() {
+  return src("public/js/**/*.js")
+    .pipe(
+      uglify().on("error", function (e) {
+        console.log(e);
+      })
+    )
+    .pipe(dest("public/js"));
+}
+
+exports.default = browserSyncTask;
+exports.min = series(minifyhtml, minifycss, minifyjs);

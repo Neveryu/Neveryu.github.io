@@ -2,21 +2,23 @@
 
 ## Build Setup
 
-``` bash
+```bash
 # 我是使用npm来安装依赖包和启动项目，没有用yarn
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:4000
+# serve at localhost:4000
 npm run dev
 
-# build with hot reload
-npm run dev-proxy
+# serve with hot reload at localhost:3000
+npm start
+
+# build
+npm run build
 
 # deploy
 npm run deploy
 ```
-
 
 移动端快速访问：
 
@@ -28,10 +30,9 @@ npm run deploy
 
 ![Browser support](http://iissnan.com/nexus/next/browser-support.png)
 
-
 [建站日志](https://neveryu.github.io/weblog/) | [给我留言](https://neveryu.github.io/guestbook/)
 
-------
+---
 
 # 其他项目
 
@@ -52,6 +53,24 @@ npm run deploy
   </div>
 </div>
 
+# 部署到 github page
+
+方式 1、使用 Hexo 自带的命令
+
+```bash
+npm run deploy
+```
+
+方式 2、使用 github 的 action
+
+```bash
+# 1、构建
+npm run acion
+
+# 2、推送到github仓库即可，现在是手动推送，脚本 deploy.sh 还没写
+```
+
+【目前，使用方式 1 比较多】
 
 # Contact Me
 

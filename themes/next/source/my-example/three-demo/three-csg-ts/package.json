@@ -1,0 +1,73 @@
+{
+  "name": "three-csg-ts",
+  "version": "3.2.0",
+  "description": "CSG library for use with THREE.js",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "types": "lib/esm/index.d.ts",
+  "scripts": {
+    "start": "webpack serve --open --config example/webpack.config.js",
+    "test": "jest --config jestconfig.json",
+    "clean": "rimraf lib",
+    "build": "npm run clean && mkdir lib && tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
+    "lint": "eslint .",
+    "prepare": "npm run build && husky install",
+    "prepublishOnly": "npm test && npm run lint",
+    "release": "standard-version",
+    "prerelease": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samalexander/three-csg-ts.git"
+  },
+  "keywords": [
+    "three",
+    "threejs",
+    "three-js",
+    "csg",
+    "computational-solid-geometry"
+  ],
+  "author": "Sam Alexander",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samalexander/three-csg-ts/issues"
+  },
+  "homepage": "https://github.com/samalexander/three-csg-ts#readme",
+  "devDependencies": {
+    "@types/jest": "^27.0.1",
+    "@types/node": "^14.14.45",
+    "@types/three": "^0.164.1",
+    "@typescript-eslint/eslint-plugin": "^4.23.0",
+    "@typescript-eslint/parser": "^4.23.0",
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jest": "^24.3.6",
+    "husky": "^6.0.0",
+    "jest": "^27.0.4",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.0",
+    "prettier-plugin-organize-imports": "^2.0.0",
+    "rimraf": "^3.0.2",
+    "standard-version": "^9.3.0",
+    "three": "^0.164.1",
+    "ts-jest": "^27.0.5",
+    "ts-loader": "^9.2.3",
+    "typescript": "^4.2.4",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^4.2.1"
+  },
+  "peerDependencies": {
+    "@types/three": ">= 0.154.0",
+    "three": ">= 0.154.0"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "lint-staged": {
+    "*/**": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  }
+}
