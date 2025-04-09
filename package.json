@@ -56,6 +56,6 @@
     "deploy": "hexo clean && hexo generate && hexo deploy",
     "postdeploy": "echo '【【【Finished deploy】】】'",
     "prebuild": "echo 构建静态站点",
-    "build": "hexo clean $$ hexo generate"
+    "build": "hexo clean && hexo generate"
   }
 }
