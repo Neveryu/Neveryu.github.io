@@ -4,6 +4,7 @@ node_modules/
 public/
 *.log
 db.json
+.DS_Store
 
 # themes/next/source/sell/
 # themes/next/source/music/

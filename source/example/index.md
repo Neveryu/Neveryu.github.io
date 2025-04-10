@@ -17,3 +17,4 @@ comments: false
   - 2.6、创建一个 360 度全景 3D 场景。[点击查看示例 demo](../my-example/three-demo/simple-3d-scene.html)
   - 2.7、使用 `three-csg-ts` 对模型进行 csg 操作。[点击查看示例 demo](../my-example/three-demo/three-csg-ts.html)
   - 2.8、使用 `three-bvh-csg` 对模型进行 csg 操作。[点击查看示例 demo](../my-example/three-demo/three-bvh-csg.html)
+  - 2.9、使用自定义算法进行地层的融合，实现同样的效果。[点击查看示例 demo](../my-example/three-demo/custom-merge-layer.html)
