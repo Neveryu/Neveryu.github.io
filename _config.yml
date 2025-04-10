@@ -20,13 +20,17 @@ permalink_defaults:
 
 # Directory
 source_dir: source
-public_dir: public
+public_dir: docs
 tag_dir: tags
 archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render: yu/*.html
+
+# 处理目录或文件
+include:
+  - ".nojekyll"
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -75,6 +79,9 @@ deploy:
   repository: git@github.com:Neveryu/Neveryu.github.io.git
   branch: gh-pages
   message: 'Daily updated：{{now("YYYY-MM-DD HH:mm:ss")}} by Never_yu personal PC'
+  # 添加以下配置，强制包含 .nojekyll
+  include:
+    - ".nojekyll"
 
 # 自己添加的功能
 #1.头像
