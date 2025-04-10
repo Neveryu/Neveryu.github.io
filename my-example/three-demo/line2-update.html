@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Line2可以增加点位并更新线条</title>
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <link
+      rel="shortcut icon"
+      href="../../files/favicon_white.ico"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="shortcut icon"
+      href="../../files/favicon.ico"
+      media="(prefers-color-scheme: light)"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <style>
+      #desc {
+        pointer-events: all;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="viewer" name="viewer" allow="fullscreen; xr-spatial-tracking;">
+      <div id="container"></div>
+    </div>
+    <div id="desc">
+      <p>
+        【Line2如何动态更新？】=>
+        <a
+          style="color: yellow"
+          href="https://discourse.threejs.org/t/how-to-update-line2-dynamically/37913"
+          >https://discourse.threejs.org/t/how-to-update-line2-dynamically/37913</a
+        >
+      </p>
+      <p>
+        对于一个已经创建好的Line2而言，两个点之间的线即是一个线段。对于这两个点形成的线段来说，可以修改这个线段的起点和终点。
+      </p>
+      <p>
+        方式一、动态修改Line2中的某一段的起点和终点。<button id="fn1">
+          同时修改M造型的第二段的起点和终点
+        </button>
+      </p>
+      <p>
+        方式二、M造型由5个点位组成，可以传入新的点位数组，但新的点位数组也只能是5个，传多了也没用。<button
+          id="fn2"
+        >
+          更新整个Line2
+        </button>
+      </p>
+      <p>
+        方式三、自定义，随意更新Line2。<button id="fn3">
+          自定义更新你的Line2
+        </button>
+      </p>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "../three/build/three.module.js",
+          "three/addons/": "../three/examples/jsm/"
+        }
+      }
+    </script>
+
+    <script type="module">
+      import * as THREE from "three";
+      import Stats from "three/addons/libs/stats.module.js";
+      import TWEEN from "three/addons/libs/tween.module.js";
+      import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+      import { LineMaterial } from "three/addons/lines/LineMaterial.js";
+      import { LineGeometry } from "three/addons/lines/LineGeometry.js";
+      import { Line2 } from "three/addons/lines/Line2.js";
+
+      let scene, renderer, camera, stats, fatLine;
+
+      init();
+      initStats();
+      animate();
+      initLine2();
+
+      /**
+       * Initialize the statistics domelement
+       *
+       * @param {Number} type 0: fps, 1: ms, 2: mb, 3+: custom
+       * @returns stats javascript object
+       */
+      function initStats(type) {
+        var panelType =
+          typeof type !== "undefined" && type && !isNaN(type)
+            ? parseInt(type)
+            : 0;
+        stats = new Stats();
+        stats.showPanel(panelType); // 0: fps, 1: ms, 2: mb, 3+: custom
+        document.body.appendChild(stats.dom);
+      }
+
+      function init() {
+        const container = document.getElementById("container");
+
+        camera = new THREE.PerspectiveCamera(
+          45,
+          window.innerWidth / window.innerHeight,
+          1,
+          1000
+        );
+        camera.position.set(0, 10, 205);
+        camera.lookAt(0, 0, 0);
+
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xa0a0a0);
+        // scene.fog = new THREE.Fog(0xa0a0a0, 10, 50);
+
+        const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
+        hemiLight.position.set(0, 100, 0);
+        scene.add(hemiLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff);
+        dirLight.position.set(-3, 100, -10);
+        dirLight.castShadow = true;
+        dirLight.shadow.camera.top = 2;
+        dirLight.shadow.camera.bottom = -2;
+        dirLight.shadow.camera.left = -2;
+        dirLight.shadow.camera.right = 2;
+        dirLight.shadow.camera.near = 0.1;
+        dirLight.shadow.camera.far = 40;
+        scene.add(dirLight);
+
+        /**
+         * 开启抗锯齿（antialias: true）可以平滑渲染结果中的边缘，减少锯齿状现象，使图形看起来更加平滑和真实。
+         * 开启抗锯齿会增加渲染负担，可能导致渲染性能下降，特别是在低端设备上。因此，在需要高性能渲染的场景中，可能需要权衡抗锯齿效果和性能。
+         **/
+        renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        container.appendChild(renderer.domElement);
+
+        // Controls
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.target.set(0, 0, 0);
+        controls.update();
+        // listeners
+        window.addEventListener("resize", onWindowResize);
+      }
+
+      // 实时渲染
+      function animate() {
+        stats.update();
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+      }
+
+      function onWindowResize() {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        renderer.setSize(width, height);
+
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+      }
+
+      function initLine2() {
+        let hasFatLine = scene.getObjectByName("fatLine");
+        if (hasFatLine) {
+          scene.remove(hasFatLine);
+          hasFatLine.geometry.dispose();
+          hasFatLine.material.dispose();
+        }
+
+        // 【使用重写的LineMaterial】默认创建line使用的是LineBasicMaterial
+        let position1 = [-50, 0, 0, -50, 50, 0, 0, 0, 0, 50, 50, 0, 50, 0, 0];
+        var geometry1 = new LineGeometry();
+        geometry1.setPositions(position1);
+        var material1 = new LineMaterial({
+          color: 0xdd2222,
+          // 线宽度
+          linewidth: 5,
+        });
+        material1.resolution.set(window.innerWidth, window.innerHeight);
+        fatLine = new Line2(geometry1, material1);
+        fatLine.name = "fatLine";
+        /**
+         * 在three.js中，对于使用Line2创建的线条，可以使用computeLineDistances方法来计算线条上每个顶点之间的距离，并将结果存储在Line2对象的lineDistances属性中。
+         * computeLineDistances方法的作用是为了方便地获取线条上每个顶点之间的距离，以便进行一些相关的计算或操作。例如，可以通过lineDistances属性来实现线条上的虚线效果，也可以通过计算线条上两个点之间的距离来判断是否需要对线条进行细分。
+         * 具体地说，computeLineDistances方法会计算出每个顶点到线条起点的距离，并将这些距离存储在lineDistances属性中。lineDistances属性是一个Float32Array类型的数组，它的长度等于线条顶点数减一，即线条上相邻两个顶点之间的距离数目。
+         * 需要注意的是，computeLineDistances方法只对Line2对象有效，对其他几何体类型（如Line、LineSegments、Mesh等）没有影响。
+         */
+        fatLine.computeLineDistances();
+        fatLine.scale.set(1, 1, 1); // 缩放、伸缩变形
+
+        scene.add(fatLine);
+      }
+
+      function updatePartLine2() {
+        fatLine.geometry.attributes.instanceStart.setY(1, 25);
+        fatLine.geometry.attributes.instanceEnd.setY(1, 25);
+        fatLine.geometry.attributes.instanceStart.needsUpdate = true;
+        fatLine.geometry.attributes.instanceEnd.needsUpdate = true;
+      }
+      function updateLine2() {
+        // 传多了也没用
+        let points2 = [
+          -50, 50, 0, -50, 0, 0, 0, 50, 0, 50, 0, 0, 50, 50, 0, 75, 0, 0, 80, 0,
+          0,
+        ];
+        fatLine.geometry.setPositions(points2);
+      }
+      function customUpdateLine() {
+        fatLine.geometry.dispose();
+        let newPositions = [
+          -50, 50, 0, -50, 0, 0, 0, 50, 0, 50, 0, 0, 50, 50, 0, 75, 0, 0, 80, 0,
+          0,
+        ];
+        fatLine.geometry = new LineGeometry().setPositions(newPositions);
+      }
+
+      const fn1Button = document.getElementById("fn1");
+      fn1Button.addEventListener("click", function () {
+        initLine2();
+        // 在这里编写点击事件处理函数的代码
+        updatePartLine2();
+      });
+      const fn2Button = document.getElementById("fn2");
+      fn2Button.addEventListener("click", function () {
+        initLine2();
+        // 在这里编写点击事件处理函数的代码
+        updateLine2();
+      });
+
+      const fn3Button = document.getElementById("fn3");
+      fn3Button.addEventListener("click", function () {
+        initLine2();
+        // 在这里编写点击事件处理函数的代码
+        customUpdateLine();
+      });
+    </script>
+  </body>
+</html>

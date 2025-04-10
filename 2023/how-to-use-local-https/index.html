@@ -1,0 +1,1356 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Courier New:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="NodeJS,HTTPS," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Never_yu's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="有时，您需要使用 HTTPS 运行本地开发网站。本文介绍了安全快速地执行此操作的工具和技巧。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用 HTTPS 进行本地开发">
+<meta property="og:url" content="https://neveryu.github.io/2023/how-to-use-local-https/index.html">
+<meta property="og:site_name" content="Never_yu's Blog">
+<meta property="og:description" content="有时，您需要使用 HTTPS 运行本地开发网站。本文介绍了安全快速地执行此操作的工具和技巧。">
+<meta property="og:image" content="https://neveryu.github.io/images/use-https-3.png">
+<meta property="og:image" content="https://neveryu.github.io/images/use-https-2.jpg">
+<meta property="og:image" content="https://neveryu.github.io/images/use-https-4.jpg">
+<meta property="og:image" content="https://neveryu.github.io/images/use-https-5.jpg">
+<meta property="og:updated_time" content="2023-04-04T11:36:48.291Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何使用 HTTPS 进行本地开发">
+<meta name="twitter:description" content="有时，您需要使用 HTTPS 运行本地开发网站。本文介绍了安全快速地执行此操作的工具和技巧。">
+<meta name="twitter:image" content="https://neveryu.github.io/images/use-https-3.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://neveryu.github.io/2023/how-to-use-local-https/"/>
+
+
+<!-- 网页加载条 -->
+<script src="/js/src/pace.min.js"></script>
+  <title> 如何使用 HTTPS 进行本地开发 | Never_yu's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Never_yu's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">认真的人才有资格开玩笑</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-example">
+          <a href="/example" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            示例
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+      
+      
+        <li class="menu-item"> <a title="把这个链接拖到你的工具栏中,任何网页都可以High" href='javascript:(
+/*
+ * Copyright (C) 2016 Never_yu (Neveryu.github.io) <never_yu@qq.com>
+ * Sina Weibo (http://weibo.com/Neveryu)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+function go() {
+
+var songs = "https://nn01-sycdn.kuwo.cn/ce7a04e067dad4c240466b8ff1d0e8c1/642a34cc/resource/n2/19/72/2718395838.mp3, https://lp-sycdn.kuwo.cn/054cf9e18a397f478e63e2e37ed49c7c/642a3514/resource/n1/41/35/2393122062.mp3, https://le-sycdn.kuwo.cn/9a3e0602048dd4a68b95013a73d48adc/642a3554/resource/n2/52/90/2368185034.mp3, https://other-web-ra01-sycdn.kuwo.cn/a2b76ec87b418f78698c5ac0aaa57d7b/642a3574/resource/n2/128/86/97/1676587748.mp3";
+songs = songs.split(",");
+songs.push("");
+
+function c() {
+  var e = document.createElement("link");
+  e.setAttribute("type", "text/css");
+  e.setAttribute("rel", "stylesheet");
+  e.setAttribute("href", f);
+  e.setAttribute("class", l);
+  document.body.appendChild(e)
+}
+
+function h() {
+  var e = document.getElementsByClassName(l);
+  for (var t = 0; t < e.length; t++) {
+    document.body.removeChild(e[t])
+  }
+}
+
+function p() {
+  var e = document.createElement("div");
+  e.setAttribute("class", a);
+  document.body.appendChild(e);
+  setTimeout(function() {
+    document.body.removeChild(e)
+  }, 100)
+}
+
+function d(e) {
+  return {
+    height : e.offsetHeight,
+    width : e.offsetWidth
+  }
+}
+
+function v(i) {
+  var s = d(i);
+  return s.height > e && s.height < n && s.width > t && s.width < r
+}
+
+function m(e) {
+  var t = e;
+  var n = 0;
+  while (!!t) {
+    n += t.offsetTop;
+    t = t.offsetParent
+  }
+  return n
+}
+
+function g() {
+  var e = document.documentElement;
+  if (!!window.innerWidth) {
+    return window.innerHeight
+  } else if (e && !isNaN(e.clientHeight)) {
+    return e.clientHeight
+  }
+  return 0
+}
+
+function y() {
+  if (window.pageYOffset) {
+    return window.pageYOffset
+  }
+  return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+}
+
+function E(e) {
+  var t = m(e);
+  return t >= w && t <= b + w
+}
+
+function S() {
+  var e = document.getElementById("audio_element_id");
+  if(e != null){
+    var index = parseInt(e.getAttribute("curSongIndex"));
+    if(index > songs.length - 2) {
+      index = 0;
+    } else {
+      index++;
+    }
+    e.setAttribute("curSongIndex", index);
+    N();
+  }
+
+  e.src = i;
+  e.play()
+}
+
+function x(e) {
+  e.className += " " + s + " " + o
+}
+
+function T(e) {
+  e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+}
+
+function N() {
+  var e = document.getElementsByClassName(s);
+  var t = new RegExp("\\b" + s + "\\b");
+  for (var n = 0; n < e.length; ) {
+    e[n].className = e[n].className.replace(t, "")
+  }
+}
+
+function initAudioEle() {
+  var e = document.getElementById("audio_element_id");
+  if(e === null){
+    e = document.createElement("audio");
+    e.setAttribute("class", l);
+    e.setAttribute("curSongIndex", 0);
+    e.id = "audio_element_id";
+    e.loop = false;
+    e.bgcolor = 0;
+    e.addEventListener("canplay", function() {
+      setTimeout(function() {
+        x(k)
+      }, 500);
+      setTimeout(function() {
+        N();
+        p();
+        for (var e = 0; e < O.length; e++) {
+          T(O[e])
+        }
+      }, 15500)
+    }, true);
+    e.addEventListener("ended", function() {
+      N();
+      h();
+      go();
+    }, true);
+    e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+    document.body.appendChild(e);
+  }
+}
+
+initAudioEle();
+var e = 30;
+var t = 30;
+var n = 350;
+var r = 350;
+
+var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+var i = songs[curSongIndex];
+
+var s = "mw-harlem_shake_me";
+var o = "im_first";
+var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+var a = "mw-strobe_light";
+
+/* harlem-shake-style.css，替换成你的位置，也可以直接使用：//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css */
+var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+
+var l = "mw_added_css";
+var b = g();
+var w = y();
+var C = document.getElementsByTagName("*");
+var k = null;
+for (var L = 0; L < C.length; L++) {
+  var A = C[L];
+  if (v(A)) {
+    if (E(A)) {
+      k = A;
+      break
+    }
+  }
+}
+if (A === null) {
+  console.warn("Could not find a node of the right size. Please try a different page.");
+  return
+}
+c();
+S();
+var O = [];
+for (var L = 0; L < C.length; L++) {
+  var A = C[L];
+  if (v(A)) {
+    O.push(A)
+  }
+}
+})()'><i class="menu-item-icon fa fa-music fa-fw"></i> High一下</a></li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search fa-lg"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+
+  <div id="weather-wrapper">
+    <div id="he-plugin-simple"></div>
+    <script>
+      WIDGET = {
+        CONFIG: {
+          "modules": "012",
+          "background": 5,
+          "tmpColor": "4A4A4A",
+          "tmpSize": 16,
+          "cityColor": "4A4A4A",
+          "citySize": 16,
+          "aqiSize": 16,
+          "weatherIconSize": 24,
+          "alertIconSize": 18,
+          "padding": "10px 10px 10px 10px",
+          "shadow": "1",
+          "language": "auto",
+          "borderRadius": 5,
+          "fixed": "false",
+          "vertical": "middle",
+          "horizontal": "center",
+          "key": "2784dd3fcb1e4f0f9a9b579bf69641f2"
+        }
+      }
+    </script>
+    <script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script>
+  </div>
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                如何使用 HTTPS 进行本地开发
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2023-03-01T06:25:24+08:00" content="2023-03-01">
+              2023-03-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv">热度
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>℃
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>有时，您需要使用 HTTPS 运行本地开发网站。本文介绍了安全快速地执行此操作的工具和技巧。</p>
+<a id="more"></a>
+<p id="div-border-top-red"><i>在大多数情况下，<code>http://localhost</code> 就可以满足您的需求：在浏览器中，它的行为与 HTTPS 🔒 非常类似。因此，部分无法在部署的 HTTP 网站上运行的 API 可以在 <code>http://localhost</code> 上运行。 <strong>这意味着您只需要在特殊情况下才需要在本地使用 HTTPS</strong>（<a href>请参阅何时使用 HTTPS 进行本地开发</a>），例如自定义主机名或跨浏览器的安全 cookie。如果您有这种需求，请继续阅读！</i></p>
+
+<p><i style="color: #df3e3e;">如果你使用了一种简单（非正规）的操作，开启的 HTTPS 环境，那么，很可能，你会遇到下面的情况</i><br><img src="/images/use-https-3.png" alt></p>
+<blockquote>
+<p>当然，你可以选择：高级 -&gt; 继续访问。<br>但浏览器依然会提示我们，这是一个不安全的访问。</p>
+</blockquote>
+<p><strong>本文介绍一些安全快速地使用 HTTPS 运行本地开发网站的工具和技巧；浏览器不再提示告警！</strong></p>
+<p>在本文中，关于 <code>localhost</code> 的声明也适用于 <code>127.0.0.1</code> 和 <code>[::1]</code> ，因为它们都描述了本地计算机地址，也称为“环回地址”。此外，为简单起见，未指定端口号。因此，请将 <code>http://localhost</code> 解读为 <code>http://localhost:{PORT}</code> 或 <code>http://127.0.0.1:{PORT}</code>。</p>
+<p>如果您在生产网站使用了 HTTPS，并希望本地开发网站的行为可以接近 HTTPS 网站（如果您的生产网站还没有使用 HTTPS，请优先切换到 HTTPS ）。在大多数情况下，您可以认为 <a href="http://localhost" target="_blank" rel="external">http://localhost</a> 的行为类似于 HTTPS 网站。但在某些情况下，您需要使用 HTTPS 在本地运行网站。现在来看看如何做到这一点。</p>
+<h1 id="使用-mkcert-为本地网站开启-HTTPS（推荐）"><a href="#使用-mkcert-为本地网站开启-HTTPS（推荐）" class="headerlink" title="使用 mkcert 为本地网站开启 HTTPS（推荐）"></a>使用 mkcert 为本地网站开启 HTTPS（推荐）</h1><p>要为本地开发网站开启 HTTPS 并访问 <a href="https://localhost" target="_blank" rel="external">https://localhost</a> ，您需要 <a href="/2023/how-to-generate-and-use-an-SSL-certificate-in-Node/">TLS 证书</a>。<strong>但并非任何证书都会被浏览器接受：证书需要由您的浏览器信任的实体签名，这些实体称之为<a href="https://en.wikipedia.org/wiki/Certificate_authority" target="_blank" rel="external">可信证书颁发机构(CA)</a></strong> 。</p>
+<p>您需要创建一个证书，并使用受您的设备和浏览器<strong>本地信任的CA</strong>对其进行签名。您可以使用工具 <strong><a href="https://github.com/FiloSottile/mkcert" target="_blank" rel="external">mkcert</a></strong> 通过几个命令来实现这个目的。下面介绍了它的工作原理：</p>
+<ul>
+<li>如果您使用 HTTPS 在浏览器中打开本地运行的网站，浏览器将检查本地开发服务器的证书。</li>
+<li>在看到证书已由 mkcert 生成的证书颁发机构签名后，浏览器会检查它是否已注册为受信任的证书颁发机构。</li>
+<li>mkcert 已被列为受信任的颁发机构，所以浏览器会信任该证书并创建 HTTPS 连接。</li>
+</ul>
+<p><img src="/images/use-https-2.jpg" alt></p>
+<p style="text-align: center; font-size: 14px; color: #888; font-style: oblique;"> mkcert 工作原理图</p>
+
+<p>mkcert（和类似工具）具备下列几种优势：</p>
+<ul>
+<li><p>mkcert 专门用于创建<strong>与浏览器认为有效相兼容的证书</strong>。它会保持更新，来满足需求和最佳实践。因此您无需运行具备复杂配置或参数的 mkcert 命令，就可以生成正确的证书！</p>
+</li>
+<li><p>mkcert 是跨平台的工具。团队中的任何人都可以使用。<br>我们推荐使用 mkcert 为本地开发创建 TLS 证书。您也可以查看其他选择。</p>
+</li>
+</ul>
+<p>许多操作系统可能会提供用于生成证书的库，例如 <a href="https://www.openssl.org/" target="_blank" rel="external">openssl</a>。与 mkcert 和类似工具不同，此类库可能无法始终生成正确的证书，或可能需要运行复杂的命令，并且不一定能够跨平台使用。</p>
+<p id="div-border-top-red"><i>1、运行 <code>mkcert -install</code> 时，切勿导出或分享由 mkcert 自动创建的 <code>rootCA-key.pem</code> 。获得此文件的攻击者可以对您可能正在访问的任何网站进行路径攻击。他们可以拦截从您的电脑到任何网站（银行、医保供应商或社交网络）的安全请求。如果您需要知道 <code>rootCA-key.pem</code> 的位置以确保其安全，请运行 <code>mkcert -CAROOT</code>。<br>2、仅将 mkcert 用于<strong>开发目的</strong>，并且永远不要要求最终用户运行 mkcert 命令。<br>3、开发团队：所有团队成员都应该单独安装和运行 mkcert（而不是存储和共享 CA 和证书）。</i></p>
+
+
+<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>1、安装 mkcert（仅一次）。<br>按照<a href="https://github.com/FiloSottile/mkcert#installation" target="_blank" rel="external">操作说明</a>在操作系统上安装 mkcert。例如，在 macOS 上：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install mkcert</span><br><span class="line">brew install nss <span class="comment"># if you use Firefox</span></span><br></pre></td></tr></table></figure>
+<p>2、将 mkcert 添加到本地根 CA。<br>在终端运行以下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkcert -install</span><br></pre></td></tr></table></figure></p>
+<p>这会生成本地证书颁发机构 (CA)。mkcert 生成的本地 CA 仅在您的设备上<strong>本地</strong>受信。</p>
+<p>3、为网站生成一个由 mkcert 签名的证书。<br>在终端中，导航到网站的根目录或用来保存证书的任何目录。<br>然后运行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkcert localhost</span><br></pre></td></tr></table></figure></p>
+<p>如果您的自定义主机名是 <code>mysite.example</code>，请运行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkcert mysite.example</span><br></pre></td></tr></table></figure>
+<p>上面的命令执行了两个操作：</p>
+<ul>
+<li>为您指定的主机名生成证书</li>
+<li>让 mkcert（您在步骤 2 中添加为本地 CA）签署此证书。</li>
+</ul>
+<p>现在证书已准备就绪，并且已由您的浏览器在本地信任的证书颁发机构签名。大部分步骤已经完成，但您的服务器现在还不了解这个证书！</p>
+<p>4、配置服务器。<br>您现在需要告诉服务器使用 HTTPS（因为默认情况下开发服务器倾向使用 HTTP）并使用您刚刚创建的 TLS 证书。<br>具体的操作取决于您的服务器。下面列出了几个例子：</p>
+<h3 id="👩🏻‍💻-使用节点："><a href="#👩🏻‍💻-使用节点：" class="headerlink" title="👩🏻‍💻 使用节点："></a>👩🏻‍💻 使用节点：</h3><p><code>server.js</code> （替换<code>{PATH/TO/CERTIFICATE...}</code>和<code>{PORT}</code> ）：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const https = require(<span class="string">'https'</span>);</span><br><span class="line">const fs = require(<span class="string">'fs'</span>);</span><br><span class="line">const options = &#123;</span><br><span class="line">  key: fs.readFileSync(<span class="string">'&#123;PATH/TO/CERTIFICATE-KEY-FILENAME&#125;.pem'</span>),</span><br><span class="line">  cert: fs.readFileSync(<span class="string">'&#123;PATH/TO/CERTIFICATE-FILENAME&#125;.pem'</span>),</span><br><span class="line">&#125;;</span><br><span class="line">https</span><br><span class="line">  .createServer(options, <span class="keyword">function</span> (req, res) &#123;</span><br><span class="line">    // server code</span><br><span class="line">  &#125;)</span><br><span class="line">  .listen(&#123;PORT&#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="👩🏻‍💻-使用-http-server：（【推荐前端同学用这个】）"><a href="#👩🏻‍💻-使用-http-server：（【推荐前端同学用这个】）" class="headerlink" title="👩🏻‍💻 使用 http-server：（【推荐前端同学用这个】）"></a>👩🏻‍💻 使用 http-server：（【推荐前端同学用这个】）</h3><p>按如下方式启动服务器（替换{PATH/TO/CERTIFICATE…} ）：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http-server -S -C &#123;PATH/TO/CERTIFICATE-FILENAME&#125;.pem -K &#123;PATH/TO/CERTIFICATE-KEY-FILENAME&#125;.pem</span><br></pre></td></tr></table></figure></p>
+<p><code>-S</code> 会用 HTTPS 运行服务器，<code>-C</code> 用来设置证书，<code>-K</code> 用来设置密钥。</p>
+<h3 id="👩🏻‍💻-使用-React-开发服务器："><a href="#👩🏻‍💻-使用-React-开发服务器：" class="headerlink" title="👩🏻‍💻 使用 React 开发服务器："></a>👩🏻‍💻 使用 React 开发服务器：</h3><p>按下列方式编辑 <code>package.json</code> ，并替换<code>{PATH/TO/CERTIFICATE...}</code> ：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">  "start": "HTTPS=true SSL_CRT_FILE=&#123;PATH/TO/CERTIFICATE-FILENAME&#125;.pem SSL_KEY_FILE=&#123;PATH/TO/CERTIFICATE-KEY-FILENAME&#125;.pem react-scripts start"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>例如，如果您按照下列操作在网站根目录中为 localhost 创建了证书：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">|-- my-react-app</span><br><span class="line">  |-- package.json</span><br><span class="line">  |-- localhost.pem</span><br><span class="line">  |-- localhost-key.pem</span><br><span class="line">  |--...</span><br></pre></td></tr></table></figure></p>
+<p>那么 <code>start</code> 脚本应该是这样的：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">  "start": "HTTPS=true SSL_CRT_FILE=localhost.pem SSL_KEY_FILE=localhost-key.pem react-scripts start"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="👩🏻‍💻-其他例子："><a href="#👩🏻‍💻-其他例子：" class="headerlink" title="👩🏻‍💻 其他例子："></a>👩🏻‍💻 其他例子：</h3><ul>
+<li><a href="https://angular.io/cli/serve" target="_blank" rel="external">Angular 开发服务器</a></li>
+<li><a href="https://blog.anvileight.com/posts/simple-python-http-server/" target="_blank" rel="external">Python</a></li>
+</ul>
+<p>5、✨全部搞定！在浏览器中打开 <code>https://localhost</code> 或 <code>https://mysite.example</code> ：这时就在使用 HTTPS 在本地运行您的网站。<strong>您不会看到任何浏览器警告</strong>，因为浏览器已将 mkcert 认作是本地证书颁发机构。</p>
+<p id="div-border-left-green"><i>服务器可以使用不同的 HTTPS 端口。</i></p>
+
+<p id="div-border-left-green"><i>请仅用于开发目的，切勿导出或分享 <code>rootCA-key.pem</code> 文件（如果您需要知道此文件的位置以确保其安全，请运行 <code>mkcert -CAROOT</code> ）。</i></p>
+
+
+
+<blockquote>
+<p>关于生成证书这一步，openssl 也可以做到，mkcert 也可以做到；但光有证书还不够。<br>mkcert 更关键的一步是：可以生成本地证书颁发机构 (CA)。mkcert 生成的本地 CA 仅在您的设备上本地受信。</p>
+</blockquote>
+<h1 id="在本地网站开启-HTTPS：其他方法"><a href="#在本地网站开启-HTTPS：其他方法" class="headerlink" title="在本地网站开启 HTTPS：其他方法"></a>在本地网站开启 HTTPS：其他方法</h1><h2 id="自签名证书"><a href="#自签名证书" class="headerlink" title="自签名证书"></a>自签名证书</h2><p>您也可以不使用 mkcert 这样的本地证书颁发机构，而是<strong>自己签署证书</strong>。</p>
+<p>请注意这种方法的一些缺点：</p>
+<ul>
+<li>浏览器不信任您的证书颁发机构身份，因此会显示警告，您需要手动绕过。在 Chrome 中，您可以使用标志 <code>#allow-insecure-localhost</code> <code>localhost</code> 自动绕过此警告。这确实有些麻烦。</li>
+<li>如果您的网络环境不安全，此举会带来潜在风险。</li>
+<li>自签名证书的行为方式与受信任证书的行为方式不同。</li>
+<li>它不一定比使用 mkcert 这样的本地 CA 更方便或更快捷。</li>
+<li>如果您没有在浏览器上下文中使用此技术，则可能需要禁用服务器的证书验证。在生产中忘记重新启用它会带来潜在风险。</li>
+</ul>
+<p><img src="/images/use-https-4.jpg" alt></p>
+<p style="text-align: center; font-size: 14px; color: #888; font-style: oblique;"> 使用自签名证书时浏览器显示的警告。 </p>
+
+
+<p id="div-border-top-blue"><i>如果您没有指定任何证书，那么 React 和 Vue 的开发服务器 HTTPS 选项会在后台创建一个自签名证书。这样虽然很快捷，但您会收到浏览器警告，并遇到与上面列出的与自签名证书相关的其他问题。幸运的是，您可以使用前端框架的内置 HTTPS 选项并指定由 mkcert 或类似工具创建的本地可信证书。请前往React 与 mkcert 示例查看如何执行此操作。</i></p>
+
+<h2 id="为什么浏览器不信任自签名证书？"><a href="#为什么浏览器不信任自签名证书？" class="headerlink" title="为什么浏览器不信任自签名证书？"></a>为什么浏览器不信任自签名证书？</h2><p>如果您使用 HTTPS 在浏览器中打开本地运行的网站，浏览器将检查本地开发服务器的证书。当它看到证书由您签名时，它会检查您是否已注册为受信任的证书颁发机构。因为您不是，所以浏览器不能信任此证书；它会警告您的连接不安全。您可以自行承担风险。如果选择这样，那么将创建 HTTPS 连接。</p>
+<p><img src="/images/use-https-5.jpg" alt></p>
+<p style="text-align: center; font-size: 14px; color: #888; font-style: oblique;">为什么浏览器不信任自签名证书。</p>
+
+<h1 id="由常规证书颁发机构签署的证书"><a href="#由常规证书颁发机构签署的证书" class="headerlink" title="由常规证书颁发机构签署的证书"></a>由常规证书颁发机构签署的证书</h1><p>您还可以找到基于由实际证书颁发机构（而不是本地机构）签署证书的技术。<br>如果您在考虑使用这些技术，请记住以下几点：</p>
+<ul>
+<li>与 mkcert 这样的本地 CA 技术相比，您需要投入更多的设置工作。</li>
+<li>您需要使用由自己控制且有效的域名。这表示实际的证书颁发机构无法用于：<ul>
+<li><code>localhost</code> 和其他<a href="https://www.iana.org/assignments/special-use-domain-names/special-use-domain-names.xhtml" target="_blank" rel="external">保留</a>域名，例如 <code>example</code> 或 <code>test</code> 。</li>
+<li>您无法控制的任何域名。</li>
+<li>无效的顶级域。请参阅<a href="https://www.iana.org/domains/root/db" target="_blank" rel="external">有效顶级域</a>的列表。</li>
+</ul>
+</li>
+</ul>
+<h1 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h1><p>使用 HTTPS 访问本地运行网站的另一种方法是使用<a href="https://en.wikipedia.org/wiki/Reverse_proxy" target="_blank" rel="external">反向代理</a>，例如 <a href="https://ngrok.com/" target="_blank" rel="external">ngrok</a> 。</p>
+<p>需要考虑的几点：</p>
+<ul>
+<li>一旦您与任何用户分享了使用反向代理创建的 URL，他们都可以访问您的本地开发网站。这在向客户演示您的项目时非常方便！但如果您的项目很敏感，这可能是一个缺点。</li>
+<li>您可能需要考虑定价。</li>
+<li>浏览器新引入的安全措施可能会影响这些工具的表现。</li>
+</ul>
+<h1 id="标志法（不推荐）"><a href="#标志法（不推荐）" class="headerlink" title="标志法（不推荐）"></a>标志法（不推荐）</h1><p>如果您使用了 <code>mysite.example</code> 这样的自定义主机名，那么可以在 Chrome 中使用标志来强制将 <code>mysite.example</code> 认作是安全的。<strong>请避免使用这种方法</strong>，因为：</p>
+<ul>
+<li>您需要 100% 确定 <code>mysite.example</code> 始终解析为本地地址，否则可能会泄露生产凭据。</li>
+<li>此方法不支持跨浏览器调试 🙀</li>
+</ul>
+<p><a href="https://web.dev/i18n/zh/how-to-use-local-https/#running-your-site-locally-with-https-other-options" target="_blank" rel="external">原文链接</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+<blockquote class="blockquote-center" style="color: #ccc;">
+    -------------本文结束 <i class="fa fa-apple"></i> 感谢您的阅读-------------
+</blockquote>
+
+  <span id="inline-green" style="border-radius:3px;">作者</span>：<a class="link-blue" href="https://github.com/Neveryu" target="_blank">Neveryu</a><br/>有问题请 <a class="link-blue" href="https://neveryu.github.io/guestbook" target="_blank">留言</a> 或者私信我的 <a class="link-blue" href="http://weibo.com/Neveryu" target="_blank">微博</a>。
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>满分是10分的话，这篇文章你给几分</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/reward/reward_wechat.png" alt="Never_yu WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/reward/reward_alipay.png" alt="Never_yu Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/NodeJS/" rel="tag"><i class="fa fa-tag"></i> NodeJS</a>
+          
+            <a href="/tags/HTTPS/" rel="tag"><i class="fa fa-tag"></i> HTTPS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2023/how-to-generate-and-use-an-SSL-certificate-in-Node/" rel="next" title="如何在 NodeJS 中生成和使用 SSL 证书">
+                <i class="fa fa-chevron-left"></i> 如何在 NodeJS 中生成和使用 SSL 证书
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2023/when-to-use-local-https/" rel="prev" title="何时使用 HTTPS 进行本地开发">
+                何时使用 HTTPS 进行本地开发 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/avatar/avatar.png"
+               alt="Never_yu" />
+          <p class="site-author-name" itemprop="name">Never_yu</p>
+          <p class="site-description motion-element" itemprop="description">Stay Hungry,Stay Foolish</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Neveryu" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/Neveryu" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://neveryu.blog.csdn.net/" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-chrome"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://codeigniter.org.cn/" title="CodeIgniter中国" target="_blank">CodeIgniter中国</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="/weblog" title="建站日志" target="_blank">建站日志</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/csdn_yudong" title="CSDN" target="_blank">CSDN</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://neveryu.github.io/neveryu" title="个人首页" target="_blank">个人首页</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="/reward" title="打赏" target="_blank">打赏</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用-mkcert-为本地网站开启-HTTPS（推荐）"><span class="nav-number">1.</span> <span class="nav-text">使用 mkcert 为本地网站开启 HTTPS（推荐）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置"><span class="nav-number">1.1.</span> <span class="nav-text">设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#👩🏻‍💻-使用节点："><span class="nav-number">1.1.1.</span> <span class="nav-text">👩🏻‍💻 使用节点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#👩🏻‍💻-使用-http-server：（【推荐前端同学用这个】）"><span class="nav-number">1.1.2.</span> <span class="nav-text">👩🏻‍💻 使用 http-server：（【推荐前端同学用这个】）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#👩🏻‍💻-使用-React-开发服务器："><span class="nav-number">1.1.3.</span> <span class="nav-text">👩🏻‍💻 使用 React 开发服务器：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#👩🏻‍💻-其他例子："><span class="nav-number">1.1.4.</span> <span class="nav-text">👩🏻‍💻 其他例子：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在本地网站开启-HTTPS：其他方法"><span class="nav-number">2.</span> <span class="nav-text">在本地网站开启 HTTPS：其他方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自签名证书"><span class="nav-number">2.1.</span> <span class="nav-text">自签名证书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么浏览器不信任自签名证书？"><span class="nav-number">2.2.</span> <span class="nav-text">为什么浏览器不信任自签名证书？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#由常规证书颁发机构签署的证书"><span class="nav-number">3.</span> <span class="nav-text">由常规证书颁发机构签署的证书</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#反向代理"><span class="nav-number">4.</span> <span class="nav-text">反向代理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#标志法（不推荐）"><span class="nav-number">5.</span> <span class="nav-text">标志法（不推荐）</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+      
+        <section style="border-top:1px dotted #ccc; padding-top:10px;">
+          <iframe width="100%" height="120" class="share_self"  frameborder="0" scrolling="no" src="https://widget.weibo.com/weiboshow/index.php?language=&width=0&height=120&fansRow=2&ptype=1&speed=0&skin=5&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5346488237&verifier=d529ff3a&dpc=1"></iframe>
+        </section>
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+
+<div class="busuanzi-count">
+
+  <!-- <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <!-- 上面这个是之前的，不知道为什么失效了，改成下面这个 -->
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">您是第<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>个小伙伴</span>
+  
+
+  
+    <span class="site-pv">本站总浏览<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Never_yu</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Pisces
+  </a>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count" style="color: #e90f92;">全站共 181k 字</span>
+</div>
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+  <!-- 按需加载背景 -->
+  <!-- 背景动画 -->
+<script type="text/javascript">
+  // 按需加载背景
+  // 如果是all，就直接加载了
+  if("pc" == "all") {
+    $.getScript("/js/src/particle.js?v=5.0.1");
+  }
+  // 识别手机或电脑的js开始
+  (function(){
+    var res = GetRequest();
+    var par = res['index'];
+    if(par!='gfan'){
+      var ua=navigator.userAgent.toLowerCase();
+      var contains=function (a, b){
+          if(a.indexOf(b)!=-1){return true;}
+      };
+      if((contains(ua,"android") && contains(ua,"mobile"))||(contains(ua,"android") && contains(ua,"mozilla"))||(contains(ua,"android") && contains(ua,"opera"))||contains(ua,"ucweb7")||contains(ua,"iphone")){
+        return false;
+      } else {
+        $.getScript("/js/src/particle.js?v=5.0.1");
+      }
+    }
+  })();
+  function GetRequest() {
+    var url = location.search;
+    var theRequest = new Object();
+    if (url.indexOf("?") != -1) {
+      var str = url.substr(1);
+      strs = str.split("&");
+      for(var i = 0; i < strs.length; i ++) {
+        theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+      }
+    }
+    return theRequest;
+  }
+</script>
+<!-- 识别手机或电脑的js结束 -->  
+
+  <!-- 页面点击小红心 -->
+  <!-- 页面点击小红心 -->
+
+  <script type="text/javascript" src="/js/src/love.js?v=5.0.1"></script>
+
+
+  <!-- 鼠标移动，效果 -->
+  <!-- 鼠标移动特效 -->
+
+  <script type="text/javascript" src="/js/src/jquery-stars.js?v=5.0.1"></script>
+  <script type="text/javascript">
+  jQuery('body').jstars({
+  	image_path: '/images',
+  	image: 'candy-cane-stars.png',
+  	style: 'white',
+  	width: 34,
+  	height: 34,
+  	delay: 700,
+  	frequency: 5
+  });
+  </script>
+
+
+  <!-- 页面 title 进入/离开 效果 -->
+
+  <script type="text/javascript">var OriginTitile=document.title,st;document.addEventListener("visibilitychange",function(){document.hidden?(document.title="≡[。。]≡ 回不去了吗？!",clearTimeout(st)):(document.title="(ฅ>ω<*ฅ) Thank Vue~ "+OriginTitile,st=setTimeout(function(){document.title=OriginTitile},4e3))})</script>
+
+
+</body>
+</html>

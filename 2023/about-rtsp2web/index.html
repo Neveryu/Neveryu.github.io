@@ -1,0 +1,1430 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Courier New:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="rtsp2web,ffmpeg," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Never_yu's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="前言我之前研究在 web 中直接播放 rtsp 视频流时，研究了非常多的方案和技术手段，发现了要解决这个问题的核心：
+要想在 web 中实时播放 rtsp 视频流：借助服务端拉流转码将是必要的操作。
+
+我用 node.js 实现了拉流转码的功能，并将其打包成 rtsp2web 发布到了 npm 上；这样，在前端就可以直接使用播放器来进行播放了。rtsp2web 使用方便、快捷、高效，对前端开发人员">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Web页面中直接播放rtsp格式视频流">
+<meta property="og:url" content="https://neveryu.github.io/2023/about-rtsp2web/index.html">
+<meta property="og:site_name" content="Never_yu's Blog">
+<meta property="og:description" content="前言我之前研究在 web 中直接播放 rtsp 视频流时，研究了非常多的方案和技术手段，发现了要解决这个问题的核心：
+要想在 web 中实时播放 rtsp 视频流：借助服务端拉流转码将是必要的操作。
+
+我用 node.js 实现了拉流转码的功能，并将其打包成 rtsp2web 发布到了 npm 上；这样，在前端就可以直接使用播放器来进行播放了。rtsp2web 使用方便、快捷、高效，对前端开发人员">
+<meta property="og:updated_time" content="2025-04-04T13:51:08.861Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在Web页面中直接播放rtsp格式视频流">
+<meta name="twitter:description" content="前言我之前研究在 web 中直接播放 rtsp 视频流时，研究了非常多的方案和技术手段，发现了要解决这个问题的核心：
+要想在 web 中实时播放 rtsp 视频流：借助服务端拉流转码将是必要的操作。
+
+我用 node.js 实现了拉流转码的功能，并将其打包成 rtsp2web 发布到了 npm 上；这样，在前端就可以直接使用播放器来进行播放了。rtsp2web 使用方便、快捷、高效，对前端开发人员">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://neveryu.github.io/2023/about-rtsp2web/"/>
+
+
+<!-- 网页加载条 -->
+<script src="/js/src/pace.min.js"></script>
+  <title> 在Web页面中直接播放rtsp格式视频流 | Never_yu's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Never_yu's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">认真的人才有资格开玩笑</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-example">
+          <a href="/example" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            示例
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+      
+      
+        <li class="menu-item"> <a title="把这个链接拖到你的工具栏中,任何网页都可以High" href='javascript:(
+/*
+ * Copyright (C) 2016 Never_yu (Neveryu.github.io) <never_yu@qq.com>
+ * Sina Weibo (http://weibo.com/Neveryu)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+function go() {
+
+var songs = "https://nn01-sycdn.kuwo.cn/ce7a04e067dad4c240466b8ff1d0e8c1/642a34cc/resource/n2/19/72/2718395838.mp3, https://lp-sycdn.kuwo.cn/054cf9e18a397f478e63e2e37ed49c7c/642a3514/resource/n1/41/35/2393122062.mp3, https://le-sycdn.kuwo.cn/9a3e0602048dd4a68b95013a73d48adc/642a3554/resource/n2/52/90/2368185034.mp3, https://other-web-ra01-sycdn.kuwo.cn/a2b76ec87b418f78698c5ac0aaa57d7b/642a3574/resource/n2/128/86/97/1676587748.mp3";
+songs = songs.split(",");
+songs.push("");
+
+function c() {
+  var e = document.createElement("link");
+  e.setAttribute("type", "text/css");
+  e.setAttribute("rel", "stylesheet");
+  e.setAttribute("href", f);
+  e.setAttribute("class", l);
+  document.body.appendChild(e)
+}
+
+function h() {
+  var e = document.getElementsByClassName(l);
+  for (var t = 0; t < e.length; t++) {
+    document.body.removeChild(e[t])
+  }
+}
+
+function p() {
+  var e = document.createElement("div");
+  e.setAttribute("class", a);
+  document.body.appendChild(e);
+  setTimeout(function() {
+    document.body.removeChild(e)
+  }, 100)
+}
+
+function d(e) {
+  return {
+    height : e.offsetHeight,
+    width : e.offsetWidth
+  }
+}
+
+function v(i) {
+  var s = d(i);
+  return s.height > e && s.height < n && s.width > t && s.width < r
+}
+
+function m(e) {
+  var t = e;
+  var n = 0;
+  while (!!t) {
+    n += t.offsetTop;
+    t = t.offsetParent
+  }
+  return n
+}
+
+function g() {
+  var e = document.documentElement;
+  if (!!window.innerWidth) {
+    return window.innerHeight
+  } else if (e && !isNaN(e.clientHeight)) {
+    return e.clientHeight
+  }
+  return 0
+}
+
+function y() {
+  if (window.pageYOffset) {
+    return window.pageYOffset
+  }
+  return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+}
+
+function E(e) {
+  var t = m(e);
+  return t >= w && t <= b + w
+}
+
+function S() {
+  var e = document.getElementById("audio_element_id");
+  if(e != null){
+    var index = parseInt(e.getAttribute("curSongIndex"));
+    if(index > songs.length - 2) {
+      index = 0;
+    } else {
+      index++;
+    }
+    e.setAttribute("curSongIndex", index);
+    N();
+  }
+
+  e.src = i;
+  e.play()
+}
+
+function x(e) {
+  e.className += " " + s + " " + o
+}
+
+function T(e) {
+  e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+}
+
+function N() {
+  var e = document.getElementsByClassName(s);
+  var t = new RegExp("\\b" + s + "\\b");
+  for (var n = 0; n < e.length; ) {
+    e[n].className = e[n].className.replace(t, "")
+  }
+}
+
+function initAudioEle() {
+  var e = document.getElementById("audio_element_id");
+  if(e === null){
+    e = document.createElement("audio");
+    e.setAttribute("class", l);
+    e.setAttribute("curSongIndex", 0);
+    e.id = "audio_element_id";
+    e.loop = false;
+    e.bgcolor = 0;
+    e.addEventListener("canplay", function() {
+      setTimeout(function() {
+        x(k)
+      }, 500);
+      setTimeout(function() {
+        N();
+        p();
+        for (var e = 0; e < O.length; e++) {
+          T(O[e])
+        }
+      }, 15500)
+    }, true);
+    e.addEventListener("ended", function() {
+      N();
+      h();
+      go();
+    }, true);
+    e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+    document.body.appendChild(e);
+  }
+}
+
+initAudioEle();
+var e = 30;
+var t = 30;
+var n = 350;
+var r = 350;
+
+var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+var i = songs[curSongIndex];
+
+var s = "mw-harlem_shake_me";
+var o = "im_first";
+var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+var a = "mw-strobe_light";
+
+/* harlem-shake-style.css，替换成你的位置，也可以直接使用：//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css */
+var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+
+var l = "mw_added_css";
+var b = g();
+var w = y();
+var C = document.getElementsByTagName("*");
+var k = null;
+for (var L = 0; L < C.length; L++) {
+  var A = C[L];
+  if (v(A)) {
+    if (E(A)) {
+      k = A;
+      break
+    }
+  }
+}
+if (A === null) {
+  console.warn("Could not find a node of the right size. Please try a different page.");
+  return
+}
+c();
+S();
+var O = [];
+for (var L = 0; L < C.length; L++) {
+  var A = C[L];
+  if (v(A)) {
+    O.push(A)
+  }
+}
+})()'><i class="menu-item-icon fa fa-music fa-fw"></i> High一下</a></li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search fa-lg"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+
+  <div id="weather-wrapper">
+    <div id="he-plugin-simple"></div>
+    <script>
+      WIDGET = {
+        CONFIG: {
+          "modules": "012",
+          "background": 5,
+          "tmpColor": "4A4A4A",
+          "tmpSize": 16,
+          "cityColor": "4A4A4A",
+          "citySize": 16,
+          "aqiSize": 16,
+          "weatherIconSize": 24,
+          "alertIconSize": 18,
+          "padding": "10px 10px 10px 10px",
+          "shadow": "1",
+          "language": "auto",
+          "borderRadius": 5,
+          "fixed": "false",
+          "vertical": "middle",
+          "horizontal": "center",
+          "key": "2784dd3fcb1e4f0f9a9b579bf69641f2"
+        }
+      }
+    </script>
+    <script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script>
+  </div>
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                在Web页面中直接播放rtsp格式视频流
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2023-06-20T06:25:24+08:00" content="2023-06-20">
+              2023-06-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端/rtsp/" itemprop="url" rel="index">
+                    <span itemprop="name">rtsp</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv">热度
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>℃
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我之前研究在 web 中直接播放 rtsp 视频流时，研究了非常多的方案和技术手段，发现了要解决这个问题的核心：</p>
+<p id="div-border-left-blue">要想在 web 中实时播放 rtsp 视频流：借助服务端拉流转码将是必要的操作。</p>
+
+<p>我用 <code>node.js</code> 实现了拉流转码的功能，并将其打包成 <a href="https://www.npmjs.com/package/rtsp2web" target="_blank" rel="external">rtsp2web</a> 发布到了 <a href="https://www.npmjs.com/package/rtsp2web" target="_blank" rel="external">npm</a> 上；这样，在前端就可以直接使用播放器来进行播放了。<br><a href="https://www.npmjs.com/package/rtsp2web" target="_blank" rel="external">rtsp2web</a> 使用方便、快捷、高效，对前端开发人员来说，非常的友好。详细使用教程如下：</p>
+<a id="more"></a>
+<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p><code>rtsp2web</code> 是一个依赖 <code>ffmpeg</code>，能实时将传入的 rtsp 视频流转码成图像数据并通过 ws 推送到前端的智能工具包。<br>前端页面借助 jsmpeg.js 或者 flv.js 等播放工具就可以很轻松的实现播放啦~<br>rtsp2web 还有以下特点：</p>
+<ul>
+<li>高性能，配置丰富，满足多种复杂业务场景的使用需求；</li>
+<li>并发，支持同时播放多路视频；</li>
+<li>合并同源，多个视频窗口同时播放同一个 rtsp 视频源时，只会创建一个转码进程，不会创建多个；</li>
+<li>智能释放资源，智能检测当前没有在使用的转码进程，将其关闭，并释放电脑资源；</li>
+<li>上手简单，提供的示例代码完整可运行，无需繁琐复杂的技术负担，直接运行代码，快速解决视频流播放的问题；</li>
+<li>延时非常低，视频流稳定，几乎是实时的，满足任何需求；不花钱，采用开源框架，无商业风险；</li>
+<li>别的收费平台，需要暴露 RTSP 视频流链接给收费平台，rtsp2web 无需您提供 RTSP 视频流，您的保密和安全牢牢掌握在您手中；</li>
+<li>高效兼容，大多数 nvr 或 ipc 或摄像头平台都支持输出 RTSP 视频流，rtsp2web 把 RTSP 视频流转换到页面可播放，减少对接工作，无论您是什么摄像头；</li>
+<li>支持前端使用 jsmpeg.js、flv.js 等播放器，满足不同技术栈团队使用；</li>
+<li>删繁就简，无需插件就可在浏览器显示视频画面，兼容各大浏览器厂商；</li>
+<li>省时省力，同一页面可以播放不同厂家的视频，无需任何额外操作，轻松支持多路视频同时播放；</li>
+<li>可以在公网上部署使用，但也可能因为你们公司网络的设置原因，你会面临一点小问题：还要学习网络穿透打洞，服务器部署能力，流量消耗，wss 等。</li>
+</ul>
+<h1 id="支持的视频厂商"><a href="#支持的视频厂商" class="headerlink" title="支持的视频厂商"></a>支持的视频厂商</h1><p>海康、海康 NVR、大华平台、萤石、宇视、中天信科达、东方网力、天地伟业等所有摄像头，视频厂商。</p>
+<h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h1><p>使用 <code>rtsp2web</code> 是很简单的，你只需：</p>
+<h2 id="一、准备-FFmpeg"><a href="#一、准备-FFmpeg" class="headerlink" title="一、准备 FFmpeg"></a>一、准备 FFmpeg</h2><p><a href="https://ffmpeg.org/download.html" target="_blank" rel="external">FFmpeg</a> 是一套可以用来记录、转换数字音频、视频，并能将其转化为流的开源计算机程序。可以轻易地实现多种视频格式之间的相互转换。所以：<strong>确保在你要运行 rtsp2web 的机器上已经安装了 FFmpeg。</strong></p>
+<blockquote>
+<p>验证 FFmpeg 是否安装成功： <em>重新打开一个命令行窗口，输入：<code>ffmpeg -version</code> ，如果有相关信息输出，则证明 FFmpeg 的安装是 OK 的。</em></p>
+</blockquote>
+<h2 id="二、运行-rtsp2web"><a href="#二、运行-rtsp2web" class="headerlink" title="二、运行 rtsp2web"></a>二、运行 rtsp2web</h2><p><code>rtsp2web</code> 是一个 <code>node.js</code> 包，你可以创建一个新的项目引入它，这个操作很简单，然后运行它即可；也可以把 <code>rtps2web</code> 集成到已有的项目中，随项目来运行启动（前提是如果你知道怎么做的话）；</p>
+<p><strong>这里以创建一个新项目运行它为例：（<em>这是最简单的做法</em>）</strong></p>
+<p>2.1、创建一个新的文件夹（假如文件夹名叫：<code>rtsp_server</code>），<em>注意 ⚠️：文件夹名称不能是 rtsp2web，这是 npm 的规则</em>。<br>2.2、进入项目文件夹： <code>cd rtsp_server</code>。<br>2.3、然后安装 <code>rtsp2web</code> 包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i rtsp2web</span><br></pre></td></tr></table></figure>
+<p>2.4、在 <code>rtsp_server</code> 文件夹中创建入口 js 文件（例如：<code>main.js</code>）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">const</span> RTSP2web = <span class="built_in">require</span>(<span class="string">"rtsp2web"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 服务端长连接占据的端口号；你也可以不传，默认是：9999</span></span><br><span class="line"><span class="keyword">let</span> port = <span class="number">9999</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个RTSP2web服务实例出来</span></span><br><span class="line"><span class="keyword">new</span> RTSP2web(&#123;</span><br><span class="line">  port,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>运行命令：<code>node index.js</code> 启动视频流转码服务，即可。到此，你的视频转码服务就已经运行起来了。</p>
+<blockquote>
+<p>当然，你也可以选择你习惯的进程管理工具来启动它。如：pm2 之类的工具。</p>
+</blockquote>
+<p><b>参数说明（在 new RTSP2web 时，可配置的参数如下）</b></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">解释说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">port</td>
+<td style="text-align:center">转码推流服务占用的端口号；（type：Number）<br>可以不传；默认值：9999</td>
+</tr>
+<tr>
+<td style="text-align:center">path</td>
+<td style="text-align:center">FFmpeg 命令在你机器上的启动名称，(type: String) <br> 一般情况下不传；默认值：’ffmpeg’</td>
+</tr>
+<tr>
+<td style="text-align:center">audio</td>
+<td style="text-align:center">默认不传，有声音；默认值：true；即：输出音频。<br>如果想禁止输出音频，可以配置 audio: false</td>
+</tr>
+<tr>
+<td style="text-align:center">freeTime</td>
+<td style="text-align:center">任一视频流空闲(未被使用)时间超过这个值，就会停止该视频流的转码，释放机器资源（type: Number；单位：秒） <br> 一般情况下可不传；默认值：20</td>
+</tr>
+<tr>
+<td style="text-align:center">checkTime</td>
+<td style="text-align:center">检测视频空闲的时间间隔（type: Number；单位：秒） <br> 一般情况下可不传；默认值：10</td>
+</tr>
+<tr>
+<td style="text-align:center">q</td>
+<td style="text-align:center">视频质量；取值范围：0-1000；数字越小，视频越清晰，带宽消耗越大<br> 默认值：8；</td>
+</tr>
+<tr>
+<td style="text-align:center">transportType</td>
+<td style="text-align:center">设置 RTSP 传输协议，(type: String)，默认值：无<br>可选值：[<code>&#39;tcp&#39;</code>, <code>&#39;udp&#39;</code>, <code>&#39;udp_multicast&#39;</code>, <code>&#39;http&#39;</code>, <code>&#39;https&#39;</code>]中选一个<br>ps: 这里默认值是无，也就是 rtsp2web 会自动选择一种传输协议；但是，并不能保证一定成功，这个时候，rtsp2web 日志会打印错误信息或者长时间的等待，这个时候就需要你手动来配置这个参数了，<code>&#39;tcp&#39;</code>、<code>&#39;udp&#39;</code> 是最常见的选择；详情可以参阅文档最后的【常见问题解决办法】</td>
+</tr>
+<tr>
+<td style="text-align:center">webplayer</td>
+<td style="text-align:center">设置前端播放器（视频流转码器），默认不传，默认值：<code>&#39;jsmpeg&#39;</code><br>可选值：[<code>&#39;jsmpeg&#39;</code>, <code>&#39;flv&#39;</code>]中选一个；如果设置为 <code>flv</code>，那么前端页面请使用 <code>flv.js</code> 播放器，详情请参考下面 <code>flv.js</code> 小节了解详细的使用方法</td>
+</tr>
+<tr>
+<td style="text-align:center">wss</td>
+<td style="text-align:center">配置 wss；配置格式如下：<br> <code>wss: {key: &#39;keyPath&#39;, cert: &#39;certPath&#39;}</code> <br>如果你是 pfx 的证书，那么配置格式如下：<br><code>wss: {pfx: &#39;pfxPath&#39;, passphrase: &#39;passphrasePath&#39;}</code><br>如果你想使用<code>wss</code>的话请配置这个选项，否则不要使用这个配置。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="三、在页面中播放视频"><a href="#三、在页面中播放视频" class="headerlink" title="三、在页面中播放视频"></a>三、在页面中播放视频</h2><p>不管你的前端是用原生的 html 还是使用的 React、Vue、Angular 等框架，操作起来都非常简单的。你只需 3 步：<br>3.1、在你的页面中需要引入 jsmpeg.js<br>3.2、创建一个 canvas 容器，用来播放视频窗口<br>3.3、new 一个视频源播放实例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rtsp = <span class="string">"rtmp://mobliestream.c3tv.com:554/live/goodtv.sdp"</span>;</span><br><span class="line"><span class="comment">// 将rtsp视频流地址进行btoa处理一下</span></span><br><span class="line"><span class="keyword">new</span> JSMpeg.Player(<span class="string">"ws://localhost:9999/rtsp?url="</span> + btoa(rtsp), &#123;</span><br><span class="line">  canvas: <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>),</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>一个完整的示例如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- index.html --&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span></span></span><br><span class="line"><span class="tag">      <span class="attr">name</span>=<span class="string">"viewport"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no,viewport-fit=cover"</span></span></span><br><span class="line"><span class="tag">    /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://jsmpeg.com/jsmpeg.min.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>播放rtsp<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 方式一：不给定宽度和高度，视频将会和视频源大小保持一致--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas-1"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 方式二: 只给定宽度或者高度，另外一个值将会自适应；整体比例与原视频一致 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas-2"</span> <span class="attr">style</span>=<span class="string">"width: 400px"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 方式三: 可以自定义视频播放窗口的宽度和高度，会铺满，比例可能与原视频不一致了--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas-3"</span> <span class="attr">style</span>=<span class="string">"width: 400px; height: 400px"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 方式四：使用div + class="jsmpeg" + data-url的方式 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 这种方式虽然设置了固定的宽高，但是视频还是会选择安宽度来自适应，比例与原视频保持一致 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">"jsmpeg"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">id</span>=<span class="string">"canvas-4"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">style</span>=<span class="string">"width: 400px; height: 400px; border: 1px solid red"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">data-url</span>=<span class="string">"ws://localhost:9999/rtsp?url=cnRzcDovL3dvd3phZWMyZGVtby5zdHJlYW1sb2NrLm5ldC92b2QvbXA0OkJpZ0J1Y2tCdW5ueV8xMTVrLm1wNA=="</span></span></span><br><span class="line"><span class="tag">    &gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> rtsp1 = <span class="string">"rtmp://mobliestream.c3tv.com:554/live/goodtv.sdp"</span>;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.onload = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// 将rtsp视频流地址进行btoa处理一下</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">new</span> JSMpeg.Player(<span class="string">"ws://localhost:9999/rtsp?url="</span> + btoa(rtsp1), &#123;</span></span><br><span class="line"><span class="javascript">        canvas: <span class="built_in">document</span>.getElementById(<span class="string">"canvas-1"</span>),</span></span><br><span class="line">      &#125;);</span><br><span class="line"><span class="javascript">      <span class="comment">// 将rtsp视频流地址进行btoa处理一下，还可以加一点参数，如下</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">new</span> JSMpeg.Player(</span></span><br><span class="line"><span class="javascript">        <span class="string">"ws://localhost:9999/rtsp?url="</span> +</span></span><br><span class="line">          btoa(rtsp1) +</span><br><span class="line"><span class="javascript">          <span class="string">"&amp;brightness=0.2&amp;saturation=1.8"</span>,</span></span><br><span class="line">        &#123;</span><br><span class="line"><span class="javascript">          canvas: <span class="built_in">document</span>.getElementById(<span class="string">"canvas-2"</span>),</span></span><br><span class="line">        &#125;</span><br><span class="line">      );</span><br><span class="line">    &#125;;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>【说明】：<code>JSMpeg.Player</code> 第一个参数是拼接转码链接 <code>&#39;ws://localhost:9999/rtsp?url=&#39; + btoa(rtsp)</code>； 第二个参数是一个对象，对象里面属性包含 canvas。关于第二个参数里面的其他属性，详情可以参考 <a href="https://github.com/phoboslab/jsmpeg" target="_blank" rel="external">jsmpeg 官方文档</a></p>
+</blockquote>
+<h3 id="html-中的参数说明"><a href="#html-中的参数说明" class="headerlink" title="html 中的参数说明"></a>html 中的参数说明</h3><p id="div-border-left-blue">如上面的例子所示：在调用 <code>new JSMpeg.Player()</code> 时，第一个参数是接口地址拼接上 rtsp 地址，其实我们还可以使用 url 传参的方式传递更多的高阶参数。</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">解释说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-s</td>
+<td style="text-align:center">视频分辨率大小，不传即表示与源视频大小一致<br> 传值示例： 1920x1080、1280x720、640x360 <br> 降低分辨率会降低清晰度</td>
+</tr>
+<tr>
+<td style="text-align:center">-b:v</td>
+<td style="text-align:center">释义：码率，默认可以不设置，那就是使用源码率<br>传值示例：2000k、100k、1k<br>码率调小，这样其实也间接让文件变小了<br>码率调小，画质有可能会降低</td>
+</tr>
+<tr>
+<td style="text-align:center">scale</td>
+<td style="text-align:center">缩放；间接的，也能调整视频的分辨率；<br> 默认值： -1:-1；即与视频源大小保持一致；<br>功能与 -s 参数相似；但是可以只传一个宽度或者高度，另一个参数用 -1 表示<br>如： 1280:-1、-1:360，视频将会自适应现实<br>降低分辨率会降低清晰度</td>
+</tr>
+<tr>
+<td style="text-align:center">vcodec</td>
+<td style="text-align:center">释义：视频编解码方式；<br>请确保你了解该参数的意义，默认可以不传</td>
+</tr>
+<tr>
+<td style="text-align:center">contrast</td>
+<td style="text-align:center">释义：对比度，亮的地方更亮，暗的地方更暗。<br>取值范围[-100.0, 100.0]，默认值为 0。建议不调整，或者在[-2.0, 2.0]范围内进行小的调整</td>
+</tr>
+<tr>
+<td style="text-align:center">brightness</td>
+<td style="text-align:center">释义：亮度，如果觉得视频有点暗，可以进行小的调整。<br>取值范围： [-1.0, 1.0]，默认值为 0。</td>
+</tr>
+<tr>
+<td style="text-align:center">saturation</td>
+<td style="text-align:center">释义：饱和度，也就是说色彩更鲜艳，绿色更绿，蓝色更蓝…；<br>取值范围：[0, 3.0]，默认值为 1。</td>
+</tr>
+<tr>
+<td style="text-align:center">gamma</td>
+<td style="text-align:center">释义：关于显示器/视频的一个专业参数；<br>取值范围：0.1-10.0，默认值为 1。<br>这个参数很专业，建议不传，不修改。</td>
+</tr>
+</tbody>
+</table>
+<p>一个传了很多参数的例子如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> JSMpeg.Player(</span><br><span class="line">  <span class="string">"ws://localhost:9999/rtsp?url="</span> +</span><br><span class="line">    btoa(rtsp1) +</span><br><span class="line">    <span class="string">"&amp;scale=640:-1&amp;-b:v=1k&amp;brightness=0.2&amp;saturation=1.8"</span>,</span><br><span class="line">  &#123;</span><br><span class="line">    canvas: <span class="built_in">document</span>.getElementById(<span class="string">"canvas-2"</span>),</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p id="div-border-left-blue">更多详细操作可以参考例子：<a href="https://github.com/Neveryu/rtsp2web/tree/master/example" target="_blank" rel="external">https://github.com/Neveryu/rtsp2web/tree/master/example</a></p>
+
+<p id="div-border-left-yellow">ps: 目前使用 rtsp2web 的用户中，绝大多数情况下都能正常使用；极少数用户会遇到一点问题，所以文档最后面有【常见问题解决办法】，必要时可以看看</p>
+
+<h1 id="去水印"><a href="#去水印" class="headerlink" title="去水印"></a>去水印</h1><p>正确的去除水印能减小 <code>FFmpeg</code> 性能开销，有效提高 <code>FFmpeg</code> 运行效率，提升视频播放质量，减小机器内存占用，可支撑更多的视频；<br>如何去除水印，<a href="https://neveryu.blog.csdn.net/article/details/124124137" target="_blank" rel="external">联系我</a>；wechat： miracle421354532</p>
+<h1 id="声音"><a href="#声音" class="headerlink" title="声音"></a>声音</h1><p>rtsp2web 默认自动转码音频并输出，你也可以根据配置设置，选择禁止音频输出。</p>
+<p id="div-border-top-yellow"><i>在浏览器中，自动播放声音是突兀的；根据浏览器规则，需要用户在页面任意地方进行任意的点击操作，就有声音了；如果配置了输出音频，为了播放声音，可以点击一下页面任意地方。</i></p>
+
+<h1 id="支持-flv-js"><a href="#支持-flv-js" class="headerlink" title="支持 flv.js"></a>支持 flv.js</h1><p><code>flv.js</code> 也是现在主流的播放器之一，而且 <code>flv.js</code> 播放器，默认就有进度条、在线回放、全屏、画中画、倍速播放等功能，有需要的可以选择 <code>flv.js</code>。<br>如果你的前端代码中使用的是 <code>flv.js</code> 或者你想在前端代码中使用 <code>flv.js</code> 来播放视频的话，你可以按如下操作：</p>
+<p>1、在创建 <code>rtsp2web</code> 时，增加配置项 <code>webplayer: &#39;flv&#39;</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">const</span> RTSP2web = <span class="built_in">require</span>(<span class="string">"rtsp2web"</span>);</span><br><span class="line"><span class="comment">// 服务端长连接占据的端口号</span></span><br><span class="line"><span class="keyword">let</span> port = <span class="number">9999</span>;</span><br><span class="line"><span class="keyword">new</span> RTSP2web(&#123;</span><br><span class="line">  port,</span><br><span class="line">  q: <span class="number">20</span>,</span><br><span class="line">  webplayer: <span class="string">"flv"</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>2、在前端代码中引入 <code>flv.js</code>，并创建一个 <code>video</code> 标签节点，然后在 <code>js</code> 中初始化 <code>flv</code> 并播放。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./flv.min.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">video</span></span></span><br><span class="line"><span class="tag">  <span class="attr">id</span>=<span class="string">"flv-1"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">height</span>=<span class="string">"500"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">muted</span></span></span><br><span class="line"><span class="tag">  <span class="attr">style</span>=<span class="string">"border: thin solid green"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">controls</span></span></span><br><span class="line"><span class="tag">  <span class="attr">loop</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(<span class="string">"flvjs 是否支持："</span>, flvjs.isSupported());</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> rtsp1 = <span class="string">"rtmp://mobliestream.c3tv.com:554/live/goodtv.sdp"</span>;</span></span><br><span class="line">  if (flvjs.isSupported()) &#123;</span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> videoElement = <span class="built_in">document</span>.getElementById(<span class="string">"flv-1"</span>);</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> flvPlayer = flvjs.createPlayer(&#123;</span></span><br><span class="line"><span class="javascript">      isLive: <span class="literal">true</span>,</span></span><br><span class="line"><span class="javascript">      type: <span class="string">"flv"</span>,</span></span><br><span class="line"><span class="javascript">      url: <span class="string">"ws://localhost:9999/rtsp?url="</span> + btoa(rtsp1),</span></span><br><span class="line"><span class="javascript">      enableWorker: <span class="literal">true</span>,</span></span><br><span class="line"><span class="javascript">      enableStashBuffer: <span class="literal">false</span>,</span></span><br><span class="line"><span class="javascript">      stashInitialSize: <span class="number">128</span>, <span class="comment">// 减少首桢显示等待时长</span></span></span><br><span class="line">    &#125;);</span><br><span class="line">    flvPlayer.attachMediaElement(videoElement);</span><br><span class="line"><span class="javascript">    <span class="keyword">try</span> &#123;</span></span><br><span class="line">      flvPlayer.load();</span><br><span class="line">      flvPlayer.play();</span><br><span class="line"><span class="javascript">      <span class="comment">// flvPlayer.pause()</span></span></span><br><span class="line"><span class="javascript">    &#125; <span class="keyword">catch</span> (err) &#123;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// not do something</span></span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>关于使用 <code>flv.js</code> 的详细情况可以参考例子中的 <code>index-flv.html</code> 文件：<a href="https://github.com/Neveryu/rtsp2web/tree/master/example/index-flv.html" target="_blank" rel="external">https://github.com/Neveryu/rtsp2web/tree/master/example/index-flv.html</a><br>有任何不明白的，及时与我联系：<a href="https://neveryu.blog.csdn.net/article/details/124124137" target="_blank" rel="external">联系我</a>；wechat： miracle421354532</p>
+<h1 id="常见问题解决办法"><a href="#常见问题解决办法" class="headerlink" title="常见问题解决办法"></a>常见问题解决办法</h1><h2 id="一、某某模式转换失败-或者-进程退出，请检查-ffmpeg-参数…-或者-长时间等待画面…-或者-其他等等问题"><a href="#一、某某模式转换失败-或者-进程退出，请检查-ffmpeg-参数…-或者-长时间等待画面…-或者-其他等等问题" class="headerlink" title="一、某某模式转换失败 [或者] 进程退出，请检查 ffmpeg 参数… [或者] 长时间等待画面… [或者] 其他等等问题"></a>一、某某模式转换失败 [或者] 进程退出，请检查 ffmpeg 参数… [或者] 长时间等待画面… [或者] 其他等等问题</h2><p>如果出现了这之类的提示，大多数情况下，你可能需要尝试配置 <code>transportType</code> 为其他值试试，<code>&#39;tcp&#39;</code>, <code>&#39;udp&#39;</code>是最常见的选择。</p>
+<p id="div-border-left-purple"><i>PS: 在正常的操作下遇到视频流无法播放，或者 <code>rtsp2web</code> 提示错误信息的情况下，优先选择使用这条解决办法来尝试解决问题。</i></p>
+
+<h2 id="二、ffmpeg-进程关闭了，code：3221225477"><a href="#二、ffmpeg-进程关闭了，code：3221225477" class="headerlink" title="二、ffmpeg 进程关闭了，code：3221225477"></a>二、ffmpeg 进程关闭了，code：3221225477</h2><blockquote>
+<p>如果出现了 <code>3221225477</code>；这是 NodeJS 内核反馈的[违反了访问规定]的问题，一般这个问题只发生在 <code>windows</code> 平台上。据我所知，这似乎是与 Windows 访问冲突相关的错误。可以尝试的操作有：</p>
+</blockquote>
+<ul>
+<li>1、执行 <code>npm cache verify</code>，然后再试试；</li>
+<li>2、清除 <code>npm</code> 缓存：<code>npm cache clean --force</code>，再试试；</li>
+<li>3、升级更新 <code>nodejs</code>，安装稳定版，再试试；</li>
+<li>4、<code>rm -rf node_modules</code>，<code>delete package-lock.json</code>，重新安装，再试试；</li>
+<li>5、切换合适的 <code>node</code> 版本可解决；切换当前 <code>node</code> 版本可解决这个问题。</li>
+<li>6、也可以参考【办法一】来尝试解决这类问题；</li>
+</ul>
+<h2 id="三、转换失败，请尝试改变-transportType-的值，然后重试。"><a href="#三、转换失败，请尝试改变-transportType-的值，然后重试。" class="headerlink" title="三、转换失败，请尝试改变 transportType 的值，然后重试。"></a>三、转换失败，请尝试改变 transportType 的值，然后重试。</h2><blockquote>
+<p>你可以尝试配置 <code>transportType</code> 为其他值试试，<code>&#39;tcp&#39;</code>, <code>&#39;udp&#39;</code>是最常见的选择。</p>
+</blockquote>
+<h2 id="四、其他问题随时沟通"><a href="#四、其他问题随时沟通" class="headerlink" title="四、其他问题随时沟通"></a>四、其他问题随时沟通</h2><p>wechat： miracle421354532</p>
+<h1 id="以下客户使用了-rtsp2web"><a href="#以下客户使用了-rtsp2web" class="headerlink" title="以下客户使用了 rtsp2web"></a>以下客户使用了 rtsp2web</h1><p>广州天河区智慧交通、江苏石油化工油罐工厂、江苏镇江石化、武汉丽岛物业、武汉恒阳化工厂、苏州工业园区等<br>还有一些个人、企业用户等。</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>经过反复测试，验证，调试，以及用户的使用和反馈；rtsp2web 可以解决所有的视频流播放问题，如果你在使用的过程中，遇到了些问题，请仔细查看本文档并进行测试，验证。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+<blockquote class="blockquote-center" style="color: #ccc;">
+    -------------本文结束 <i class="fa fa-apple"></i> 感谢您的阅读-------------
+</blockquote>
+
+  <span id="inline-green" style="border-radius:3px;">作者</span>：<a class="link-blue" href="https://github.com/Neveryu" target="_blank">Neveryu</a><br/>有问题请 <a class="link-blue" href="https://neveryu.github.io/guestbook" target="_blank">留言</a> 或者私信我的 <a class="link-blue" href="http://weibo.com/Neveryu" target="_blank">微博</a>。
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>满分是10分的话，这篇文章你给几分</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/reward/reward_wechat.png" alt="Never_yu WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/reward/reward_alipay.png" alt="Never_yu Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/rtsp2web/" rel="tag"><i class="fa fa-tag"></i> rtsp2web</a>
+          
+            <a href="/tags/ffmpeg/" rel="tag"><i class="fa fa-tag"></i> ffmpeg</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2023/when-to-use-local-https/" rel="next" title="何时使用 HTTPS 进行本地开发">
+                <i class="fa fa-chevron-left"></i> 何时使用 HTTPS 进行本地开发
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/avatar/avatar.png"
+               alt="Never_yu" />
+          <p class="site-author-name" itemprop="name">Never_yu</p>
+          <p class="site-description motion-element" itemprop="description">Stay Hungry,Stay Foolish</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Neveryu" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/Neveryu" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://neveryu.blog.csdn.net/" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-chrome"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://codeigniter.org.cn/" title="CodeIgniter中国" target="_blank">CodeIgniter中国</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="/weblog" title="建站日志" target="_blank">建站日志</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/csdn_yudong" title="CSDN" target="_blank">CSDN</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://neveryu.github.io/neveryu" title="个人首页" target="_blank">个人首页</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="/reward" title="打赏" target="_blank">打赏</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">2.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#支持的视频厂商"><span class="nav-number">3.</span> <span class="nav-text">支持的视频厂商</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何使用"><span class="nav-number">4.</span> <span class="nav-text">如何使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、准备-FFmpeg"><span class="nav-number">4.1.</span> <span class="nav-text">一、准备 FFmpeg</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、运行-rtsp2web"><span class="nav-number">4.2.</span> <span class="nav-text">二、运行 rtsp2web</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、在页面中播放视频"><span class="nav-number">4.3.</span> <span class="nav-text">三、在页面中播放视频</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#html-中的参数说明"><span class="nav-number">4.3.1.</span> <span class="nav-text">html 中的参数说明</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#去水印"><span class="nav-number">5.</span> <span class="nav-text">去水印</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#声音"><span class="nav-number">6.</span> <span class="nav-text">声音</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#支持-flv-js"><span class="nav-number">7.</span> <span class="nav-text">支持 flv.js</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见问题解决办法"><span class="nav-number">8.</span> <span class="nav-text">常见问题解决办法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、某某模式转换失败-或者-进程退出，请检查-ffmpeg-参数…-或者-长时间等待画面…-或者-其他等等问题"><span class="nav-number">8.1.</span> <span class="nav-text">一、某某模式转换失败 [或者] 进程退出，请检查 ffmpeg 参数… [或者] 长时间等待画面… [或者] 其他等等问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、ffmpeg-进程关闭了，code：3221225477"><span class="nav-number">8.2.</span> <span class="nav-text">二、ffmpeg 进程关闭了，code：3221225477</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、转换失败，请尝试改变-transportType-的值，然后重试。"><span class="nav-number">8.3.</span> <span class="nav-text">三、转换失败，请尝试改变 transportType 的值，然后重试。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、其他问题随时沟通"><span class="nav-number">8.4.</span> <span class="nav-text">四、其他问题随时沟通</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#以下客户使用了-rtsp2web"><span class="nav-number">9.</span> <span class="nav-text">以下客户使用了 rtsp2web</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后记"><span class="nav-number">10.</span> <span class="nav-text">后记</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+      
+        <section style="border-top:1px dotted #ccc; padding-top:10px;">
+          <iframe width="100%" height="120" class="share_self"  frameborder="0" scrolling="no" src="https://widget.weibo.com/weiboshow/index.php?language=&width=0&height=120&fansRow=2&ptype=1&speed=0&skin=5&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5346488237&verifier=d529ff3a&dpc=1"></iframe>
+        </section>
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+
+<div class="busuanzi-count">
+
+  <!-- <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <!-- 上面这个是之前的，不知道为什么失效了，改成下面这个 -->
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">您是第<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>个小伙伴</span>
+  
+
+  
+    <span class="site-pv">本站总浏览<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Never_yu</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Pisces
+  </a>
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count" style="color: #e90f92;">全站共 181k 字</span>
+</div>
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+  <!-- 按需加载背景 -->
+  <!-- 背景动画 -->
+<script type="text/javascript">
+  // 按需加载背景
+  // 如果是all，就直接加载了
+  if("pc" == "all") {
+    $.getScript("/js/src/particle.js?v=5.0.1");
+  }
+  // 识别手机或电脑的js开始
+  (function(){
+    var res = GetRequest();
+    var par = res['index'];
+    if(par!='gfan'){
+      var ua=navigator.userAgent.toLowerCase();
+      var contains=function (a, b){
+          if(a.indexOf(b)!=-1){return true;}
+      };
+      if((contains(ua,"android") && contains(ua,"mobile"))||(contains(ua,"android") && contains(ua,"mozilla"))||(contains(ua,"android") && contains(ua,"opera"))||contains(ua,"ucweb7")||contains(ua,"iphone")){
+        return false;
+      } else {
+        $.getScript("/js/src/particle.js?v=5.0.1");
+      }
+    }
+  })();
+  function GetRequest() {
+    var url = location.search;
+    var theRequest = new Object();
+    if (url.indexOf("?") != -1) {
+      var str = url.substr(1);
+      strs = str.split("&");
+      for(var i = 0; i < strs.length; i ++) {
+        theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+      }
+    }
+    return theRequest;
+  }
+</script>
+<!-- 识别手机或电脑的js结束 -->  
+
+  <!-- 页面点击小红心 -->
+  <!-- 页面点击小红心 -->
+
+  <script type="text/javascript" src="/js/src/love.js?v=5.0.1"></script>
+
+
+  <!-- 鼠标移动，效果 -->
+  <!-- 鼠标移动特效 -->
+
+  <script type="text/javascript" src="/js/src/jquery-stars.js?v=5.0.1"></script>
+  <script type="text/javascript">
+  jQuery('body').jstars({
+  	image_path: '/images',
+  	image: 'candy-cane-stars.png',
+  	style: 'white',
+  	width: 34,
+  	height: 34,
+  	delay: 700,
+  	frequency: 5
+  });
+  </script>
+
+
+  <!-- 页面 title 进入/离开 效果 -->
+
+  <script type="text/javascript">var OriginTitile=document.title,st;document.addEventListener("visibilitychange",function(){document.hidden?(document.title="≡[。。]≡ 回不去了吗？!",clearTimeout(st)):(document.title="(ฅ>ω<*ฅ) Thank Vue~ "+OriginTitile,st=setTimeout(function(){document.title=OriginTitile},4e3))})</script>
+
+
+</body>
+</html>

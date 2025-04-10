@@ -1,0 +1,33 @@
+<h1 id="three-csg-ts"><a href="#three-csg-ts" class="headerlink" title="three-csg-ts"></a>three-csg-ts</h1><p>CSG (Constructive Solid Geometry) library for <a href="https://github.com/mrdoob/three.js/">three.js</a> with Typescript support.</p>
+<p><em>This is a typescript rewrite of <a href="https://github.com/manthrax/THREE-CSGMesh">THREE-CSGMesh</a>.</em></p>
+<p><a href="https://stackblitz.com/edit/three-csg-ts?file=index.ts">Example</a></p>
+<p><img src="https://user-images.githubusercontent.com/935782/126194933-45ac18d0-2459-4213-97d2-d46ffb67483c.png" alt="Screenshot 2021-07-19 at 17 32 20"></p>
+<h2 id="Concept"><a href="#Concept" class="headerlink" title="Concept"></a>Concept</h2><p>CSG is the name of a technique for generating a new geometry as a function of two input geometries.</p>
+<p>CSG is sometimes referred to as “Boolean” operators in 3d modelling packages.</p>
+<p>Internally it uses a structure called a BSP (binary space partitioning) tree to carry out these operations.</p>
+<p>The supported operations are .subtract, .union, and .intersect.</p>
+<p>By using different combinations of these 3 operations, and changing the order of the input models, you can construct any combination of the input models.</p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><ul>
+<li>Install with npm <code>npm i -save three-csg-ts</code></li>
+<li>Install with yarn <code>yarn add three-csg-ts</code></li>
+</ul>
+<h2 id="Example-usage"><a href="#Example-usage" class="headerlink" title="Example usage"></a>Example usage</h2><pre><code class="ts"><span class="keyword">import</span> * <span class="keyword">as</span> THREE <span class="keyword">from</span> <span class="string">'three'</span>;
+<span class="keyword">import</span> { CSG } <span class="keyword">from</span> <span class="string">'three-csg-ts'</span>;
+
+<span class="comment">// Make 2 meshes..</span>
+<span class="keyword">const</span> box = <span class="keyword">new</span> THREE.Mesh(
+  <span class="keyword">new</span> THREE.BoxGeometry(<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>),
+  <span class="keyword">new</span> THREE.MeshNormalMaterial()
+);
+<span class="keyword">const</span> sphere = <span class="keyword">new</span> THREE.Mesh(<span class="keyword">new</span> THREE.SphereGeometry(<span class="number">1.2</span>, <span class="number">8</span>, <span class="number">8</span>));
+
+<span class="comment">// Make sure the .matrix of each mesh is current</span>
+box.updateMatrix();
+sphere.updateMatrix();
+
+<span class="comment">// Perform CSG operations</span>
+<span class="comment">// The result is a THREE.Mesh that you can add to your scene...</span>
+<span class="keyword">const</span> subRes = CSG.subtract(box, sphere);
+<span class="keyword">const</span> uniRes = CSG.union(box, sphere);
+<span class="keyword">const</span> intRes = CSG.intersect(box, sphere);
+</code></pre>

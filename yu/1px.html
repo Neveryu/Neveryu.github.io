@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>mobile 1px</title>
+  <style>
+    #main {
+      width: 99%;
+      height: 550px;
+      border: 1px solid #ccc;
+    }
+    .border {
+      width: 100%;
+      height: 100px;
+      line-height: 160px;
+      border-bottom: 1px solid #000;
+    }
+    ._1px {
+      width: 100%;
+      height: 100px;
+      line-height: 160px;
+    }
+    ._1px {
+      position: relative;
+    }
+    ._1px:after {
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      border-top: 1px solid #000;
+      content: ' ';
+    }
+    p {
+      margin-top: 80px;
+    }
+    @media (-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5) {
+      ._1px::after {
+        -webkit-transform: scaleY(0.7);
+        transform: scaleY(0.7);
+      }
+    }
+    @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2) {
+      ._1px::after {
+        -webkit-transform: scaleY(0.5);
+        transform: scaleY(0.5);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="main">
+    <div class="border">
+      下面是border: 1px solid #000
+    </div>
+    <div class="_1px">
+      下面是移动端真实1px
+    </div>
+    <p>
+      【请使用手机模式】
+      <br>
+      可以看到 css 的 1px在高分辨率屏下显示的粗一些，所以我们要实现移动端真实的1px。
+      <br> 
+      【右键可以查看源代码】
+      <br>
+      <br>
+      <br>
+      <a href="/">回到首页</a>
+    </p>
+  </div>
+  <script>
+    var dpr = window.devicePixelRatio
+    console.log(dpr)
+  </script>
+</body>
+</html>
