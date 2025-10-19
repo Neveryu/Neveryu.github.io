@@ -4,6 +4,7 @@
 
 ```bash
 # 我是使用npm来安装依赖包和启动项目，没有用yarn
+# 
 # install dependencies
 npm install
 
@@ -58,7 +59,9 @@ npm run deploy
 方式 1、使用 Hexo 自带的命令【我目前使用的部署方式】
 
 ```bash
+nvm use 12
 npm run deploy
+nvm use 18
 ```
 
 > 由于我的这个仓库创建时间较早，依赖的相关工具的版本比较老旧；在本地运行服务的时候，可能对 `node` 版本还没有什么特殊的要求。但是不能使用过高版本的 `node` 来构建和部署，目前测试发现在构建的时候，`node` 版本超过 12 就不行了。
@@ -72,7 +75,7 @@ npm run deploy
 # 2、把源代码推送到 github 仓库即可，github 的 action 会自动安装以来，构建，部署
 ```
 
-> 由于我的这个仓库依赖的相关工具的版本比较老旧，action 的 action 在安装依赖时，发现有安全性的问题，就会报错，不会继续执行下去。
+> 由于我的这个仓库依赖的相关工具的版本比较老旧，github action 的 action 在安装依赖时，发现有安全性的问题，就会报错，不会继续执行下去。
 
 方式 3、自定义 `.deploy.sh` 脚本
 

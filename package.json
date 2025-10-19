@@ -1,7 +1,7 @@
 {
   "name": "hexo-site",
   "version": "3.2.2",
-  "description": "NeverYu Blog",
+  "description": "NeverYu's Blog",
   "private": true,
   "repository": {
     "type": "git",
@@ -55,7 +55,7 @@
     "predeploy": "echo '【【【Start deploy】】】'",
     "deploy": "hexo clean && hexo generate && hexo deploy",
     "postdeploy": "echo '【【【Finished deploy】】】'",
-    "prebuild": "echo 构建静态站点",
+    "prebuild": "echo 开始构建静态站点",
     "build": "hexo clean && hexo generate"
   }
 }

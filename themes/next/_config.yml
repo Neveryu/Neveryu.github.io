@@ -417,10 +417,8 @@ version: 5.0.1
 # High一下
 high_high:
   enable: true
-  songs: "https://nn01-sycdn.kuwo.cn/ce7a04e067dad4c240466b8ff1d0e8c1/642a34cc/resource/n2/19/72/2718395838.mp3,
-          https://lp-sycdn.kuwo.cn/054cf9e18a397f478e63e2e37ed49c7c/642a3514/resource/n1/41/35/2393122062.mp3,
-          https://le-sycdn.kuwo.cn/9a3e0602048dd4a68b95013a73d48adc/642a3554/resource/n2/52/90/2368185034.mp3,
-          https://other-web-ra01-sycdn.kuwo.cn/a2b76ec87b418f78698c5ac0aaa57d7b/642a3574/resource/n2/128/86/97/1676587748.mp3"
+  songs: "https://m701.music.126.net/20251019150528/9e931814d181bd72e849844a95aed5a4/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/29277314054/13d3/d2bb/4809/da0f7fdbb29c015acd3497bcac4685e3.mp3?vuutv=JKrm4iqND3ziSSuARrpxMLp+MnraRXKzV2w1elLFC3SEEUDt7fUqFcJTEtWGJTN5A7AcYk5BYqOEOJ5EBErfh0aNmSwwpT6+ClXQUCYv+3g=&cdntag=bWFyaz1vc193ZWIscXVhbGl0eV9zdGFuZGFyZA,
+          https://m701.music.126.net/20251019150528/9e931814d181bd72e849844a95aed5a4/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/29277314054/13d3/d2bb/4809/da0f7fdbb29c015acd3497bcac4685e3.mp3?vuutv=JKrm4iqND3ziSSuARrpxMLp+MnraRXKzV2w1elLFC3SEEUDt7fUqFcJTEtWGJTN5A7AcYk5BYqOEOJ5EBErfh0aNmSwwpT6+ClXQUCYv+3g=&cdntag=bWFyaz1vc193ZWIscXVhbGl0eV9zdGFuZGFyZA"
 weibo_show: true
 # 1.开启打赏功能
 reward_comment: 满分是10分的话，这篇文章你给几分
@@ -458,7 +456,6 @@ CDN:
   live2d: https://cdn.jsdelivr.net/gh/yuang01/live2d-widget@latest/autoload.js
   paceJs: //cdn.bootcss.com/pace/1.0.2/pace.min.js
   paceCss: //cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css
-  weather: https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0
   typedJs: https://cdn.jsdelivr.net/npm/typed.js@2.0.11
   jquery: https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js
   vue: https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js

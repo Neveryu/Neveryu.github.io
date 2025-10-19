@@ -78,7 +78,7 @@ deploy:
   type: git
   repository: git@github.com:Neveryu/Neveryu.github.io.git
   branch: gh-pages
-  message: 'Daily updated：{{now("YYYY-MM-DD HH:mm:ss")}} by Never_yu personal PC'
+  message: 'Daily updated：{{now("YYYY-MM-DD HH:mm:ss")}} by Never_yu MacBook Pro'
   # 添加以下配置，强制包含 .nojekyll
   include:
     - ".nojekyll"

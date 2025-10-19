@@ -58,9 +58,6 @@
         </li>
       {% endif %}
       
-      {% if theme.high_high.enable %}
-        {% include '../_custom/high.swig' %}
-      {% endif %}
     </ul>
   {% endif %}
 
@@ -70,5 +67,3 @@
     </div>
   {% endif %}
 </nav>
-
-{% include '../_custom/weather.swig' %}
