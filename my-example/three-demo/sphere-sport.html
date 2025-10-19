@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>小球沿着指定轨迹移动</title>
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <link
+      rel="shortcut icon"
+      href="../../files/favicon_white.ico"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="shortcut icon"
+      href="../../files/favicon.ico"
+      media="(prefers-color-scheme: light)"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <style></style>
+  </head>
+
+  <body>
+    <div id="viewer" name="viewer" allow="fullscreen; xr-spatial-tracking;">
+      <div id="container"></div>
+    </div>
+    <div id="desc">
+      <p>主要就是涉及到在THREE中使用 new TWEEN.Tween 的使用</p>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "../three/build/three.module.js",
+          "three/addons/": "../three/examples/jsm/"
+        }
+      }
+    </script>
+
+    <script type="module">
+      import * as THREE from "three";
+      import Stats from "three/addons/libs/stats.module.js";
+      import TWEEN from "three/addons/libs/tween.module.js";
+      import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+      let scene, renderer, camera, stats;
+
+      init();
+      initStats();
+      animate();
+
+      /**
+       * Initialize the statistics domelement
+       *
+       * @param {Number} type 0: fps, 1: ms, 2: mb, 3+: custom
+       * @returns stats javascript object
+       */
+      function initStats(type) {
+        var panelType =
+          typeof type !== "undefined" && type && !isNaN(type)
+            ? parseInt(type)
+            : 0;
+        stats = new Stats();
+        stats.showPanel(panelType); // 0: fps, 1: ms, 2: mb, 3+: custom
+        document.body.appendChild(stats.dom);
+      }
+
+      function init() {
+        const container = document.getElementById("container");
+
+        camera = new THREE.PerspectiveCamera(
+          45,
+          window.innerWidth / window.innerHeight,
+          1,
+          1000
+        );
+        camera.position.set(0, 10, 35);
+        camera.lookAt(0, 0, 0);
+
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xa0a0a0);
+        // scene.fog = new THREE.Fog(0xa0a0a0, 10, 50);
+
+        const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
+        hemiLight.position.set(0, 100, 0);
+        scene.add(hemiLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff);
+        dirLight.position.set(-3, 100, -10);
+        dirLight.castShadow = true;
+        dirLight.shadow.camera.top = 2;
+        dirLight.shadow.camera.bottom = -2;
+        dirLight.shadow.camera.left = -2;
+        dirLight.shadow.camera.right = 2;
+        dirLight.shadow.camera.near = 0.1;
+        dirLight.shadow.camera.far = 40;
+        scene.add(dirLight);
+
+        renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        container.appendChild(renderer.domElement);
+
+        // Controls
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.target.set(0, 0, 0);
+        controls.update();
+        // listeners
+        window.addEventListener("resize", onWindowResize);
+      }
+
+      // 实时渲染
+      function animate() {
+        stats.update();
+        TWEEN.update();
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+      }
+
+      function onWindowResize() {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        renderer.setSize(width, height);
+
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+      }
+
+      var curve = new THREE.CatmullRomCurve3([
+        new THREE.Vector3(-10, 10, 0),
+        new THREE.Vector3(-5, 0, 5),
+        new THREE.Vector3(0, 10, 0),
+        new THREE.Vector3(5, 0, 5),
+        new THREE.Vector3(5, 10, 10),
+        new THREE.Vector3(10, 0, 0),
+        new THREE.Vector3(10, 10, 10),
+        new THREE.Vector3(10, 20, 10),
+        new THREE.Vector3(30, 20, 10),
+        new THREE.Vector3(30, 0, 10),
+      ]);
+      var points = curve.getPoints(50);
+      var geometry = new THREE.BufferGeometry().setFromPoints(points);
+      var material = new THREE.LineBasicMaterial({ color: 0xaa00ff });
+      // Create the final object to add to the scene
+      var splineObject = new THREE.Line(geometry, material);
+      splineObject.frustumCulled = true;
+
+      var sphere = new THREE.Mesh(
+        new THREE.SphereGeometry(1, 50, 50),
+        new THREE.MeshBasicMaterial({
+          color: "red",
+        })
+      );
+      sphere.position.set(points[0].x, points[0].y, points[0].z);
+      scene.add(splineObject, sphere);
+
+      let index = 0;
+      // var tweenpos= sphere.position.clone().add(points[index+1].clone().sub(points[index]))
+      let tweenpos = points[index + 1].clone();
+      let tween = new TWEEN.Tween(sphere.position)
+        .to(tweenpos, 1000)
+        .easing(TWEEN.Easing.Cubic.InOut)
+        .onUpdate(function () {
+          // 此处不需要手动设置sphere.position，因为TWEEN会自动更新
+          // sphere.position.set();
+        })
+        .onComplete(tweenComplete)
+        .start();
+
+      function tweenComplete() {
+        if (index + 1 < points.length - 1) {
+          index++;
+        }
+        tweenpos = points[index + 1].clone();
+        tween = new TWEEN.Tween(sphere.position)
+          .to(tweenpos, 1000)
+          .easing(TWEEN.Easing.Quadratic.InOut)
+          .onComplete(tweenComplete)
+          .start();
+      }
+    </script>
+  </body>
+</html>

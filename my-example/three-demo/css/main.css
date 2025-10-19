@@ -1,0 +1,78 @@
+:root {
+  color-scheme: light dark;
+
+  --background-color: #fff;
+  --secondary-background-color: #f7f7f7;
+
+  --color-blue: #049ef4;
+  --text-color: #444;
+  --secondary-text-color: #9e9e9e;
+
+  --font-size: 16px;
+  --line-height: 26px;
+
+  --border-style: 1px solid #e8e8e8;
+  --header-height: 48px;
+  --panel-width: 300px;
+  --panel-padding: 16px;
+  --icon-size: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #222;
+    --secondary-background-color: #2e2e2e;
+
+    --text-color: #bbb;
+    --secondary-text-color: #666;
+
+    --border-style: 1px solid #444;
+  }
+
+  #previewsToggler {
+    filter: invert(100%);
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  font-size: calc(var(--font-size) - 1px);
+  line-height: calc(var(--line-height) - 1px);
+}
+
+body {
+  font-family: "Roboto Mono", monospace;
+  margin: 0px;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+.tag-label {
+  color: white;
+  font-size: 16px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+
+
+/* 关于本页面的记录&说明 */
+#desc {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin-left: 5rem;
+  width: 90%;
+  color: #ff0;
+  font-size: 1em;
+  pointer-events: none;
+}

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>three-csg-ts | 进行模型的布尔运算</title>
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <link
+      rel="shortcut icon"
+      href="../../files/favicon_white.ico"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="shortcut icon"
+      href="../../files/favicon.ico"
+      media="(prefers-color-scheme: light)"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <style></style>
+  </head>
+
+  <body>
+    <div id="viewer" name="viewer" allow="fullscreen; xr-spatial-tracking;">
+      <div id="container"></div>
+      <div id="tag-sphere" class="tag-label">单独球模型</div>
+    </div>
+    <div id="desc">
+      <p>使用three-csg-ts进行模型的布尔运算。</p>
+      <p>左边示例中，对重合的盒子模型和球模型，分别进行了差集，并集，交集。</p>
+      <p>
+        右边示例中，对相邻的两个模型A和B，进行了并集，得到了A与B融合之后的模型。
+      </p>
+      <p>
+        融合后与融合前，一个明显的区别是：融合后A与B的公共面没有了。（通过旋转，你可以发现，融合前A与B的存在公共面，所以颜色叠加就会加深；融合后的模型就没有这种情况了。）
+      </p>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "../three/build/three.module.js",
+          "three/addons/": "../three/examples/jsm/",
+          "three-csg-ts": "./three-csg-ts/lib/esm/CSG.js"
+        }
+      }
+    </script>
+
+    <script type="module">
+      import * as THREE from "three";
+      import Stats from "three/addons/libs/stats.module.js";
+      import TWEEN from "three/addons/libs/tween.module.js";
+      import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+      import { ConvexGeometry } from "three/addons/geometries/ConvexGeometry.js";
+      // 引入CSS2渲染器CSS2DRenderer和CSS2模型对象CSS2DObject
+      import {
+        CSS2DRenderer,
+        CSS2DObject,
+      } from "three/addons/renderers/CSS2DRenderer.js";
+      import { CSG } from "three-csg-ts";
+
+      let scene, renderer, css2Renderer, camera, stats;
+
+      init();
+      initStats();
+      animate();
+
+      /**
+       * Initialize the statistics domelement
+       *
+       * @param {Number} type 0: fps, 1: ms, 2: mb, 3+: custom
+       * @returns stats javascript object
+       */
+      function initStats(type) {
+        var panelType =
+          typeof type !== "undefined" && type && !isNaN(type)
+            ? parseInt(type)
+            : 0;
+        stats = new Stats();
+        stats.showPanel(panelType); // 0: fps, 1: ms, 2: mb, 3+: custom
+        document.body.appendChild(stats.dom);
+      }
+
+      function init() {
+        const container = document.getElementById("container");
+
+        camera = new THREE.PerspectiveCamera(
+          45,
+          window.innerWidth / window.innerHeight,
+          1,
+          1000
+        );
+        camera.position.set(0, 10, 35);
+        camera.lookAt(0, 0, 0);
+
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xa0a0a0);
+        // scene.fog = new THREE.Fog(0xa0a0a0, 10, 50);
+
+        const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
+        hemiLight.position.set(0, 100, 0);
+        scene.add(hemiLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff);
+        dirLight.position.set(-3, 100, -10);
+        dirLight.castShadow = true;
+        dirLight.shadow.camera.top = 2;
+        dirLight.shadow.camera.bottom = -2;
+        dirLight.shadow.camera.left = -2;
+        dirLight.shadow.camera.right = 2;
+        dirLight.shadow.camera.near = 0.1;
+        dirLight.shadow.camera.far = 40;
+        scene.add(dirLight);
+
+        renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        container.appendChild(renderer.domElement);
+
+        // 创建一个CSS2渲染器CSS2DRenderer
+        css2Renderer = new CSS2DRenderer();
+        // width, height：canvas画布宽高度
+        css2Renderer.setSize(window.innerWidth, window.innerHeight);
+        css2Renderer.domElement.style.position = "absolute";
+        css2Renderer.domElement.style.top = "0px";
+        css2Renderer.domElement.style.pointerEvents = "none";
+        document.body.appendChild(css2Renderer.domElement);
+
+        // Controls
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.target.set(0, 0, 0);
+        controls.update();
+        // listeners
+        window.addEventListener("resize", onWindowResize);
+      }
+
+      // 实时渲染
+      function animate() {
+        stats.update();
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+        css2Renderer.render(scene, camera);
+      }
+
+      function onWindowResize() {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        renderer.setSize(width, height);
+        // HTML标签css2Renderer.domElement尺寸重新设置
+        css2Renderer.setSize(width, height);
+
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+      }
+
+      // 自定义代码
+      const box = new THREE.Mesh(
+        new THREE.BoxGeometry(2, 2, 2),
+        new THREE.MeshNormalMaterial({
+          color: 0xff0000,
+        })
+      );
+      box.position.set(-10, 10, 0);
+
+      const sphere = new THREE.Mesh(new THREE.SphereGeometry(1.2, 32, 32));
+      sphere.position.set(-10, 10, 0);
+      // Make sure the .matrix of each mesh is current
+      box.updateMatrix(); // 矩阵已经被更新（调用 updateMatrix() 方法）
+      sphere.updateMatrix(); // 矩阵已经被更新（调用 updateMatrix() 方法）
+
+      scene.add(box, sphere);
+      // 创建一个HTML元素作为标签
+      let box2sphereTagEl = document.createElement("div");
+      box2sphereTagEl.className = "tag-label";
+      box2sphereTagEl.textContent = "盒子模型和球模型本来的样子";
+      box2sphereTagEl.style.marginTop = "-3em"; // 调整标签位置
+      let box2sphereTag = new CSS2DObject(box2sphereTagEl);
+      box2sphereTag.position.set(-10, 10, 0);
+      scene.add(box2sphereTag);
+
+      const boxClone = box.clone();
+      boxClone.position.set(-15, 5, 0);
+      boxClone.updateMatrix();
+
+      // 创建一个HTML元素作为标签
+      let boxTagEl = document.createElement("div");
+      boxTagEl.className = "tag-label";
+      boxTagEl.textContent = "单独盒子模型";
+      boxTagEl.style.marginTop = "-40px"; // 调整标签位置
+      let boxTag = new CSS2DObject(boxTagEl);
+      boxTag.position.set(-15, 5, 0);
+      scene.add(boxTag);
+
+      const sphereClone = sphere.clone();
+      sphereClone.position.set(-5, 5, 0);
+      sphereClone.updateMatrix(); // 矩阵已经被更新（调用 updateMatrix() 方法）
+
+      const sphereTagEl = document.getElementById("tag-sphere");
+      sphereTagEl.style.marginTop = "-3em"; // 调整标签位置
+      // HTML元素转化为threejs的CSS2模型对象
+      const sphereTag = new CSS2DObject(sphereTagEl);
+      sphereTag.position.set(-5, 5, 0);
+      scene.add(sphereTag);
+
+      scene.add(boxClone).add(sphereClone);
+
+      // Perform CSG operations
+      // The result is a THREE.Mesh that you can add to your scene...
+      const subRes = CSG.subtract(box, sphere); // A - B
+      const uniRes = CSG.union(box, sphere); // A ∪ B
+      const intRes = CSG.intersect(box, sphere); // A ∩ B
+
+      console.log(subRes, uniRes, intRes, 1);
+
+      subRes.position.set(-10, 5, 0);
+      uniRes.position.set(-10, 0, 0);
+      intRes.position.set(-10, -5, 0);
+
+      // scene.add(box)
+      // scene.add(sphere)
+      scene.add(subRes);
+      scene.add(uniRes);
+      scene.add(intRes);
+
+      // 创建一个HTML元素作为标签
+      let boxSubSphereEl = document.createElement("div");
+      boxSubSphereEl.className = "tag-label";
+      boxSubSphereEl.textContent = "盒子模型 - 球模型（差集）";
+      boxSubSphereEl.style.marginTop = "-40px"; // 调整标签位置
+      let boxSubSphere = new CSS2DObject(boxSubSphereEl);
+      boxSubSphere.position.set(-10, 5, 0);
+      scene.add(boxSubSphere);
+
+      // 创建一个HTML元素作为标签
+      let boxUniSphereEl = document.createElement("div");
+      boxUniSphereEl.className = "tag-label";
+      boxUniSphereEl.textContent = "盒子模型∪球模型（并集）";
+      boxUniSphereEl.style.marginTop = "-40px"; // 调整标签位置
+      let boxUniSphere = new CSS2DObject(boxUniSphereEl);
+      boxUniSphere.position.set(-10, 0, 0);
+      scene.add(boxUniSphere);
+
+      let boxIntSphereEl = document.createElement("div");
+      boxIntSphereEl.className = "tag-label";
+      boxIntSphereEl.textContent = "盒子模型∩球模型（交集）";
+      boxIntSphereEl.style.marginTop = "-40px"; // 调整标签位置
+      let boxIntSphere = new CSS2DObject(boxIntSphereEl);
+      boxIntSphere.position.set(-10, -5, 0);
+      scene.add(boxIntSphere);
+
+      // 创建一个小地层a，和小地层b
+      let pointArray1 = [
+        new THREE.Vector3(2, 1, 1),
+        new THREE.Vector3(2, 5, 1),
+        new THREE.Vector3(4, 1, 3),
+        new THREE.Vector3(4, 5, 3),
+        new THREE.Vector3(6, 1, 0),
+        new THREE.Vector3(6, 5, 0),
+      ];
+      let layerGeometry1 = new ConvexGeometry(pointArray1);
+      const modelA = new THREE.Mesh(
+        layerGeometry1,
+        new THREE.MeshBasicMaterial({
+          color: "#FF00E2",
+          side: THREE.DoubleSide,
+          transparent: true,
+          opacity: 0.1,
+        })
+      );
+      modelA.updateMatrix();
+      // +edge线框
+      let edges1 = new THREE.EdgesGeometry(layerGeometry1, 0);
+      let line1 = new THREE.LineSegments(
+        edges1,
+        new THREE.LineBasicMaterial({ color: "#222222", transparent: true })
+      );
+      modelA.add(line1);
+      scene.add(modelA);
+      // 创建一个HTML元素作为标签
+      let modelATagEl = document.createElement("div");
+      modelATagEl.className = "tag-label";
+      modelATagEl.textContent = "模型A（自定义的三棱柱）";
+      modelATagEl.style.marginTop = "-30px"; // 调整标签位置
+      let modelATag = new CSS2DObject(modelATagEl);
+      modelATag.position.set(2, 5, 0);
+      scene.add(modelATag);
+
+      let pointArray2 = [
+        new THREE.Vector3(8, 1, 5),
+        new THREE.Vector3(8, 5, 5),
+        new THREE.Vector3(4, 1, 3),
+        new THREE.Vector3(4, 5, 3),
+        new THREE.Vector3(6, 1, 0),
+        new THREE.Vector3(6, 5, 0),
+      ];
+      let layerGeometry2 = new ConvexGeometry(pointArray2);
+      const modelB = new THREE.Mesh(
+        layerGeometry2,
+        new THREE.MeshBasicMaterial({
+          color: "#FF00E2",
+          side: THREE.DoubleSide,
+          transparent: true,
+          opacity: 0.1,
+        })
+      );
+      modelB.updateMatrix();
+      // +edge线框
+      let edges2 = new THREE.EdgesGeometry(layerGeometry2, 0);
+      let line2 = new THREE.LineSegments(
+        edges2,
+        new THREE.LineBasicMaterial({ color: "#222222", transparent: true })
+      );
+      modelB.add(line2);
+      scene.add(modelB);
+      // 创建一个HTML元素作为标签
+      let modelBTagEl = document.createElement("div");
+      modelBTagEl.className = "tag-label";
+      modelBTagEl.textContent = "模型B（自定义的三棱柱）";
+      modelBTagEl.style.marginTop = "-30px"; // 调整标签位置
+      let modelBTag = new CSS2DObject(modelBTagEl);
+      modelBTag.position.set(8, 5, 5);
+      scene.add(modelBTag);
+
+      const uniAB = CSG.union(modelA, modelB);
+      // +edge线框
+      let edges3 = new THREE.EdgesGeometry(uniAB.geometry, 0);
+      let line3 = new THREE.LineSegments(
+        edges3,
+        new THREE.LineBasicMaterial({ color: "#222222", transparent: true })
+      );
+      uniAB.add(line3);
+      uniAB.position.set(11, -3, 0);
+      scene.add(uniAB);
+
+      // 创建一个HTML元素作为标签
+      let AUniBTagEl = document.createElement("div");
+      AUniBTagEl.className = "tag-label";
+      AUniBTagEl.textContent = "模型A ∪ 模型B（并集）";
+      AUniBTagEl.style.marginTop = "-30px"; // 调整标签位置
+      let AUniBTag = new CSS2DObject(AUniBTagEl);
+      AUniBTag.position.set(18, 2, 0);
+      scene.add(AUniBTag);
+    </script>
+  </body>
+</html>

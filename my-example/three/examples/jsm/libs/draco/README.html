@@ -1,0 +1,20 @@
+<h1 id="Draco-3D-Data-Compression"><a href="#Draco-3D-Data-Compression" class="headerlink" title="Draco 3D Data Compression"></a>Draco 3D Data Compression</h1><p>Draco is an open-source library for compressing and decompressing 3D geometric meshes and point clouds. It is intended to improve the storage and transmission of 3D graphics.</p>
+<p><a href="https://google.github.io/draco/">Website</a> | <a href="https://github.com/google/draco">GitHub</a></p>
+<h2 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h2><p>This folder contains three utilities:</p>
+<ul>
+<li><code>draco_decoder.js</code> — Emscripten-compiled decoder, compatible with any modern browser.</li>
+<li><code>draco_decoder.wasm</code> — WebAssembly decoder, compatible with newer browsers and devices.</li>
+<li><code>draco_wasm_wrapper.js</code> — JavaScript wrapper for the WASM decoder.</li>
+</ul>
+<p>Each file is provided in two variations:</p>
+<ul>
+<li><strong>Default:</strong> Latest stable builds, tracking the project’s <a href="https://github.com/google/draco">master branch</a>.</li>
+<li><strong>glTF:</strong> Builds targeted by the <a href="https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_draco_mesh_compression">glTF mesh compression extension</a>, tracking the <a href="https://github.com/google/draco/tree/gltf_2.0_draco_extension">corresponding Draco branch</a>.</li>
+</ul>
+<p>Either variation may be used with <code>THREE.DRACOLoader</code>:</p>
+<pre><code class="js"><span class="keyword">var</span> dracoLoader = <span class="keyword">new</span> THREE.DRACOLoader();
+dracoLoader.setDecoderPath(<span class="string">'path/to/decoders/'</span>);
+dracoLoader.setDecoderConfig({<span class="attr">type</span>: <span class="string">'js'</span>}); <span class="comment">// (Optional) Override detection of WASM support.</span>
+</code></pre>
+<p>Further <a href="https://github.com/google/draco/tree/master/javascript/example#static-loading-javascript-decoder">documentation on GitHub</a>.</p>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p><a href="https://github.com/google/draco/blob/master/LICENSE">Apache License 2.0</a></p>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>可以设置宽度的线条哦</title>
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <link
+      rel="shortcut icon"
+      href="../../files/favicon_white.ico"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="shortcut icon"
+      href="../../files/favicon.ico"
+      media="(prefers-color-scheme: light)"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <style></style>
+  </head>
+
+  <body>
+    <div id="viewer" name="viewer" allow="fullscreen; xr-spatial-tracking;">
+      <div id="container"></div>
+    </div>
+    <div id="desc">
+      <span
+        >在 Three.js 中，Line 对象的宽度设置并不像 2D
+        绘图那样直接。LineBasicMaterial 和其他与线条相关的材质在 WebGL
+        中对线条宽度的支持有限。默认情况下，WebGL 线条的宽度始终为 1
+        像素，且大多数 WebGL 实现不支持更改线条宽度。</span
+      >
+      <p>方法一、使用 let fatLine = new THREE.Mesh( geometry, material )</p>
+      <p>二、使用 let colorLine = new Line2( geometry, matLine );</p>
+      <p>
+        这两种方式创建出来的Line是可以设置宽度的。同时，也可以看出来Line2的基类是LineSegments2，LineSegments2的基类是Mesh，Line2和LineSegments2本质上都是一个网格模型，你可以把代码中
+        Line2替换为THREE.Mesh，显示效果是一样的。
+      </p>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "../three/build/three.module.js",
+          "three/addons/": "../three/examples/jsm/"
+        }
+      }
+    </script>
+
+    <script type="module">
+      import * as THREE from "three";
+      import Stats from "three/addons/libs/stats.module.js";
+      import TWEEN from "three/addons/libs/tween.module.js";
+      import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+      import { LineMaterial } from "three/addons/lines/LineMaterial.js";
+      import { LineGeometry } from "three/addons/lines/LineGeometry.js";
+      import { Line2 } from "three/addons/lines/Line2.js";
+
+      let scene, renderer, camera, stats;
+
+      init();
+      initStats();
+      animate();
+
+      /**
+       * Initialize the statistics domelement
+       *
+       * @param {Number} type 0: fps, 1: ms, 2: mb, 3+: custom
+       * @returns stats javascript object
+       */
+      function initStats(type) {
+        var panelType =
+          typeof type !== "undefined" && type && !isNaN(type)
+            ? parseInt(type)
+            : 0;
+        stats = new Stats();
+        stats.showPanel(panelType); // 0: fps, 1: ms, 2: mb, 3+: custom
+        document.body.appendChild(stats.dom);
+      }
+
+      function init() {
+        const container = document.getElementById("container");
+
+        camera = new THREE.PerspectiveCamera(
+          45,
+          window.innerWidth / window.innerHeight,
+          1,
+          1000
+        );
+        camera.position.set(0, 10, 205);
+        camera.lookAt(0, 0, 0);
+
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xa0a0a0);
+        // scene.fog = new THREE.Fog(0xa0a0a0, 10, 50);
+
+        const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
+        hemiLight.position.set(0, 100, 0);
+        scene.add(hemiLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff);
+        dirLight.position.set(-3, 100, -10);
+        dirLight.castShadow = true;
+        dirLight.shadow.camera.top = 2;
+        dirLight.shadow.camera.bottom = -2;
+        dirLight.shadow.camera.left = -2;
+        dirLight.shadow.camera.right = 2;
+        dirLight.shadow.camera.near = 0.1;
+        dirLight.shadow.camera.far = 40;
+        scene.add(dirLight);
+
+        /**
+         * 开启抗锯齿（antialias: true）可以平滑渲染结果中的边缘，减少锯齿状现象，使图形看起来更加平滑和真实。
+         * 开启抗锯齿会增加渲染负担，可能导致渲染性能下降，特别是在低端设备上。因此，在需要高性能渲染的场景中，可能需要权衡抗锯齿效果和性能。
+         **/
+        renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        container.appendChild(renderer.domElement);
+
+        // Controls
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.target.set(0, 0, 0);
+        controls.update();
+        // listeners
+        window.addEventListener("resize", onWindowResize);
+      }
+
+      // 实时渲染
+      function animate() {
+        stats.update();
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+      }
+
+      function onWindowResize() {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        renderer.setSize(width, height);
+
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+      }
+
+      // 【使用原生的LineBasicMaterial，效果是这样的，我这里linewidth已经设置为了5，但是没效果】
+      var curve = new THREE.CatmullRomCurve3([
+        new THREE.Vector3(-10, 0, 0),
+        new THREE.Vector3(-5, 10, 5),
+        new THREE.Vector3(0, 5, 0),
+        new THREE.Vector3(5, 0, 5),
+        new THREE.Vector3(5, 20, 10),
+        new THREE.Vector3(10, 20, 0),
+        new THREE.Vector3(10, 50, 10),
+        new THREE.Vector3(10, 0, 20),
+        new THREE.Vector3(30, 5, 10),
+        new THREE.Vector3(30, 0, 50),
+      ]);
+      var points = curve.getPoints(50);
+      let line = new THREE.Line(
+        new THREE.BufferGeometry().setFromPoints(points),
+        new THREE.LineBasicMaterial({
+          opacity: 1.0,
+          linewidth: 5,
+          color: 0x18ffff,
+        })
+      );
+      line.position.set(-30, 0, 0);
+      // frustumCulled 控制对象是否进行视锥体裁剪。默认值：true，表示对象默认会进行视锥体裁剪。如果你希望某个对象总是被渲染（即使它不在视锥体内），可以将 frustumCulled 设置为 false。
+      line.frustumCulled = false;
+
+      // 【使用重写的LineMaterial，可以实现有宽度的线】
+      let position1 = [-50, 0, 0, -50, 50, 0, 0, 0, 0, 50, 50, 0, 50, 0, 0];
+      var geometry1 = new LineGeometry();
+      geometry1.setPositions(position1);
+      var material1 = new LineMaterial({
+        color: 0xdd2222,
+        // 线宽度
+        linewidth: 5,
+      });
+      material1.resolution.set(window.innerWidth, window.innerHeight);
+      // 阅读/examples/js/lines目录下的文件，可以看出来Line2的基类是LineSegments2，LineSegments2的基类是Mesh，
+      // Line2和LineSegments2本质上都是一个网格模型，你可以把代码中THREE.Line2替换为THREE.Mesh，显示效果是一样的。
+      var fatLine = new THREE.Mesh(geometry1, material1);
+
+      // 【另一种实现有宽度的线条：使用Line2】
+      var positions3 = [0, 0, -50, 0, 50, -50, 0, 0, 0, 0, 50, 50, 0, 0, 50];
+      var colors3 = [];
+      var divisions3 = Math.round(100);
+      var color3 = new THREE.Color();
+      for (var i = 0, l = divisions3; i < l; i++) {
+        var t = i / l;
+        color3.setHSL(t, 1.0, 0.5);
+        colors3.push(color3.r, color3.g, color3.b);
+      }
+      var geometry3 = new LineGeometry();
+      geometry3.setPositions(positions3);
+      geometry3.setColors(colors3);
+      let matLine = new LineMaterial({
+        color: 0xffffff,
+        linewidth: 10, // in pixels
+        vertexColors: true,
+        dashed: false,
+      });
+      // renderer will set this eventually
+      matLine.resolution.set(window.innerWidth, window.innerHeight); // resolution of the viewport
+      // 阅读/examples/js/lines目录下的文件，可以看出来Line2的基类是LineSegments2，LineSegments2的基类是Mesh，
+      // Line2和LineSegments2本质上都是一个网格模型，你可以把代码中THREE.Line2替换为THREE.Mesh，显示效果是一样的。
+      let colorLine = new Line2(geometry3, matLine);
+      colorLine.computeLineDistances();
+      colorLine.scale.set(1, 1, 1);
+      colorLine.position.set(10, 0, 30);
+
+      scene.add(line, fatLine, colorLine);
+
+      /**
+       * 【笔记】】
+       *  如果使用的是Line，则在切换实线/虚线的时候，需要改变整个材质（LineBasicMaterial， LineDashedMaterial）
+       * 但如果是Line2，则在切换实线/虚线的时候，只需要修改LineMaterial的属性
+       * matLineBasic = new THREE.LineBasicMaterial( { vertexColors: true } );
+       * matLineDashed = new THREE.LineDashedMaterial( { vertexColors: true, scale: 2, dashSize: 1, gapSize: 1 } );
+       * */
+    </script>
+  </body>
+</html>

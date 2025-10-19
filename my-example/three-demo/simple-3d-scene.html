@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>使用 threejs 搭建一个简单的 3D 场景</title>
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <link
+      rel="shortcut icon"
+      href="../../files/favicon_white.ico"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="shortcut icon"
+      href="../../files/favicon.ico"
+      media="(prefers-color-scheme: light)"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <style></style>
+  </head>
+
+  <body>
+    <div id="viewer" name="viewer" allow="fullscreen; xr-spatial-tracking;">
+      <div id="container"></div>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "../three/build/three.module.js",
+          "three/addons/": "../three/examples/jsm/"
+        }
+      }
+    </script>
+
+    <script type="module">
+      import * as THREE from "three";
+      import Stats from "three/addons/libs/stats.module.js";
+      import TWEEN from "three/addons/libs/tween.module.js";
+      import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+      let scene, renderer, camera, stats;
+
+      init();
+      initStats();
+      animate();
+
+      /**
+       * Initialize the statistics domelement
+       *
+       * @param {Number} type 0: fps, 1: ms, 2: mb, 3+: custom
+       * @returns stats javascript object
+       */
+      function initStats(type) {
+        var panelType =
+          typeof type !== "undefined" && type && !isNaN(type)
+            ? parseInt(type)
+            : 0;
+        stats = new Stats();
+        stats.showPanel(panelType); // 0: fps, 1: ms, 2: mb, 3+: custom
+        document.body.appendChild(stats.dom);
+      }
+
+      function init() {
+        const container = document.getElementById("container");
+
+        camera = new THREE.PerspectiveCamera(
+          45,
+          window.innerWidth / window.innerHeight,
+          0.1,
+          1000
+        );
+        camera.position.set(0, 0, 20);
+        camera.lookAt(0, 0, 0);
+
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xa0a0a0);
+        // scene.fog = new THREE.Fog(0xa0a0a0, 10, 50);
+
+        const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
+        hemiLight.position.set(0, 200, 0);
+        scene.add(hemiLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff);
+        dirLight.position.set(0, 100, 0);
+        dirLight.castShadow = true;
+        dirLight.shadow.camera.top = 2;
+        dirLight.shadow.camera.bottom = -2;
+        dirLight.shadow.camera.left = -2;
+        dirLight.shadow.camera.right = 2;
+        dirLight.shadow.camera.near = 0.1;
+        dirLight.shadow.camera.far = 40;
+        scene.add(dirLight);
+
+        /**
+         * 开启抗锯齿（antialias: true）可以平滑渲染结果中的边缘，减少锯齿状现象，使图形看起来更加平滑和真实。
+         * 开启抗锯齿会增加渲染负担，可能导致渲染性能下降，特别是在低端设备上。因此，在需要高性能渲染的场景中，可能需要权衡抗锯齿效果和性能。
+         **/
+        renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        container.appendChild(renderer.domElement);
+
+        // Controls
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.target.set(0, 0, 0);
+        controls.update();
+        controls.minDistance = 0.1; //你能够将相机向内移动多少（仅适用于PerspectiveCamera），其默认值为0。
+        controls.maxDistance = 200; //你能够将相机向外移动多少（仅适用于PerspectiveCamera），其默认值为Infinity。
+        // listeners
+        window.addEventListener("resize", onWindowResize);
+      }
+
+      // 实时渲染
+      function animate() {
+        stats.update();
+        const skyboxMesh = scene.getObjectByName("skyboxMesh");
+        if (skyboxMesh) {
+          skyboxMesh.rotation.y += 0.001;
+        }
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+      }
+
+      function onWindowResize() {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        renderer.setSize(width, height);
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+      }
+
+      // 自定义代码
+      const textureLoader = new THREE.TextureLoader();
+      const skyboxGeometry = new THREE.BoxGeometry(400, 400, 400);
+      const skyboxMaterials = [
+        new THREE.MeshBasicMaterial({
+          map: textureLoader.load("./assets/skybox/rt.png"),
+          side: THREE.DoubleSide,
+        }),
+        new THREE.MeshBasicMaterial({
+          map: textureLoader.load("./assets/skybox/lf.png"),
+          side: THREE.DoubleSide,
+        }),
+        new THREE.MeshBasicMaterial({
+          map: textureLoader.load("./assets/skybox/up.png"),
+          side: THREE.DoubleSide,
+        }),
+        new THREE.MeshBasicMaterial({
+          map: textureLoader.load("./assets/skybox/dn.png"),
+          side: THREE.DoubleSide,
+        }),
+        new THREE.MeshBasicMaterial({
+          map: textureLoader.load("./assets/skybox/bk.png"),
+          side: THREE.DoubleSide,
+        }),
+        new THREE.MeshBasicMaterial({
+          map: textureLoader.load("./assets/skybox/ft.png"),
+          side: THREE.DoubleSide,
+        }),
+      ];
+      const skyboxMesh = new THREE.Mesh(skyboxGeometry, skyboxMaterials);
+      skyboxMesh.name = "skyboxMesh";
+      scene.add(skyboxMesh);
+    </script>
+  </body>
+</html>

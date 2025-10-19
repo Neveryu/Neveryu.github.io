@@ -1,0 +1,28 @@
+<h1 id="Basis-Universal-GPU-Texture-Compression"><a href="#Basis-Universal-GPU-Texture-Compression" class="headerlink" title="Basis Universal GPU Texture Compression"></a>Basis Universal GPU Texture Compression</h1><p>Basis Universal is a “<a href="http://gamma.cs.unc.edu/GST/gst.pdf">supercompressed</a>“<br>GPU texture and texture video compression system that outputs a highly<br>compressed intermediate file format (.basis) that can be quickly transcoded to<br>a wide variety of GPU texture compression formats.</p>
+<p><a href="https://github.com/BinomialLLC/basis_universal">GitHub</a></p>
+<h2 id="Transcoders"><a href="#Transcoders" class="headerlink" title="Transcoders"></a>Transcoders</h2><p>Basis Universal texture data may be used in two different file formats:<br><code>.basis</code> and <code>.ktx2</code>, where <code>ktx2</code> is a standardized wrapper around basis texture data.</p>
+<p>For further documentation about the Basis compressor and transcoder, refer to<br>the <a href="https://github.com/BinomialLLC/basis_universal">Basis GitHub repository</a>.</p>
+<p>The folder contains two files required for transcoding <code>.basis</code> or <code>.ktx2</code> textures:</p>
+<ul>
+<li><code>basis_transcoder.js</code> — JavaScript wrapper for the WebAssembly transcoder.</li>
+<li><code>basis_transcoder.wasm</code> — WebAssembly transcoder.</li>
+</ul>
+<p>Both are dependencies of <code>KTX2Loader</code>:</p>
+<pre><code class="js"><span class="keyword">const</span> ktx2Loader = <span class="keyword">new</span> KTX2Loader();
+ktx2Loader.setTranscoderPath( <span class="string">'examples/jsm/libs/basis/'</span> );
+ktx2Loader.detectSupport( renderer );
+ktx2Loader.load( <span class="string">'diffuse.ktx2'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"> texture </span>) </span>{
+
+    <span class="keyword">const</span> material = <span class="keyword">new</span> THREE.MeshStandardMaterial( { <span class="attr">map</span>: texture } );
+
+}, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{
+
+    <span class="built_in">console</span>.log( <span class="string">'onProgress'</span> );
+
+}, <span class="function"><span class="keyword">function</span> (<span class="params"> e </span>) </span>{
+
+    <span class="built_in">console</span>.error( e );
+
+} );
+</code></pre>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p><a href="https://github.com/BinomialLLC/basis_universal/blob/master/LICENSE">Apache License 2.0</a></p>

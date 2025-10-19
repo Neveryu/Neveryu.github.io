@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Line 消失 | 在某些角度消失 的问题</title>
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <link
+      rel="shortcut icon"
+      href="../../files/favicon_white.ico"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="shortcut icon"
+      href="../../files/favicon.ico"
+      media="(prefers-color-scheme: light)"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <style>
+      #desc {
+        color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="viewer" name="viewer" allow="fullscreen; xr-spatial-tracking;">
+      <div id="container"></div>
+    </div>
+    <div id="desc">
+      <p>
+        为什么使用new
+        Line()创建的线条在鼠标缩放后，线条会不连续不完整，断断续续？
+      </p>
+      <p>
+        问题就在于：线条和背景plane的顶点位置不同，它们的缩放比例也会不同。这就会导致线条在缩放时出现断断续续的情况，因为线条的顶点位置并没有按照相同的比例进行缩放。
+      </p>
+      <p>解决办法：一、取消背景plane</p>
+      <p>
+        二、给线条设置一个偏移，使线条和背景plane不在一个平面上。例如：line.translateY(3)
+      </p>
+      <p>
+        三、另外，还可以尝试调整线条的材质属性，使用 Line2
+        来创建有宽度的线条，以改善线条的显示效果。
+      </p>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "../three/build/three.module.js",
+          "three/addons/": "../three/examples/jsm/"
+        }
+      }
+    </script>
+
+    <script type="module">
+      import * as THREE from "three";
+      import Stats from "three/addons/libs/stats.module.js";
+      import TWEEN from "three/addons/libs/tween.module.js";
+      import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+      let scene, renderer, camera, stats;
+
+      init();
+      initStats();
+      animate();
+
+      /**
+       * Initialize the statistics domelement
+       *
+       * @param {Number} type 0: fps, 1: ms, 2: mb, 3+: custom
+       * @returns stats javascript object
+       */
+      function initStats(type) {
+        var panelType =
+          typeof type !== "undefined" && type && !isNaN(type)
+            ? parseInt(type)
+            : 0;
+        stats = new Stats();
+        stats.showPanel(panelType); // 0: fps, 1: ms, 2: mb, 3+: custom
+        document.body.appendChild(stats.dom);
+      }
+
+      function init() {
+        const container = document.getElementById("container");
+
+        camera = new THREE.PerspectiveCamera(
+          45,
+          window.innerWidth / window.innerHeight,
+          1,
+          1000
+        );
+        camera.position.set(0, 10, 35);
+        camera.lookAt(0, 0, 0);
+
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xa0a0a0);
+        // scene.fog = new THREE.Fog(0xa0a0a0, 10, 50);
+
+        const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
+        hemiLight.position.set(0, 100, 0);
+        scene.add(hemiLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff);
+        dirLight.position.set(-3, 100, -10);
+        dirLight.castShadow = true;
+        dirLight.shadow.camera.top = 2;
+        dirLight.shadow.camera.bottom = -2;
+        dirLight.shadow.camera.left = -2;
+        dirLight.shadow.camera.right = 2;
+        dirLight.shadow.camera.near = 0.1;
+        dirLight.shadow.camera.far = 40;
+        scene.add(dirLight);
+
+        /**
+         * 开启抗锯齿（antialias: true）可以平滑渲染结果中的边缘，减少锯齿状现象，使图形看起来更加平滑和真实。
+         * 开启抗锯齿会增加渲染负担，可能导致渲染性能下降，特别是在低端设备上。因此，在需要高性能渲染的场景中，可能需要权衡抗锯齿效果和性能。
+         **/
+        renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        container.appendChild(renderer.domElement);
+
+        // Controls
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.target.set(0, 0, 0);
+        controls.update();
+        // listeners
+        window.addEventListener("resize", onWindowResize);
+      }
+
+      // 实时渲染
+      function animate() {
+        stats.update();
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+      }
+
+      function onWindowResize() {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        renderer.setSize(width, height);
+
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+      }
+
+      var planeGeometry = new THREE.PlaneGeometry(
+        window.innerWidth,
+        window.innerHeight,
+        20,
+        20
+      );
+      var planeMaterial = new THREE.MeshLambertMaterial({
+        color: 0xffffff,
+      });
+
+      var plane = new THREE.Mesh(planeGeometry, planeMaterial);
+      plane.receiveShadow = true;
+
+      // rotate and position the plane
+      plane.rotation.x = -0.5 * Math.PI;
+      plane.rotation.z = -0.1 * Math.PI;
+      plane.position.x = 10;
+      plane.position.y = 0;
+      plane.position.z = -5;
+
+      // add the plane to the scene
+      scene.add(plane);
+
+      var curve1 = new THREE.CatmullRomCurve3([
+        new THREE.Vector3(-10, 0, 0),
+        new THREE.Vector3(-5, 0, 5),
+        new THREE.Vector3(0, 0, 0),
+        new THREE.Vector3(5, 0, 5),
+        new THREE.Vector3(5, 0, 10),
+        new THREE.Vector3(10, 0, 0),
+        new THREE.Vector3(10, 0, 10),
+        new THREE.Vector3(10, 0, 10),
+        new THREE.Vector3(30, 0, 10),
+        new THREE.Vector3(30, 0, 10),
+      ]);
+      var points1 = curve1.getPoints(50);
+      var geometry1 = new THREE.BufferGeometry().setFromPoints(points1);
+      var material1 = new THREE.LineBasicMaterial({
+        color: 0xaa00ff,
+        antialias: true,
+        linewidth: 5,
+        linecap: "round",
+      });
+      // Create the final object to add to the scene
+      var splineMesh1 = new THREE.Line(geometry1, material1);
+      // splineMesh1.segments = 1000;
+      splineMesh1.frustumCulled = true;
+
+      var curve2 = new THREE.CatmullRomCurve3([
+        new THREE.Vector3(-10, 1, 0),
+        new THREE.Vector3(-5, 1, 5),
+        new THREE.Vector3(0, 1, 0),
+        new THREE.Vector3(5, 1, 5),
+        new THREE.Vector3(5, 1, 10),
+        new THREE.Vector3(10, 1, 0),
+        new THREE.Vector3(10, 1, 10),
+        new THREE.Vector3(10, 1, 10),
+        new THREE.Vector3(30, 1, 10),
+        new THREE.Vector3(30, 1, 10),
+      ]);
+      var points2 = curve1.getPoints(50);
+      var geometry2 = new THREE.BufferGeometry().setFromPoints(points2);
+      var material2 = new THREE.LineBasicMaterial({ color: 0xaa00ff });
+      // Create the final object to add to the scene
+      var splineMesh2 = new THREE.Line(geometry2, material2);
+      // splineMesh2.segments = 1000;
+      splineMesh2.frustumCulled = false;
+      splineMesh2.translateY(3);
+
+      var group = new THREE.Group();
+      group.add(splineMesh1, splineMesh2);
+      scene.add(group);
+    </script>
+  </body>
+</html>
