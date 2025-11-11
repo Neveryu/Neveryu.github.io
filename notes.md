@@ -90,6 +90,45 @@ git fetch origin feature-x:refs/remotes/origin/feature-x
 - 使用 git checkout -b 可以创建一个新的本地分支并开始跟踪一个远程分支。
 - 使用 git fetch 可以获取远程分支的最新状态而不立即切换到那个分支。
 
+## 5、在GitHub网页上删除了远程仓库（remote）的一些分支，但是本地仓库（local）仍然保留着对这些分支的跟踪信息（tracking branches）和本地分支（如果存在对应的本地分支）。
+
+要同步本地仓库的分支状态，我们可以执行以下步骤：
+
+1、首先，我们可以使用 git remote prune 命令来清理本地仓库中那些在远程仓库已经不存在的分支的跟踪分支（即远程分支的本地引用）。
+通常，我们使用以下命令来清理名为 origin 的远程（默认远程名称）的过时分支引用：
+
+```bash
+git fetch origin --prune
+
+# 或者简写为：
+git fetch origin -p
+```
+
+这个命令会更新远程分支的本地引用，并删除那些在远程已经不存在了的分支的本地引用。
+
+2、但是，请注意：上面的命令只会删除远程跟踪分支（即 `refs/remotes/origin/<branch>` 这样的引用），并不会删除本地分支（即使这些本地分支对应的远程分支已经被删除）。
+如果你在本地也有一些已经合并过并且不再需要的分支（包括那些你曾经创建的、对应于远程分支的本地分支），你可以手动删除它们。
+
+3、要删除本地的分支，可以使用：
+```bash
+git branch -d <branch-name>
+
+# 如果分支还没有被合并，但是你想强制删除，可以使用 -D 选项（大写）：
+
+git branch -D <branch-name>
+```
+
+4、另外，我们可以通过以下命令查看本地仓库中哪些分支的远程分支已经被删除（即上游分支不存在）：
+```bash
+git branch -vv
+```
+在输出中，如果看到某个分支前面有 [gone] 标记，说明该分支的远程分支已经被删除。
+例如：
+```bash
+feature/old  1234567 [origin/feature/old: gone] Some commit message
+```
+对于这样的分支，我们可以手动删除本地分支。
+
 
 
 
